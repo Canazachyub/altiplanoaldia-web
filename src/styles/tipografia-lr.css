@@ -1,0 +1,118 @@
+/* Tipografía y medidas exactas de larepublica.pe (medidas con getComputedStyle el 2026-11-06).
+   LR usa Merriweather (titulares y cuerpo) + Clan Pro (antetítulos, meta, títulos de módulo).
+   Clan Pro es de licencia paga: se reemplaza por Fira Sans, la libre más cercana.
+   Se carga al final y solo pisa tipografía y los módulos nuevos de la portada; colores = marca. */
+
+@font-face { font-family: 'Merriweather'; src: url('/fonts/Merriweather-var.woff2') format('woff2'); font-weight: 300 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Merriweather'; src: url('/fonts/Merriweather-Italic-var.woff2') format('woff2'); font-weight: 300 900; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Fira Sans'; src: url('/fonts/FiraSans-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fira Sans'; src: url('/fonts/FiraSans-Medium.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Fira Sans'; src: url('/fonts/FiraSans-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+
+:root {
+  --lr-serif: 'Merriweather', Georgia, serif;
+  --lr-sans: 'Fira Sans', system-ui, sans-serif;
+  --lr-tinta: #1f1f1f;
+  --lr-gris: #808080;
+  --lr-filete: #c3c3c7;
+  /* Tokens del sitio con la tipografía de LR (Alfa Slab --f-marca queda solo para la marca) */
+  --f-titular: var(--lr-serif);
+  --f-texto: var(--lr-serif);
+  --f-ante: var(--lr-sans);
+  --f-meta: var(--lr-sans);
+}
+:root[data-tema="oscuro"] { --lr-tinta: var(--tinta); --lr-gris: var(--gris-600); --lr-filete: var(--linea); }
+
+/* ===== Título de módulo: Clan 700 20px, filete gris 1.25px y barra de 60×3 ===== */
+.lr-titulo { position: relative; border-bottom: 1.25px solid var(--lr-filete); padding-bottom: 10px; margin-bottom: 12px; }
+.lr-titulo::after { content: ''; position: absolute; left: 0; bottom: -1.25px; width: 60px; height: 3px; background: var(--tema, var(--alerta)); }
+.lr-titulo h2 { border: 0; padding: 0; margin: 0; font: 700 20px/20px var(--lr-sans); text-transform: none; letter-spacing: 0; color: var(--lr-tinta); }
+
+/* ===== Tarjetas ===== */
+.lr-t .antetitulo, .lri-nota__kicker, .lri-nota__kicker a { font: 700 14px/20px var(--lr-sans); text-transform: uppercase; letter-spacing: 0; }
+.lr-t__titular { font: 400 20px/26px var(--lr-serif); color: var(--lr-tinta); letter-spacing: 0; }
+.lr-t__bajada { font: 400 16px/22px var(--lr-sans); color: var(--lr-tinta); }
+.lr-t__firma, .lr-t__meta { font: 400 12px/16px var(--lr-sans); color: var(--lr-gris); }
+.lr-t__firma { color: var(--lr-tinta); }
+
+/* Apertura: Merriweather 700 30/36, bajada Clan 400 18/25 */
+.lr-t--apertura .lr-t__titular { font: 700 30px/36px var(--lr-serif); letter-spacing: 0; }
+.lr-t--apertura .lr-t__bajada { font: 400 18px/25px var(--lr-sans); }
+.lr-t--apertura .lr-t__firma { font: 400 12px/16px var(--lr-sans); }
+/* Secundarias de la apertura: 700 20/26 */
+.lr-t--izq .lr-t__titular { font: 700 20px/26px var(--lr-serif); }
+/* Filas del riel "Últimas": primera 700 16/20, resto 400 14/18; hora 12px gris */
+.lr-rail .lr-t--foto .lr-t__titular { font: 700 16px/20px var(--lr-serif); }
+.lr-rail .lr-t--fila .lr-t__titular { font: 400 14px/18px var(--lr-serif); }
+.lr-t--fila .lr-t__titular { font: 400 16px/20px var(--lr-serif); }
+.lr-t--texto .lr-t__titular { font: 400 16px/20px var(--lr-serif); }
+/* Grillas: 400 20/26 */
+.lr-t--foto .lr-t__titular,
+.lr-tres .lr-t--foto .lr-t__titular, .lr-mitad .lr-t--foto .lr-t__titular,
+.lr-dos > :not(:first-child) .lr-t__titular { font: 400 20px/26px var(--lr-serif); }
+/* Notas grandes de sección: 700 24/30 */
+.lr-lista > .lr-t--foto .lr-t__titular, .lr-dos > :first-child .lr-t__titular,
+.lr-grandes .lr-t__titular { font: 700 24px/30px var(--lr-serif); }
+.lr-grid2x2 .lr-t--fila .lr-t__titular, .lr-lista .lr-t--fila .lr-t__titular { font: 400 18px/24px var(--lr-serif); }
+
+/* Caja "La nota del día" (el Editorial de LR): Merriweather 900 30/32 + Clan 475 16/20 */
+.lr-contraste__titular { font: 900 30px/32px var(--lr-serif); color: var(--lr-tinta); }
+.lr-contraste__bajada { font: 400 16px/20px var(--lr-sans); color: var(--lr-tinta); }
+.lr-contraste__meta { font: 400 12px/16px var(--lr-sans); color: var(--lr-gris); }
+.lr-pill--marca { font: 700 14px/16px var(--lr-sans); }
+.lr-promo__texto { font: 700 18px/22px var(--lr-serif); }
+
+/* ===== Módulos nuevos ===== */
+/* Dos notas grandes */
+.lr-grandes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s6) var(--lr-gap); }
+
+/* Banda oscura (el "LR+"): Merriweather 700 18/22 blanco */
+.lr-oscuro { background: #0b1a33; color: #fff; padding: var(--lr-gap); border-radius: var(--radio); }
+.lr-oscuro .lr-titulo { border-bottom-color: rgb(255 255 255 / .25); }
+.lr-oscuro .lr-titulo h2 { color: #fff; }
+.lr-oscuro__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s6) var(--lr-gap); list-style: none; margin: 0; padding: 0; }
+.lr-oscuro__media { position: relative; display: block; margin-bottom: 10px; }
+.lr-oscuro__media .img-nota, .lr-oscuro__media .ilus-marca { aspect-ratio: 17 / 10; }
+.lr-oscuro__n { position: absolute; left: 0; bottom: 0; min-width: 34px; padding: 4px 8px; background: var(--amarillo); color: #111; font: 700 20px/1 var(--lr-sans); text-align: center; }
+.lr-oscuro__titular { font: 700 18px/22px var(--lr-serif); color: #fff; overflow-wrap: anywhere; }
+.lr-oscuro__titular a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Provincias (el "Columnistas"): antetítulo Clan 475 12/18 gris mayúsculas + titular 700 20/24 */
+.lr-col { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s6) var(--lr-gap); list-style: none; margin: 0; padding: 0; }
+.lr-col__item { border-top: 1px solid var(--lr-filete); padding-top: 12px; min-width: 0; }
+.lr-col__ante { display: block; font: 500 12px/18px var(--lr-sans); text-transform: uppercase; color: #6f6f71; margin-bottom: 4px; }
+.lr-col__ante:hover { color: var(--enlace); }
+.lr-col__titular { font: 700 20px/24px var(--lr-serif); color: var(--lr-tinta); overflow-wrap: anywhere; }
+.lr-col__titular a:hover, .lr-oscuro__titular a:hover { color: inherit; }
+.lr-col__titular a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.lr-col__meta { font: 400 12px/16px var(--lr-sans); color: var(--lr-gris); margin-top: 6px; }
+
+/* ===== Página de nota: H1 700 40/46, sumilla Clan 450 20/30, cuerpo Merriweather 18/30 ===== */
+.lri-nota__titular { font: 700 40px/46px var(--lr-serif); letter-spacing: 0; color: var(--lr-tinta); }
+.lri-nota__bajada { font: 400 20px/30px var(--lr-sans); color: var(--lr-tinta); }
+.lri-nota__cuerpo p { font-family: var(--lr-serif); line-height: 1.68; }
+.lri-nota h2 { font-family: var(--lr-sans); }
+.lri-nota__autor, .lri-nota__fecha { font-family: var(--lr-sans); }
+
+/* Listados de sección e interiores: mismas medidas que la portada */
+.lri-titulo { font: 700 20px/20px var(--lr-sans); text-transform: none; letter-spacing: 0; color: var(--lr-tinta); }
+.lri-kicker, .lri-fecha { font-family: var(--lr-sans); }
+.lri-apertura__titular--grande { font: 700 30px/36px var(--lr-serif); }
+.lri-fila__titular, .lri-rel__titular, .lri-siguiente__titular, .lri-puedes__titular { font-family: var(--lr-serif); font-weight: 400; }
+.lri-rfila__titular { font: 400 14px/18px var(--lr-serif); }
+.lri-rdest__titular { font: 700 16px/20px var(--lr-serif); }
+
+@media (max-width: 1024px) {
+  .lr-oscuro__grid, .lr-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .lr-grandes, .lr-oscuro__grid, .lr-col { grid-template-columns: minmax(0, 1fr); }
+  .lr-t--apertura .lr-t__titular { font-size: 24px; line-height: 30px; }
+  .lr-contraste__titular { font-size: 24px; line-height: 28px; }
+  .lr-lista > .lr-t--foto .lr-t__titular, .lr-dos > :first-child .lr-t__titular, .lr-grandes .lr-t__titular { font-size: 21px; line-height: 27px; }
+  .lri-nota__titular { font-size: 28px; line-height: 34px; }
+  .lri-nota__bajada { font-size: 18px; line-height: 26px; }
+}
+
+/* Intertítulos del periódico ("## …" en el cuerpo) */
+.nota__intertitulo { font: 700 20px/1.3 var(--lr-sans); margin: 1.6em 0 .5em; color: var(--lr-tinta); }

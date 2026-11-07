@@ -1,0 +1,64 @@
+/* Tokens de Altiplano al Día — ver DESIGN.md. Cambiar aquí y en DESIGN.md a la vez. */
+
+@font-face { font-family: 'Alfa Slab One'; src: url('/fonts/AlfaSlabOne-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Zilla Slab'; src: url('/fonts/ZillaSlab-SemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Zilla Slab'; src: url('/fonts/ZillaSlab-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Fira Sans Condensed'; src: url('/fonts/FiraSansCondensed-Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Fira Sans Condensed'; src: url('/fonts/FiraSansCondensed-SemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Fira Sans Condensed'; src: url('/fonts/FiraSansCondensed-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Fira Sans Condensed'; src: url('/fonts/FiraSansCondensed-ExtraBold.ttf') format('truetype'); font-weight: 800; font-display: swap; }
+@font-face { font-family: 'PT Serif'; src: url('/fonts/PT_Serif-Web-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'PT Serif'; src: url('/fonts/PT_Serif-Web-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'PT Serif'; src: url('/fonts/PT_Serif-Web-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'PT Sans Narrow'; src: url('/fonts/PT_Sans-Narrow-Web-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'PT Sans Narrow'; src: url('/fonts/PT_Sans-Narrow-Web-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+
+:root {
+  /* Marca */
+  --azul: #043F9B;
+  --azul-900: #022A69;
+  --azul-200: #6E9BE0;
+  --azul-50: #EAF0FB;
+  --amarillo: #FFEE00;
+  --alerta: #C62828;
+  --wa: #25D366;
+
+  /* Superficies y texto */
+  --tinta: #1A1A1A;
+  --tinta-suave: #3A3F4A;
+  --gris-600: #5A5F6B;
+  --linea: #E3E6EC;
+  --papel: #FFFFFF;
+  --papel-2: #F4F6FA;
+  --enlace: var(--azul);
+  --sobre-azul: #FFFFFF;
+
+  /* Tipografía */
+  --f-marca: 'Alfa Slab One', 'Rockwell', Georgia, serif;
+  --f-titular: 'Zilla Slab', 'Rockwell', Georgia, serif;
+  --f-ante: 'Fira Sans Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --f-texto: 'PT Serif', Georgia, 'Times New Roman', serif;
+  --f-meta: 'PT Sans Narrow', 'Arial Narrow', system-ui, sans-serif;
+
+  /* Espaciado (múltiplos de 4) */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s6: 24px; --s8: 32px; --s12: 48px;
+
+  --radio: 4px;
+  --ancho: 1200px;
+  --sombra: 0 1px 2px rgb(10 20 40 / .06), 0 4px 16px rgb(10 20 40 / .06);
+  --tema: var(--azul);
+
+  color-scheme: light;
+}
+
+:root[data-tema="oscuro"] {
+  --tinta: #E8ECF3;
+  --tinta-suave: #C3CAD6;
+  --gris-600: #98A2B3;
+  --linea: #263248;
+  --papel: #0E1420;
+  --papel-2: #161E2E;
+  --azul-50: #16223A;
+  --enlace: #8FB4F2;
+  color-scheme: dark;
+}

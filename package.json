@@ -1,0 +1,26 @@
+{
+  "name": "altiplano-al-dia-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Frontend del diario digital Altiplano al Día — noticias de Puno y la región",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host --port 4173",
+    "datos": "py -3.12 scripts/exportar_noticias.py",
+    "logo": "py -3.12 scripts/logo/construir_logo.py"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

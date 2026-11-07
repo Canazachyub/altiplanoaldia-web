@@ -1,0 +1,188 @@
+/* =====================================================================
+   Mejoras v2: herramientas de nota, discrepancias, provincias, clima,
+   ediciones, guardadas, aviso de nuevas, esqueletos, historias
+   ===================================================================== */
+.btn-herramienta {
+  display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px;
+  border: 1px solid var(--linea); background: var(--papel); color: var(--tinta);
+  font: 700 13px/1 var(--f-ante); text-transform: uppercase; letter-spacing: .04em;
+}
+.btn-herramienta:hover:not(:disabled) { border-color: var(--azul); color: var(--enlace); }
+.btn-herramienta:disabled { opacity: .6; cursor: wait; }
+.btn-herramienta[aria-pressed="true"], .btn-herramienta--activo { background: var(--azul); border-color: var(--azul); color: #fff; }
+.btn-herramienta--icono { padding: 8px; }
+.escuchar { display: inline-flex; gap: 6px; }
+.nota__acciones { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s3); }
+.cabecera__guardadas { color: var(--tinta); }
+@media (max-width: 640px) { .cabecera__guardadas { display: none; } }
+
+.discrepancias { margin-top: var(--s8); border: 2px solid var(--alerta); border-radius: var(--radio); padding: var(--s4) var(--s6); font-size: .92em; background: color-mix(in srgb, var(--alerta) 5%, var(--papel)); }
+.discrepancias h2 { font: 800 15px var(--f-ante); text-transform: uppercase; letter-spacing: .08em; color: var(--alerta); }
+.discrepancias__intro { color: var(--gris-600); font: 400 15px var(--f-meta); margin: 4px 0 var(--s3); }
+.discrepancias__item + .discrepancias__item { border-top: 1px dashed var(--linea); margin-top: var(--s3); padding-top: var(--s3); }
+.discrepancias h3 { font: 700 17px/1.3 var(--f-titular); margin-bottom: 6px; }
+.discrepancias li { margin-top: 4px; padding-left: 14px; position: relative; line-height: 1.5; }
+.discrepancias li::before { content: "›"; position: absolute; left: 0; color: var(--alerta); font-weight: 700; }
+.fuentes-nota__aportes { margin: var(--s3) 0 0; display: grid; gap: 6px; }
+.fuentes-nota__aportes div { display: grid; grid-template-columns: minmax(110px, auto) 1fr; gap: var(--s3); font: 400 15px/1.4 var(--f-meta); }
+.fuentes-nota__aportes dt { font-weight: 700; color: var(--enlace); }
+.fuentes-nota__aportes dd { margin: 0; color: var(--tinta-suave); }
+
+.notas-vecinas { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin-top: var(--s8); }
+.nota-vecina { display: flex; flex-direction: column; gap: 6px; padding: var(--s4); border: 1px solid var(--linea); border-radius: var(--radio); }
+.nota-vecina:hover { border-color: var(--azul); }
+.nota-vecina--siguiente { text-align: right; }
+.nota-vecina__tipo { font: 700 12px var(--f-ante); text-transform: uppercase; letter-spacing: .06em; color: var(--enlace); }
+.nota-vecina__titular { font: 700 16px/1.25 var(--f-titular); }
+@media (max-width: 560px) { .notas-vecinas { grid-template-columns: 1fr; } .nota-vecina--siguiente { text-align: left; } }
+
+.dialogo-historia { border: 0; border-radius: 8px; padding: var(--s4); max-width: min(420px, 94vw); background: var(--papel); color: var(--tinta); }
+.dialogo-historia::backdrop { background: rgb(5 12 30 / .7); }
+.dialogo-historia__cab { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--s3); }
+.dialogo-historia h2 { font: 700 20px var(--f-titular); }
+.dialogo-historia img { width: 100%; max-height: 62vh; object-fit: contain; border-radius: var(--radio); background: var(--azul); }
+.dialogo-historia p { font: 400 14px var(--f-meta); color: var(--gris-600); margin: var(--s2) 0; }
+.dialogo-historia__acciones { display: flex; gap: var(--s2); flex-wrap: wrap; }
+
+.aviso-nuevas {
+  position: fixed; top: 74px; left: 50%; transform: translateX(-50%); z-index: 45; border: 0; border-radius: 999px;
+  background: var(--alerta); color: #fff; padding: 10px 18px; font: 700 14px var(--f-ante); text-transform: uppercase;
+  letter-spacing: .04em; box-shadow: 0 6px 20px rgb(0 0 0 / .25);
+}
+@media (prefers-reduced-motion: no-preference) { .aviso-nuevas { animation: bajar .35s ease; } }
+@keyframes bajar { from { transform: translate(-50%, -20px); opacity: 0; } }
+
+.esqueleto { padding-block: var(--s6) var(--s12); display: flex; flex-direction: column; gap: var(--s6); }
+.esqueleto__apertura { display: grid; gap: var(--s6); }
+@media (min-width: 960px) { .esqueleto__apertura { grid-template-columns: 2fr 1fr; } }
+.esq { display: block; border-radius: var(--radio); background: var(--papel-2); margin-bottom: 10px; }
+.esq--media { aspect-ratio: 16 / 9; width: 100%; }
+.esq--titulo { height: 34px; width: 90%; }
+.esq--linea { height: 16px; width: 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .esq { background: linear-gradient(90deg, var(--papel-2) 25%, var(--linea) 50%, var(--papel-2) 75%); background-size: 200% 100%; animation: brillo 1.3s linear infinite; }
+}
+@keyframes brillo { to { background-position: -200% 0; } }
+
+/* Provincias */
+.provincias { display: grid; gap: var(--s3); grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+.provincia {
+  display: flex; flex-direction: column; gap: 2px; padding: var(--s4); border-radius: var(--radio); height: 100%;
+  background: var(--azul); color: #fff; position: relative; overflow: hidden;
+}
+.provincia::after { content: ""; position: absolute; right: -18px; bottom: -18px; width: 64px; height: 64px; border: 2px solid rgb(255 238 0 / .5); transform: rotate(45deg); }
+.provincia:hover { background: var(--azul-900); }
+.provincia--vacia { background: var(--papel-2); color: var(--tinta-suave); }
+.provincia--vacia:hover { background: var(--linea); }
+.provincia--vacia::after { border-color: var(--linea); }
+.provincia__nombre { font: 700 19px/1.15 var(--f-titular); }
+.provincia__capital { font: 400 14px var(--f-meta); opacity: .85; }
+.provincia__n { margin-top: 6px; font: 800 12px var(--f-ante); text-transform: uppercase; letter-spacing: .06em; color: var(--amarillo); }
+.provincia--vacia .provincia__n { color: var(--gris-600); }
+.provincias--compacto { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.cab-provincia { border-left: 8px solid var(--amarillo); padding-left: var(--s4); }
+
+/* Clima */
+.clima__ciudades { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.clima__ciudades .chip { cursor: pointer; }
+.clima__actual {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: var(--s6); align-items: center;
+  background: linear-gradient(135deg, var(--azul) 0%, #022A69 100%); color: #fff; border-radius: var(--radio); padding: var(--s6) var(--s8);
+}
+.clima__ahora { display: flex; align-items: center; gap: var(--s5, 20px); }
+.clima__icono { flex: none; display: grid; place-items: center; width: 132px; height: 132px; border-radius: 50%; background: rgb(255 255 255 / .08); }
+.clima__ciudad { font: 700 13px var(--f-ante); text-transform: uppercase; letter-spacing: .08em; color: var(--amarillo); }
+.clima__temp { font: 700 72px/1 var(--f-titular); margin: 6px 0 4px; letter-spacing: -.02em; }
+.clima__temp span { font-size: 30px; vertical-align: top; margin-left: 2px; font-weight: 400; }
+.clima__desc { font: 400 18px/1.3 var(--f-ante); color: rgb(255 255 255 / .9); }
+.clima__datos { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; background: rgb(255 255 255 / .16); border-radius: var(--radio); overflow: hidden; margin: 0; }
+.clima__datos > div { background: #0A3A88; padding: 14px 12px; min-width: 0; }
+.clima__datos dt { display: flex; align-items: center; gap: 6px; font: 500 12px var(--f-ante); text-transform: uppercase; letter-spacing: .06em; color: rgb(255 255 255 / .72); }
+.clima__datos dt svg { color: var(--amarillo); flex: none; }
+.clima__datos dd { margin: 6px 0 0; font: 700 20px/1.1 var(--f-titular); color: #fff; }
+.clima__datos dd small { font: 500 12px var(--f-ante); color: var(--amarillo); margin-left: 4px; }
+.clima__alertas { display: grid; gap: var(--s3); }
+@media (min-width: 760px) { .clima__alertas { grid-template-columns: 1fr 1fr; } }
+.alerta { display: flex; gap: var(--s3); align-items: flex-start; border-radius: var(--radio); padding: var(--s4); border: 1px solid; border-left-width: 4px; }
+.alerta__ico { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: currentColor; }
+.alerta__ico svg { color: #fff; }
+.alerta strong { font: 700 16px/1.3 var(--f-titular); }
+.alerta p { margin-top: 4px; font: 400 15px/1.45 var(--f-ante); }
+.alerta--frio { background: #EEF5FD; border-color: #1565C0; color: #0D3C73; }
+.alerta--ok { background: #EEF7EF; border-color: #2E7D32; color: #1B5E20; }
+.alerta--uv { background: #FFF8E6; border-color: #E0A100; color: #6D4C00; }
+.alerta--frio .alerta__ico { background: #1565C0; }
+.alerta--ok .alerta__ico { background: #2E7D32; }
+.alerta--uv .alerta__ico { background: #E0A100; }
+.clima__subtitulo { font: 700 20px/20px var(--f-ante); padding-bottom: 10px; border-bottom: 1.25px solid var(--linea); position: relative; }
+.clima__subtitulo::after { content: ''; position: absolute; left: 0; bottom: -1.25px; width: 60px; height: 3px; background: var(--azul); }
+.clima__dias { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--s3); list-style: none; padding: 0; }
+.clima__dias li { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; border: 1px solid var(--linea); border-radius: var(--radio); padding: var(--s4) var(--s2) var(--s3); text-align: center; background: var(--papel); }
+.clima__dias li:first-child { border-color: var(--azul); box-shadow: inset 0 3px 0 var(--azul); }
+.clima__dias li.clima__dia--helada { border-color: #1565C0; background: color-mix(in srgb, #1565C0 6%, var(--papel)); }
+.clima__dia { font: 700 13px var(--f-ante); text-transform: uppercase; letter-spacing: .05em; color: var(--tinta); }
+.clima__dia span { color: var(--gris-600); font-weight: 500; }
+.clima__estado { font: 400 12.5px/1.25 var(--f-ante); color: var(--gris-600); min-height: 2.5em; display: grid; place-items: center; }
+.clima__rango strong { font: 700 22px var(--f-titular); color: var(--tinta); }
+.clima__rango span { color: var(--gris-600); font: 400 17px var(--f-titular); }
+.clima__barra { position: relative; width: 80%; height: 5px; border-radius: 3px; background: var(--linea); }
+.clima__barra i { position: absolute; top: 0; bottom: 0; border-radius: 3px; background: linear-gradient(90deg, #2F80ED, #FFC400); }
+.clima__extra { display: flex; justify-content: center; gap: 10px; font: 500 12.5px var(--f-ante); color: var(--gris-600); margin-top: 2px; }
+.clima__extra span { display: inline-flex; align-items: center; gap: 3px; }
+.clima__extra svg { color: var(--enlace); }
+.clima__helada { position: absolute; top: -9px; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 3px; padding: 2px 7px; border-radius: 999px; background: #1565C0; color: #fff; font: 700 10.5px/1.2 var(--f-ante); text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
+@media (max-width: 1024px) {
+  .clima__actual { grid-template-columns: minmax(0, 1fr); }
+  .clima__dias { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .clima__actual { padding: var(--s4); }
+  .clima__icono { width: 96px; height: 96px; }
+  .clima__icono svg { width: 80px; height: 80px; }
+  .clima__temp { font-size: 56px; }
+  .clima__datos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .clima__datos > div:last-child { grid-column: 1 / -1; }
+  .clima__dias { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Ediciones */
+.ediciones { display: grid; gap: var(--s6); }
+@media (min-width: 900px) { .ediciones { grid-template-columns: 300px 1fr; } }
+.ediciones__lista { display: flex; flex-direction: column; gap: var(--s2); }
+.ediciones__lista li { display: flex; flex-direction: column; gap: 4px; }
+.edicion { text-align: left; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--papel); padding: var(--s3) var(--s4); display: flex; flex-direction: column; gap: 2px; }
+.edicion:hover { border-color: var(--azul); }
+.edicion--activa { border: 2px solid var(--azul); background: var(--azul-50); }
+.edicion__n { font: 400 22px var(--f-marca); color: var(--azul); }
+:root[data-tema="oscuro"] .edicion__n { color: var(--amarillo); }
+.edicion__fecha { font: 600 14px var(--f-ante); }
+.edicion__fecha::first-letter { text-transform: uppercase; }
+.edicion__meta { font: 400 13px var(--f-meta); color: var(--gris-600); }
+.edicion__descargar { font: 700 12px var(--f-ante); text-transform: uppercase; letter-spacing: .05em; color: var(--enlace); padding-left: var(--s4); }
+.ediciones__visor { width: 100%; height: 80vh; min-height: 520px; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--papel-2); }
+
+.guardada { display: grid; grid-template-columns: 1fr auto; gap: var(--s3); align-items: start; }
+
+/* Barra de secciones: más compacta para que entren todas */
+.nav-secciones a { padding-inline: 8px; font-size: 13.5px; letter-spacing: .04em; }
+
+/* Edición en PDF destacada */
+.edicion-actual { display: grid; gap: var(--s8); align-items: center; background: var(--azul-50); border-radius: var(--radio); padding: var(--s6); }
+@media (min-width: 860px) { .edicion-actual { grid-template-columns: 320px 1fr; } }
+.edicion-actual__portada img { width: 100%; border-radius: 2px; box-shadow: 0 2px 4px rgb(0 0 0 / .15), 0 12px 32px rgb(4 63 155 / .28); transition: transform .2s; }
+.edicion-actual__portada:hover img { transform: translateY(-3px) rotate(-.5deg); }
+.edicion-actual__info { display: flex; flex-direction: column; gap: var(--s3); align-items: flex-start; }
+.edicion-actual h2 { font: 400 46px/1 var(--f-marca); color: var(--azul); }
+:root[data-tema="oscuro"] .edicion-actual h2 { color: var(--amarillo); }
+.edicion-actual__fecha { font: 600 17px var(--f-ante); color: var(--tinta-suave); }
+.edicion-actual__fecha::first-letter { text-transform: uppercase; }
+.edicion-actual__datos { display: flex; flex-wrap: wrap; gap: var(--s6); font: 400 16px var(--f-meta); color: var(--gris-600); }
+.edicion-actual__datos strong { display: block; font: 400 30px/1 var(--f-marca); color: var(--tinta); }
+.edicion-actual__acciones { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s2); }
+
+.tarjeta-edicion { display: grid; grid-template-columns: 110px 1fr; gap: var(--s4); align-items: center; border: 2px solid var(--amarillo); border-radius: var(--radio); padding: var(--s3); background: var(--papel); }
+.tarjeta-edicion__portada img { width: 100%; box-shadow: 0 4px 14px rgb(0 0 0 / .18); }
+.tarjeta-edicion__ante { font: 800 12px var(--f-ante); text-transform: uppercase; letter-spacing: .08em; color: var(--alerta); }
+.tarjeta-edicion h2 { font: 400 22px/1.1 var(--f-marca); margin: 2px 0 4px; }
+.tarjeta-edicion p { font: 400 14px var(--f-meta); color: var(--gris-600); margin-bottom: var(--s2); }
+.tarjeta-edicion .btn { padding: 8px 12px; font-size: 13px; }
