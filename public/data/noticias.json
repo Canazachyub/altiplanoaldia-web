@@ -1486,8 +1486,8 @@
   "seccion": "deportes",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T17:34:00",
-  "imagen": "img/noticias/n222-c8f628a7.jpg",
-  "foco": "54% 17%",
+  "imagen": null,
+  "foco": null,
   "pie": "Juliaca será sede del XII Campeonato de Fisicoculturismo",
   "credito": "",
   "medios": [],
@@ -1497,7 +1497,7 @@
   "edicion": 1,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n222-91d334cd.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 179,
