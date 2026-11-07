@@ -897,9 +897,9 @@
   "seccion": "educacion",
   "ambito": "REGIONAL",
   "fecha": "2026-11-07T09:28:00",
-  "imagen": null,
-  "foco": null,
-  "pie": "Bandas escolares competirán en la plaza de Yunguyo",
+  "imagen": "img/noticias/n261-dd14182a.jpg",
+  "foco": "50% 38%",
+  "pie": "Bandas escolares competirán en la plaza de Yunguyo (Foto referencial)",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -908,7 +908,7 @@
   "edicion": 2,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": null
+  "imagen_compartir": "img/compartir/n261-f16ee993.jpg"
  },
  {
   "id": 218,
@@ -919,18 +919,14 @@
   "lugar": "Yunguyo",
   "cuerpo": [
    "El Jurado Electoral Especial (JEE) de Puno proclamó a César Beto Canahuire Quispe como alcalde provincial de Yunguyo para el periodo 2027-2030. La organización ASI – Juntos por el Perú obtuvo la mayor votación en las Elecciones Municipales 2026.",
-   "La proclamación se sustenta en el artículo 23 de la Ley N.° 26864, Ley de Elecciones Municipales. Además, establece la conformación del nuevo Concejo Municipal Provincial de Yunguyo, que estará integrado por el alcalde y siete regidores.",
-   "## NUEVO CONCEJO",
-   "Los regidores de ASI – Juntos por el Perú son Jesús Wilfredo Chachaque Callo, Elisabeth Rocío Mamani Rivera, Gloria Beatriz Larico Yapuchura, Eleuterio Acho Choquecota y Amalia Mamani Mamani. Completan el concejo Pastor Rubén Ticona Chalco, del Partido País para Todos, y Jesús Alfredo Isla Larico, de Ahora Nación (A.N.).",
-   "Con cinco de siete regidores, la organización que ocupará la alcaldía tendrá mayoría y peso en las decisiones del concejo. Las otras dos representaciones se reparten entre País para Todos y Ahora Nación. Los regidores también deberán ejercer labores de fiscalización y representación de los intereses de la población.",
-   "## LO QUE VIENE",
-   "La proclamación cierra la etapa electoral y abre el desafío de gobernar una provincia con demandas en servicios básicos, saneamiento, infraestructura, salud, transporte, seguridad ciudadana y desarrollo económico.",
-   "Por otro lado, ya se conocen resultados preliminares de las elecciones en los centros poblados de la provincia, realizadas el sábado 7 de noviembre. La Municipalidad Provincial de Yunguyo debe oficializarlos."
+   "La proclamación se sustenta en el artículo 23 de la Ley N.° 26864, Ley de Elecciones Municipales, y define la conformación del nuevo Concejo Municipal Provincial, integrado por el alcalde y siete regidores.",
+   "Los regidores de ASI – Juntos por el Perú son Jesús Wilfredo Chachaque Callo, Elisabeth Rocío Mamani Rivera, Gloria Beatriz Larico Yapuchura, Eleuterio Acho Choquecota y Amalia Mamani Mamani. Completan el concejo Pastor Rubén Ticona Chalco, del Partido País para Todos, y Jesús Alfredo Isla Larico, de Ahora Nación.",
+   "Con cinco de siete regidores, la organización que ocupará la alcaldía tendrá mayoría en el concejo. Los regidores también deberán ejercer labores de fiscalización y representación de la población."
   ],
   "datos": [
    "César Beto Canahuire Quispe fue proclamado alcalde provincial de Yunguyo para el periodo 2027-2030.",
    "ASI – Juntos por el Perú tendrá cinco de los siete regidores; País para Todos y Ahora Nación, uno cada uno.",
-   "Los resultados de los centros poblados son preliminares y deben ser oficializados por la Municipalidad Provincial de Yunguyo."
+   "La proclamación se sustenta en el artículo 23 de la Ley N.° 26864, Ley de Elecciones Municipales."
   ],
   "tema": "Política",
   "seccion": "politica",
@@ -986,14 +982,18 @@
  {
   "id": 257,
   "slug": "lescano-denuncia-que-keiko-fujimori-quiere-entregar-talara-a-privados",
-  "titular": "Lescano denuncia que Keiko Fujimori quiere entregar Talara a privados",
+  "titular": "Lescano denuncia que Keiko Fujimori quiere privatizar Talara",
   "bajada": "El cuestionamiento surge tras una inversión estatal de más de 6.000 millones de dólares en la refinería, cuya administración podría pasar a un operador privado.",
-  "antetitulo": "POLÉMICA POR LA REFINERÍA DE TALARA",
+  "antetitulo": "POLÉMICA POR EL FUTURO DE LA REFINERÍA DE TALARA",
   "lugar": "",
   "cuerpo": [
-   "El líder político Jhony Lescano denunció que Keiko Fujimori busca entregar la administración de la Refinería de Talara a un operador privado, luego de que el Estado invirtiera más de 6.000 millones de dólares en su modernización. La polémica estalla en torno al futuro de una infraestructura considerada estratégica para el país.",
-   "Lescano cuestionó el retorno de las políticas privatizadoras del fujimorismo y advirtió sobre el riesgo de que el sector privado termine haciendo negocio con una obra financiada con recursos públicos. “¿El Estado invierte millones y los privados terminan haciendo negocio?”, planteó.",
-   "El debate se centra en si la refinería debe ser administrada por el Estado o entregada a un operador privado. Para el crítico, Talara es patrimonio estratégico del Perú y la ciudadanía merece explicaciones claras y transparencia sobre su futuro."
+   "El líder político Jhony Lescano denunció que Keiko Fujimori busca entregar la administración de la Refinería de Talara a un operador privado. La denuncia se produce luego de que el Estado invirtiera más de 6.000 millones de dólares en su modernización.",
+   "Lescano cuestionó el retorno de las políticas privatizadoras del fujimorismo y advirtió sobre el futuro de una infraestructura considerada estratégica para el país. Según su postura, existe el riesgo de que el sector privado termine haciendo negocio con una obra financiada con recursos públicos.",
+   "## LA PREGUNTA",
+   "“¿El Estado invierte millones y los privados terminan haciendo negocio?”, planteó Lescano al referirse a la posibilidad de que la refinería pase a manos privadas.",
+   "La controversia surge después de esa inversión millonaria y gira en torno a una posibilidad: que la administración de la planta se entregue a un operador privado. Se trata de una versión de parte, expuesta por el propio Lescano, y no de una decisión confirmada.",
+   "## EL DEBATE",
+   "El debate se centra en si la refinería debe ser administrada por el Estado o entregada a un operador privado. Para Lescano, Talara es patrimonio estratégico del Perú y la ciudadanía merece explicaciones claras y transparencia sobre su futuro."
   ],
   "datos": [
    "Inversión estatal de más de 6.000 millones de dólares en la Refinería de Talara",
@@ -1004,9 +1004,9 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-07T06:47:00",
-  "imagen": null,
-  "foco": null,
-  "pie": "Lescano denuncia que Keiko Fujimori quiere entregar Talara a privados",
+  "imagen": "img/noticias/n257-9f41bd7b.jpg",
+  "foco": "51% 35%",
+  "pie": "Lescano denuncia que Keiko Fujimori quiere privatizar Talara (Foto referencial)",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1015,7 +1015,7 @@
   "edicion": 2,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": null
+  "imagen_compartir": "img/compartir/n257-620e761e.jpg"
  },
  {
   "id": 255,
