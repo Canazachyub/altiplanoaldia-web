@@ -146,7 +146,7 @@
   "seccion": "deportes",
   "ambito": "NACIONAL",
   "fecha": "2026-11-07T06:19:00",
-  "imagen": "img/noticias/n253.jpg",
+  "imagen": null,
   "pie": "Fiscalía investiga a la FPF y la CONAR por arbitrajes",
   "credito": "",
   "medios": [],
@@ -156,7 +156,7 @@
   "edicion": 2,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n253.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 252,
@@ -239,13 +239,16 @@
   "slug": "kjolle-sube-al-puesto-7-y-quintonil-lidera-latinoamerica",
   "titular": "Kjolle sube al puesto 7 y Quintonil lidera Latinoamérica",
   "bajada": "La gala se realizó por primera vez en el Teatro Municipal de Lima; Mérito y Mayta también figuran en el ranking.",
-  "antetitulo": "THE WORLD’S 50 BEST RESTAURANTS 2026 EN LIMA",
+  "antetitulo": "THE WORLD’S 50 BEST RESTAURANTS 2026 SE CELEBRÓ EN LIMA",
   "lugar": "Lima",
   "cuerpo": [
    "El restaurante peruano Kjolle, de la chef Pía León, subió del noveno al séptimo lugar en la lista The World’s 50 Best Restaurants 2026. El mexicano Quintonil se ubicó cuarto y fue reconocido como el mejor de América Latina.",
    "La gala se celebró el miércoles 4 de noviembre en el Teatro Municipal de Lima, la primera vez que el certamen se realiza en la capital peruana. España lidera la clasificación general.",
-   "Quintonil, fundado en 2012 por Jorge Vallejo y Alejandra Flores en el barrio de Polanco, en Ciudad de México, escaló a la cuarta casilla. Su equipo agradeció en redes sociales: “Quintonil ha crecido con las personas que lo han hecho suyo”.",
-   "Kjolle, abierto en 2018 por Pía León tras su paso por Central, basa su propuesta en la investigación de ingredientes para reducir desperdicios. Otros dos restaurantes peruanos figuran en el ranking: Mérito, en el puesto 13, y Mayta, en el 45."
+   "## EL MEJOR DE LA REGIÓN",
+   "Quintonil, fundado en 2012 por Jorge Vallejo y Alejandra Flores en el barrio de Polanco, en Ciudad de México, escaló a la cuarta casilla. Su equipo culinario agradeció en redes sociales: “Quintonil ha crecido con las personas que lo han hecho suyo”.",
+   "## LA PROPUESTA DE KJOLLE",
+   "Kjolle, abierto en 2018 por Pía León tras su paso por Central, basa su propuesta en la investigación de ingredientes para reducir desperdicios. Entre sus platos destacados figura uno con ollucos amarillos y rojos, pasta de oca y base de cañihua.",
+   "Otros dos restaurantes peruanos figuran en el ranking: Mérito, en el puesto 13, y Mayta, en el 45. La presencia de Kjolle entre los diez primeros consolida a América Latina en la alta cocina mundial."
   ],
   "datos": [
    "Kjolle subió del 9.º al 7.º puesto",
@@ -1266,20 +1269,18 @@
  {
   "id": 191,
   "slug": "mircea-cartarescu-elogia-la-literatura-peruana-y-cita-a-vallejo-y-vargas-llosa",
-  "titular": "Cărtărescu, Chirif, Pollarolo y Blum marcan el segundo día del Hay Festival Arequipa",
-  "bajada": "El escritor rumano elogió la literatura peruana en conferencia de prensa, y tres autoras presentaron sus libros ante los lectores.",
+  "titular": "Cărtărescu elogia la literatura peruana en Arequipa",
+  "bajada": "El escritor rumano ofreció una conferencia de prensa en el Hay Festival, donde también presentaron sus libros Chirif, Pollarolo y Blum.",
   "antetitulo": "SEGUNDA JORNADA DEL ENCUENTRO LITERARIO EN AREQUIPA",
   "lugar": "Arequipa",
   "cuerpo": [
-   "El Hay Festival Arequipa vivió su segunda jornada, el viernes 6 de noviembre, con la presencia del escritor rumano Mircea Cărtărescu y la presentación de libros de tres autoras: Micaela Chirif, Giovanna Pollarolo y Liliana Blum.",
-   "Cărtărescu ofreció una conferencia de prensa acompañado de su traductora. Allí destacó su conocimiento de la literatura peruana y mencionó entre sus referentes a Alfredo Bryce Echenique, César Vallejo y Mario Vargas Llosa. También compartió sus apreciaciones sobre la literatura y sus vínculos con las letras del país.",
-   "## LAS PRESENTACIONES",
-   "Chirif presentó “Vida y costumbres de los animales de la amazonía”, editado por Planeta, en el marco de una entrevista. La obra recorre la variada vida de la selva: abejas que no hacen miel, peces que ponen sus huevos fuera del agua, hormigas que descubrieron la agricultura antes que el hombre y serpientes que se disfrazan de otras serpientes para dar más miedo.",
-   "Pollarolo expuso “Entre mujeres solas & casas” en un espacio dedicado al encuentro y la reflexión en torno a la literatura. Blum participó como autora de “Ráfaga Roja”. Las tres escritoras compartieron detalles sobre sus publicaciones, experiencias y procesos creativos.",
-   "El festival continúa en Arequipa con una agenda de presentaciones de obras y encuentros con el público lector."
+   "El escritor rumano Mircea Cărtărescu destacó su conocimiento de la literatura peruana en el segundo día del Hay Festival Arequipa. Lo hizo el viernes 6 de noviembre, en una conferencia de prensa a la que asistió acompañado de su traductora.",
+   "El autor mencionó entre sus referentes a Alfredo Bryce Echenique, César Vallejo y Mario Vargas Llosa, y compartió sus apreciaciones sobre sus vínculos con las letras peruanas.",
+   "La jornada incluyó la presentación de libros de tres autoras. Micaela Chirif expuso “Vida y costumbres de los animales de la amazonía”, editado por Planeta, que recorre la vida de la selva: abejas que no hacen miel, peces que ponen huevos fuera del agua y hormigas que descubrieron la agricultura antes que el hombre.",
+   "Giovanna Pollarolo presentó “Entre mujeres solas & casas” y Liliana Blum, “Ráfaga Roja”. Las tres compartieron detalles sobre sus publicaciones y procesos creativos."
   ],
   "datos": [
-   "Mircea Cărtărescu es un escritor rumano y ofreció una conferencia de prensa acompañado de su traductora",
+   "Mircea Cărtărescu ofreció una conferencia de prensa acompañado de su traductora",
    "Citó como referentes a Alfredo Bryce Echenique, César Vallejo y Mario Vargas Llosa",
    "Micaela Chirif presentó “Vida y costumbres de los animales de la amazonía”, editado por Planeta",
    "Giovanna Pollarolo presentó “Entre mujeres solas & casas”",
@@ -1290,8 +1291,8 @@
   "seccion": "cultura",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T18:03:00",
-  "imagen": "img/noticias/n191.jpg",
-  "pie": "Cărtărescu, Chirif, Pollarolo y Blum marcan el segundo día del Hay Festival Arequipa",
+  "imagen": null,
+  "pie": "Cărtărescu elogia la literatura peruana en Arequipa",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1300,7 +1301,7 @@
   "edicion": 2,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n191.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 187,
@@ -1500,7 +1501,7 @@
   "seccion": "seguridad",
   "ambito": "LOCAL",
   "fecha": "2026-11-06T17:25:00",
-  "imagen": "img/noticias/n179.jpg",
+  "imagen": null,
   "pie": "Dictan prisión preventiva a dos por robo agravado en Juliaca",
   "credito": "",
   "medios": [],
@@ -1510,7 +1511,7 @@
   "edicion": 1,
   "impacto": 8,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n179.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 181,
@@ -1749,7 +1750,7 @@
   "seccion": "deportes",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T16:11:00",
-  "imagen": "img/noticias/n175.jpg",
+  "imagen": null,
   "pie": "Perú convoca a Andy Polo y deja fuera a Carrillo y Tapia",
   "credito": "",
   "medios": [],
@@ -1759,7 +1760,7 @@
   "edicion": 1,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n175.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 174,
