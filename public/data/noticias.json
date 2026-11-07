@@ -218,42 +218,35 @@
  {
   "id": 167,
   "slug": "senado-destituye-a-santiago-pena-y-pedro-alliana-asume-la-presidencia-de-paragua",
-  "titular": "Senado de Paraguay destituye a Santiago Peña y Pedro Alliana asume",
-  "bajada": "Los 44 senadores presentes votaron a favor de la destitución. Alliana gobernará hasta agosto de 2028, mientras la quiebra de Ueno Bank dejó sin acceso a sus ahorros a casi tres millones de clientes.",
+  "titular": "Senado destituye a Peña y Alliana asume en Paraguay",
+  "bajada": "Los 44 senadores presentes votaron a favor de la destitución. Alliana gobernará hasta agosto de 2028, en medio de la crisis por la quiebra de Ueno Bank.",
   "antetitulo": "CRISIS POR LA QUIEBRA DE UENO BANK EN PARAGUAY",
   "lugar": "",
   "cuerpo": [
-   "El Senado de Paraguay destituyó el viernes 6 de noviembre a Santiago Peña de la presidencia por mal desempeño de funciones, en el marco de la crisis desatada por la quiebra de Ueno Bank. Pedro Alliana, hasta entonces vicepresidente, juró como nuevo presidente del país.",
-   "“Conforme al resultado de la votación, se declara culpable al acusado Santiago Peña Palacios por mal desempeño en sus funciones y, en consecuencia, se lo separa de pleno derecho de su cargo de presidente de la República del Paraguay”, dijo el presidente del Senado, Basilio Núñez. Los 44 senadores presentes votaron a favor y uno de los 45 integrantes de la Cámara estuvo ausente. Peña no se presentó a ejercer su defensa.",
-   "Peña había presentado su renuncia el jueves 5 de noviembre, mientras la Cámara de Diputados debatía el pedido de juicio político. La presión creció cuando diputados opositores y disidentes del Partido Colorado impulsaron su enjuiciamiento, y la Cámara Baja aprobó por unanimidad la solicitud. Con la renuncia no aceptada por el Congreso, el proceso avanzó hasta el Senado.",
-   "Según el artículo 234 de la Constitución paraguaya, ante la vacancia de la Presidencia el vicepresidente electo asume el cargo y lo ejerce hasta el fin del periodo constitucional. Por ello, Alliana estará al frente del Ejecutivo hasta agosto de 2028. Juró durante una sesión extraordinaria del Congreso.",
-   "La crisis comenzó cuando el Banco Central del Paraguay inició el procedimiento de disolución de Ueno Bank, intervenido después de que sus indicadores de solvencia cayeran por debajo de la mitad del mínimo exigido. La entidad había crecido con rapidez: a fines de 2023, al convertirse en banco, aseguraba tener más de 500 000 clientes y en septiembre de 2026 superaba los tres millones, en un país de unos 6,5 millones de habitantes.",
-   "La quiebra afecta sobre todo a los trabajadores. Durante el mandato de Peña, el banco captó miles de millones de dólares en fondos del seguro social, tras cambios en los criterios de inversión del Instituto de Previsión Social. Unos 2,94 millones de usuarios, cerca del 45 % de la población, perdieron acceso a sus ahorros.",
-   "Se informó además que Peña habría quedado en arresto domiciliario por el caso, dato que aún debe ser confirmado. La devolución de los depósitos y las investigaciones sobre presuntos conflictos de intereses y uso de fondos previsionales concentran ahora la atención."
+   "El Senado de Paraguay destituyó el viernes 6 de noviembre a Santiago Peña de la presidencia por mal desempeño de funciones, en el marco de la crisis por la quiebra de Ueno Bank. Pedro Alliana, hasta entonces vicepresidente, juró como nuevo presidente.",
+   "“Conforme al resultado de la votación, se declara culpable al acusado Santiago Peña Palacios por mal desempeño en sus funciones y, en consecuencia, se lo separa de pleno derecho de su cargo de presidente de la República del Paraguay”, dijo el presidente del Senado, Basilio Núñez. Los 44 senadores presentes votaron a favor y uno de los 45 estuvo ausente. Peña no se presentó a ejercer su defensa.",
+   "Peña había presentado su renuncia el jueves 5 de noviembre, pero el Congreso no la aceptó y el juicio político avanzó. Alliana ejercerá el cargo hasta agosto de 2028.",
+   "La quiebra de Ueno Bank dejó a unos 2,94 millones de usuarios, cerca del 45 % de la población, sin acceso a sus ahorros."
   ],
   "datos": [
-   "Peña presentó su renuncia el 5 de noviembre en medio del debate de juicio político en Diputados",
-   "El Senado destituyó a Peña; 44 senadores a favor y un ausente",
-   "Cita de Basilio Núñez sobre la separación del cargo",
-   "Alliana juró y gobernará hasta agosto de 2028",
-   "Peña no se presentó a ejercer su defensa",
-   "2,94 millones de usuarios (45 % de la población) sin acceso a ahorros; fondos del seguro social captados por Ueno Bank",
-   "Ueno pasó de más de 500 000 clientes a fines de 2023 a más de tres millones en septiembre de 2026",
-   "Diputados aprobó por unanimidad el juicio político"
+   "Peña presentó su renuncia el 5 de noviembre y el Congreso no la aceptó",
+   "El Senado destituyó a Peña con 44 votos a favor y un ausente",
+   "Alliana juró como presidente y gobernará hasta agosto de 2028",
+   "Unos 2,94 millones de usuarios perdieron acceso a sus ahorros por la quiebra de Ueno Bank"
   ],
   "tema": "Política",
   "seccion": "politica",
   "ambito": "INTERNACIONAL",
   "fecha": "2026-11-06T22:30:00",
   "imagen": "img/noticias/n167.jpg",
-  "pie": "Senado de Paraguay destituye a Santiago Peña y Pedro Alliana asume",
+  "pie": "Senado destituye a Peña y Alliana asume en Paraguay",
   "credito": "",
   "medios": [],
   "fuentes": 1,
   "enlaces": [],
-  "boletin": null,
-  "edicion": null,
-  "impacto": 3,
+  "boletin": 1,
+  "edicion": 1,
+  "impacto": 4,
   "fijada": false,
   "imagen_compartir": "img/compartir/n167.jpg"
  },
@@ -335,9 +328,8 @@
   "antetitulo": "LEY DE PENSIONES PARA MAESTROS JUBILADOS EN DEBATE",
   "lugar": "",
   "cuerpo": [
-   "El ministro de Economía, Elmer Cuba, calificó de inconstitucional la ley que establece pensiones de hasta S/ 3500 mensuales para los maestros jubilados, monto equivalente a la primera escala salarial docente.",
-   "Cuba sostuvo que la norma crea una pensión vinculada al último sueldo y cuestionó que el Congreso haya aprobado un gasto sin una fuente de financiamiento identificada. Hoy, un docente afiliado a la Oficina de Normalización Previsional (ONP) podría jubilarse con apenas S/ 800, lo que gana un profesor que recién empieza a trabajar.",
-   "El ministro anunció que prepara otra propuesta con el Ministerio de Educación para mejorar las pensiones. El Tribunal Constitucional admitió una demanda contra la ley."
+   "El ministro de Economía, Elmer Cuba, calificó de inconstitucional la ley que fija pensiones de hasta S/ 3500 para maestros jubilados, y cuestionó que el Congreso aprobara un gasto sin financiamiento identificado.",
+   "Cuba anunció otra propuesta con el Ministerio de Educación. El Tribunal Constitucional admitió una demanda contra la ley."
   ],
   "datos": [
    "Pensión de hasta S/ 3500 mensuales para maestros jubilados",
@@ -357,7 +349,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 6,
+  "impacto": 5,
   "fijada": false,
   "imagen_compartir": "img/compartir/n238.jpg"
  },
@@ -390,7 +382,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 6,
+  "impacto": 5,
   "fijada": false,
   "imagen_compartir": "img/compartir/n236.jpg"
  },
@@ -512,32 +504,30 @@
  {
   "id": 216,
   "slug": "capturan-a-presunto-asesino-de-teniente-auxiliar-en-ananea-e-identifican-a-falle",
-  "titular": "Capturan a presunto asesino de teniente auxiliar en Ananea e identifican a fallecido en Macusani",
-  "bajada": "Jesús Ramos Mamani fue detenido en flagrancia en Chuquine. En Macusani, la víctima fue identificada como Ever Colque Apaza, de 38 años.",
-  "antetitulo": "DOS HECHOS DE SANGRE EN LA PROVINCIA DE SAN ANTONIO DE PUTINA Y CARABAYA",
+  "titular": "PNP captura en Ananea a presunto autor de homicidio de teniente auxiliar",
+  "bajada": "Jesús Ramos Mamani fue detenido en flagrancia tras el hallazgo del cuerpo sin vida del teniente gobernador auxiliar de Chuquine.",
+  "antetitulo": "COMUNIDAD DE CHUQUINE, DISTRITO DE ANANEA",
   "lugar": "Ananea",
   "cuerpo": [
-   "Dos hechos distintos con víctimas mortales se reportaron el viernes 6 de noviembre en la región: la captura de un presunto homicida en Ananea y la identificación de un hombre fallecido en Macusani.",
-   "## ANANEA: CAPTURA EN FLAGRANCIA",
-   "Efectivos de la Comisaría Rural de la Policía Nacional del Perú (PNP) de Ananea detuvieron a Jesús Ramos Mamani, presunto autor del homicidio del teniente gobernador auxiliar de la comunidad de Chuquine, en el distrito de Ananea. La captura se produjo en flagrancia durante las diligencias iniciales, tras el reporte del hallazgo de una persona sin vida en la zona.",
-   "La alerta la dio el suboficial de tercera PNP Flores Cutipa Helmer, quien comunicó de inmediato el hallazgo a la dependencia policial. El personal aseguró el área para preservar la escena. Las primeras acciones operativas fueron lideradas por el suboficial brigadier PNP Colquehuanca Arias José.",
-   "El capitán PNP Irwin Josymar Cortez Ramos, comisario rural de Ananea, activó los protocolos y coordinó con el fiscal de turno las diligencias de ley. También participaron la Areincri y la Oficri, que realizaron las pericias técnico-científicas para esclarecer las circunstancias del crimen. Ramos Mamani quedó a disposición de las autoridades y el caso continúa en investigación por delito contra la vida, el cuerpo y la salud.",
-   "## MACUSANI: IDENTIFICAN A FALLECIDO",
-   "En otro hecho, Ever Colque Apaza, de 38 años, fue identificado como el hombre que perdió la vida la tarde del viernes 6 de noviembre en la avenida Centenario, en la ciudad de Macusani, provincia de Carabaya. Era natural de Puno y trabajaba en una entidad financiera de la localidad. El levantamiento del cuerpo se realizó con presencia de las autoridades.",
-   "Se pide el apoyo de la población para ubicar a sus familiares en la ciudad de Puno y comunicarles lo sucedido."
+   "Efectivos de la Comisaría Rural de la Policía Nacional del Perú (PNP) de Ananea detuvieron a Jesús Ramos Mamani, presunto autor del homicidio del teniente gobernador auxiliar de la comunidad de Chuquine, en el distrito de Ananea. La captura se produjo en flagrancia durante las diligencias iniciales, luego del reporte del hallazgo de una persona sin vida en la zona.",
+   "La alerta inicial la dio el suboficial de tercera PNP Flores Cutipa Helmer, quien comunicó de inmediato el hallazgo a la dependencia policial. El personal aseguró el área para preservar la escena del crimen. Las primeras acciones operativas en el lugar fueron lideradas por el suboficial brigadier PNP Colquehuanca Arias José.",
+   "El capitán PNP Irwin Josymar Cortez Ramos, comisario rural de Ananea, activó los protocolos correspondientes tras conocerse el hecho. La dependencia coordinó con el fiscal de turno para las diligencias de ley, con el fin de evitar que el presunto implicado evada la justicia.",
+   "En el operativo también participaron la Areincri y la Oficri, que realizaron las diligencias técnico-científicas en la escena para esclarecer las circunstancias del homicidio. La coordinación entre las unidades policiales y el Ministerio Público se ejecutó desde las primeras horas del día.",
+   "Ramos Mamani quedó a disposición de las autoridades competentes. La PNP informó que el caso continúa en investigación por el delito contra la vida, el cuerpo y la salud."
   ],
   "datos": [
-   "Detenido en Ananea: Jesús Ramos Mamani, presunto autor del homicidio del teniente gobernador auxiliar de Chuquine",
-   "Participaron la Comisaría Rural PNP Ananea, la Areincri, la Oficri y el fiscal de turno",
-   "Fallecido en Macusani: Ever Colque Apaza, de 38 años, natural de Puno",
-   "El hecho en Macusani ocurrió en la avenida Centenario, provincia de Carabaya"
+   "Detenido: Jesús Ramos Mamani",
+   "Víctima: teniente gobernador auxiliar de la comunidad de Chuquine, distrito de Ananea",
+   "Captura en flagrancia durante las diligencias iniciales",
+   "Participaron la Comisaría Rural PNP Ananea, la Areincri y la Oficri",
+   "Coordinación con el fiscal de turno"
   ],
   "tema": "Seguridad/Policiales",
   "seccion": "seguridad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T20:07:00",
   "imagen": "img/noticias/n216.jpg",
-  "pie": "Capturan a presunto asesino de teniente auxiliar en Ananea e identifican a fallecido en Macusani",
+  "pie": "PNP captura en Ananea a presunto autor de homicidio de teniente auxiliar",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -547,6 +537,40 @@
   "impacto": 9,
   "fijada": false,
   "imagen_compartir": "img/compartir/n216.jpg"
+ },
+ {
+  "id": 231,
+  "slug": "identifican-a-ever-colque-apaza-de-38-anos-fallecido-en-macusani",
+  "titular": "Identifican a Ever Colque Apaza, de 38 años, fallecido en Macusani",
+  "bajada": "Era natural de Puno y trabajaba en una entidad financiera de la localidad. Piden ayuda para ubicar a sus familiares.",
+  "antetitulo": "IDENTIFICAN A CIUDADANO FALLECIDO EN CARABAYA",
+  "lugar": "Macusani",
+  "cuerpo": [
+   "Ever Colque Apaza, de 38 años, fue identificado como el ciudadano que perdió la vida la tarde del viernes 6 de noviembre en la avenida Centenario, en la ciudad de Macusani, provincia de Carabaya.",
+   "El hombre era natural de Puno y trabajaba en una entidad financiera de esa localidad. El levantamiento del cuerpo se realizó con presencia de las autoridades correspondientes.",
+   "Ante este hecho, se solicita el apoyo de la población para ubicar a sus familiares en la ciudad de Puno y comunicarles lo sucedido."
+  ],
+  "datos": [
+   "Ever Colque Apaza, de 38 años",
+   "Natural de Puno",
+   "Trabajaba en una entidad financiera de Macusani",
+   "Falleció en la avenida Centenario, Macusani, provincia de Carabaya"
+  ],
+  "tema": "Seguridad/Policiales",
+  "seccion": "seguridad",
+  "ambito": "REGIONAL",
+  "fecha": "2026-11-06T20:07:00",
+  "imagen": "img/noticias/n231.jpg",
+  "pie": "Identifican a Ever Colque Apaza, de 38 años, fallecido en Macusani",
+  "credito": "",
+  "medios": [],
+  "fuentes": 1,
+  "enlaces": [],
+  "boletin": 1,
+  "edicion": 1,
+  "impacto": 7,
+  "fijada": false,
+  "imagen_compartir": "img/compartir/n231.jpg"
  },
  {
   "id": 230,
@@ -618,7 +642,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 6,
+  "impacto": 7,
   "fijada": false,
   "imagen_compartir": "img/compartir/n194.jpg"
  },
@@ -754,7 +778,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 5,
+  "impacto": 3,
   "fijada": false,
   "imagen_compartir": "img/compartir/n199.jpg"
  },
@@ -789,7 +813,7 @@
   "enlaces": [],
   "boletin": null,
   "edicion": null,
-  "impacto": 3,
+  "impacto": 4,
   "fijada": false,
   "imagen_compartir": "img/compartir/n198.jpg"
  },
@@ -888,7 +912,7 @@
   "enlaces": [],
   "boletin": null,
   "edicion": null,
-  "impacto": 2,
+  "impacto": 4,
   "fijada": false,
   "imagen_compartir": "img/compartir/n141.jpg"
  },
@@ -929,35 +953,41 @@
  {
   "id": 191,
   "slug": "mircea-cartarescu-elogia-la-literatura-peruana-y-cita-a-vallejo-y-vargas-llosa",
-  "titular": "Mircea Cărtărescu elogia la literatura peruana y cita a Vallejo y Vargas Llosa",
-  "bajada": "El escritor rumano ofreció una conferencia de prensa acompañado de su traductora y compartió sus apreciaciones sobre las letras peruanas.",
-  "antetitulo": "EN EL HAY FESTIVAL DE AREQUIPA",
+  "titular": "Cărtărescu, Chirif, Pollarolo y Blum marcan el segundo día del Hay Festival Arequipa",
+  "bajada": "El escritor rumano elogió la literatura peruana en conferencia de prensa, y tres autoras presentaron sus libros ante los lectores.",
+  "antetitulo": "SEGUNDA JORNADA DEL ENCUENTRO LITERARIO EN AREQUIPA",
   "lugar": "Arequipa",
   "cuerpo": [
-   "El escritor rumano Mircea Cărtărescu destacó su conocimiento de la literatura peruana y mencionó entre sus referentes a Alfredo Bryce Echenique, César Vallejo y Mario Vargas Llosa.",
-   "El autor participa en el Hay Festival y el viernes 6 de noviembre ofreció una conferencia de prensa, acompañado de su traductora, en la que compartió sus apreciaciones sobre la literatura y sus vínculos con las letras peruanas."
+   "El Hay Festival Arequipa vivió su segunda jornada, el viernes 6 de noviembre, con la presencia del escritor rumano Mircea Cărtărescu y la presentación de libros de tres autoras: Micaela Chirif, Giovanna Pollarolo y Liliana Blum.",
+   "Cărtărescu ofreció una conferencia de prensa acompañado de su traductora. Allí destacó su conocimiento de la literatura peruana y mencionó entre sus referentes a Alfredo Bryce Echenique, César Vallejo y Mario Vargas Llosa. También compartió sus apreciaciones sobre la literatura y sus vínculos con las letras del país.",
+   "## LAS PRESENTACIONES",
+   "Chirif presentó “Vida y costumbres de los animales de la amazonía”, editado por Planeta, en el marco de una entrevista. La obra recorre la variada vida de la selva: abejas que no hacen miel, peces que ponen sus huevos fuera del agua, hormigas que descubrieron la agricultura antes que el hombre y serpientes que se disfrazan de otras serpientes para dar más miedo.",
+   "Pollarolo expuso “Entre mujeres solas & casas” en un espacio dedicado al encuentro y la reflexión en torno a la literatura. Blum participó como autora de “Ráfaga Roja”. Las tres escritoras compartieron detalles sobre sus publicaciones, experiencias y procesos creativos.",
+   "El festival continúa en Arequipa con una agenda de presentaciones de obras y encuentros con el público lector."
   ],
   "datos": [
-   "Mircea Cărtărescu es un escritor rumano",
+   "Mircea Cărtărescu es un escritor rumano y ofreció una conferencia de prensa acompañado de su traductora",
    "Citó como referentes a Alfredo Bryce Echenique, César Vallejo y Mario Vargas Llosa",
-   "Ofreció una conferencia de prensa acompañado de su traductora",
-   "Participa en el Hay Festival"
+   "Micaela Chirif presentó “Vida y costumbres de los animales de la amazonía”, editado por Planeta",
+   "Giovanna Pollarolo presentó “Entre mujeres solas & casas”",
+   "Liliana Blum participó con “Ráfaga Roja”",
+   "La jornada corresponde al segundo día del festival, el viernes 6 de noviembre"
   ],
   "tema": "Cultura",
   "seccion": "cultura",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T18:03:00",
-  "imagen": null,
-  "pie": "Mircea Cărtărescu elogia la literatura peruana y cita a Vallejo y Vargas Llosa",
+  "imagen": "img/noticias/n191.jpg",
+  "pie": "Cărtărescu, Chirif, Pollarolo y Blum marcan el segundo día del Hay Festival Arequipa",
   "credito": "",
   "medios": [],
   "fuentes": 1,
   "enlaces": [],
   "boletin": null,
   "edicion": null,
-  "impacto": 2,
+  "impacto": 3,
   "fijada": false,
-  "imagen_compartir": null
+  "imagen_compartir": "img/compartir/n191.jpg"
  },
  {
   "id": 187,
@@ -1065,7 +1095,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 6,
+  "impacto": 7,
   "fijada": false,
   "imagen_compartir": "img/compartir/n132.jpg"
  },
@@ -1107,16 +1137,14 @@
  {
   "id": 183,
   "slug": "rondas-campesinas-de-puno-refuerzan-vigilancia-con-12-camionetas-y-200-motocicle",
-  "titular": "Rondas campesinas de Puno reforzarán vigilancia con motocicletas y camionetas",
+  "titular": "Rondas de Puno vigilarán 73 distritos con 200 motos",
   "bajada": "Dirigentes de las doce provincias se reunieron en la Plaza Zarumilla de Juliaca. Los ronderos también elegirán a su nueva directiva regional.",
   "antetitulo": "XXXVI ENCUENTRO REGIONAL DE RONDAS CAMPESINAS",
   "lugar": "Juliaca",
   "cuerpo": [
-   "Juliaca fue sede del XXXVI Encuentro Regional de Rondas Campesinas de la región Puno, que reunió a dirigentes y delegaciones de las doce provincias en la Plaza Zarumilla. La actividad se realizó el viernes 6 de noviembre.",
-   "Participó el alcalde provincial de San Román, Óscar Wyllams Cáceres Rodríguez, junto a representantes de las organizaciones ronderiles. El encuentro buscó promover la integración y el fortalecimiento de la justicia comunal.",
-   "Durante la jornada, el alcalde anunció la entrega de 18 motocicletas y de la Casa Ronderil de Unocolla. Según indicó, estos aportes entrarán en funcionamiento la próxima semana para fortalecer las labores de organización y vigilancia de las rondas en beneficio de las comunidades.",
-   "Por su parte, las rondas informaron que cuentan con 12 camionetas y 200 motocicletas destinadas a reforzar la vigilancia en 73 distritos de la región.",
-   "En el marco del encuentro, las organizaciones ronderiles también elegirán a su nueva directiva regional."
+   "Juliaca fue sede del XXXVI Encuentro Regional de Rondas Campesinas, que reunió a dirigentes de las doce provincias de Puno en la Plaza Zarumilla. Participó el alcalde provincial de San Román, Óscar Wyllams Cáceres Rodríguez.",
+   "Durante la jornada, el alcalde anunció la entrega de 18 motocicletas y de la Casa Ronderil de Unocolla, que entrarán en funcionamiento la próxima semana para fortalecer la organización y la vigilancia de las rondas.",
+   "Las rondas informaron que cuentan con 12 camionetas y 200 motocicletas para reforzar la vigilancia en 73 distritos de la región. En el marco del encuentro, también elegirán a su nueva directiva regional."
   ],
   "datos": [
    "Juliaca fue sede del XXXVI Encuentro Regional de Rondas Campesinas, en la Plaza Zarumilla, con delegaciones de las doce provincias",
@@ -1129,14 +1157,14 @@
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T17:45:00",
   "imagen": "img/noticias/n183.jpg",
-  "pie": "Rondas campesinas de Puno reforzarán vigilancia con motocicletas y camionetas",
+  "pie": "Rondas de Puno vigilarán 73 distritos con 200 motos",
   "credito": "",
   "medios": [],
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 6,
+  "impacto": 5,
   "fijada": false,
   "imagen_compartir": "img/compartir/n183.jpg"
  },
@@ -1385,18 +1413,17 @@
  {
   "id": 176,
   "slug": "migraciones-interviene-en-ica-a-venezolano-que-desafio-a-las-autoridades",
-  "titular": "Migraciones interviene en Ica a venezolano que desafió a las autoridades",
-  "bajada": "El ciudadano extranjero había retado públicamente a las autoridades con el mensaje ‘Vengan por mí, no se tarden’.",
-  "antetitulo": "DESAFÍO EN REDES Y RESPUESTA MIGRATORIA",
+  "titular": "Intervienen en Ica a venezolano que retó a Migraciones",
+  "bajada": "El extranjero había publicado el mensaje “Vengan por mí, no se tarden”. Se le imputan conductas contra el orden público y la seguridad ciudadana.",
+  "antetitulo": "TRAS DESAFIAR A LAS AUTORIDADES EN REDES SOCIALES",
   "lugar": "Ica",
   "cuerpo": [
-   "Un ciudadano venezolano fue intervenido por personal de Migraciones en los alrededores de la ciudad de Ica, días después de haber desafiado públicamente a las autoridades migratorias peruanas en redes sociales con el mensaje: “Vengan por mí, no se tarden”.",
-   "La intervención se realizó en coordinación con la Policía Nacional del Perú (PNP), que inició la búsqueda del extranjero tras la difusión de su publicación y los pedidos de intervención de los usuarios.",
-   "A la persona se le imputan conductas que atentan contra el orden público, el orden interno y la seguridad ciudadana, consideradas entre las infracciones migratorias más graves y que pueden ser sancionadas con la expulsión del país."
+   "Personal de Migraciones, en coordinación con la Policía Nacional del Perú, intervino en los alrededores de la ciudad de Ica a un venezolano que había desafiado a las autoridades en redes con el mensaje “Vengan por mí, no se tarden”.",
+   "Se le imputan conductas contra el orden público y la seguridad ciudadana, infracciones graves que pueden sancionarse con la expulsión del país."
   ],
   "datos": [
    "Ciudadano venezolano intervenido en Ica",
-   "Mensaje: ‘Vengan por mí, no se tarden’",
+   "Mensaje: “Vengan por mí, no se tarden”",
    "Intervención en coordinación con la PNP",
    "Posible sanción: expulsión del país"
   ],
@@ -1405,7 +1432,7 @@
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T16:37:00",
   "imagen": "img/noticias/n176.jpg",
-  "pie": "Migraciones interviene en Ica a venezolano que desafió a las autoridades",
+  "pie": "Intervienen en Ica a venezolano que retó a Migraciones",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1452,7 +1479,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 7,
+  "impacto": 6,
   "fijada": false,
   "imagen_compartir": "img/compartir/n177.jpg"
  },
@@ -1499,32 +1526,39 @@
  {
   "id": 174,
   "slug": "papa-leon-xiv-llega-a-uruguay-y-volvera-al-peru",
-  "titular": "León XIV llega a Uruguay y volverá al Perú",
-  "bajada": "El pontífice vivió cerca de 20 años en el país como misionero y obispo. Dijo que nunca dudó del viaje.",
-  "antetitulo": "GIRA DE 11 DÍAS POR URUGUAY, ARGENTINA Y PERÚ",
+  "titular": "León XIV llega a Uruguay e inicia su gira rumbo al Perú",
+  "bajada": "El pontífice vivió cerca de 20 años en el país como misionero y obispo. Afirmó que nunca dudó del viaje pese a las preocupaciones por su salud.",
+  "antetitulo": "GIRA APOSTÓLICA DE 11 DÍAS POR TRES PAÍSES",
   "lugar": "Montevideo",
   "cuerpo": [
-   "El papa León XIV llegó a Montevideo, Uruguay, para iniciar una gira apostólica de 11 días que comprende Argentina y Perú. Volverá al país donde vivió cerca de 20 años como misionero y obispo.",
-   "Pese a las preocupaciones por su salud, afirmó que nunca dudó del viaje y que se siente bien para afrontarlo."
+   "El papa León XIV aterrizó en Montevideo, Uruguay, para iniciar una gira apostólica de 11 días que comprende Argentina y Perú. El viaje, calificado como histórico, lo llevará de vuelta al país donde vivió cerca de 20 años como misionero y obispo.",
+   "Pese a las preocupaciones por su salud, el pontífice aseguró sentirse bien para afrontar la visita. También afirmó que nunca dudó de este viaje y expresó su alegría por regresar al Perú, el país que lo acogió durante más de dos décadas de labor misionera.",
+   "## EL REGRESO AL PERÚ",
+   "La visita a tierras peruanas será uno de los momentos más emotivos de la gira. La llegada a Sudamérica marca el retorno del papa a la región y, en particular, al lugar donde transcurrió buena parte de su vida como misionero. El itinerario incluye escalas en Argentina antes de su arribo al Perú.",
+   "La expectativa crece entre los fieles peruanos, que aguardan el regreso del pontífice a las tierras donde desarrolló parte de su labor pastoral. La gira abarcará actividades en los tres países sudamericanos.",
+   "## LOS PREPARATIVOS",
+   "El Arzobispado del Cusco presentó en conferencia de prensa la ruta que seguirá el papa, en su sede. En el Callao ya fue instalada una estatua de 14 metros de León XIV, de cuatro toneladas, que será inaugurada el lunes 9 de noviembre en el parque del Niño Gaelito.",
+   "Los detalles de la agenda oficial y las ciudades que visitará en el Perú aún no han sido precisados."
   ],
   "datos": [
    "La gira apostólica dura 11 días y comprende Uruguay, Argentina y Perú",
    "El papa vivió cerca de 20 años en el Perú como misionero y obispo",
-   "León XIV afirmó que nunca dudó del viaje y que se siente bien de salud"
+   "León XIV afirmó que nunca dudó del viaje y que se siente bien de salud",
+   "La estatua de 14 metros en el Callao será inaugurada el lunes 9 de noviembre"
   ],
   "tema": "Sociedad",
   "seccion": "sociedad",
   "ambito": "INTERNACIONAL",
   "fecha": "2026-11-06T16:09:00",
   "imagen": "img/noticias/n174.jpg",
-  "pie": "León XIV llega a Uruguay y volverá al Perú",
+  "pie": "León XIV llega a Uruguay e inicia su gira rumbo al Perú",
   "credito": "",
   "medios": [],
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 5,
+  "impacto": 7,
   "fijada": false,
   "imagen_compartir": "img/compartir/n174.jpg"
  },
@@ -1555,7 +1589,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 3,
+  "impacto": 2,
   "fijada": false,
   "imagen_compartir": "img/compartir/n173.jpg"
  },
@@ -1662,7 +1696,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 3,
+  "impacto": 2,
   "fijada": false,
   "imagen_compartir": "img/compartir/n168.jpg"
  },
@@ -1851,42 +1885,6 @@
   "imagen_compartir": "img/compartir/n164.jpg"
  },
  {
-  "id": 163,
-  "slug": "chirif-pollarolo-y-blum-presentan-sus-libros-en-el-hay-festival-arequipa",
-  "titular": "Chirif, Pollarolo y Blum presentan sus libros en el Hay Festival Arequipa",
-  "bajada": "Las tres autoras dieron a conocer sus obras y conversaron con los lectores en la segunda jornada de programación.",
-  "antetitulo": "SEGUNDO DÍA DEL ENCUENTRO LITERARIO EN AREQUIPA",
-  "lugar": "Arequipa",
-  "cuerpo": [
-   "El Hay Festival Arequipa vivió su segundo día con la presentación de nuevos libros de tres escritoras: Micaela Chirif, Giovanna Pollarolo y Liliana Blum. Las autoras compartieron detalles sobre sus publicaciones y sus procesos creativos ante lectores y participantes.",
-   "Chirif presentó “Vida y costumbres de los animales de la amazonía”, editado por Planeta, en el marco de una entrevista. La obra recorre la variada vida de la selva y aborda casos como abejas que no producen miel, peces que ponen sus huevos fuera del agua, hormigas que descubrieron la agricultura antes que el hombre y serpientes que se disfrazan de otras serpientes para infundir más miedo.",
-   "Pollarolo expuso “Entre mujeres solas & casas” en un espacio dedicado al encuentro y la reflexión en torno a la literatura. La actividad reunió a lectores en torno a la obra de la autora, dentro de la programación del festival.",
-   "Blum, por su parte, participó como autora de “Ráfaga Roja”. Las escritoras dialogaron sobre sus experiencias y el trabajo detrás de cada libro.",
-   "El festival se desarrolla en Arequipa con una agenda que incluye presentaciones de obras y encuentros con el público lector."
-  ],
-  "datos": [
-   "Micaela Chirif presentó “Vida y costumbres de los animales de la amazonía”, editado por Planeta",
-   "Giovanna Pollarolo presentó “Entre mujeres solas & casas”",
-   "Liliana Blum participó con “Ráfaga Roja”",
-   "El evento se realiza en Arequipa y la jornada corresponde a su segundo día"
-  ],
-  "tema": "Cultura",
-  "seccion": "cultura",
-  "ambito": "NACIONAL",
-  "fecha": "2026-11-06T14:02:00",
-  "imagen": "img/noticias/n163.jpg",
-  "pie": "Chirif, Pollarolo y Blum presentan sus libros en el Hay Festival Arequipa",
-  "credito": "",
-  "medios": [],
-  "fuentes": 1,
-  "enlaces": [],
-  "boletin": null,
-  "edicion": null,
-  "impacto": 2,
-  "fijada": false,
-  "imagen_compartir": "img/compartir/n163.jpg"
- },
- {
   "id": 161,
   "slug": "organizaciones-agrarias-de-junin-exigen-a-candidatos-proteger-tierras-y-agua",
   "titular": "Organizaciones agrarias de Junín exigen a candidatos proteger tierras y agua",
@@ -1954,7 +1952,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 7,
+  "impacto": 6,
   "fijada": false,
   "imagen_compartir": "img/compartir/n219.jpg"
  },
@@ -2021,7 +2019,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 7,
+  "impacto": 6,
   "fijada": false,
   "imagen_compartir": "img/compartir/n147.jpg"
  },
@@ -2060,7 +2058,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 5,
+  "impacto": 6,
   "fijada": false,
   "imagen_compartir": "img/compartir/n145.jpg"
  },
@@ -2095,7 +2093,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 6,
+  "impacto": 5,
   "fijada": false,
   "imagen_compartir": "img/compartir/n218.jpg"
  },
@@ -2129,7 +2127,7 @@
   "enlaces": [],
   "boletin": 1,
   "edicion": 1,
-  "impacto": 3,
+  "impacto": 4,
   "fijada": false,
   "imagen_compartir": "img/compartir/n144.jpg"
  },
@@ -2263,16 +2261,14 @@
  {
   "id": 131,
   "slug": "alcaldesa-de-pucara-abrira-al-publico-la-transferencia-municipal",
-  "titular": "Alcaldesa de Pucará abrirá al público la transferencia municipal",
+  "titular": "Alcaldesa de Pucará hará pública la transferencia",
   "bajada": "Betty Huanca Díaz anunció que entregará toda la documentación de su gestión a las nuevas autoridades para evitar dificultades y no frenar los proyectos pendientes.",
   "antetitulo": "CAMBIO DE ADMINISTRACIÓN EN EL DISTRITO DE PUCARÁ",
   "lugar": "Pucará",
   "cuerpo": [
-   "La alcaldesa de Pucará, Betty Huanca Díaz, anunció que entregará de manera pública toda la documentación de su gestión a las nuevas autoridades del distrito, en la provincia de Lampa. Con ello busca evitar dificultades durante el cambio de administración.",
-   "Según la autoridad, la medida también apunta a garantizar la continuidad de los proyectos pendientes. La transferencia se realizará de forma abierta, de modo que la población pueda conocer el estado en que se encuentra la comuna.",
-   "## SIN FECHA DEFINIDA",
-   "Huanca Díaz no precisó cuándo se efectuará la entrega de la documentación ni cuáles son los proyectos que quedarían pendientes. Tampoco detalló el lugar ni el procedimiento que se seguirá para el acto público.",
-   "El anuncio se enmarca en el proceso de sucesión edil, que consiste en el traspaso de la gestión municipal a las nuevas autoridades. La alcaldesa sostiene que una transferencia abierta permitirá que las obras en curso no se detengan y que el nuevo gobierno local reciba la información completa de lo avanzado y lo que falta por ejecutar."
+   "La alcaldesa de Pucará, Betty Huanca Díaz, anunció que entregará de manera pública toda la documentación de su gestión a las nuevas autoridades del distrito. Con ello busca evitar dificultades durante el cambio de administración y garantizar la continuidad de los proyectos pendientes.",
+   "Según la autoridad, la transferencia se realizará de forma abierta, de modo que la población conozca el estado de la comuna. Huanca Díaz sostiene que así las obras en curso no se detendrán y facilitará el proceso de sucesión edil.",
+   "La alcaldesa no precisó la fecha de la entrega ni cuáles son los proyectos que quedarían pendientes."
   ],
   "datos": [
    "Alcaldesa de Pucará: Betty Huanca Díaz",
@@ -2284,7 +2280,7 @@
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T09:40:00",
   "imagen": "img/noticias/n131.jpg",
-  "pie": "Alcaldesa de Pucará abrirá al público la transferencia municipal",
+  "pie": "Alcaldesa de Pucará hará pública la transferencia",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -2332,37 +2328,34 @@
  {
   "id": 213,
   "slug": "nuera-desaloja-a-su-suegra-de-vivienda-en-juliaca-tras-mandato-judicial",
-  "titular": "Nuera desaloja a su suegra de vivienda en Juliaca tras mandato judicial",
-  "bajada": "La Policía y el juez ejecutaron el descerraje en el jirón Parinacochas; la propietaria se resistió junto a familiares y vecinos.",
-  "antetitulo": "JULIACA: ORDEN JUDICIAL EN URBANIZACIÓN SANTA CELEDONIA",
+  "titular": "Desalojan a suegra de su casa en Juliaca por orden judicial",
+  "bajada": "El juez ordenó el descerraje en el jirón Parinacochas. La propietaria se resistió junto a familiares y vecinos, y hubo altercados.",
+  "antetitulo": "ORDEN JUDICIAL EN LA URBANIZACIÓN SANTA CELEDONIA",
   "lugar": "Juliaca",
   "cuerpo": [
-   "Una mujer fue desalojada de su vivienda en la sexta cuadra del jirón Parinacochas, en la urbanización Santa Celedonia de Juliaca, durante la mañana del viernes 6 de noviembre, en cumplimiento de un mandato judicial que entregó el inmueble a su nuera.",
-   "Agentes de la Policía Nacional, pertenecientes a la Unidad de Servicios Especiales, acompañados de otros efectivos y del juez a cargo del proceso, llegaron hasta el lugar para ejecutar la disposición. En el inmueble fueron recibidos por Hermelinda Pérez Mamani, quien manifestó ser la propietaria y expresó su desacuerdo con la medida.",
-   "La mujer relató que hace varios años adquirió el terreno y luego lo entregó en calidad de donación a su hijo, Wilfredo Larico Pérez. El hijo falleció hace varios años y dejó como única heredera a su pareja, Esther Cruz, reconocida judicialmente como legítima propietaria de la vivienda.",
-   "Pérez Mamani sostuvo que no estaba dispuesta a entregar el inmueble a su nuera porque, según su versión, debía destinarse exclusivamente a sus tres nietos menores de edad. Ante la negativa de la mujer y de los familiares presentes, el juez dispuso la ejecución de la orden de descerraje y la posterior entrega del inmueble a Esther Cruz.",
-   "Durante el cumplimiento del mandato se registraron altercados y enfrentamientos entre vecinos y familiares de Hermelinda Pérez Mamani, quienes expresaron su rechazo a la sentencia judicial."
+   "Una mujer fue desalojada de su vivienda en la sexta cuadra del jirón Parinacochas, urbanización Santa Celedonia de Juliaca, en cumplimiento de un mandato judicial que entregó el inmueble a su nuera.",
+   "Agentes de la Unidad de Servicios Especiales de la Policía Nacional llegaron con el juez a cargo del proceso. Hermelinda Pérez Mamani los recibió y dijo ser la propietaria. Expresó su desacuerdo con la medida.",
+   "Según su relato, compró el terreno hace varios años y lo donó a su hijo, Wilfredo Larico Pérez, quien falleció y dejó como única heredera a su pareja, Esther Cruz. Pérez Mamani sostuvo que la casa debía destinarse a sus tres nietos menores de edad.",
+   "Ante la negativa de la mujer y de los familiares presentes, el juez dispuso el descerraje y la entrega del inmueble a Esther Cruz, reconocida judicialmente como legítima propietaria. Durante la diligencia hubo altercados entre vecinos y familiares de Pérez Mamani, que rechazaron la sentencia."
   ],
   "datos": [
    "Desalojo en la sexta cuadra del jirón Parinacochas, urbanización Santa Celedonia, Juliaca",
-   "Mandato ejecutado el viernes 6 de noviembre",
    "Hermelinda Pérez Mamani se opuso a la medida",
-   "Wilfredo Larico Pérez recibió el predio en donación y falleció hace varios años",
    "Esther Cruz fue reconocida judicialmente como legítima propietaria",
-   "Tres nietos menores de edad mencionados por la propietaria"
+   "La propietaria mencionó a tres nietos menores de edad"
   ],
   "tema": "Sociedad",
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T07:03:00",
   "imagen": "img/noticias/n213.jpg",
-  "pie": "Nuera desaloja a su suegra de vivienda en Juliaca tras mandato judicial",
+  "pie": "Desalojan a suegra de su casa en Juliaca por orden judicial",
   "credito": "",
   "medios": [],
   "fuentes": 1,
   "enlaces": [],
-  "boletin": null,
-  "edicion": null,
+  "boletin": 1,
+  "edicion": 1,
   "impacto": 5,
   "fijada": false,
   "imagen_compartir": "img/compartir/n213.jpg"
