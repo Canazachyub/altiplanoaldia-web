@@ -27,8 +27,8 @@
   "seccion": "politica",
   "ambito": "LOCAL",
   "fecha": "2026-11-07T06:37:00",
-  "imagen": "img/noticias/n255.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Denuncian presunta licitación amañada de tractores en Coata",
   "credito": "",
   "medios": [],
@@ -38,7 +38,7 @@
   "edicion": 2,
   "impacto": 9,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n255.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 132,
@@ -66,7 +66,7 @@
   "seccion": "politica",
   "ambito": "LOCAL",
   "fecha": "2026-11-07T06:32:00",
-  "imagen": "img/noticias/n132.jpg",
+  "imagen": "img/noticias/n132-01bf4015.jpg",
   "foco": "49% 37%",
   "pie": "Congresista Jair Manrique pedirá destituir al gerente de Sedajuliaca",
   "credito": "",
@@ -77,7 +77,7 @@
   "edicion": 2,
   "impacto": 8,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n132.jpg"
+  "imagen_compartir": "img/compartir/n132-f28d5f60.jpg"
  },
  {
   "id": 189,
@@ -110,7 +110,7 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-07T06:29:00",
-  "imagen": "img/noticias/n189.jpg",
+  "imagen": "img/noticias/n189-fd94dfe3.jpg",
   "foco": "80% 40%",
   "pie": "JNE niega credenciales a alcaldes que postularon como primeros regidores",
   "credito": "",
@@ -121,7 +121,7 @@
   "edicion": 2,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n189.jpg"
+  "imagen_compartir": "img/compartir/n189-59cb35a8.jpg"
  },
  {
   "id": 253,
@@ -184,7 +184,7 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-07T06:17:00",
-  "imagen": "img/noticias/n252.jpg",
+  "imagen": "img/noticias/n252-658f5f8e.jpg",
   "foco": "50% 38%",
   "pie": "Trabajadoras de Carabaya denuncian hostigamiento laboral y piden intervención de la Defensoría",
   "credito": "",
@@ -195,7 +195,7 @@
   "edicion": 2,
   "impacto": 7,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n252.jpg"
+  "imagen_compartir": "img/compartir/n252-0dd4f10a.jpg"
  },
  {
   "id": 223,
@@ -223,7 +223,7 @@
   "seccion": "seguridad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-07T06:15:00",
-  "imagen": "img/noticias/n223.jpg",
+  "imagen": "img/noticias/n223-c9152727.jpg",
   "foco": "55% 33%",
   "pie": "Hallan muerto a niño de 8 años en un pozo de San Jerónimo",
   "credito": "",
@@ -234,7 +234,7 @@
   "edicion": 2,
   "impacto": 8,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n223.jpg"
+  "imagen_compartir": "img/compartir/n223-4253954e.jpg"
  },
  {
   "id": 251,
@@ -262,7 +262,7 @@
   "seccion": "cultura",
   "ambito": "INTERNACIONAL",
   "fecha": "2026-11-07T06:10:00",
-  "imagen": "img/noticias/n251.jpg",
+  "imagen": "img/noticias/n251-0327c68a.jpg",
   "foco": "50% 38%",
   "pie": "Kjolle sube al puesto 7 y Quintonil lidera Latinoamérica",
   "credito": "",
@@ -273,7 +273,7 @@
   "edicion": 2,
   "impacto": 2,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n251.jpg"
+  "imagen_compartir": "img/compartir/n251-f6c9a82b.jpg"
  },
  {
   "id": 249,
@@ -299,7 +299,7 @@
   "seccion": "sociedad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-07T05:10:00",
-  "imagen": "img/noticias/n249.jpg",
+  "imagen": "img/noticias/n249-340e8f94.jpg",
   "foco": "43% 42%",
   "pie": "Cierran estación La Cultura del Metro por el papa",
   "credito": "",
@@ -310,7 +310,7 @@
   "edicion": 2,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n249.jpg"
+  "imagen_compartir": "img/compartir/n249-50105812.jpg"
  },
  {
   "id": 244,
@@ -335,7 +335,7 @@
   "seccion": "cultura",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T23:30:00",
-  "imagen": "img/noticias/n244.jpg",
+  "imagen": "img/noticias/n244-15618556.jpg",
   "foco": "46% 31%",
   "pie": "Pietro Sibille vuelve como Mandril tras vencer el alcohol",
   "credito": "",
@@ -346,7 +346,7 @@
   "edicion": 2,
   "impacto": 2,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n244.jpg"
+  "imagen_compartir": "img/compartir/n244-eca71a8f.jpg"
  },
  {
   "id": 142,
@@ -374,7 +374,7 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T23:28:00",
-  "imagen": "img/noticias/n142.jpg",
+  "imagen": "img/noticias/n142-dab0dff4.jpg",
   "foco": "48% 44%",
   "pie": "Keiko Fujimori cumple 100 días entre cuestionamientos por seguridad y aprobación",
   "credito": "",
@@ -385,7 +385,7 @@
   "edicion": 2,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n142.jpg"
+  "imagen_compartir": "img/compartir/n142-2fc95618.jpg"
  },
  {
   "id": 242,
@@ -408,7 +408,7 @@
   "seccion": "sociedad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T23:21:00",
-  "imagen": "img/noticias/n242.jpg",
+  "imagen": "img/noticias/n242-fbbf4690.jpg",
   "foco": "48% 56%",
   "pie": "Lemon Pay reaparece en redes y respalda mensajes que piden su continuidad",
   "credito": "",
@@ -419,7 +419,7 @@
   "edicion": 2,
   "impacto": 2,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n242.jpg"
+  "imagen_compartir": "img/compartir/n242-a87321e2.jpg"
  },
  {
   "id": 241,
@@ -442,7 +442,7 @@
   "seccion": "cultura",
   "ambito": "INTERNACIONAL",
   "fecha": "2026-11-06T23:15:00",
-  "imagen": "img/noticias/n241.jpg",
+  "imagen": "img/noticias/n241-2eb30d63.jpg",
   "foco": "50% 38%",
   "pie": "Dragon Ball Super alista el desenlace entre Goku y Beerus",
   "credito": "",
@@ -453,7 +453,7 @@
   "edicion": 2,
   "impacto": 1,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n241.jpg"
+  "imagen_compartir": "img/compartir/n241-55d75f8d.jpg"
  },
  {
   "id": 240,
@@ -476,7 +476,7 @@
   "seccion": "seguridad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T23:10:00",
-  "imagen": "img/noticias/n240.jpg",
+  "imagen": "img/noticias/n240-8c0ab2a0.jpg",
   "foco": "14% 31%",
   "pie": "Ataque en vivienda de Trujillo deja un muerto y un herido",
   "credito": "",
@@ -487,7 +487,7 @@
   "edicion": 1,
   "impacto": 8,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n240.jpg"
+  "imagen_compartir": "img/compartir/n240-f573f377.jpg"
  },
  {
   "id": 167,
@@ -512,7 +512,7 @@
   "seccion": "politica",
   "ambito": "INTERNACIONAL",
   "fecha": "2026-11-06T22:30:00",
-  "imagen": "img/noticias/n167.jpg",
+  "imagen": "img/noticias/n167-095d00de.jpg",
   "foco": "53% 45%",
   "pie": "Senado destituye a Peña y Alliana asume en Paraguay",
   "credito": "",
@@ -523,7 +523,7 @@
   "edicion": 1,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n167.jpg"
+  "imagen_compartir": "img/compartir/n167-cdd1d5f3.jpg"
  },
  {
   "id": 129,
@@ -549,8 +549,8 @@
   "seccion": "sociedad",
   "ambito": "LOCAL",
   "fecha": "2026-11-06T22:14:00",
-  "imagen": "img/noticias/n129.jpg",
-  "foco": "64% 32%",
+  "imagen": "img/noticias/n129-2114d763.jpg",
+  "foco": "46% 29%",
   "pie": "Santa Sede nombra administrador apostólico de Puno",
   "credito": "",
   "medios": [],
@@ -560,7 +560,7 @@
   "edicion": 1,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n129.jpg"
+  "imagen_compartir": "img/compartir/n129-38dff177.jpg"
  },
  {
   "id": 237,
@@ -584,7 +584,7 @@
   "seccion": "seguridad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T22:00:00",
-  "imagen": "img/noticias/n237.jpg",
+  "imagen": "img/noticias/n237-43586a19.jpg",
   "foco": "49% 49%",
   "pie": "Juan Zapata cuestiona falta de resultados contra la delincuencia en San Román",
   "credito": "",
@@ -595,7 +595,7 @@
   "edicion": 1,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n237.jpg"
+  "imagen_compartir": "img/compartir/n237-08692e0c.jpg"
  },
  {
   "id": 238,
@@ -618,7 +618,7 @@
   "seccion": "economia",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T22:00:00",
-  "imagen": "img/noticias/n238.jpg",
+  "imagen": "img/noticias/n238-e01e7565.jpg",
   "foco": "48% 52%",
   "pie": "Ministro Cuba tacha de inconstitucional ley de pensiones docentes",
   "credito": "",
@@ -629,7 +629,7 @@
   "edicion": 1,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n238.jpg"
+  "imagen_compartir": "img/compartir/n238-65512409.jpg"
  },
  {
   "id": 236,
@@ -652,7 +652,7 @@
   "seccion": "ambiente",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T21:30:00",
-  "imagen": "img/noticias/n236.jpg",
+  "imagen": "img/noticias/n236-83ca2569.jpg",
   "foco": "46% 38%",
   "pie": "Senamhi advierte déficit de lluvias de hasta 60% en Puno",
   "credito": "",
@@ -663,7 +663,7 @@
   "edicion": 1,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n236.jpg"
+  "imagen_compartir": "img/compartir/n236-db12ed0d.jpg"
  },
  {
   "id": 234,
@@ -689,7 +689,7 @@
   "seccion": "ambiente",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T20:51:00",
-  "imagen": "img/noticias/n234.jpg",
+  "imagen": "img/noticias/n234-81f482d0.jpg",
   "foco": "50% 38%",
   "pie": "Pelícanos y lobos marinos mueren de hambre en Pisco",
   "credito": "",
@@ -700,7 +700,7 @@
   "edicion": 2,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n234.jpg"
+  "imagen_compartir": "img/compartir/n234-9e3f2039.jpg"
  },
  {
   "id": 212,
@@ -727,7 +727,7 @@
   "seccion": "cultura",
   "ambito": "LOCAL",
   "fecha": "2026-11-06T20:30:00",
-  "imagen": "img/noticias/n212.jpg",
+  "imagen": "img/noticias/n212-9301c59b.jpg",
   "foco": "53% 58%",
   "pie": "Siete conjuntos compiten por un cupo a la Candelaria 2027",
   "credito": "",
@@ -738,7 +738,7 @@
   "edicion": 2,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n212.jpg"
+  "imagen_compartir": "img/compartir/n212-66e80c60.jpg"
  },
  {
   "id": 157,
@@ -771,7 +771,7 @@
   "seccion": "seguridad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T20:10:00",
-  "imagen": "img/noticias/n157.jpg",
+  "imagen": "img/noticias/n157-1f1069ed.jpg",
   "foco": "50% 38%",
   "pie": "Dos choques en la vía Puno–Ilave dejan un muerto y 11 heridos",
   "credito": "",
@@ -782,7 +782,7 @@
   "edicion": 1,
   "impacto": 9,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n157.jpg"
+  "imagen_compartir": "img/compartir/n157-cd50dca5.jpg"
  },
  {
   "id": 216,
@@ -820,7 +820,7 @@
   "edicion": 1,
   "impacto": 10,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n216.jpg"
+  "imagen_compartir": "img/compartir/n216-5d3d17c5.jpg"
  },
  {
   "id": 231,
@@ -844,7 +844,7 @@
   "seccion": "seguridad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T20:07:00",
-  "imagen": "img/noticias/n231.jpg",
+  "imagen": "img/noticias/n231-284a78d8.jpg",
   "foco": "50% 38%",
   "pie": "Identifican a Ever Colque Apaza, de 38 años, fallecido en Macusani",
   "credito": "",
@@ -855,7 +855,7 @@
   "edicion": 1,
   "impacto": 8,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n231.jpg"
+  "imagen_compartir": "img/compartir/n231-79d3919d.jpg"
  },
  {
   "id": 230,
@@ -877,7 +877,7 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T20:04:00",
-  "imagen": "img/noticias/n230.jpg",
+  "imagen": "img/noticias/n230-8031829f.jpg",
   "foco": "50% 38%",
   "pie": "Avenida Juliaca llega al 95 % y espera postes",
   "credito": "",
@@ -888,7 +888,7 @@
   "edicion": 1,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n230.jpg"
+  "imagen_compartir": "img/compartir/n230-b814b238.jpg"
  },
  {
   "id": 194,
@@ -920,7 +920,7 @@
   "seccion": "politica",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-06T19:59:00",
-  "imagen": "img/noticias/n194.jpg",
+  "imagen": "img/noticias/n194-5628cdab.jpg",
   "foco": "50% 39%",
   "pie": "Organizaciones de Puno piden amnistía para Pedro Castillo y dirigentes procesados",
   "credito": "",
@@ -931,7 +931,7 @@
   "edicion": 1,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n194.jpg"
+  "imagen_compartir": "img/compartir/n194-b749ea52.jpg"
  },
  {
   "id": 228,
@@ -954,7 +954,7 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T19:47:00",
-  "imagen": "img/noticias/n228.jpg",
+  "imagen": "img/noticias/n228-52e8ab24.jpg",
   "foco": "63% 42%",
   "pie": "Juventud de San Román elige comité electoral este sábado",
   "credito": "",
@@ -965,7 +965,7 @@
   "edicion": 2,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n228.jpg"
+  "imagen_compartir": "img/compartir/n228-581f372f.jpg"
  },
  {
   "id": 227,
@@ -990,7 +990,7 @@
   "seccion": "ambiente",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-06T19:31:00",
-  "imagen": "img/noticias/n227.jpg",
+  "imagen": "img/noticias/n227-0c8fe44c.jpg",
   "foco": "30% 23%",
   "pie": "Gobierno Regional de Puno y Senace refuerzan certificación ambiental de proyectos",
   "credito": "",
@@ -1001,7 +1001,7 @@
   "edicion": 2,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n227.jpg"
+  "imagen_compartir": "img/compartir/n227-2ca8729f.jpg"
  },
  {
   "id": 145,
@@ -1027,7 +1027,7 @@
   "seccion": "salud",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T19:00:00",
-  "imagen": "img/noticias/n145.jpg",
+  "imagen": "img/noticias/n145-e8eb4c9a.jpg",
   "foco": "28% 23%",
   "pie": "Diresa Puno alerta por leptospirosis en Carabaya y Sandia",
   "credito": "",
@@ -1038,7 +1038,7 @@
   "edicion": 2,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n145.jpg"
+  "imagen_compartir": "img/compartir/n145-5f0c5d71.jpg"
  },
  {
   "id": 226,
@@ -1074,7 +1074,7 @@
   "edicion": 1,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n226.jpg"
+  "imagen_compartir": "img/compartir/n226-2941859c.jpg"
  },
  {
   "id": 199,
@@ -1108,7 +1108,7 @@
   "edicion": 1,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n199.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 198,
@@ -1133,7 +1133,7 @@
   "seccion": "cultura",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T18:16:50",
-  "imagen": "img/noticias/n198.jpg",
+  "imagen": "img/noticias/n198-ce80b974.jpg",
   "foco": "80% 54%",
   "pie": "Muere Samir Collantes, director musical de Puro Sentimiento",
   "credito": "",
@@ -1144,7 +1144,7 @@
   "edicion": 2,
   "impacto": 2,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n198.jpg"
+  "imagen_compartir": "img/compartir/n198-e004a7b2.jpg"
  },
  {
   "id": 196,
@@ -1166,7 +1166,7 @@
   "seccion": "sociedad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T18:16:44",
-  "imagen": "img/noticias/n196.jpg",
+  "imagen": "img/noticias/n196-6ccbefdf.jpg",
   "foco": "56% 54%",
   "pie": "Viuda de Ivan Paredes revela que abogado murió por negligencia médica",
   "credito": "",
@@ -1177,7 +1177,7 @@
   "edicion": 1,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n196.jpg"
+  "imagen_compartir": "img/compartir/n196-a7f67837.jpg"
  },
  {
   "id": 197,
@@ -1236,7 +1236,7 @@
   "seccion": "cultura",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T18:13:04",
-  "imagen": "img/noticias/n141.jpg",
+  "imagen": "img/noticias/n141-aa0fd73a.jpg",
   "foco": "72% 52%",
   "pie": "Grupo 5 y Brunella Torpoco ganan en los Heat 2026",
   "credito": "",
@@ -1247,7 +1247,7 @@
   "edicion": 2,
   "impacto": 2,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n141.jpg"
+  "imagen_compartir": "img/compartir/n141-d1d771a7.jpg"
  },
  {
   "id": 192,
@@ -1271,7 +1271,7 @@
   "seccion": "ambiente",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T18:05:00",
-  "imagen": "img/noticias/n192.jpg",
+  "imagen": "img/noticias/n192-c7749b3c.jpg",
   "foco": "31% 41%",
   "pie": "Senamhi advierte que el ciclón Yaku podría regresar en 2027",
   "credito": "",
@@ -1282,7 +1282,7 @@
   "edicion": 1,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n192.jpg"
+  "imagen_compartir": "img/compartir/n192-ec37b3bd.jpg"
  },
  {
   "id": 191,
@@ -1344,7 +1344,7 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T18:00:00",
-  "imagen": "img/noticias/n187.jpg",
+  "imagen": "img/noticias/n187-b1c573b5.jpg",
   "foco": "40% 53%",
   "pie": "31 mil miembros de mesa aún no cobran sus S/ 165",
   "credito": "",
@@ -1355,7 +1355,7 @@
   "edicion": 1,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n187.jpg"
+  "imagen_compartir": "img/compartir/n187-6c8aa761.jpg"
  },
  {
   "id": 188,
@@ -1413,7 +1413,7 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T17:56:00",
-  "imagen": "img/noticias/n224.jpg",
+  "imagen": "img/noticias/n224-c96c9a5a.jpg",
   "foco": "94% 38%",
   "pie": "Gobierno Regional de Puno capacita a padres de Tambopata en crianza afectiva",
   "credito": "",
@@ -1424,7 +1424,7 @@
   "edicion": 2,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n224.jpg"
+  "imagen_compartir": "img/compartir/n224-8dd0bfe3.jpg"
  },
  {
   "id": 183,
@@ -1448,7 +1448,7 @@
   "seccion": "seguridad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T17:45:00",
-  "imagen": "img/noticias/n183.jpg",
+  "imagen": "img/noticias/n183-cd08236b.jpg",
   "foco": "92% 41%",
   "pie": "Rondas de Puno vigilarán 73 distritos con 200 motos",
   "credito": "",
@@ -1459,7 +1459,7 @@
   "edicion": 1,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n183.jpg"
+  "imagen_compartir": "img/compartir/n183-03c8e862.jpg"
  },
  {
   "id": 222,
@@ -1486,7 +1486,7 @@
   "seccion": "deportes",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T17:34:00",
-  "imagen": "img/noticias/n222.jpg",
+  "imagen": "img/noticias/n222-c8f628a7.jpg",
   "foco": "54% 17%",
   "pie": "Juliaca será sede del XII Campeonato de Fisicoculturismo",
   "credito": "",
@@ -1497,7 +1497,7 @@
   "edicion": 1,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n222.jpg"
+  "imagen_compartir": "img/compartir/n222-91d334cd.jpg"
  },
  {
   "id": 179,
@@ -1558,7 +1558,7 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T17:20:00",
-  "imagen": "img/noticias/n181.jpg",
+  "imagen": "img/noticias/n181-64b0e09e.jpg",
   "foco": "40% 50%",
   "pie": "Fiscalía pide 4 años y medio de cárcel para López-Chau",
   "credito": "",
@@ -1569,7 +1569,7 @@
   "edicion": 1,
   "impacto": 7,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n181.jpg"
+  "imagen_compartir": "img/compartir/n181-c19e4c07.jpg"
  },
  {
   "id": 221,
@@ -1592,7 +1592,7 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T17:17:00",
-  "imagen": "img/noticias/n221.jpg",
+  "imagen": "img/noticias/n221-1af4672e.jpg",
   "foco": "46% 44%",
   "pie": "Entregan pistas y veredas nuevas en Tahuantinsuyo",
   "credito": "",
@@ -1603,7 +1603,7 @@
   "edicion": 1,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n221.jpg"
+  "imagen_compartir": "img/compartir/n221-f8172191.jpg"
  },
  {
   "id": 180,
@@ -1627,7 +1627,7 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T17:10:00",
-  "imagen": "img/noticias/n180.jpg",
+  "imagen": "img/noticias/n180-6406dfd5.jpg",
   "foco": "51% 38%",
   "pie": "Maraví alerta que protestas podrían tratarse como terrorismo",
   "credito": "",
@@ -1638,7 +1638,7 @@
   "edicion": 1,
   "impacto": 7,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n180.jpg"
+  "imagen_compartir": "img/compartir/n180-7c43dd89.jpg"
  },
  {
   "id": 178,
@@ -1662,7 +1662,7 @@
   "seccion": "salud",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T17:06:00",
-  "imagen": "img/noticias/n178.jpg",
+  "imagen": "img/noticias/n178-b3b9518c.jpg",
   "foco": "26% 25%",
   "pie": "Ñuñoa ofrece atención médica gratuita en ocho especialidades",
   "credito": "",
@@ -1673,7 +1673,7 @@
   "edicion": 1,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n178.jpg"
+  "imagen_compartir": "img/compartir/n178-9e93256a.jpg"
  },
  {
   "id": 176,
@@ -1696,8 +1696,8 @@
   "seccion": "seguridad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T16:37:00",
-  "imagen": "img/noticias/n176.jpg",
-  "foco": "40% 12%",
+  "imagen": null,
+  "foco": null,
   "pie": "Intervienen en Ica a venezolano que retó a Migraciones",
   "credito": "",
   "medios": [],
@@ -1707,7 +1707,7 @@
   "edicion": 1,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n176.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 177,
@@ -1737,7 +1737,7 @@
   "seccion": "sociedad",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-06T16:37:00",
-  "imagen": "img/noticias/n177.jpg",
+  "imagen": "img/noticias/n177-321025a8.jpg",
   "foco": "53% 33%",
   "pie": "Piden ocho juzgados contra la violencia familiar en Puno",
   "credito": "",
@@ -1748,7 +1748,7 @@
   "edicion": 1,
   "impacto": 7,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n177.jpg"
+  "imagen_compartir": "img/compartir/n177-cf3f69ba.jpg"
  },
  {
   "id": 175,
@@ -1818,7 +1818,7 @@
   "seccion": "sociedad",
   "ambito": "INTERNACIONAL",
   "fecha": "2026-11-06T16:09:00",
-  "imagen": "img/noticias/n174.jpg",
+  "imagen": "img/noticias/n174-d0ea77f8.jpg",
   "foco": "53% 25%",
   "pie": "León XIV llega a Uruguay e inicia su gira rumbo al Perú",
   "credito": "",
@@ -1829,7 +1829,7 @@
   "edicion": 1,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n174.jpg"
+  "imagen_compartir": "img/compartir/n174-19f7be3f.jpg"
  },
  {
   "id": 173,
@@ -1889,7 +1889,7 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T15:39:00",
-  "imagen": "img/noticias/n171.jpg",
+  "imagen": "img/noticias/n171-6da7dccd.jpg",
   "foco": "50% 38%",
   "pie": "Túnel Ollachea gana premio de oro internacional y suma un récord Guinness",
   "credito": "",
@@ -1900,7 +1900,7 @@
   "edicion": 1,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n171.jpg"
+  "imagen_compartir": "img/compartir/n171-45211a53.jpg"
  },
  {
   "id": 170,
@@ -1922,7 +1922,7 @@
   "seccion": "ambiente",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T15:20:00",
-  "imagen": "img/noticias/n170.jpg",
+  "imagen": "img/noticias/n170-b4110bd3.jpg",
   "foco": "54% 42%",
   "pie": "OTASS destina S/ 1.5 millones a Tumbes",
   "credito": "",
@@ -1933,7 +1933,7 @@
   "edicion": 1,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n170.jpg"
+  "imagen_compartir": "img/compartir/n170-118491cf.jpg"
  },
  {
   "id": 168,
@@ -1960,7 +1960,7 @@
   "seccion": "sociedad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T15:09:00",
-  "imagen": "img/noticias/n168.jpg",
+  "imagen": "img/noticias/n168-a4b6bc31.jpg",
   "foco": "56% 38%",
   "pie": "Testamento por escritura pública evita conflictos familiares por herencias",
   "credito": "",
@@ -1971,7 +1971,7 @@
   "edicion": 1,
   "impacto": 2,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n168.jpg"
+  "imagen_compartir": "img/compartir/n168-9afbcbff.jpg"
  },
  {
   "id": 164,
@@ -1994,7 +1994,7 @@
   "seccion": "cultura",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T14:27:00",
-  "imagen": "img/noticias/n164.jpg",
+  "imagen": "img/noticias/n164-487b9699.jpg",
   "foco": "49% 32%",
   "pie": "Doña Bertha vende hasta 1,000 platos de picante",
   "credito": "",
@@ -2005,7 +2005,7 @@
   "edicion": 2,
   "impacto": 2,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n164.jpg"
+  "imagen_compartir": "img/compartir/n164-dc5328b4.jpg"
  },
  {
   "id": 214,
@@ -2039,6 +2039,6 @@
   "edicion": 2,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n214.jpg"
+  "imagen_compartir": "img/compartir/n214-f026dd34.jpg"
  }
 ]
