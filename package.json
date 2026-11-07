@@ -6,7 +6,7 @@
   "description": "Frontend del diario digital Altiplano al Día — noticias de Puno y la región",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/paginas-sociales.mjs",
     "preview": "vite preview --host --port 4173",
     "datos": "py -3.12 scripts/exportar_noticias.py",
     "logo": "py -3.12 scripts/logo/construir_logo.py"
