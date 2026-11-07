@@ -40,7 +40,8 @@ for (const nota of [...deHoy, ...archivadas]) {
   const e = ediciones[nota.id]
   if (e?.oculta) continue
   notas.push(e ? { ...nota, ...(e.titular ? { titular: e.titular } : {}), ...(e.bajada !== undefined ? { bajada: e.bajada } : {}),
-    ...(e.cuerpo?.length ? { cuerpo: e.cuerpo } : {}) } : nota)
+    ...(e.cuerpo?.length ? { cuerpo: e.cuerpo } : {}),
+    ...(e.imagen !== undefined ? { imagen: e.imagen, imagen_compartir: e.imagen } : {}) } : nota)
 }
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')

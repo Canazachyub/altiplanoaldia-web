@@ -21,8 +21,10 @@ const H_HOY = 'Hoy'
 const H_EDICIONES = 'Ediciones'
 const H_USUARIOS = 'Usuarios'
 const H_REGISTRO = 'Registro'
-const COLS_NOTA = ['id', 'dia', 'fecha', 'seccion', 'antetitulo', 'titular', 'bajada', 'cuerpo', 'lugar', 'imagen', 'slug']
-const COLS_EDICION = ['id', 'dia', 'antetitulo', 'titular', 'bajada', 'cuerpo', 'seccion', 'oculta', 'usuario', 'fecha']
+const COLS_NOTA = ['id', 'dia', 'fecha', 'seccion', 'antetitulo', 'titular', 'bajada', 'cuerpo', 'lugar', 'imagen', 'slug', 'foto_drive']
+const COLS_EDICION = ['id', 'dia', 'antetitulo', 'titular', 'bajada', 'cuerpo', 'seccion', 'oculta', 'usuario', 'fecha', 'foto']
+const CARPETA_FOTOS = 'Altiplano al Día — Fotos'
+const FOTO_MAX_BYTES = 8 * 1024 * 1024
 const COLS_USUARIO = ['usuario', 'nombre', 'rol', 'sal', 'hash', 'activo', 'creado', 'ultimo_ingreso']
 const COLS_REGISTRO = ['fecha', 'usuario', 'accion', 'id', 'detalle']
 const SESION_SEG = 6 * 60 * 60
@@ -48,6 +50,7 @@ function inicializar() {
   hoja_(H_REGISTRO, COLS_REGISTRO)
   const props = PropertiesService.getScriptProperties()
   if (!props.getProperty('API_CLAVE')) props.setProperty('API_CLAVE', aleatorio_(32))
+  carpeta_()
   let aviso = 'Hojas listas.'
   if (us.getLastRow() < 2) {
     const clave = aleatorio_(12)
@@ -75,6 +78,15 @@ function restablecerAdmin() {
 function doGet(e) {
   const accion = (e && e.parameter && e.parameter.accion) || ''
   if (accion === 'ediciones') return json_(edicionesPublicas_())
+  // Foto de una edición (la baja la compilación del sitio): solo archivos de la carpeta de fotos.
+  if (accion === 'foto') {
+    try {
+      const f = fotoDeCarpeta_(e.parameter.id)
+      return json_({ ok: true, tipo: f.getMimeType(), b64: Utilities.base64Encode(f.getBlob().getBytes()) })
+    } catch (err) {
+      return json_({ ok: false, error: String((err && err.message) || err) })
+    }
+  }
   return json_({ ok: true, servicio: 'Altiplano al Día' })
 }
 
@@ -89,6 +101,7 @@ function doPost(e) {
     const acciones = {
       publicar: publicar_, login: login_, salir: salir_, dias: dias_, notas: notas_, editar: editar_,
       restaurar: restaurar_, usuarios: usuarios_, guardar_usuario: guardarUsuario_, cambiar_clave: cambiarClave_,
+      fotos_faltan: fotosFaltan_, subir_foto: subirFotoApi_, subir_foto_edicion: subirFotoEdicion_,
     }
     const f = acciones[d.accion]
     if (!f) return json_({ ok: false, error: 'Acción desconocida.' })
@@ -99,13 +112,20 @@ function doPost(e) {
 }
 
 // ------------------------------------------------------------------ maquetador → Sheets
-function publicar_(d) {
+function claveApi_(d) {
   const clave = PropertiesService.getScriptProperties().getProperty('API_CLAVE')
   if (!clave || d.clave !== clave) throw new Error('Clave API incorrecta.')
+}
+
+function publicar_(d) {
+  claveApi_(d)
   if (!DIA.test(d.dia || '')) throw new Error('Día inválido.')
+  const enDrive = urlsFotos_()
   const filas = (d.notas || []).map(function (n) {
+    const nombre = String(n.imagen || '').split('/').pop()
     return [n.id, d.dia, seguro_(n.fecha), seguro_(n.seccion), seguro_(n.antetitulo), seguro_(n.titular), seguro_(n.bajada),
-      seguro_((n.cuerpo || []).join('\n\n').slice(0, 49000)), seguro_(n.lugar), seguro_(n.imagen), seguro_(n.slug)]
+      seguro_((n.cuerpo || []).join('\n\n').slice(0, 49000)), seguro_(n.lugar), seguro_(n.imagen), seguro_(n.slug),
+      (nombre && enDrive[nombre]) || '']
   })
   const lock = LockService.getScriptLock()
   lock.waitLock(30000)
@@ -117,6 +137,79 @@ function publicar_(d) {
     lock.releaseLock()
   }
   return { notas: filas.length, dia: d.dia }
+}
+
+// ------------------------------------------------------------------ fotos en Drive
+function carpeta_() {
+  const props = PropertiesService.getScriptProperties()
+  const id = props.getProperty('CARPETA_FOTOS')
+  if (id) {
+    try {
+      return DriveApp.getFolderById(id)
+    } catch (e) { /* la borraron: se crea otra */ }
+  }
+  const c = DriveApp.createFolder(CARPETA_FOTOS)
+  props.setProperty('CARPETA_FOTOS', c.getId())
+  return c
+}
+
+/** {nombre de archivo: url} de las fotos ya guardadas (se guarda en caché unos minutos). */
+function urlsFotos_() {
+  const cache = CacheService.getScriptCache()
+  const c = cache.get('fotos_drive')
+  if (c) return JSON.parse(c)
+  const out = {}
+  const it = carpeta_().getFiles()
+  while (it.hasNext()) {
+    const f = it.next()
+    out[f.getName()] = f.getUrl()
+  }
+  const s = JSON.stringify(out)
+  if (s.length < 90000) cache.put('fotos_drive', s, 600)
+  return out
+}
+
+/** El maquetador pregunta qué fotos faltan en Drive (por nombre: n<id>-<huella>.jpg). */
+function fotosFaltan_(d) {
+  claveApi_(d)
+  const hay = urlsFotos_()
+  return { faltan: (d.nombres || []).filter(function (n) { return !hay[n] }) }
+}
+
+function guardarFoto_(nombre, b64, tipo) {
+  const bytes = Utilities.base64Decode(b64)
+  if (bytes.length > FOTO_MAX_BYTES) throw new Error('La foto pesa demasiado (máx. 8 MB).')
+  if (!/^image\/(jpeg|png|webp)$/.test(tipo || '')) throw new Error('Formato de foto no admitido (JPG, PNG o WEBP).')
+  const f = carpeta_().createFile(Utilities.newBlob(bytes, tipo, nombre))
+  CacheService.getScriptCache().remove('fotos_drive')
+  return f
+}
+
+function subirFotoApi_(d) {
+  claveApi_(d)
+  const nombre = String(d.nombre || '')
+  if (!/^[a-z0-9._-]+\.(jpg|jpeg|png|webp)$/i.test(nombre)) throw new Error('Nombre de foto inválido.')
+  if (urlsFotos_()[nombre]) return { url: urlsFotos_()[nombre] }
+  return { url: guardarFoto_(nombre, d.b64, d.tipo || 'image/jpeg').getUrl() }
+}
+
+/** Foto nueva para una nota, subida por un editor desde el panel. */
+function subirFotoEdicion_(d) {
+  const u = sesion_(d)
+  const id = Number(d.id)
+  if (!id) throw new Error('Nota inválida.')
+  const ext = d.tipo === 'image/png' ? 'png' : d.tipo === 'image/webp' ? 'webp' : 'jpg'
+  const f = guardarFoto_('ed-' + id + '-' + Date.now() + '.' + ext, d.b64, d.tipo)
+  registrar_(u.usuario, 'subir_foto', id, f.getName())
+  return { foto: f.getId() }
+}
+
+function fotoDeCarpeta_(id) {
+  const f = DriveApp.getFileById(String(id || ''))
+  const padres = f.getParents()
+  const carpeta = carpeta_().getId()
+  while (padres.hasNext()) if (padres.next().getId() === carpeta) return f
+  throw new Error('Foto no encontrada.')
 }
 
 // ------------------------------------------------------------------ sesión
@@ -173,8 +266,9 @@ function notas_(d) {
     return {
       id: Number(n.id), dia: d.dia, fecha: texto_(n.fecha), seccion: n.seccion, slug: n.slug, imagen: n.imagen, lugar: n.lugar,
       original: { antetitulo: n.antetitulo, titular: n.titular, bajada: n.bajada, cuerpo: n.cuerpo },
+      foto_drive: n.foto_drive || '',
       edicion: e ? { antetitulo: e.antetitulo, titular: e.titular, bajada: e.bajada, cuerpo: e.cuerpo, seccion: e.seccion,
-        oculta: e.oculta === true || e.oculta === 'TRUE', usuario: e.usuario, fecha: texto_(e.fecha) } : null,
+        oculta: e.oculta === true || e.oculta === 'TRUE', usuario: e.usuario, fecha: texto_(e.fecha), foto: e.foto || '' } : null,
     }
   })
   return { notas: notas }
@@ -186,7 +280,8 @@ function editar_(d) {
   const id = Number(d.id)
   if (!id) throw new Error('Nota inválida.')
   const fila = [id, d.dia || '', limpio_(c.antetitulo, 200), limpio_(c.titular, 300), limpio_(c.bajada, 600),
-    limpio_(c.cuerpo, 49000), limpio_(c.seccion, 40), c.oculta === true, u.usuario, new Date()]
+    limpio_(c.cuerpo, 49000), limpio_(c.seccion, 40), c.oculta === true, u.usuario, new Date(),
+    /^[A-Za-z0-9_-]{10,}$|^ninguna$/.test(c.foto || '') ? c.foto : '']
   if (!fila[3] && !fila[7]) throw new Error('El titular no puede quedar vacío.')
   const lock = LockService.getScriptLock()
   lock.waitLock(30000)
@@ -229,6 +324,7 @@ function edicionesPublicas_() {
     if (e.cuerpo) o.cuerpo = String(e.cuerpo).split(/\n\s*\n/).map(function (p) { return p.trim() }).filter(String)
     if (e.seccion) o.seccion = String(e.seccion)
     if (e.oculta === true || e.oculta === 'TRUE') o.oculta = true
+    if (e.foto) o.foto = String(e.foto)          // id de Drive, o «ninguna» para quitar la foto
     out[id] = o
   })
   cache.put('ediciones', JSON.stringify(out), 120)

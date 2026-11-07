@@ -38,17 +38,17 @@ jobs:
         env:
           SHEETS_API: ${{ vars.SHEETS_API }}
         run: |
-          echo '{}' > public/data/ediciones.json
+          echo '{}' > public/data/ediciones-fuente.json
           if [ -n "$SHEETS_API" ]; then
             if curl -fsSL --max-time 60 "$SHEETS_API?accion=ediciones" -o /tmp/ed.json && jq -e 'type == "object" and (has("ok") | not)' /tmp/ed.json > /dev/null; then
-              jq -S . /tmp/ed.json > public/data/ediciones.json
+              jq -S . /tmp/ed.json > public/data/ediciones-fuente.json
             else
               echo "::warning::No se pudieron bajar las ediciones del panel; la web sale sin ellas."
             fi
           fi
           if [ "${{ github.event_name }}" = "schedule" ]; then
-            curl -fsSL --max-time 30 "https://altiplanoaldia.pe/data/ediciones.json?t=$(date +%s)" -o /tmp/vivo.json || echo '' > /tmp/vivo.json
-            if jq -S . /tmp/vivo.json 2>/dev/null | cmp -s - public/data/ediciones.json; then
+            curl -fsSL --max-time 30 "https://altiplanoaldia.pe/data/ediciones-fuente.json?t=$(date +%s)" -o /tmp/vivo.json || echo '' > /tmp/vivo.json
+            if jq -S . /tmp/vivo.json 2>/dev/null | cmp -s - public/data/ediciones-fuente.json; then
               echo "Sin ediciones nuevas: no se recompila."
               echo "sin_cambios=1" >> "$GITHUB_OUTPUT"
             fi
@@ -61,6 +61,11 @@ jobs:
           cache: npm
       - if: steps.ediciones.outputs.sin_cambios != '1'
         run: npm ci
+      # Fotos que cambiaron los editores: se bajan de Drive (vía Apps Script) y se sirven desde el sitio.
+      - if: steps.ediciones.outputs.sin_cambios != '1'
+        run: node scripts/fotos-ediciones.mjs
+        env:
+          SHEETS_API: ${{ vars.SHEETS_API }}
       - if: steps.ediciones.outputs.sin_cambios != '1'
         run: npm run build
         env:

@@ -20,8 +20,9 @@ interface NotaPanel {
   slug: string
   imagen: string
   lugar: string
+  foto_drive: string
   original: Texto
-  edicion: (Texto & { seccion: string; oculta: boolean; usuario: string; fecha: string }) | null
+  edicion: (Texto & { seccion: string; oculta: boolean; usuario: string; fecha: string; foto: string }) | null
 }
 interface Usuario { usuario: string; nombre: string; rol: 'admin' | 'editor'; activo: boolean; ultimo_ingreso: string }
 
@@ -261,8 +262,79 @@ function Notas({ llamar }: { llamar: Llamar }) {
   )
 }
 
+/** Achica la foto en el navegador (lado mayor 1600 px, JPEG) antes de subirla a Drive. */
+async function prepararFoto(archivo: File): Promise<{ b64: string; vista: string }> {
+  const url = URL.createObjectURL(archivo)
+  try {
+    const img = await new Promise<HTMLImageElement>((ok, mal) => {
+      const i = new Image()
+      i.onload = () => ok(i)
+      i.onerror = () => mal(new Error('No se pudo leer la imagen.'))
+      i.src = url
+    })
+    const k = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight))
+    const c = document.createElement('canvas')
+    c.width = Math.round(img.naturalWidth * k)
+    c.height = Math.round(img.naturalHeight * k)
+    c.getContext('2d')!.drawImage(img, 0, 0, c.width, c.height)
+    const vista = c.toDataURL('image/jpeg', 0.88)
+    return { b64: vista.split(',')[1], vista }
+  } finally {
+    URL.revokeObjectURL(url)
+  }
+}
+
+function Foto({ nota, foto, alCambiar, llamar }: { nota: NotaPanel; foto: string; alCambiar: (f: string) => void; llamar: Llamar }) {
+  const [vista, setVista] = useState('')
+  const [estado, setEstado] = useState('')
+  const [error, setError] = useState('')
+  const actual = foto === 'ninguna' ? '' : vista || (!foto && nota.imagen ? `/${nota.imagen}` : '')
+  return (
+    <fieldset className="adm-foto">
+      <legend>Foto</legend>
+      {actual ? (
+        <img src={actual} alt="Foto de la nota" />
+      ) : (
+        <p className="adm-nota">{foto === 'ninguna' ? 'La nota irá sin foto.' : foto ? 'Foto nueva guardada en Drive.' : 'Esta nota no tiene foto.'}</p>
+      )}
+      <p className="adm-nota">Solo fotos: sin titulares, logos, marcas de agua ni capturas. Se guarda en Drive.</p>
+      {error && <p className="adm-error" role="alert">{error}</p>}
+      <div className="adm-acciones">
+        <label className="adm-boton-archivo">
+          {estado || 'Cambiar foto'}
+          <input
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            disabled={!!estado}
+            onChange={async (e) => {
+              const f = e.target.files?.[0]
+              e.target.value = ''
+              if (!f) return
+              setError('')
+              setEstado('Subiendo a Drive…')
+              try {
+                const p = await prepararFoto(f)
+                const r = await llamar<{ foto: string }>('subir_foto_edicion', { id: nota.id, tipo: 'image/jpeg', b64: p.b64 })
+                setVista(p.vista)
+                alCambiar(r.foto)
+              } catch (x) {
+                setError((x as Error).message)
+              } finally {
+                setEstado('')
+              }
+            }}
+          />
+        </label>
+        {foto !== 'ninguna' && <button type="button" onClick={() => { setVista(''); alCambiar('ninguna') }}>Quitar foto</button>}
+        {foto && <button type="button" onClick={() => { setVista(''); alCambiar('') }}>Usar la foto original</button>}
+        {nota.foto_drive && <a href={nota.foto_drive} target="_blank" rel="noopener">Original en Drive ↗</a>}
+      </div>
+    </fieldset>
+  )
+}
+
 function Editor({ nota, llamar, alCerrar }: { nota: NotaPanel; llamar: Llamar; alCerrar: (cambio: boolean) => void }) {
-  const base = nota.edicion ?? { ...nota.original, seccion: '', oculta: false }
+  const base = nota.edicion ?? { ...nota.original, seccion: '', oculta: false, foto: '' }
   const [t, setT] = useState({
     antetitulo: base.antetitulo || nota.original.antetitulo,
     titular: base.titular || nota.original.titular,
@@ -270,6 +342,7 @@ function Editor({ nota, llamar, alCerrar }: { nota: NotaPanel; llamar: Llamar; a
     cuerpo: base.cuerpo || nota.original.cuerpo,
     seccion: base.seccion || nota.seccion,
     oculta: !!base.oculta,
+    foto: base.foto || '',
   })
   const [estado, setEstado] = useState('')
   const [error, setError] = useState('')
@@ -305,6 +378,7 @@ function Editor({ nota, llamar, alCerrar }: { nota: NotaPanel; llamar: Llamar; a
       {nota.edicion && (
         <p className="adm-nota">Última edición: {nota.edicion.usuario}, {nota.edicion.fecha.replace('T', ' ').slice(0, 16)}.</p>
       )}
+      <Foto nota={nota} foto={t.foto} llamar={llamar} alCambiar={(foto) => setT({ ...t, foto })} />
       <label>Antetítulo<input value={t.antetitulo} onChange={campo('antetitulo')} maxLength={200} /></label>
       <label>Titular<textarea value={t.titular} onChange={campo('titular')} rows={2} maxLength={300} required /></label>
       <label>Bajada<textarea value={t.bajada} onChange={campo('bajada')} rows={3} maxLength={600} /></label>

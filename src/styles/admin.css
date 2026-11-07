@@ -59,3 +59,14 @@
   .adm-tabla tr { display: grid; grid-template-columns: 1fr auto; padding: 8px 0; border-bottom: 1px solid var(--linea); }
   .adm-tabla td { border: 0; padding: 2px 0; }
 }
+
+.adm-foto { display: grid; gap: 10px; margin: 0; padding: 12px; border: 1px solid var(--linea); border-radius: var(--radio); }
+.adm-foto legend { padding: 0 6px; font: 600 14px/1 var(--f-ante); color: var(--tinta-suave); }
+.adm-foto img { width: 100%; max-height: 360px; object-fit: contain; background: var(--linea); border-radius: 3px; }
+.adm-foto a { align-self: center; color: var(--enlace); font: 600 14px/1 var(--f-ante); }
+.adm .adm-boton-archivo {
+  display: inline-flex; align-items: center; padding: 10px 16px; border: 1px solid var(--azul); border-radius: var(--radio);
+  background: var(--azul); color: #fff; font: 600 14px/1 var(--f-ante); cursor: pointer;
+}
+.adm-boton-archivo input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.adm-boton-archivo:focus-within { outline: 2px solid var(--tinta); outline-offset: 2px; }

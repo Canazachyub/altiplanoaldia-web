@@ -58,6 +58,8 @@ export interface Edicion {
   cuerpo?: string[]
   seccion?: string
   oculta?: boolean
+  /** Foto puesta por un editor (bajada de Drive al compilar); null = la nota va sin foto. */
+  imagen?: string | null
 }
 
 let edicionesP: Promise<Record<string, Edicion>> | null = null
@@ -84,6 +86,7 @@ export function aplicarEdiciones(notas: Nota[], ed: Record<string, Edicion>): No
         ...(e.antetitulo !== undefined ? { antetitulo: e.antetitulo } : {}),
         ...(e.cuerpo?.length ? { cuerpo: e.cuerpo } : {}),
         ...(s ? { seccion: s.clave, tema: s.tema } : {}),
+        ...(e.imagen !== undefined ? { imagen: e.imagen, foco: null, imagen_compartir: e.imagen } : {}),
       }
     })
 }
