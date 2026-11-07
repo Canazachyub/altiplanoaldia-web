@@ -1,0 +1,31 @@
+/* Imágenes grandes en la portada: la foto ocupa el mismo ancho que la redacción de su nota
+   (foto arriba, titular debajo), como el bloque principal de cada sección de La República.
+   Va después de tipografia-lr.css para mandar sobre los estilos anteriores. */
+
+/* Apertura: foto a todo el ancho de la columna, titular y bajada debajo. */
+.lr-apertura .lr-t--apertura { display: flex; flex-direction: column; gap: var(--s4); }
+.lr-apertura .lr-t--apertura .lr-t__media { order: 0; width: 100%; }
+.lr-apertura .lr-t--apertura .img-nota,
+.lr-apertura .lr-t--apertura .ilus-marca { aspect-ratio: 16 / 9; width: 100%; }
+.lr-apertura .lr-t--apertura .img-nota img { width: 100%; height: 100%; object-fit: cover; }
+.lr-apertura .lr-t--apertura .lr-t__titular { font-size: 34px; line-height: 40px; }
+
+/* Las dos secundarias bajo la apertura: foto arriba del ancho de su columna, titular debajo. */
+.lr-filas2 .lr-t--izq { display: flex; flex-direction: column; gap: var(--s3); }
+.lr-filas2 .lr-t--izq .lr-t__media { width: 100%; }
+.lr-filas2 .lr-t--izq .img-nota,
+.lr-filas2 .lr-t--izq .ilus-marca { aspect-ratio: 16 / 9; width: 100%; }
+.lr-filas2 .lr-t--izq .img-nota img { width: 100%; height: 100%; object-fit: cover; }
+.lr-filas2 .lr-t--izq .lr-t__titular { font-size: 21px; line-height: 27px; }
+
+/* Miniaturas de las filas: más grandes para que la foto se lea. */
+.lr-t--fila { --lr-thumb: 120px; }
+.lr-grid2x2 .lr-t--fila, .lr-lista .lr-t--fila { --lr-thumb: 150px; }
+.lr-rail .lr-t--fila { --lr-thumb: 100px; }
+
+@media (max-width: 640px) {
+  .lr-apertura .lr-t--apertura .lr-t__titular { font-size: 25px; line-height: 31px; }
+  .lr-filas2 .lr-t--izq .lr-t__titular { font-size: 19px; line-height: 25px; }
+  .lr-t--fila, .lr-rail .lr-t--fila { --lr-thumb: 104px; }
+  .lr-grid2x2 .lr-t--fila, .lr-lista .lr-t--fila { --lr-thumb: 112px; }
+}

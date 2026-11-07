@@ -8,6 +8,7 @@ import './styles/mejoras.css'
 import './styles/portada-lr.css'
 import './styles/interiores-lr.css'
 import './styles/tipografia-lr.css'
+import './styles/imagenes-grandes.css'
 
 // Lectura sin conexión (solo en producción, para no interferir con la recarga en caliente de Vite)
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
