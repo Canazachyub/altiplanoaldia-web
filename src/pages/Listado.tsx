@@ -191,7 +191,7 @@ export function LoUltimo() {
             >
               <option value="">Lo último (todos los días)</option>
               {diasArchivo.map((d) => (
-                <option key={d.dia} value={d.dia}>{nombreDia(d.dia)} ({d.n})</option>
+                <option key={d.dia} value={d.dia}>{nombreDia(d.dia).replace(/^./, (c) => c.toUpperCase())} ({d.n})</option>
               ))}
             </select>
           </div>

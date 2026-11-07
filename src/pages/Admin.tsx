@@ -220,7 +220,7 @@ function Notas({ llamar }: { llamar: Llamar }) {
         <label>
           Día
           <select value={dia} onChange={(e) => setDia(e.target.value)} disabled={!dias}>
-            {(dias ?? []).map((d) => <option key={d} value={d}>{nombreDia(d)}</option>)}
+            {(dias ?? []).map((d) => <option key={d} value={d}>{nombreDia(d).replace(/^./, (c) => c.toUpperCase())}</option>)}
           </select>
         </label>
         <label>

@@ -269,7 +269,7 @@
 .lri-archivo label { font: 700 13px/1 var(--f-ante); text-transform: uppercase; letter-spacing: .05em; color: var(--tinta-suave); }
 .lri-archivo select {
   min-width: 0; max-width: 100%; padding: 10px 12px; border: 1px solid var(--linea); border-radius: var(--radio);
-  background: var(--papel); color: var(--tinta); font: 500 15px/1.2 var(--f-meta); text-transform: capitalize;
+  background: var(--papel); color: var(--tinta); font: 500 15px/1.2 var(--f-meta);
 }
 .lri-boton--secundario { text-transform: none; letter-spacing: 0; }
 .lri-boton:disabled { opacity: .6; cursor: wait; }
