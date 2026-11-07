@@ -27,8 +27,8 @@
   "seccion": "politica",
   "ambito": "LOCAL",
   "fecha": "2026-11-07T06:37:00",
-  "imagen": null,
-  "foco": null,
+  "imagen": "img/noticias/n255-14f37227.jpg",
+  "foco": "50% 38%",
   "pie": "Denuncian presunta licitación amañada de tractores en Coata",
   "credito": "",
   "medios": [],
@@ -38,7 +38,7 @@
   "edicion": 2,
   "impacto": 9,
   "fijada": false,
-  "imagen_compartir": null
+  "imagen_compartir": "img/compartir/n255-0c45b327.jpg"
  },
  {
   "id": 132,
@@ -809,8 +809,8 @@
   "seccion": "seguridad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T20:07:00",
-  "imagen": null,
-  "foco": null,
+  "imagen": "img/noticias/n216-d3a3efb8.jpg",
+  "foco": "50% 38%",
   "pie": "PNP captura en Ananea a presunto autor de homicidio de teniente auxiliar",
   "credito": "",
   "medios": [],
@@ -820,7 +820,7 @@
   "edicion": 1,
   "impacto": 10,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n216-5d3d17c5.jpg"
+  "imagen_compartir": "img/compartir/n216-d99ed973.jpg"
  },
  {
   "id": 231,
@@ -1063,8 +1063,8 @@
   "seccion": "cultura",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-06T18:26:00",
-  "imagen": null,
-  "foco": null,
+  "imagen": "img/noticias/n226-b07eec8a.jpg",
+  "foco": "50% 90%",
   "pie": "Rector de la UNA Puno recibe a estudiantina de Macusani",
   "credito": "",
   "medios": [],
@@ -1074,7 +1074,7 @@
   "edicion": 1,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n226-2941859c.jpg"
+  "imagen_compartir": "img/compartir/n226-fcf2a0ec.jpg"
  },
  {
   "id": 199,
@@ -2028,8 +2028,8 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-06T07:52:00",
-  "imagen": null,
-  "foco": null,
+  "imagen": "img/noticias/n214-cb73b018.jpg",
+  "foco": "50% 38%",
   "pie": "Dos niños lloran junto a su perrito atropellado",
   "credito": "",
   "medios": [],
@@ -2039,6 +2039,6 @@
   "edicion": 2,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n214-f026dd34.jpg"
+  "imagen_compartir": "img/compartir/n214-b7d6cd02.jpg"
  }
 ]
