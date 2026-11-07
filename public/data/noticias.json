@@ -145,9 +145,9 @@
   "seccion": "deportes",
   "ambito": "NACIONAL",
   "fecha": "2026-11-07T06:19:00",
-  "imagen": null,
-  "foco": null,
-  "pie": "Fiscalía abre carpeta contra la FPF y la CONAR",
+  "imagen": "img/noticias/n253-57fb7c86.jpg",
+  "foco": "77% 34%",
+  "pie": "Fiscalía abre carpeta contra la FPF y la CONAR (Foto referencial)",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -156,7 +156,7 @@
   "edicion": 2,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": null
+  "imagen_compartir": "img/compartir/n253-e7b5f191.jpg"
  },
  {
   "id": 252,
@@ -239,22 +239,18 @@
  {
   "id": 251,
   "slug": "kjolle-sube-al-puesto-7-y-quintonil-lidera-latinoamerica",
-  "titular": "Kjolle sube al puesto 7 y Quintonil lidera Latinoamérica",
-  "bajada": "La gala se realizó por primera vez en el Teatro Municipal de Lima; Mérito y Mayta también figuran en el ranking.",
+  "titular": "Kjolle sube al puesto 7 y Quintonil lidera la región",
+  "bajada": "La gala se realizó por primera vez en Lima. Mérito y Mayta también figuran en el ranking mundial.",
   "antetitulo": "THE WORLD’S 50 BEST RESTAURANTS 2026 SE CELEBRÓ EN LIMA",
   "lugar": "Lima",
   "cuerpo": [
    "El restaurante peruano Kjolle, de la chef Pía León, subió del noveno al séptimo lugar en la lista The World’s 50 Best Restaurants 2026. El mexicano Quintonil se ubicó cuarto y fue reconocido como el mejor de América Latina.",
    "La gala se celebró el miércoles 4 de noviembre en el Teatro Municipal de Lima, la primera vez que el certamen se realiza en la capital peruana. España lidera la clasificación general.",
-   "## EL MEJOR DE LA REGIÓN",
-   "Quintonil, fundado en 2012 por Jorge Vallejo y Alejandra Flores en el barrio de Polanco, en Ciudad de México, escaló a la cuarta casilla. Su equipo culinario agradeció en redes sociales: “Quintonil ha crecido con las personas que lo han hecho suyo”.",
-   "## LA PROPUESTA DE KJOLLE",
-   "Kjolle, abierto en 2018 por Pía León tras su paso por Central, basa su propuesta en la investigación de ingredientes para reducir desperdicios. Entre sus platos destacados figura uno con ollucos amarillos y rojos, pasta de oca y base de cañihua.",
-   "Otros dos restaurantes peruanos figuran en el ranking: Mérito, en el puesto 13, y Mayta, en el 45. La presencia de Kjolle entre los diez primeros consolida a América Latina en la alta cocina mundial."
+   "Kjolle, abierto en 2018 por Pía León tras su paso por Central, basa su propuesta en la investigación de ingredientes para reducir desperdicios. Otros dos restaurantes peruanos figuran en el ranking: Mérito, en el puesto 13, y Mayta, en el 45."
   ],
   "datos": [
    "Kjolle subió del 9.º al 7.º puesto",
-   "Quintonil es el 4.º mejor restaurante del mundo y el 1.º de Latinoamérica",
+   "Quintonil es el 4.º del mundo y el 1.º de Latinoamérica",
    "La gala se realizó el miércoles 4 de noviembre en el Teatro Municipal de Lima",
    "Mérito ocupa el puesto 13 y Mayta el 45"
   ],
@@ -264,7 +260,7 @@
   "fecha": "2026-11-07T06:10:00",
   "imagen": "img/noticias/n251-0327c68a.jpg",
   "foco": "50% 38%",
-  "pie": "Kjolle sube al puesto 7 y Quintonil lidera Latinoamérica",
+  "pie": "Kjolle sube al puesto 7 y Quintonil lidera la región",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -273,7 +269,7 @@
   "edicion": 2,
   "impacto": 2,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n251-f6c9a82b.jpg"
+  "imagen_compartir": "img/compartir/n251-2be4c493.jpg"
  },
  {
   "id": 249,
@@ -317,13 +313,12 @@
   "slug": "pietro-sibille-vuelve-como-mandril-tras-superar-alcoholismo",
   "titular": "Pietro Sibille vuelve como Mandril tras vencer el alcohol",
   "bajada": "El actor retoma su personaje 20 años después en la película que llega a salas de todo el país el 12 de noviembre.",
-  "antetitulo": "‘LA GRAN SANGRE: OJO X OJO’ SE ESTRENA EL 12 DE NOVIEMBRE",
+  "antetitulo": "‘LA GRAN SANGRE: OJO X OJO’ LLEGA A SALAS EL 12 DE NOVIEMBRE",
   "lugar": "",
   "cuerpo": [
    "Pietro Sibille regresa a la pantalla grande como Mandril en ‘La gran sangre: Ojo x ojo’, que se estrena el 12 de noviembre a nivel nacional. El actor, que superó una adicción al alcohol de tres décadas, retoma su personaje 20 años después.",
    "“Fue un reto también, fue un desafío porque han pasado 20 años. Obviamente, soy más grande, pero a mí me cayó en el momento preciso”, declaró Sibille. Mandril es uno de los tres miembros fundadores del trío de justicieros urbanos que combaten el crimen al margen de la ley.",
-   "El actor contó que tuvo que volver a entrenar y prepararse mentalmente. Sobre su recuperación, señaló: “Si hubiese sido antes de mi recuperación, quizás no lo hubiese podido hacer”.",
-   "La película, dirigida por Jorge Carmona, cuenta con Milett Figueroa y Carlos Alcántara en el elenco. Sibille espera que tenga éxito en salas y que haya una segunda parte."
+   "Sobre su recuperación, señaló: “Si hubiese sido antes de mi recuperación, quizás no lo hubiese podido hacer”. La película, dirigida por Jorge Carmona, cuenta con Milett Figueroa y Carlos Alcántara en el elenco."
   ],
   "datos": [
    "Estreno: 12 de noviembre a nivel nacional",
@@ -1118,10 +1113,9 @@
   "antetitulo": "LA ORQUESTA DE CUMBIA DESPIDIÓ A SU TECLADISTA",
   "lugar": "",
   "cuerpo": [
-   "La agrupación de cumbia Puro Sentimiento, liderada por Christian Domínguez, anunció el fallecimiento de Samir Collantes, su joven director musical y tecladista. La noticia causó pesar entre quienes compartieron escenario y jornadas de trabajo con él.",
-   "La orquesta no detalló los motivos del sorpresivo deceso. “Hoy no solo perdemos a un extraordinario músico, perdemos a un hermano”, escribió el grupo en su mensaje, que también difundió La Gran Orquesta, la otra agrupación de Domínguez.",
-   "“Tu talento, tu amistad y tu amor por la música vivirán eternamente en cada uno de quienes tuvimos el privilegio de conocerte. Siempre seremos tu familia y tu música jamás dejará de sonar entre nosotros”, agregaron.",
-   "Christian Domínguez no se ha pronunciado públicamente sobre la muerte de Collantes. El jueves 5 de noviembre estuvo junto a los integrantes del grupo en ‘América hoy’, donde presentaron un tema inédito."
+   "La agrupación de cumbia Puro Sentimiento, liderada por Christian Domínguez, anunció el fallecimiento de Samir Collantes, su joven director musical y tecladista. La noticia causó pesar entre quienes compartieron escenario con él.",
+   "La orquesta no detalló los motivos del deceso. “Hoy no solo perdemos a un extraordinario músico, perdemos a un hermano”, escribió el grupo en un mensaje que también difundió La Gran Orquesta, la otra agrupación de Domínguez.",
+   "Christian Domínguez no se ha pronunciado públicamente sobre la muerte. El jueves 5 de noviembre estuvo junto a los integrantes del grupo en ‘América hoy’, donde presentaron un tema inédito."
   ],
   "datos": [
    "Samir Collantes era director musical y tecladista de Puro Sentimiento",
@@ -1199,9 +1193,9 @@
   "seccion": "seguridad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T18:16:44",
-  "imagen": null,
-  "foco": null,
-  "pie": "Perú implementa central de emergencias 911 para mejorar respuesta",
+  "imagen": "img/noticias/n197-5f1ebec0.jpg",
+  "foco": "67% 36%",
+  "pie": "Perú implementa central de emergencias 911 para mejorar respuesta (Foto referencial)",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1210,7 +1204,7 @@
   "edicion": 1,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": null
+  "imagen_compartir": "img/compartir/n197-1caf1fa6.jpg"
  },
  {
   "id": 141,
@@ -1308,9 +1302,9 @@
   "seccion": "cultura",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T18:03:00",
-  "imagen": null,
-  "foco": null,
-  "pie": "Cărtărescu destaca la literatura peruana en Arequipa",
+  "imagen": "img/noticias/n191-391db391.jpg",
+  "foco": "47% 46%",
+  "pie": "Cărtărescu destaca la literatura peruana en Arequipa (Foto referencial)",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1319,7 +1313,7 @@
   "edicion": 2,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": null
+  "imagen_compartir": "img/compartir/n191-92b7b8dc.jpg"
  },
  {
   "id": 187,
@@ -1377,9 +1371,9 @@
   "seccion": "sociedad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T18:00:00",
-  "imagen": null,
-  "foco": null,
-  "pie": "Analizan reformas del Papa y auge evangélico en el Perú",
+  "imagen": "img/noticias/n188-2b471280.jpg",
+  "foco": "74% 57%",
+  "pie": "Analizan reformas del Papa y auge evangélico en el Perú (Foto referencial)",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1388,7 +1382,7 @@
   "edicion": 2,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": null
+  "imagen_compartir": "img/compartir/n188-9bd2c0b8.jpg"
  },
  {
   "id": 224,
@@ -1696,9 +1690,9 @@
   "seccion": "seguridad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T16:37:00",
-  "imagen": null,
-  "foco": null,
-  "pie": "Intervienen en Ica a venezolano que retó a Migraciones",
+  "imagen": "img/noticias/n176-ba03bcca.jpg",
+  "foco": "43% 53%",
+  "pie": "Intervienen en Ica a venezolano que retó a Migraciones (Foto referencial)",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1707,7 +1701,7 @@
   "edicion": 1,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": null
+  "imagen_compartir": "img/compartir/n176-354359f4.jpg"
  },
  {
   "id": 177,
@@ -1778,9 +1772,9 @@
   "seccion": "deportes",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T16:11:00",
-  "imagen": null,
-  "foco": null,
-  "pie": "Perú convoca a Andy Polo y deja fuera a Carrillo y Tapia",
+  "imagen": "img/noticias/n175-8569598c.jpg",
+  "foco": "56% 46%",
+  "pie": "Perú convoca a Andy Polo y deja fuera a Carrillo y Tapia (Foto referencial)",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1789,7 +1783,7 @@
   "edicion": 1,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": null
+  "imagen_compartir": "img/compartir/n175-68c5ce80.jpg"
  },
  {
   "id": 174,
@@ -1850,9 +1844,9 @@
   "seccion": "deportes",
   "ambito": "NACIONAL",
   "fecha": "2026-11-06T16:00:00",
-  "imagen": null,
-  "foco": null,
-  "pie": "Alianza Lima va al Mundial de Clubes de Vóley sin refuerzos y con Avril Morán, de 16 años",
+  "imagen": "img/noticias/n173-2b6f0244.jpg",
+  "foco": "66% 79%",
+  "pie": "Alianza Lima va al Mundial de Clubes de Vóley sin refuerzos y con Avril Morán, de 16 años (Foto referencial)",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1861,7 +1855,7 @@
   "edicion": 1,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": null
+  "imagen_compartir": "img/compartir/n173-5c7c7670.jpg"
  },
  {
   "id": 171,
