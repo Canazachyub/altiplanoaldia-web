@@ -1,5 +1,5 @@
 // Bloques de portada: sección, más leídas, denuncia, boletín, compartir.
-import { useState, type CSSProperties } from 'react'
+import { useState, type CSSProperties, type MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { SITIO, enlaceWhatsApp, pub, seccionPorClave } from '../config/sitio'
 import type { Nota } from '../data/noticias'
@@ -95,26 +95,57 @@ export function CajaBoletin() {
   )
 }
 
-export function Compartir({ url, titulo, vertical = false }: { url: string; titulo: string; vertical?: boolean }) {
-  const [copiado, setCopiado] = useState(false)
-  const copiar = async () => {
+/** "#Seguridad", "#MedioAmbiente": nombre de sección como hashtag (conserva tildes, como hacen los medios). */
+const hashtag = (s: string) =>
+  '#' + s.split(/[\s/]+/).filter(Boolean).map((p) => p[0].toUpperCase() + p.slice(1)).join('').replace(/[^\p{L}\p{N}]/gu, '')
+
+/**
+ * Texto listo para publicar, al estilo de los medios regionales:
+ * "#AltiplanoAlDía #Seguridad #Puno | <bajada>\n➡️ Lee la nota aquí: <enlace>"
+ */
+export function textoCompartir(nota: Nota, url: string, seccion: string) {
+  const tags = [hashtag(SITIO.nombre), hashtag(seccion)]
+  const lugar = (nota.lugar ?? '').split(/[,–-]/)[0].trim()
+  if (lugar && lugar.length <= 20 && !tags.includes(hashtag(lugar))) tags.push(hashtag(lugar))
+  const resumen = nota.bajada || nota.titular
+  return `${tags.join(' ')} | ${resumen}\n➡️ Lee la nota aquí: ${url}`
+}
+
+export function Compartir({ url, titulo, texto, vertical = false }: { url: string; titulo: string; texto?: string; vertical?: boolean }) {
+  const [aviso, setAviso] = useState('')
+  const publicacion = texto ?? `${titulo}\n${url}`
+  const avisar = (m: string, ms = 2500) => {
+    setAviso(m)
+    setTimeout(() => setAviso(''), ms)
+  }
+  const copiarTexto = async () => {
     try {
-      await navigator.clipboard.writeText(url)
-      setCopiado(true)
-      setTimeout(() => setCopiado(false), 2000)
+      await navigator.clipboard.writeText(publicacion)
+      return true
     } catch {
-      /* portapapeles no disponible */
+      return false
     }
   }
+  const copiar = async () => {
+    if (await copiarTexto()) avisar('Publicación copiada: hashtags, resumen y enlace')
+  }
+  // Facebook no deja escribir el texto de la publicación desde fuera: lo copiamos y el usuario lo pega.
+  const facebook = async (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const ventana = window.open(e.currentTarget.href, 'compartir-fb', 'width=640,height=640')
+    if (await copiarTexto()) avisar('Texto copiado: pégalo en tu publicación (Ctrl+V o mantener presionado → Pegar)', 6000)
+    if (!ventana) window.location.href = e.currentTarget.href
+  }
   const u = encodeURIComponent(url)
-  const t = encodeURIComponent(titulo)
+  const etiqueta = encodeURIComponent(hashtag(SITIO.nombre))
+  const sinEnlace = publicacion.replace(/\n?➡️ Lee la nota aquí: .*$/, '')
   return (
     <div className={`compartir${vertical ? ' compartir--vertical' : ''}`} aria-label="Compartir esta nota" role="group">
-      <a className="compartir__btn compartir__btn--wa" href={`https://wa.me/?text=${t}%20${u}`} target="_blank" rel="noopener noreferrer" aria-label="Compartir en WhatsApp"><IcoWhatsapp size={18} /></a>
-      <a className="compartir__btn compartir__btn--fb" href={`https://www.facebook.com/sharer/sharer.php?u=${u}`} target="_blank" rel="noopener noreferrer" aria-label="Compartir en Facebook"><IcoFacebook size={18} /></a>
-      <a className="compartir__btn compartir__btn--x" href={`https://x.com/intent/post?text=${t}&url=${u}`} target="_blank" rel="noopener noreferrer" aria-label="Compartir en X"><IcoX size={16} /></a>
-      <button className="compartir__btn" onClick={copiar} aria-label="Copiar enlace"><IcoEnlace size={18} /></button>
-      <span className="compartir__aviso" role="status">{copiado ? 'Enlace copiado' : ''}</span>
+      <a className="compartir__btn compartir__btn--wa" href={`https://wa.me/?text=${encodeURIComponent(publicacion)}`} target="_blank" rel="noopener noreferrer" aria-label="Compartir en WhatsApp"><IcoWhatsapp size={18} /></a>
+      <a className="compartir__btn compartir__btn--fb" href={`https://www.facebook.com/sharer/sharer.php?u=${u}&hashtag=${etiqueta}`} onClick={facebook} target="_blank" rel="noopener noreferrer" aria-label="Compartir en Facebook (copia el texto listo para pegar)"><IcoFacebook size={18} /></a>
+      <a className="compartir__btn compartir__btn--x" href={`https://x.com/intent/post?text=${encodeURIComponent(sinEnlace.slice(0, 230))}&url=${u}`} target="_blank" rel="noopener noreferrer" aria-label="Compartir en X"><IcoX size={16} /></a>
+      <button className="compartir__btn" onClick={copiar} aria-label="Copiar publicación con enlace"><IcoEnlace size={18} /></button>
+      <span className="compartir__aviso" role="status">{aviso}</span>
     </div>
   )
 }

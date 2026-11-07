@@ -1,7 +1,7 @@
 // Página de nota con la disposición tipo La República: columna principal + columna derecha fija.
 import { Fragment, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { BannerDenuncia, Compartir } from '../components/Bloques'
+import { BannerDenuncia, Compartir, textoCompartir } from '../components/Bloques'
 import { BotonGuardar, BotonHistoria, DatosEstructurados, Escuchar, Esqueleto } from '../components/Extras'
 import { EtiquetasLR, MediaNotaLR, PaginaLR, PuedesVerLR, RailLR, RelacionadasLR, ResumenLR, SiguienteLR, fechaLR, resumenDe } from '../components/Interiores'
 import { ErrorCarga, varTema } from '../components/Piezas'
@@ -65,7 +65,9 @@ export default function Nota() {
 
   const s = seccionPorTema(nota.tema)
   const a = ambitoPorValor(nota.ambito)
-  const url = window.location.href
+  // Enlace limpio (sin ?fbclid ni #…) para compartir; el texto lleva hashtags, resumen y enlace.
+  const url = `${window.location.origin}/nota/${nota.slug}`
+  const publicacion = textoCompartir(nota, url, s.nombre)
   const idx = notas.indexOf(nota)
   const puntos = resumenDe(nota)
 
@@ -136,7 +138,7 @@ export default function Nota() {
                   <BotonGuardar nota={nota} />
                   <BotonHistoria nota={nota} />
                   {'share' in navigator && (
-                    <button className="btn-herramienta" onClick={() => navigator.share({ title: nota.titular, text: nota.bajada, url }).catch(() => {})}>
+                    <button className="btn-herramienta" onClick={() => navigator.share({ title: nota.titular, text: publicacion.replace(/\n?➡️ Lee la nota aquí: .*$/, ''), url }).catch(() => {})}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" /></svg>
                       Compartir
                     </button>
@@ -147,7 +149,7 @@ export default function Nota() {
                     <button onClick={() => setTam((t) => Math.max(0, t - 1))} disabled={tam === 0} aria-label="Reducir texto">A−</button>
                     <button onClick={() => setTam((t) => Math.min(TAMANOS.length - 1, t + 1))} disabled={tam === TAMANOS.length - 1} aria-label="Agrandar texto">A+</button>
                   </div>
-                  <Compartir url={url} titulo={nota.titular} />
+                  <Compartir url={url} titulo={nota.titular} texto={publicacion} />
                 </div>
               </div>
 
@@ -156,7 +158,7 @@ export default function Nota() {
               <div className="lri-nota__zona">
                 {/* Barra vertical de compartir, fija en el margen izquierdo (solo pantallas de 1280 px o más). */}
                 <div className="lri-nota__rail-compartir">
-                  <Compartir url={url} titulo={nota.titular} vertical />
+                  <Compartir url={url} titulo={nota.titular} texto={publicacion} vertical />
                 </div>
 
                 <div className="nota__cuerpo lri-nota__cuerpo" style={{ fontSize: TAMANOS[tam] }}>

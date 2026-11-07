@@ -28,6 +28,10 @@ export interface Nota {
   fijada?: boolean
   /** Impacto 1-10 que calcula el maquetador (muertos, heridos, crimen y corrupción pesan más); 0 = sin evaluar. */
   impacto?: number
+  /** Lugar del hecho ("Puno", "Juliaca"…); sirve de hashtag al compartir. */
+  lugar?: string
+  /** Tarjeta 1200×630 (foto + sección + titular) que muestran Facebook y WhatsApp al compartir. */
+  imagen_compartir?: string | null
 }
 
 export interface Boletin {

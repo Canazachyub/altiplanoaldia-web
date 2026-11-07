@@ -42,8 +42,10 @@ function pagina(n) {
   const url = `${SITIO}/nota/${n.slug}`
   const titulo = `${n.titular} | Altiplano al Día`
   const desc = corto(n.bajada || (n.cuerpo ?? []).find((p) => p && !p.startsWith('## ')) || '', 200)
-  const img = n.imagen ? `${SITIO}/${n.imagen.replace(/^\//, '')}` : `${SITIO}/brand/og-portada.jpg`
-  const tam = n.imagen ? medidas(join(DIST, n.imagen)) : { w: 1200, h: 630 }
+  // Preferimos la tarjeta de marca que arma el maquetador (foto + sección + titular, 1200×630).
+  const foto = n.imagen_compartir || n.imagen
+  const img = foto ? `${SITIO}/${foto.replace(/^\//, '')}` : `${SITIO}/brand/og-portada.jpg`
+  const tam = foto ? medidas(join(DIST, foto)) : { w: 1200, h: 630 }
   const meta = [
     `<meta property="og:site_name" content="Altiplano al Día" />`,
     `<meta property="og:locale" content="es_PE" />`,
