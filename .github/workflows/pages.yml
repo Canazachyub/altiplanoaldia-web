@@ -61,6 +61,9 @@ jobs:
           cache: npm
       - if: steps.ediciones.outputs.sin_cambios != '1'
         run: npm ci
+      # Pruebas del servidor del panel (Code.gs con Google simulado): si fallan, no se publica.
+      - if: steps.ediciones.outputs.sin_cambios != '1'
+        run: node apps-script/pruebas/pruebas.mjs
       # Fotos que cambiaron los editores: se bajan de Drive (vía Apps Script) y se sirven desde el sitio.
       - if: steps.ediciones.outputs.sin_cambios != '1'
         run: node scripts/fotos-ediciones.mjs

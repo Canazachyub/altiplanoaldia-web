@@ -5,3 +5,6 @@ scripts/log-imagenes-*.txt
 .claude/
 tsconfig.tsbuildinfo
 .env
+
+# Excel de arranque del panel (se sube a Drive, no al sitio)
+apps-script/*.xlsx

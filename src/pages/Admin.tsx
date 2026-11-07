@@ -78,6 +78,7 @@ export default function Admin() {
     if (sesion) api('salir', { token: sesion.token }).catch(() => undefined)
     guardarSesion(null)
     setSesion(null)
+    setVista('notas')
   }, [sesion])
   // Si la sesión venció en el servidor, se vuelve al ingreso.
   const llamar = useCallback(
@@ -101,6 +102,7 @@ export default function Admin() {
         alEntrar={(s) => {
           guardarSesion(s)
           setSesion(s)
+          setVista('notas')          // cada ingreso empieza en Notas (un editor no tiene «Usuarios»)
         }}
       />
     )
@@ -121,7 +123,7 @@ export default function Admin() {
           <button onClick={salir}>Salir</button>
         </nav>
       </header>
-      {vista === 'notas' && <Notas llamar={llamar} />}
+      {(vista === 'notas' || (vista === 'usuarios' && sesion.rol !== 'admin')) && <Notas llamar={llamar} />}
       {vista === 'usuarios' && sesion.rol === 'admin' && <Usuarios llamar={llamar} yo={sesion.usuario} />}
       {vista === 'clave' && <MiClave llamar={llamar} />}
     </div>
@@ -206,6 +208,7 @@ function Notas({ llamar }: { llamar: Llamar }) {
         llamar={llamar}
         alCerrar={(cambio) => {
           setAbierta(null)
+          window.scrollTo(0, 0)
           if (cambio) cargar()
         }}
       />
@@ -242,13 +245,15 @@ function Notas({ llamar }: { llamar: Llamar }) {
             const sec = SECCIONES.find((s) => s.clave === (e?.seccion || n.seccion))
             return (
               <li key={n.id}>
-                <button className="adm-fila" onClick={() => setAbierta(n)}>
+                <button className="adm-fila" onClick={() => { setAbierta(n); window.scrollTo(0, 0) }}>
                   {n.imagen ? <img src={`/${n.imagen}`} alt="" loading="lazy" /> : <span className="adm-sinfoto" aria-hidden="true" />}
                   <span>
                     <span className="adm-meta">
                       {sec?.nombre ?? n.seccion} · {n.fecha.slice(11, 16) || n.fecha.slice(0, 10)}
                       {e && !e.oculta && <span className="adm-etq adm-etq--editada">Editada por {e.usuario}</span>}
                       {e?.oculta && <span className="adm-etq adm-etq--oculta">Oculta</span>}
+                      {e?.foto && e.foto !== 'ninguna' && <span className="adm-etq adm-etq--editada">Foto nueva</span>}
+                      {e?.foto === 'ninguna' && <span className="adm-etq adm-etq--oculta">Sin foto</span>}
                     </span>
                     <strong>{e?.titular || n.original.titular}</strong>
                   </span>
@@ -325,7 +330,9 @@ function Foto({ nota, foto, alCambiar, llamar }: { nota: NotaPanel; foto: string
             }}
           />
         </label>
-        {foto !== 'ninguna' && <button type="button" onClick={() => { setVista(''); alCambiar('ninguna') }}>Quitar foto</button>}
+        {foto !== 'ninguna' && (foto || nota.imagen) && (
+          <button type="button" onClick={() => { setVista(''); alCambiar('ninguna') }}>Quitar foto</button>
+        )}
         {foto && <button type="button" onClick={() => { setVista(''); alCambiar('') }}>Usar la foto original</button>}
         {nota.foto_drive && <a href={nota.foto_drive} target="_blank" rel="noopener">Original en Drive ↗</a>}
       </div>

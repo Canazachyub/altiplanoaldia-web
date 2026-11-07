@@ -64,3 +64,22 @@ Las ediciones cambian **solo la web**. El boletín PDF sale como lo arma el maqu
 2. Edita la implementación y elige **Nueva versión**.
 
 Así la URL `/exec` no cambia.
+
+## Pruebas (sin cuenta de Google)
+
+En `apps-script/pruebas/` hay un simulador. Ejecuta **el mismo `Code.gs`** con Sheets, Drive, caché y propiedades de Google simulados.
+
+- **Pruebas automáticas:** `node apps-script/pruebas/pruebas.mjs` corre 39 pruebas:
+  - ingreso y bloqueo por intentos;
+  - roles y usuarios;
+  - ediciones y restaurar;
+  - fotos en Drive;
+  - archivo por días;
+  - protección contra fórmulas.
+
+  GitHub las corre antes de cada publicación y, si fallan, no publica.
+- **Probar todo en local:** `node apps-script/pruebas/servidor.mjs 8787 claves.json` levanta un servidor que imita al de Google. La clave del admin y la clave API quedan en `claves.json`. Después:
+  - para el sitio: `VITE_SHEETS_API=http://localhost:8787 npx vite`, y entrar a `http://localhost:5180/admin`;
+  - para el maquetador: usar `sheets_api` = `http://localhost:8787`.
+
+  Al terminar, borra `public/data/ediciones*.json` y `public/img/ediciones/` si los generaste.

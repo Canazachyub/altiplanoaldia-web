@@ -275,7 +275,9 @@ export function RailLR({ todas, excluir = [], pegajoso = false }: { todas: Nota[
   const pegado = useRef<HTMLDivElement>(null)
   const fuera = new Set(excluir)
   const base = todas.filter((n) => !fuera.has(n.id))
-  const vistas = masLeidas(base, 5)
+  // «Lo más visto» abre con una foto grande: solo notas con foto real (como en la portada).
+  const conFoto = base.filter((n) => n.imagen)
+  const vistas = masLeidas(conFoto.length >= 5 ? conFoto : base, 5)
   const ids = new Set(vistas.map((n) => n.id))
   const ultimas = base.filter((n) => !ids.has(n.id)).slice(0, 5)
   useCabeEnPantalla(pegado, pegajoso, ultimas.map((n) => n.id).join(','))
