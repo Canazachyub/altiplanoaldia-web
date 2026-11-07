@@ -21,6 +21,8 @@ export interface Nota {
   medios: string[]
   fuentes: number
   imagen: string | null
+  /** object-position que deja las caras dentro del recorte de la tarjeta (lo calcula el maquetador). */
+  foco?: string | null
   enlaces: Enlace[]
   aportes?: { medio: string; aporte: string }[]
   discrepancias?: { aspecto: string; versiones: { medio: string; dice: string }[] }[]

@@ -53,6 +53,7 @@ export function ImagenNota({ nota, prioridad = false, conCredito = false }: { no
         alt={esFoto ? nota.titular : ''}
         loading={prioridad ? 'eager' : 'lazy'}
         decoding="async"
+        style={esFoto && nota.foco ? { objectPosition: nota.foco } : undefined}
         onLoad={(e) => revisar(e.currentTarget)}
         onError={fallar}
       />

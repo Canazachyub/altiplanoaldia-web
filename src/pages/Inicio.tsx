@@ -166,8 +166,9 @@ function ModuloLista({ b }: { b: Bloque }) {
 
 /** Patrón "Economía" de LR: 3 tarjetas con foto y bajada + columna de titulares sin foto. */
 function ModuloTres({ b }: { b: Bloque }) {
-  const fotos = b.ns.slice(0, 3)
-  const textos = b.ns.slice(3)
+  // las tarjetas con foto solo para notas con foto; las demás van como titulares
+  const fotos = b.ns.filter((n) => !!n.imagen).slice(0, 3)
+  const textos = b.ns.filter((n) => !fotos.includes(n))
   return (
     <Panel etiqueta={b.s.nombre} className="lr-modulo">
       <LrTitulo titulo={b.s.nombre} enlace={`/seccion/${b.s.clave}`} color={b.s.color} />
@@ -209,11 +210,14 @@ function ModuloDos({ b }: { b: Bloque }) {
       <LrTitulo titulo={b.s.nombre} enlace={`/seccion/${b.s.clave}`} color={b.s.color} />
       <div className="lr-dos">
         <Tarjeta nota={p} variante="lr-foto" bajada firma />
-        {r.map((n) => <Tarjeta key={n.id} nota={n} variante="lr-foto" />)}
+        {r.map((n) => <Tarjeta key={n.id} nota={n} variante={n.imagen ? 'lr-foto' : 'lr-texto'} />)}
       </div>
     </Panel>
   )
 }
+
+/** Primero las notas con foto (orden estable): los lugares con foto nunca quedan con el dibujo de relleno. */
+const fotoPrimero = (ns: NotaT[]) => [...ns].sort((a, b) => Number(!!b.imagen) - Number(!!a.imagen))
 
 export default function Inicio() {
   const { notas, error } = useNotas()
@@ -239,13 +243,14 @@ export default function Inicio() {
   const filas = tomar((n) => !!n.imagen, 2)
   const delDia = tomar((n) => !!n.bajada, 1)[0] ?? null
   const destacados = tomar((n) => !!n.imagen, 6)
-  const [ultima, ...ultimasResto] = tomar(() => true, 7, notas) // `notas` ya viene de la más nueva a la más antigua
+  // `notas` ya viene de la más nueva a la más antigua; la primera del riel lleva foto
+  const [ultima, ...ultimasResto] = fotoPrimero(tomar(() => true, 7, notas))
 
   // 2. Grilla automática (el "AutomaticGrid" de LR): 8 notas con foto
   const grilla = tomar((n) => !!n.imagen, 8)
 
   // 3. Banda oscura (el "LR+" de LR): lo más leído
-  const leidas = masLeidas(libres(), 8)
+  const leidas = masLeidas(libres((n) => !!n.imagen), 8)
   leidas.forEach((n) => usadas.add(n.id))
 
   // 4. Dos notas grandes
@@ -281,12 +286,14 @@ export default function Inicio() {
       continue
     }
     fallos = 0
-    modulos.push({ tipo: p.tipo, bloques: aptas.map((s) => ({ s, ns: tomar((n) => n.seccion === s.clave, p.max) })) })
+    modulos.push({ tipo: p.tipo, bloques: aptas.map((s) => ({ s, ns: fotoPrimero(tomar((n) => n.seccion === s.clave, p.max)) })) })
     cola = cola.filter((s) => !aptas.includes(s))
   }
 
-  const restoTodo = libres()
+  const restoTodo = fotoPrimero(libres())
   const resto = restoTodo.slice(0, visiblesMas)
+  const restoFotos = resto.filter((n) => !!n.imagen)
+  const restoTextos = resto.filter((n) => !n.imagen)
   const quedan = restoTodo.length - resto.length
   const frescura = referenciaFrescura(notas.map(tiempo))
 
@@ -382,7 +389,7 @@ export default function Inicio() {
         {provincias.length > 0 && (
           <Panel etiqueta="Provincias" className="lr-modulo">
             <LrTitulo titulo="Provincias" enlace="/provincias" />
-            <ul className="lr-col">
+            <ul className="lr-col" style={{ '--lr-col-n': Math.min(4, provincias.length) } as CSSProperties}>
               {provincias.map(({ nombre, clave, nota }) => (
                 <li key={clave} className="lr-col__item">
                   <Link to={`/provincia/${clave}`} className="lr-col__ante">{nombre}</Link>
@@ -423,9 +430,16 @@ export default function Inicio() {
         {resto.length > 0 && (
           <Panel etiqueta="Más noticias" className="lr-modulo">
             <LrTitulo titulo="Más noticias" enlace="/lo-ultimo" />
-            <div className="lr-grid4">
-              {resto.map((n) => <Tarjeta key={n.id} nota={n} variante="lr-foto" />)}
-            </div>
+            {restoFotos.length > 0 && (
+              <div className="lr-grid4">
+                {restoFotos.map((n) => <Tarjeta key={n.id} nota={n} variante="lr-foto" />)}
+              </div>
+            )}
+            {restoTextos.length > 0 && (
+              <div className="lr-reglas lr-reglas--columnas">
+                {restoTextos.map((n) => <Tarjeta key={n.id} nota={n} variante="lr-texto" />)}
+              </div>
+            )}
             <div className="lr-mas">
               {quedan > 0 ? (
                 <button type="button" className="btn btn--contorno" onClick={() => setVisiblesMas((v) => v + PASO_MAS)}>
