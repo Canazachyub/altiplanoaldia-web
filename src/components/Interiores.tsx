@@ -293,7 +293,8 @@ export function MediaNotaLR({ nota }: { nota: Nota }) {
   const [fallo, setFallo] = useState(false)
   const visor = useRef<HTMLDialogElement>(null)
   const esFoto = !!nota.imagen && !fallo
-  const credito = esFoto ? (nota.medios[0] ? `Foto: ${nota.medios[0]}` : 'Foto') : 'Ilustración: Altiplano al Día'
+  // Bajo la foto va el titular de la nota (no se cita a otros medios).
+  const credito = esFoto ? nota.titular : 'Ilustración: Altiplano al Día'
   const cerrar = () => visor.current?.close()
   return (
     <figure className="lri-nota__media">

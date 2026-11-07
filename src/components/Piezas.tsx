@@ -56,7 +56,7 @@ export function ImagenNota({ nota, prioridad = false, conCredito = false }: { no
         onLoad={(e) => revisar(e.currentTarget)}
         onError={fallar}
       />
-      {conCredito && esFoto && nota.medios[0] && <figcaption>Foto: {nota.medios[0]}</figcaption>}
+      {conCredito && esFoto && <figcaption>{nota.titular}</figcaption>}
     </figure>
   )
 }
