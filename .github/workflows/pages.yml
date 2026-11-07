@@ -1,39 +1,88 @@
 # Compila la web y la publica en GitHub Pages en cada subida (también las que hace el maquetador).
+# Cada 15 minutos revisa si en el panel (/admin → Google Sheets) hubo ediciones nuevas; si las hay, recompila.
+#
+# Variables del repositorio (Settings → Secrets and variables → Actions → Variables):
+#   SHEETS_API       URL de la aplicación web de Apps Script (termina en /exec)
+#   GA_ID            Google Analytics 4 (G-XXXXXXXXXX)
+#   ADSENSE_CLIENT   Google AdSense (ca-pub-0000000000000000)
 name: Publicar web
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *'
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# En cola (sin cancelar): la revisión de cada 15 min no debe cortar una publicación del maquetador.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      sin_cambios: ${{ steps.ediciones.outputs.sin_cambios }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      # Ediciones hechas en el panel: solo cambian la web. Si Sheets no responde, la web sale sin ellas.
+      - name: Ediciones del panel (Google Sheets)
+        id: ediciones
+        env:
+          SHEETS_API: ${{ vars.SHEETS_API }}
+        run: |
+          echo '{}' > public/data/ediciones.json
+          if [ -n "$SHEETS_API" ]; then
+            if curl -fsSL --max-time 60 "$SHEETS_API?accion=ediciones" -o /tmp/ed.json && jq -e 'type == "object" and (has("ok") | not)' /tmp/ed.json > /dev/null; then
+              jq -S . /tmp/ed.json > public/data/ediciones.json
+            else
+              echo "::warning::No se pudieron bajar las ediciones del panel; la web sale sin ellas."
+            fi
+          fi
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            curl -fsSL --max-time 30 "https://altiplanoaldia.pe/data/ediciones.json?t=$(date +%s)" -o /tmp/vivo.json || echo '' > /tmp/vivo.json
+            if jq -S . /tmp/vivo.json 2>/dev/null | cmp -s - public/data/ediciones.json; then
+              echo "Sin ediciones nuevas: no se recompila."
+              echo "sin_cambios=1" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
+      - if: steps.ediciones.outputs.sin_cambios != '1'
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
-      - run: npm run build
+      - if: steps.ediciones.outputs.sin_cambios != '1'
+        run: npm ci
+      - if: steps.ediciones.outputs.sin_cambios != '1'
+        run: npm run build
+        env:
+          VITE_SHEETS_API: ${{ vars.SHEETS_API }}
+          VITE_GA_ID: ${{ vars.GA_ID }}
+          VITE_ADSENSE_CLIENT: ${{ vars.ADSENSE_CLIENT }}
+      # AdSense pide /ads.txt con el identificador del editor.
+      - if: steps.ediciones.outputs.sin_cambios != '1' && vars.ADSENSE_CLIENT != ''
+        run: echo "google.com, ${ADS#ca-}, DIRECT, f08c47fec0942fa0" > dist/ads.txt
+        env:
+          ADS: ${{ vars.ADSENSE_CLIENT }}
       # Rutas como /nota/... funcionan al entrar directo o recargar (la app es de una sola página).
-      - run: cp dist/index.html dist/404.html
-      - uses: actions/upload-pages-artifact@v3
+      - if: steps.ediciones.outputs.sin_cambios != '1'
+        run: cp dist/index.html dist/404.html
+      - if: steps.ediciones.outputs.sin_cambios != '1'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
     needs: build
+    if: needs.build.outputs.sin_cambios != '1'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

@@ -17,7 +17,31 @@ const base = readFileSync(join(DIST, 'index.html'), 'utf8')
 const ruta = join(DIST, 'data', 'noticias.json')
 if (!existsSync(ruta)) process.exit(0)
 const datos = JSON.parse(readFileSync(ruta, 'utf8'))
-const notas = Array.isArray(datos) ? datos : datos.notas ?? []
+const deHoy = Array.isArray(datos) ? datos : datos.notas ?? []
+
+// Archivo por días (data/archivo/AAAA-MM-DD.json): las notas viejas también tienen su página propia,
+// así Google las indexa y los enlaces compartidos siguen funcionando.
+const leer = (r) => { try { return JSON.parse(readFileSync(r, 'utf8')) } catch { return null } }
+const carpetaArchivo = join(DIST, 'data', 'archivo')
+const archivadas = []
+if (existsSync(join(carpetaArchivo, 'indice.json'))) {
+  for (const { dia } of leer(join(carpetaArchivo, 'indice.json'))?.dias ?? []) {
+    const lista = leer(join(carpetaArchivo, `${dia}.json`))
+    if (Array.isArray(lista)) archivadas.push(...lista)
+  }
+}
+// Ediciones del panel (/admin → Google Sheets): cambian titular, bajada y texto en la web.
+const ediciones = leer(join(DIST, 'data', 'ediciones.json')) ?? {}
+const vistos = new Set()
+const notas = []
+for (const nota of [...deHoy, ...archivadas]) {
+  if (!nota?.slug || vistos.has(nota.slug)) continue
+  vistos.add(nota.slug)
+  const e = ediciones[nota.id]
+  if (e?.oculta) continue
+  notas.push(e ? { ...nota, ...(e.titular ? { titular: e.titular } : {}), ...(e.bajada !== undefined ? { bajada: e.bajada } : {}),
+    ...(e.cuerpo?.length ? { cuerpo: e.cuerpo } : {}) } : nota)
+}
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 const corto = (s, n) => (s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s)

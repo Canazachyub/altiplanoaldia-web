@@ -6,7 +6,7 @@ import { BotonGuardar, BotonHistoria, DatosEstructurados, Escuchar, Esqueleto } 
 import { EtiquetasLR, MediaNotaLR, PaginaLR, PuedesVerLR, RailLR, RelacionadasLR, ResumenLR, SiguienteLR, fechaLR, resumenDe } from '../components/Interiores'
 import { ErrorCarga, varTema } from '../components/Piezas'
 import { SITIO, ambitoPorValor, pub, seccionPorTema } from '../config/sitio'
-import { minutosLectura, registrarLectura, relacionadas, useNotas } from '../data/noticias'
+import { cargarDia, cargarIndice, minutosLectura, notaDelArchivo, registrarLectura, relacionadas, unirNotas, useNotas, type Nota as NotaT } from '../data/noticias'
 import { useTitulo } from '../hooks/useTitulo'
 import NoEncontrado from './NoEncontrado'
 
@@ -30,8 +30,25 @@ const PUEDES_VER_TRAS = [1, 4]
 
 export default function Nota() {
   const { slug } = useParams()
-  const { notas, error } = useNotas()
-  const nota = notas?.find((n) => n.slug === slug)
+  const { notas: hoy, error } = useNotas()
+  const deHoy = hoy?.find((n) => n.slug === slug)
+  // Nota de otro día: se busca en el archivo (enlaces viejos, Google, publicaciones compartidas).
+  const [archivada, setArchivada] = useState<{ slug?: string; nota: NotaT | null; dia: NotaT[] } | null>(null)
+  useEffect(() => {
+    if (!hoy || deHoy || !slug) return
+    let vivo = true
+    notaDelArchivo(slug).then(async (n) => {
+      const dia = n ? await cargarIndice().then((i) => cargarDia(i.slugs[slug])) : []
+      if (vivo) setArchivada({ slug, nota: n, dia })
+    })
+    return () => {
+      vivo = false
+    }
+  }, [hoy, deHoy, slug])
+  const buscando = !!hoy && !deHoy && archivada?.slug !== slug
+  const arch = archivada && archivada.slug === slug ? archivada : null
+  const nota = deHoy ?? arch?.nota ?? undefined
+  const notas = hoy && !deHoy && arch ? unirNotas(hoy, arch.dia) : hoy
   const [tam, setTam] = useState(() => {
     try {
       return Number(localStorage.getItem('aad-tam')) || 2
@@ -60,7 +77,7 @@ export default function Nota() {
   }, [tam])
 
   if (error) return <ErrorCarga error={error} />
-  if (!notas) return <Esqueleto variante="nota" />
+  if (!notas || buscando) return <Esqueleto variante="nota" />
   if (!nota) return <NoEncontrado />
 
   const s = seccionPorTema(nota.tema)

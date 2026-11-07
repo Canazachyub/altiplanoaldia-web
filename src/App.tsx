@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { Suspense, lazy, useEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Cabecera, { Cinta } from './components/Cabecera'
 import { AvisoNuevas, LimiteErrores } from './components/Extras'
@@ -10,11 +10,17 @@ import Inicio from './pages/Inicio'
 import { Ambito, Buscar, LoUltimo, Seccion } from './pages/Listado'
 import NoEncontrado from './pages/NoEncontrado'
 import Nota from './pages/Nota'
+import { registrarVisita } from './analitica'
+
+const Admin = lazy(() => import('./pages/Admin'))
 
 function AlCambiarRuta() {
   const { pathname } = useLocation()
   useEffect(() => {
     window.scrollTo(0, 0)
+    // tras el cambio de título de la página nueva
+    const t = window.setTimeout(() => registrarVisita(pathname), 300)
+    return () => window.clearTimeout(t)
   }, [pathname])
   return null
 }
@@ -35,6 +41,7 @@ export default function App() {
           <Route path="/seccion/:clave" element={<Seccion />} />
           <Route path="/ambito/:clave" element={<Ambito />} />
           <Route path="/lo-ultimo" element={<LoUltimo />} />
+          <Route path="/admin" element={<Suspense fallback={null}><Admin /></Suspense>} />
           <Route path="/buscar" element={<Buscar />} />
           <Route path="/denuncia" element={<Denuncia />} />
           <Route path="/boletin" element={<Boletin />} />

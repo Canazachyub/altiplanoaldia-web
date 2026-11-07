@@ -263,3 +263,13 @@
   .lri-siguiente__enlace { grid-template-columns: minmax(0, 1fr); padding: var(--s3); }
   .lri-siguiente__titular { font-size: 20px; }
 }
+
+/* Lo último: selector del archivo por día */
+.lri-archivo { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); margin-top: var(--s3); }
+.lri-archivo label { font: 700 13px/1 var(--f-ante); text-transform: uppercase; letter-spacing: .05em; color: var(--tinta-suave); }
+.lri-archivo select {
+  min-width: 0; max-width: 100%; padding: 10px 12px; border: 1px solid var(--linea); border-radius: var(--radio);
+  background: var(--papel); color: var(--tinta); font: 500 15px/1.2 var(--f-meta); text-transform: capitalize;
+}
+.lri-boton--secundario { text-transform: none; letter-spacing: 0; }
+.lri-boton:disabled { opacity: .6; cursor: wait; }

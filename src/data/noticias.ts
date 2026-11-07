@@ -1,6 +1,6 @@
 // Carga y consulta de las noticias exportadas del monitor (public/data/noticias.json).
 import { useEffect, useState } from 'react'
-import { pub } from '../config/sitio'
+import { SECCIONES, pub } from '../config/sitio'
 
 export interface Enlace {
   medio: string | null
@@ -12,6 +12,7 @@ export interface Nota {
   slug: string
   titular: string
   bajada: string
+  antetitulo?: string
   cuerpo: string[]
   datos: string[]
   tema: string
@@ -47,13 +48,100 @@ export interface Boletin {
   kb: number
 }
 
-const descargar = (fresco = false) =>
-  fetch(pub('data/noticias.json'), fresco ? { cache: 'no-store' } : undefined)
-    .then((r) => {
-      if (!r.ok) throw new Error(`HTTP ${r.status}`)
-      return r.json() as Promise<Nota[]>
+// ===== Ediciones hechas en el panel (/admin → Google Sheets) =====
+// La compilación del sitio baja las ediciones de Sheets a data/ediciones.json; acá se aplican encima de lo
+// que publica el maquetador. Solo cambian la web (el boletín PDF sale como lo arma el maquetador).
+export interface Edicion {
+  titular?: string
+  bajada?: string
+  antetitulo?: string
+  cuerpo?: string[]
+  seccion?: string
+  oculta?: boolean
+}
+
+let edicionesP: Promise<Record<string, Edicion>> | null = null
+const cargarEdiciones = (fresco = false) => {
+  if (!edicionesP || fresco) {
+    edicionesP = fetch(pub('data/ediciones.json'), fresco ? { cache: 'no-store' } : undefined)
+      .then((r) => (r.ok ? r.json() : {}))
+      .catch(() => ({}))
+  }
+  return edicionesP
+}
+
+export function aplicarEdiciones(notas: Nota[], ed: Record<string, Edicion>): Nota[] {
+  return notas
+    .filter((n) => !ed[n.id]?.oculta)
+    .map((n) => {
+      const e = ed[n.id]
+      if (!e) return n
+      const s = e.seccion ? SECCIONES.find((x) => x.clave === e.seccion) : undefined
+      return {
+        ...n,
+        ...(e.titular ? { titular: e.titular } : {}),
+        ...(e.bajada !== undefined ? { bajada: e.bajada } : {}),
+        ...(e.antetitulo !== undefined ? { antetitulo: e.antetitulo } : {}),
+        ...(e.cuerpo?.length ? { cuerpo: e.cuerpo } : {}),
+        ...(s ? { seccion: s.clave, tema: s.tema } : {}),
+      }
     })
-    .then((notas) => notas.sort((a, b) => tiempo(b) - tiempo(a)))
+}
+
+const ordenar = (notas: Nota[]) => notas.sort((a, b) => tiempo(b) - tiempo(a))
+
+const bajarJson = <T,>(ruta: string, fresco = false) =>
+  fetch(pub(ruta), fresco ? { cache: 'no-store' } : undefined).then((r) => {
+    if (!r.ok) throw new Error(`HTTP ${r.status}`)
+    return r.json() as Promise<T>
+  })
+
+const descargar = (fresco = false) =>
+  Promise.all([bajarJson<Nota[]>('data/noticias.json', fresco), cargarEdiciones(fresco)])
+    .then(([notas, ed]) => ordenar(aplicarEdiciones(notas, ed)))
+
+// ===== Archivo por días (data/archivo/AAAA-MM-DD.json, nunca se borra) =====
+export interface IndiceArchivo {
+  dias: { dia: string; n: number }[]
+  slugs: Record<string, string>
+}
+
+let indiceP: Promise<IndiceArchivo> | null = null
+export function cargarIndice(): Promise<IndiceArchivo> {
+  if (!indiceP) {
+    indiceP = bajarJson<IndiceArchivo>('data/archivo/indice.json').catch(() => ({ dias: [], slugs: {} }))
+  }
+  return indiceP
+}
+
+const dias = new Map<string, Promise<Nota[]>>()
+/** Notas de un día del archivo (día del boletín: desde las 3 p. m. del día anterior). */
+export function cargarDia(dia: string): Promise<Nota[]> {
+  let p = dias.get(dia)
+  if (!p) {
+    p = Promise.all([bajarJson<Nota[]>(`data/archivo/${dia}.json`), cargarEdiciones()])
+      .then(([notas, ed]) => ordenar(aplicarEdiciones(notas, ed)))
+      .catch(() => [])
+    dias.set(dia, p)
+  }
+  return p
+}
+
+/** Busca una nota que ya no está en la portada del día (enlace viejo, Google, compartida). */
+export async function notaDelArchivo(slug: string): Promise<Nota | null> {
+  const i = await cargarIndice()
+  const dia = i.slugs[slug]
+  if (!dia) return null
+  return (await cargarDia(dia)).find((n) => n.slug === slug) ?? null
+}
+
+/** Une listas sin repetir notas (gana la primera aparición: la versión más nueva). */
+export function unirNotas(...listas: Nota[][]): Nota[] {
+  const vistos = new Set<number>()
+  const out: Nota[] = []
+  for (const l of listas) for (const n of l) if (!vistos.has(n.id)) { vistos.add(n.id); out.push(n) }
+  return ordenar(out)
+}
 
 let cache: Promise<Nota[]> | null = null
 const oyentes = new Set<(n: Nota[]) => void>()

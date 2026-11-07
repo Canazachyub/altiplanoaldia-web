@@ -6,7 +6,7 @@ import { AperturaLR, CabeceraLR, FeedLR, PaginaLR, RailLR } from '../components/
 import { ErrorCarga } from '../components/Piezas'
 import { PROVINCIAS, provinciaPorClave } from '../config/provincias'
 import { SECCIONES, ambitoPorClave, seccionPorClave } from '../config/sitio'
-import { buscar, provinciasDe, type Nota, useNotas } from '../data/noticias'
+import { buscar, cargarDia, cargarIndice, provinciasDe, unirNotas, type IndiceArchivo, type Nota, useNotas } from '../data/noticias'
 import { useTitulo } from '../hooks/useTitulo'
 import NoEncontrado from './NoEncontrado'
 
@@ -124,17 +124,78 @@ export function Ambito() {
   )
 }
 
+/** "sábado 7 de noviembre de 2026" para un día AAAA-MM-DD (al mediodía: sin saltos de zona horaria). */
+const nombreDia = (dia: string) =>
+  new Date(`${dia}T12:00:00`).toLocaleDateString('es-PE', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+
 export function LoUltimo() {
-  const { notas, error } = useNotas()
+  const { notas: hoy, error } = useNotas()
   const [filtro, setFiltro] = useState<string>('todas')
-  useTitulo('Lo último')
+  const [params, setParams] = useSearchParams()
+  const diaElegido = params.get('dia') ?? ''
+  const [indice, setIndice] = useState<IndiceArchivo | null>(null)
+  const [cargados, setCargados] = useState<Record<string, Nota[]>>({})
+  const [cargando, setCargando] = useState(false)
+  useTitulo(diaElegido ? `Noticias del ${nombreDia(diaElegido)}` : 'Lo último')
+
+  useEffect(() => {
+    cargarIndice().then(setIndice)
+  }, [])
+  // Un día elegido (?dia=AAAA-MM-DD) se baja del archivo.
+  useEffect(() => {
+    if (!diaElegido || cargados[diaElegido]) return
+    setCargando(true)
+    cargarDia(diaElegido).then((n) => {
+      setCargados((c) => ({ ...c, [diaElegido]: n }))
+      setCargando(false)
+    })
+  }, [diaElegido, cargados])
+
   if (error) return <ErrorCarga error={error} />
-  if (!notas) return <Esqueleto />
+  if (!hoy || (diaElegido && !cargados[diaElegido])) return <Esqueleto />
+
+  const diasArchivo = indice?.dias ?? []
+  // El primer día del archivo es el de hoy (ya está en la portada); los demás se cargan de a uno.
+  const anteriores = diasArchivo.slice(1).map((d) => d.dia)
+  const siguiente = anteriores.find((d) => !cargados[d])
+  const notas = diaElegido
+    ? cargados[diaElegido]
+    : unirNotas(hoy, ...anteriores.filter((d) => cargados[d]).map((d) => cargados[d]))
   const presentes = SECCIONES.filter((s) => notas.some((n) => n.seccion === s.clave))
   const visibles = filtro === 'todas' ? notas : notas.filter((n) => n.seccion === filtro)
+  const cargarAnterior = () => {
+    if (!siguiente) return
+    setCargando(true)
+    cargarDia(siguiente).then((n) => {
+      setCargados((c) => ({ ...c, [siguiente]: n }))
+      setCargando(false)
+    })
+  }
   return (
     <PaginaLR className="listado-lr lo-ultimo">
-      <CabeceraLR titulo="Lo último" descripcion="Todas las noticias, en orden de publicación." color="var(--alerta)">
+      <CabeceraLR
+        titulo={diaElegido ? 'Archivo' : 'Lo último'}
+        descripcion={diaElegido ? `Noticias del ${nombreDia(diaElegido)}.` : 'Todas las noticias, en orden de publicación.'}
+        color="var(--alerta)"
+      >
+        {diasArchivo.length > 1 && (
+          <div className="lri-archivo">
+            <label htmlFor="dia-archivo">Archivo por día</label>
+            <select
+              id="dia-archivo"
+              value={diaElegido}
+              onChange={(e) => {
+                setFiltro('todas')
+                setParams(e.target.value ? { dia: e.target.value } : {})
+              }}
+            >
+              <option value="">Lo último (todos los días)</option>
+              {diasArchivo.map((d) => (
+                <option key={d.dia} value={d.dia}>{nombreDia(d.dia)} ({d.n})</option>
+              ))}
+            </select>
+          </div>
+        )}
         <div className="chips-check lri-filtros" role="group" aria-label="Filtrar por sección">
           <button className={`chip${filtro === 'todas' ? ' chip--activo' : ''}`} aria-pressed={filtro === 'todas'} onClick={() => setFiltro('todas')}>Todas ({notas.length})</button>
           {presentes.map((s) => (
@@ -146,9 +207,16 @@ export function LoUltimo() {
       </CabeceraLR>
       <div className="lri-cols">
         <div className="lri-principal">
-          <FeedLR key={filtro} notas={visibles} titulo="" porDia vacio="No hay noticias con este filtro." />
+          <FeedLR key={`${filtro}-${diaElegido}`} notas={visibles} titulo="" porDia vacio="No hay noticias con este filtro." />
+          {!diaElegido && siguiente && (
+            <div className="lri-feed__mas">
+              <button className="lri-boton lri-boton--secundario" onClick={cargarAnterior} disabled={cargando}>
+                {cargando ? 'Cargando…' : `Ver noticias del ${nombreDia(siguiente)}`}
+              </button>
+            </div>
+          )}
         </div>
-        <RailLR todas={notas} excluir={visibles.slice(0, 12).map((n) => n.id)} />
+        <RailLR todas={hoy} excluir={visibles.slice(0, 12).map((n) => n.id)} />
       </div>
     </PaginaLR>
   )
