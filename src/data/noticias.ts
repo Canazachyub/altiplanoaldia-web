@@ -26,6 +26,8 @@ export interface Nota {
   discrepancias?: { aspecto: string; versiones: { medio: string; dice: string }[] }[]
   boletin?: number | null
   fijada?: boolean
+  /** Impacto 1-10 que calcula el maquetador (muertos, heridos, crimen y corrupción pesan más); 0 = sin evaluar. */
+  impacto?: number
 }
 
 export interface Boletin {
@@ -185,6 +187,9 @@ export function puntaje(n: Nota, masReciente: number) {
   p += (n.fuentes - 1) * 6
   if (n.imagen) p += 8
   if (['REGIONAL', 'DISTRITAL', 'LOCAL'].includes(n.ambito)) p += 6
+  // El impacto manda dentro del día: un punto vale unas 5 h de antigüedad, así un choque con muertos
+  // de la mañana (10) queda arriba de una nota menor de la noche (5).
+  p += (n.impacto ?? 0) * 8
   if (n.fijada) p += 1000
   return p
 }

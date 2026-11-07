@@ -30,7 +30,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 3,
+  "fijada": false
  },
  {
   "id": 198,
@@ -64,7 +66,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": null,
-  "edicion": null
+  "edicion": null,
+  "impacto": 2,
+  "fijada": false
  },
  {
   "id": 167,
@@ -106,7 +110,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": null,
-  "edicion": null
+  "edicion": null,
+  "impacto": 2,
+  "fijada": false
  },
  {
   "id": 196,
@@ -137,7 +143,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 5,
+  "fijada": false
  },
  {
   "id": 197,
@@ -166,7 +174,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 5,
+  "fijada": false
  },
  {
   "id": 141,
@@ -200,7 +210,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": null,
-  "edicion": null
+  "edicion": null,
+  "impacto": 2,
+  "fijada": false
  },
  {
   "id": 194,
@@ -229,7 +241,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 5,
+  "fijada": false
  },
  {
   "id": 142,
@@ -272,7 +286,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 5,
+  "fijada": false
  },
  {
   "id": 192,
@@ -305,7 +321,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 5,
+  "fijada": false
  },
  {
   "id": 191,
@@ -335,7 +353,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": null,
-  "edicion": null
+  "edicion": null,
+  "impacto": 2,
+  "fijada": false
  },
  {
   "id": 187,
@@ -369,7 +389,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 5,
+  "fijada": false
  },
  {
   "id": 188,
@@ -400,7 +422,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": null,
-  "edicion": null
+  "edicion": null,
+  "impacto": 3,
+  "fijada": false
  },
  {
   "id": 189,
@@ -434,7 +458,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 4,
+  "fijada": false
  },
  {
   "id": 132,
@@ -474,7 +500,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 7,
+  "fijada": false
  },
  {
   "id": 185,
@@ -509,7 +537,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 6,
+  "fijada": false
  },
  {
   "id": 183,
@@ -542,7 +572,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 6,
+  "fijada": false
  },
  {
   "id": 179,
@@ -580,7 +612,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 8,
+  "fijada": false
  },
  {
   "id": 181,
@@ -617,7 +651,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 6,
+  "fijada": false
  },
  {
   "id": 180,
@@ -655,7 +691,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 6,
+  "fijada": false
  },
  {
   "id": 178,
@@ -688,7 +726,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 4,
+  "fijada": false
  },
  {
   "id": 176,
@@ -721,7 +761,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 5,
+  "fijada": false
  },
  {
   "id": 177,
@@ -760,7 +802,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 7,
+  "fijada": false
  },
  {
   "id": 175,
@@ -799,7 +843,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 3,
+  "fijada": false
  },
  {
   "id": 174,
@@ -835,7 +881,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 4,
+  "fijada": false
  },
  {
   "id": 173,
@@ -865,7 +913,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 3,
+  "fijada": false
  },
  {
   "id": 171,
@@ -901,7 +951,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 5,
+  "fijada": false
  },
  {
   "id": 170,
@@ -932,7 +984,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 3,
+  "fijada": false
  },
  {
   "id": 168,
@@ -968,7 +1022,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 3,
+  "fijada": false
  },
  {
   "id": 166,
@@ -1005,7 +1061,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 5,
+  "fijada": false
  },
  {
   "id": 165,
@@ -1037,7 +1095,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 5,
+  "fijada": false
  },
  {
   "id": 164,
@@ -1072,7 +1132,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": null,
-  "edicion": null
+  "edicion": null,
+  "impacto": 2,
+  "fijada": false
  },
  {
   "id": 163,
@@ -1107,7 +1169,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": null,
-  "edicion": null
+  "edicion": null,
+  "impacto": 2,
+  "fijada": false
  },
  {
   "id": 161,
@@ -1140,7 +1204,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 3,
+  "fijada": false
  },
  {
   "id": 157,
@@ -1181,7 +1247,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 10,
+  "fijada": false
  },
  {
   "id": 148,
@@ -1212,7 +1280,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 3,
+  "fijada": false
  },
  {
   "id": 147,
@@ -1246,7 +1316,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 7,
+  "fijada": false
  },
  {
   "id": 145,
@@ -1284,7 +1356,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 6,
+  "fijada": false
  },
  {
   "id": 144,
@@ -1317,7 +1391,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 4,
+  "fijada": false
  },
  {
   "id": 143,
@@ -1348,7 +1424,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 3,
+  "fijada": false
  },
  {
   "id": 140,
@@ -1379,7 +1457,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 3,
+  "fijada": false
  },
  {
   "id": 139,
@@ -1412,7 +1492,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 4,
+  "fijada": false
  },
  {
   "id": 138,
@@ -1443,7 +1525,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 6,
+  "fijada": false
  },
  {
   "id": 136,
@@ -1474,7 +1558,9 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 3,
+  "fijada": false
  },
  {
   "id": 131,
@@ -1508,47 +1594,8 @@
   "fuentes": 1,
   "enlaces": [],
   "boletin": 1,
-  "edicion": 1
- },
- {
-  "id": 29,
-  "slug": "marina-cierra-25-puertos-del-litoral-hasta-el-6-de-noviembre",
-  "titular": "Marina cierra 25 puertos del litoral hasta el 6 de noviembre",
-  "bajada": "La medida es preventiva y responde a condiciones anómalas del mar. El nivel del agua está por encima de sus valores normales.",
-  "antetitulo": "OLEAJES ANÓMALOS AFECTAN LAS COSTAS DEL NORTE, CENTRO Y SUR",
-  "lugar": "",
-  "cuerpo": [
-   "La Marina de Guerra del Perú dispuso el cierre preventivo de 25 puertos del litoral peruano debido a las condiciones anómalas del mar. La restricción se mantendrá hasta el 6 de noviembre.",
-   "Según el Departamento de Oceanografía, los oleajes serán de ligera intensidad y alcanzarán las costas del norte, centro y sur del país. Además, el nivel del mar se encuentra por encima de sus valores normales debido al calentamiento de la masa de agua.",
-   "## LA ADVERTENCIA",
-   "La Marina advirtió que estas condiciones podrían incrementar la altura de las olas en algunas zonas costeras. Por ello recomendó adoptar medidas de prevención para evitar accidentes durante las actividades portuarias, pesqueras y recreativas.",
-   "El cierre afecta las actividades portuarias y pesqueras en el litoral peruano. Se recomienda a los operadores y al público en general mantenerse informados y acatar las disposiciones mientras la restricción siga vigente.",
-   "## LA REAPERTURA",
-   "La autoridad naval monitorea de cerca los 25 puertos cerrados y evaluará las condiciones del mar antes de reanudar las operaciones, cuando las olas vuelvan a la normalidad.",
-   "La Marina de Guerra precisó que la reapertura se hará de forma gradual, una vez que se verifique el restablecimiento de las condiciones normales del mar."
-  ],
-  "datos": [
-   "La Marina de Guerra dispuso el cierre preventivo de 25 puertos del litoral peruano por condiciones anómalas del mar",
-   "El cierre se mantiene hasta el 6 de noviembre",
-   "El Departamento de Oceanografía prevé oleajes de ligera intensidad en las costas norte, centro y sur",
-   "El nivel del mar está por encima de sus valores normales por el calentamiento de la masa de agua",
-   "La Marina advirtió que podría aumentar la altura de las olas y recomendó medidas de prevención en actividades portuarias, pesqueras y recreativas",
-   "La autoridad naval monitorea los puertos cerrados y evaluará las condiciones antes de reanudar operaciones",
-   "La reapertura de los puertos será gradual, una vez verificado el restablecimiento de las condiciones normales del mar"
-  ],
-  "tema": "Medio ambiente",
-  "seccion": "ambiente",
-  "ambito": "NACIONAL",
-  "fecha": "2026-11-03T10:25:00",
-  "imagen": "img/noticias/n29.jpg",
-  "pie": "Cierre preventivo de puertos por oleajes anómalos en el litoral peruano. Foto: Diario Los Andes.",
-  "credito": "Diario Los Andes",
-  "medios": [
-   "Diario Los Andes"
-  ],
-  "fuentes": 1,
-  "enlaces": [],
-  "boletin": 1,
-  "edicion": 1
+  "edicion": 1,
+  "impacto": 4,
+  "fijada": false
  }
 ]
