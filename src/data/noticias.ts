@@ -107,6 +107,8 @@ const descargar = (fresco = false) =>
 export interface IndiceArchivo {
   dias: { dia: string; n: number }[]
   slugs: Record<string, string>
+  /** Direcciones de notas que se unieron a otra: dirección vieja → dirección de la nota que la absorbió. */
+  redirige?: Record<string, string>
 }
 
 let indiceP: Promise<IndiceArchivo> | null = null

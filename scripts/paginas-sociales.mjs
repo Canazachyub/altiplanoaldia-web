@@ -102,4 +102,16 @@ for (const nota of notas) {
   writeFileSync(join(DIST, 'nota', `${nota.slug}.html`), pagina(nota))
   n++
 }
-console.log(`paginas-sociales: ${n} página(s) de nota con vista previa propia (${SITIO}).`)
+// Notas unidas a otra: la dirección vieja muestra la vista previa de la nota completa y apunta a ella
+// (canonical), y la app la lleva a la dirección nueva. Así los enlaces ya compartidos no quedan rotos.
+const redirige = leer(join(carpetaArchivo, 'indice.json'))?.redirige ?? {}
+const porSlug = new Map(notas.map((x) => [x.slug, x]))
+let r = 0
+for (const [vieja, nueva] of Object.entries(redirige)) {
+  const destino = porSlug.get(nueva)
+  if (!destino || porSlug.has(vieja) || !/^[a-z0-9-]+$/i.test(vieja)) continue
+  writeFileSync(join(DIST, 'nota', `${vieja}.html`), pagina(destino)
+    .replace('<head>', `<head>\n    <meta name="robots" content="noindex" />`))
+  r++
+}
+console.log(`paginas-sociales: ${n} página(s) de nota con vista previa propia, ${r} dirección(es) vieja(s) redirigida(s) (${SITIO}).`)

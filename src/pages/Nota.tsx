@@ -1,6 +1,6 @@
 // Página de nota con la disposición tipo La República: columna principal + columna derecha fija.
 import { Fragment, useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import { BannerDenuncia, Compartir, textoCompartir } from '../components/Bloques'
 import { BotonGuardar, BotonHistoria, DatosEstructurados, Escuchar, Esqueleto } from '../components/Extras'
 import { EtiquetasLR, MediaNotaLR, PaginaLR, PuedesVerLR, RailLR, RelacionadasLR, ResumenLR, SiguienteLR, fechaLR, resumenDe } from '../components/Interiores'
@@ -33,13 +33,16 @@ export default function Nota() {
   const { notas: hoy, error } = useNotas()
   const deHoy = hoy?.find((n) => n.slug === slug)
   // Nota de otro día: se busca en el archivo (enlaces viejos, Google, publicaciones compartidas).
-  const [archivada, setArchivada] = useState<{ slug?: string; nota: NotaT | null; dia: NotaT[] } | null>(null)
+  const [archivada, setArchivada] = useState<{ slug?: string; nota: NotaT | null; dia: NotaT[]; nueva?: string } | null>(null)
   useEffect(() => {
     if (!hoy || deHoy || !slug) return
     let vivo = true
     notaDelArchivo(slug).then(async (n) => {
-      const dia = n ? await cargarIndice().then((i) => cargarDia(i.slugs[slug])) : []
-      if (vivo) setArchivada({ slug, nota: n, dia })
+      const i = await cargarIndice()
+      const dia = n ? await cargarDia(i.slugs[slug]) : []
+      // Nota que se unió a otra (paso editorial): el enlace viejo lleva a la nota completa.
+      const nueva = n ? undefined : i.redirige?.[slug]
+      if (vivo) setArchivada({ slug, nota: n, dia, nueva })
     })
     return () => {
       vivo = false
@@ -78,6 +81,7 @@ export default function Nota() {
 
   if (error) return <ErrorCarga error={error} />
   if (!notas || buscando) return <Esqueleto variante="nota" />
+  if (!nota && arch?.nueva && arch.nueva !== slug) return <Navigate to={`/nota/${arch.nueva}`} replace />
   if (!nota) return <NoEncontrado />
 
   const s = seccionPorTema(nota.tema)
