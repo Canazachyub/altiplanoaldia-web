@@ -1,12 +1,12 @@
 [
  {
-  "numero": 2,
-  "fecha": "2026-11-07T06:54:13",
-  "hora": "06:54",
+  "numero": 3,
+  "fecha": "2026-11-08T05:34:51",
+  "hora": "05:34",
   "noticias": 44,
   "paginas": 19,
-  "archivo": "boletines/boletin-2.pdf",
-  "portada": "boletines/boletin-2-portada.jpg",
-  "kb": 2572
+  "archivo": "boletines/boletin-3.pdf",
+  "portada": "boletines/boletin-3-portada.jpg",
+  "kb": 2216
  }
 ]
