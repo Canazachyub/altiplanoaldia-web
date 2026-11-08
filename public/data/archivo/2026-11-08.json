@@ -130,8 +130,8 @@
   "seccion": "seguridad",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-08T02:26:00",
-  "imagen": "img/noticias/n359-c878e88a.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Serenazgo auxilia a cuatro universitarios en laguna confinada de Puno",
   "credito": "",
   "medios": [],
@@ -141,7 +141,7 @@
   "edicion": 3,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n359-b912f171.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 358,
@@ -539,7 +539,7 @@
   "seccion": "seguridad",
   "ambito": "LOCAL",
   "fecha": "2026-11-07T21:41:00",
-  "imagen": "img/noticias/n333-7882cb6c.jpg",
+  "imagen": "img/noticias/n333-46827d29.jpg",
   "foco": "50% 38%",
   "pie": "Choque frontal entre camión y auto deja un muerto en Chinchera",
   "credito": "",
@@ -550,7 +550,7 @@
   "edicion": 3,
   "impacto": 10,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n333-263f1c42.jpg"
+  "imagen_compartir": "img/compartir/n333-eff1813f.jpg"
  },
  {
   "id": 257,
@@ -864,42 +864,6 @@
   "impacto": 7,
   "fijada": false,
   "imagen_compartir": "img/compartir/n336-ee95fac3.jpg"
- },
- {
-  "id": 305,
-  "slug": "choque-de-combi-y-camioneta-deja-18-heridos-en-patallani",
-  "titular": "Choque de combi y camioneta deja 18 heridos en Patallani",
-  "bajada": "Entre los lesionados hay un niño de 4 años. En Platería, otra combi volcó y dejó pasajeros con golpes y contusiones.",
-  "antetitulo": "ACCIDENTES DE TRÁNSITO EN LA CARRETERA PUNO–JULIACA Y PLATERÍA",
-  "lugar": "Puno",
-  "cuerpo": [
-   "Dieciocho personas resultaron heridas tras el choque entre una camioneta de placa Z7M-762 y una combi de placa VDJ-968 en el sector Patallani, en la carretera Puno–Juliaca. Entre los lesionados hay un menor de 4 años.",
-   "Los afectados, de entre 4 y 74 años según el reporte oficial del hospital, fueron auxiliados por testigos y personal de emergencia, y trasladados al Hospital Regional Manuel Núñez Butrón, donde reciben atención.",
-   "El martes, cerca de las 6:50 a. m., una combi de la ruta Puno–Ch’uro (placa Z2X-040) se despistó y volcó en Sihuecani, distrito de Platería. Según testigos, el conductor habría hecho una maniobra brusca para evitar una colisión frontal con una camioneta blanca que presuntamente le cerró el paso.",
-   "Varios pasajeros sufrieron golpes y contusiones, y fueron llevados al centro de salud de Platería. Aún no hay cifra oficial de heridos. Las autoridades investigan las causas de ambos hechos."
-  ],
-  "datos": [
-   "Choque de camioneta Z7M-762 y combi VDJ-968 en Patallani, carretera Puno–Juliaca",
-   "18 heridos, entre ellos un menor de 4 años, atendidos en el Hospital Regional Manuel Núñez Butrón",
-   "Combi Z2X-040 de la ruta Puno–Ch’uro volcó en Sihuecani, Platería, cerca de las 6:50 a. m.",
-   "No hay cifra oficial de heridos en el vuelco de Platería"
-  ],
-  "tema": "Seguridad/Policiales",
-  "seccion": "seguridad",
-  "ambito": "LOCAL",
-  "fecha": "2026-11-07T19:53:00",
-  "imagen": "img/noticias/n305-d487115c.jpg",
-  "foco": "50% 38%",
-  "pie": "Choque de combi y camioneta deja 18 heridos en Patallani",
-  "credito": "",
-  "medios": [],
-  "fuentes": 1,
-  "enlaces": [],
-  "boletin": 3,
-  "edicion": 3,
-  "impacto": 8,
-  "fijada": false,
-  "imagen_compartir": "img/compartir/n305-b1e71ebc.jpg"
  },
  {
   "id": 334,
