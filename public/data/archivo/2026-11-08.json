@@ -35,20 +35,62 @@
   "imagen_compartir": null
  },
  {
+  "id": 236,
+  "slug": "senamhi-advierte-deficit-de-lluvias-de-hasta-60-en-puno",
+  "titular": "Déficit de lluvias de hasta 60% amenaza campo puneño",
+  "bajada": "El Senamhi prevé precipitaciones moderadas desde el 9 de noviembre, pero serían insuficientes para cubrir la demanda de agua de los cultivos.",
+  "antetitulo": "PRONÓSTICO DEL SENAMHI PARA LA CAMPAÑA AGRÍCOLA",
+  "lugar": "Puno",
+  "cuerpo": [
+   "El Servicio Nacional de Meteorología e Hidrología (Senamhi) Puno advirtió que la región registrará en noviembre un déficit de lluvias de entre 30% y 60%, una situación que compromete el desarrollo de la campaña agrícola.",
+   "Según el pronóstico, hasta el 8 de noviembre solo se esperan lluvias aisladas en la región. A partir del 9 de noviembre se prevén precipitaciones moderadas, aunque el déficit se mantendría a lo largo del mes.",
+   "## LO QUE VIENE",
+   "El organismo precisó que las lluvias previstas serían insuficientes para cubrir la demanda de agua que requieren los cultivos. La escasez de precipitaciones afecta principalmente a las zonas altoandinas, donde la actividad agropecuaria depende de las lluvias de la temporada.",
+   "## A QUIÉNES AFECTA",
+   "El déficit golpea directamente a los productores agrícolas de Puno, que dependen de las precipitaciones para sus sembríos. La falta de agua también incide en el nivel del lago Titicaca y en las actividades que dependen de él."
+  ],
+  "datos": [
+   "Déficit de lluvias de entre 30% y 60% en Puno durante noviembre",
+   "Lluvias aisladas hasta el 8 de noviembre",
+   "Precipitaciones moderadas desde el 9 de noviembre",
+   "Las lluvias previstas serían insuficientes para la campaña agrícola",
+   "El déficit afecta a zonas altoandinas, productores agrícolas y al nivel del lago Titicaca"
+  ],
+  "tema": "Medio ambiente",
+  "seccion": "ambiente",
+  "ambito": "REGIONAL",
+  "fecha": "2026-11-08T02:53:00",
+  "imagen": "img/noticias/n236-9c983a8d.jpg",
+  "foco": "50% 43%",
+  "pie": "Déficit de lluvias de hasta 60% amenaza campo puneño",
+  "credito": "",
+  "medios": [],
+  "fuentes": 1,
+  "enlaces": [],
+  "boletin": 3,
+  "edicion": 3,
+  "impacto": 6,
+  "fijada": false,
+  "imagen_compartir": "img/compartir/n236-8c3d0ced.jpg"
+ },
+ {
   "id": 360,
   "slug": "ronderos-hallan-a-jefe-de-control-interno-bebiendo",
-  "titular": "Ronderos hallan a jefe de Control Interno bebiendo",
-  "bajada": "Óscar Chura y otros trabajadores fueron intervenidos en la Municipalidad de Carabaya por presunto consumo de alcohol en horario laboral.",
-  "antetitulo": "RONDEROS INTERVIENEN EN LA MUNICIPALIDAD DE CARABAYA",
+  "titular": "Ronderos hallan a jefe de Control Interno bebiendo cerveza",
+  "bajada": "Óscar Chura y otros trabajadores fueron intervenidos en la comuna de Carabaya por presunto consumo de alcohol en horario laboral.",
+  "antetitulo": "INTERVENCIÓN EN LA MUNICIPALIDAD DE CARABAYA",
   "lugar": "Carabaya",
   "cuerpo": [
-   "Ronderos de Carabaya intervinieron al jefe de Control Interno de la Municipalidad de Carabaya, Óscar Chura, y a otros trabajadores, a quienes hallaron presuntamente bebiendo cerveza dentro de la oficina.",
-   "Hasta el momento, las autoridades municipales no se han pronunciado sobre lo ocurrido ni sobre las medidas contra los implicados."
+   "Ronderos de Carabaya intervinieron al jefe de Control Interno de la Municipalidad de Carabaya, Óscar Chura, y a otros trabajadores, a quienes hallaron presuntamente bebiendo cerveza dentro de una oficina de la entidad.",
+   "La intervención se realizó en las instalaciones de la comuna, donde los ronderos encontraron a los trabajadores con bebidas alcohólicas. El hecho fue calificado como un presunto consumo de alcohol en horario laboral.",
+   "Chura ocupa la jefatura del órgano de Control Interno de la municipalidad, la instancia encargada de la supervisión de la gestión de la entidad. Junto con él fueron intervenidos otros trabajadores, cuyos nombres no han sido precisados.",
+   "Hasta el momento, las autoridades municipales no se han pronunciado sobre lo ocurrido ni sobre las medidas que se tomarán contra los implicados."
   ],
   "datos": [
    "Óscar Chura es jefe de Control Interno de la Municipalidad de Carabaya",
    "Ronderos de Carabaya intervinieron a trabajadores municipales",
-   "Presunto consumo de cerveza en oficina municipal"
+   "Presunto consumo de cerveza en oficina municipal",
+   "Las autoridades municipales no se han pronunciado"
   ],
   "tema": "Sociedad",
   "seccion": "sociedad",
@@ -56,7 +98,7 @@
   "fecha": "2026-11-08T02:50:00",
   "imagen": null,
   "foco": null,
-  "pie": "Ronderos hallan a jefe de Control Interno bebiendo",
+  "pie": "Ronderos hallan a jefe de Control Interno bebiendo cerveza",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -66,6 +108,118 @@
   "impacto": 6,
   "fijada": false,
   "imagen_compartir": null
+ },
+ {
+  "id": 359,
+  "slug": "serenazgo-auxilia-a-cuatro-universitarios-en-laguna-confinada-de-puno",
+  "titular": "Serenazgo auxilia a cuatro universitarios en laguna confinada de Puno",
+  "bajada": "Uno de los jóvenes enfrentó una situación de riesgo dentro del agua; el equipo de socorro intervino en la zona.",
+  "antetitulo": "RESCATE EN LA AVENIDA COSTANERA",
+  "lugar": "Puno",
+  "cuerpo": [
+   "El Serenazgo de Puno auxilió a cuatro universitarios que ingresaron a una laguna confinada en la avenida Costanera, donde uno de ellos enfrentó una situación de riesgo dentro del agua.",
+   "El equipo de socorro intervino para rescatar a los jóvenes y atender la emergencia. No se reportaron consecuencias graves.",
+   "Las autoridades recomiendan no ingresar a lagunas confinadas ni a zonas acuáticas no habilitadas para bañistas, debido al riesgo que representan."
+  ],
+  "datos": [
+   "Cuatro universitarios auxiliados",
+   "Laguna confinada en la avenida Costanera de Puno",
+   "Uno enfrentó situación de riesgo en el agua"
+  ],
+  "tema": "Seguridad/Policiales",
+  "seccion": "seguridad",
+  "ambito": "DISTRITAL",
+  "fecha": "2026-11-08T02:26:00",
+  "imagen": "img/noticias/n359-c878e88a.jpg",
+  "foco": "50% 38%",
+  "pie": "Serenazgo auxilia a cuatro universitarios en laguna confinada de Puno",
+  "credito": "",
+  "medios": [],
+  "fuentes": 1,
+  "enlaces": [],
+  "boletin": 3,
+  "edicion": 3,
+  "impacto": 6,
+  "fijada": false,
+  "imagen_compartir": "img/compartir/n359-b912f171.jpg"
+ },
+ {
+  "id": 358,
+  "slug": "miembros-de-mesa-de-san-roman-cobran-s-165-hasta-el-31-de-diciembre",
+  "titular": "Miembros de mesa de San Román cobran S/ 165 hasta el 31 de diciembre",
+  "bajada": "La Oficina Descentralizada de Procesos Electorales recuerda que el pago se realiza en el Banco de la Nación.",
+  "antetitulo": "COMPENSACIÓN POR LABOR ELECTORAL",
+  "lugar": "Juliaca",
+  "cuerpo": [
+   "Los miembros de mesa de la provincia de San Román tienen plazo hasta el 31 de diciembre para cobrar la compensación de S/ 165 por su labor en los comicios. La Oficina Descentralizada de Procesos Electorales (ODPE) San Román recordó que el pago se realiza en el Banco de la Nación.",
+   "El cobro está dirigido a quienes cumplieron funciones como miembros de mesa y aún no retiraron el monto. La ODPE precisó que la atención se mantiene hasta el último día del año en la entidad bancaria.",
+   "Los beneficiarios deben acudir al Banco de la Nación para retirar la compensación antes del vencimiento del plazo. La ODPE San Román no precisó si se habilitarán puntos adicionales de pago."
+  ],
+  "datos": [
+   "S/ 165 es el monto de la compensación",
+   "31 de diciembre vence el plazo de cobro",
+   "El pago se realiza en el Banco de la Nación",
+   "ODPE San Román es la entidad que recuerda el plazo"
+  ],
+  "tema": "Sociedad",
+  "seccion": "sociedad",
+  "ambito": "REGIONAL",
+  "fecha": "2026-11-08T02:01:00",
+  "imagen": "img/noticias/n358-1d5f8033.jpg",
+  "foco": "49% 49%",
+  "pie": "Miembros de mesa de San Román cobran S/ 165 hasta el 31 de diciembre",
+  "credito": "",
+  "medios": [],
+  "fuentes": 1,
+  "enlaces": [],
+  "boletin": 3,
+  "edicion": 3,
+  "impacto": 4,
+  "fijada": false,
+  "imagen_compartir": "img/compartir/n358-b453d332.jpg"
+ },
+ {
+  "id": 290,
+  "slug": "quispe-pandia-abre-80-locales-y-cutipa-denuncia-cuenta-falsa",
+  "titular": "Quispe Pandia abre 80 locales y Cutipa denuncia cuenta falsa",
+  "bajada": "Eduardo Quispe Pandia y Jhomar Tonconi intensifican sus campañas por la Gobernación Regional de Puno, entre denuncias de guerra sucia y críticas por la falta de propuestas.",
+  "antetitulo": "CAMPAÑA RUMBO A LA SEGUNDA ELECCIÓN REGIONAL DEL 6 DE DICIEMBRE",
+  "lugar": "Puno",
+  "cuerpo": [
+   "Eduardo Quispe Pandia, candidato de Ahora Nación, abrió cerca de 80 locales partidarios en distintos sectores de la ciudad de Puno. Él y Jhomar Marcelino Tonconi Quispe, de Así Juntos por el Perú, intensifican sus campañas para la segunda elección regional, que según el Jurado Nacional de Elecciones (JNE) será el domingo 6 de diciembre de 2026.",
+   "## LOCALES DE AHORA NACIÓN",
+   "Quispe Pandia estuvo acompañado de militantes, simpatizantes y vecinos. Su entorno sostiene que la política “se construye desde los barrios”, escuchando al pueblo y recogiendo sus demandas. Su propuesta se centra en las familias, los trabajadores, los jóvenes, las mujeres, los emprendedores y los sectores históricamente postergados.",
+   "Los representantes de la agrupación destacaron la unidad, la participación ciudadana y el compromiso de trabajar por nuevas oportunidades para la región. Ahora Nación difundió también su consigna electoral: «¡Este 6 de diciembre, marca el casco!». El mensaje “Puno merece un futuro con más oportunidades y justicia para su pueblo” corresponde a un aviso político contratado.",
+   "## DENUNCIA DE SUPLANTACIÓN",
+   "El ex candidato al Gobierno Regional Wilber Cutipa Alejo denunció una presunta suplantación de identidad en esta segunda vuelta. Según dijo, se creó una cuenta falsa con su imagen, nombre y apellidos para atacar a uno de los dos aspirantes.",
+   "“Han creado una cuenta falsa con mi imagen, mi nombre y apellidos, para atacar a su contrincante”, señaló. Calificó esas prácticas como “de cobardes e inmorales” y pidió a la ciudadanía no compartir publicaciones de cuentas falsas ni atribuir declaraciones sin verificar su autenticidad.",
+   "## FALTA DE PROPUESTAS",
+   "Un analista cuestionó que las campañas de los candidatos a gobernador carezcan de propuestas técnicas. Según su evaluación, la falta de planes de gobierno detallados desorienta a los electores. Añadió que Puno llega a la segunda vuelta con un ausentismo del 17%."
+  ],
+  "datos": [
+   "La segunda elección regional será el domingo 6 de diciembre de 2026, según el JNE",
+   "Eduardo Quispe Pandia (Ahora Nación) abrió cerca de 80 locales en la ciudad de Puno",
+   "Jhomar Marcelino Tonconi Quispe es candidato de Así Juntos por el Perú",
+   "El mensaje de Quispe Pandia corresponde a un aviso político contratado",
+   "Wilber Cutipa Alejo denunció una cuenta falsa con su identidad",
+   "Un analista citó un ausentismo del 17% y cuestionó la falta de propuestas técnicas"
+  ],
+  "tema": "Política",
+  "seccion": "politica",
+  "ambito": "REGIONAL",
+  "fecha": "2026-11-08T01:51:00",
+  "imagen": "img/noticias/n290-4d998408.jpg",
+  "foco": "52% 37%",
+  "pie": "Quispe Pandia abre 80 locales y Cutipa denuncia cuenta falsa",
+  "credito": "",
+  "medios": [],
+  "fuentes": 1,
+  "enlaces": [],
+  "boletin": 3,
+  "edicion": 3,
+  "impacto": 7,
+  "fijada": false,
+  "imagen_compartir": "img/compartir/n290-08b0aa0f.jpg"
  },
  {
   "id": 353,
@@ -115,26 +269,19 @@
   "id": 249,
   "slug": "cierran-estacion-la-cultura-del-metro-de-lima-por-visita-del-papa-leon-xiv",
   "titular": "León XIV denuncia que niños no van a la escuela por miedo",
-  "bajada": "Desde Casavalle, barrio vulnerable de Montevideo, el papa criticó la violencia y la pobreza infantil. En Lima, el Metro cerrará la estación La Cultura el 11 de noviembre.",
-  "antetitulo": "GIRA DE 11 DÍAS POR URUGUAY, ARGENTINA Y PERÚ",
+  "bajada": "Desde Casavalle, barrio vulnerable de Montevideo, el papa criticó la violencia y la pobreza infantil durante su segunda jornada en Uruguay.",
+  "antetitulo": "VISITA DEL PAPA A URUGUAY Y SU RUTA HACIA EL PERÚ",
   "lugar": "Montevideo",
   "cuerpo": [
    "El papa León XIV denunció la violencia que afecta a los niños y las dificultades de las familias en Casavalle, uno de los barrios más vulnerables de Montevideo, durante la segunda jornada de su visita a Uruguay. Advirtió que muchos menores han dejado de ir a la escuela por miedo a los tiroteos y que hay hogares sin recursos para alimentarse.",
    "“No podemos pasar de largo cuando sabemos que hay niños en Uruguay que no van a la escuela por miedo a no volver”, afirmó. En Casavalle bendijo una docena de viviendas populares financiadas por la Iglesia católica. La zona registra una tasa de homicidios de 41,7 por cada 100.000 habitantes, cuatro veces la nacional, según datos oficiales.",
-   "## JORNADA EN URUGUAY",
-   "Más temprano, León XIV celebró una misa en el parque París Londres de Paysandú ante unos 40.000 fieles, según las autoridades locales. En su homilía usó tres símbolos regionales: el puente, los palmares y el mate. “Construir puentes, estrechar lazos, unir, comunicar, transmitir la alegría de la fe”, dijo.",
-   "Por la noche encabezó una vigilia en el Estadio Centenario. Allí abordó el retroceso de la práctica religiosa: Uruguay tiene 35% de católicos, el porcentaje más bajo de América Latina, según Latinobarómetro 2026. En la Universidad Católica advirtió sobre los riesgos de la inteligencia artificial y la deshumanización.",
-   "## RUMBO AL PERÚ",
-   "El pontífice inició en Montevideo una gira apostólica de 11 días que incluye Argentina y Perú. Afirmó que nunca dudó del viaje y expresó su alegría por volver al Perú, donde vivió cerca de 20 años como misionero y obispo.",
-   "En el Callao ya fue instalada una estatua de 14 metros del papa, de cuatro toneladas, que se inaugurará el lunes 9 de noviembre en el parque del Niño Gaelito.",
-   "El miércoles 11 de noviembre, día de su llegada a Lima, la Autoridad de Transporte Urbano (ATU) cerrará la estación La Cultura de la Línea 1 del Metro durante su encuentro con autoridades en el Gran Teatro Nacional, previsto para las 7:45 p. m. También se cerrará la avenida Aviación y 15 rutas cambiarán su recorrido."
+   "Más temprano, celebró una misa en el parque París Londres de Paysandú ante unos 40.000 fieles, según las autoridades locales. Por la noche encabezó una vigilia en el Estadio Centenario de Montevideo.",
+   "El pontífice inició en Uruguay una gira apostólica de 11 días que incluye Argentina y Perú, país donde vivió cerca de 20 años como misionero y obispo."
   ],
   "datos": [
    "Gira apostólica de 11 días por Uruguay, Argentina y Perú",
    "Unos 40.000 fieles en la misa de Paysandú, según autoridades locales",
-   "Casavalle: tasa de homicidios de 41,7 por cada 100.000 habitantes",
-   "Estatua de 14 metros en el Callao se inaugura el lunes 9 de noviembre",
-   "Estación La Cultura cerrada el miércoles 11 de noviembre; 15 rutas cambian recorrido"
+   "Casavalle: tasa de homicidios de 41,7 por cada 100.000 habitantes"
   ],
   "tema": "Sociedad",
   "seccion": "sociedad",
@@ -174,8 +321,8 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-07T23:20:00",
-  "imagen": "img/noticias/n352-4bfa8f20.jpg",
-  "foco": "32% 90%",
+  "imagen": "img/noticias/n352-5695316f.jpg",
+  "foco": "24% 80%",
   "pie": "Jenry Huisa reúne a cientos de vecinos en Socabaya",
   "credito": "",
   "medios": [],
@@ -185,19 +332,18 @@
   "edicion": 3,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n352-8db4241f.jpg"
+  "imagen_compartir": "img/compartir/n352-9751d276.jpg"
  },
  {
   "id": 350,
   "slug": "una-roca-espacial-de-2-metros-orbita-la-tierra-como-miniluna-desde-abril",
-  "titular": "Una roca espacial de 2 metros orbita la Tierra como miniluna desde abril",
-  "bajada": "El objeto permanecerá junto al planeta hasta diciembre y luego retomará su recorrido por el sistema solar en 2027.",
+  "titular": "Roca espacial de 2 metros orbita la Tierra",
+  "bajada": "El objeto permanecerá junto al planeta hasta diciembre y retomará su recorrido por el sistema solar en 2027.",
   "antetitulo": "FENÓMENO ASTRONÓMICO EN LA ÓRBITA TERRESTRE",
   "lugar": "",
   "cuerpo": [
    "Una roca espacial de unos 2 metros de diámetro orbita la Tierra como una nueva miniluna desde abril y permanecerá junto al planeta hasta diciembre.",
-   "El objeto fue atraído hacia la órbita terrestre y, tras su paso cercano, retomará su recorrido por el sistema solar en 2027.",
-   "Se trata de un cuerpo de pequeño tamaño que quedó temporalmente capturado por la gravedad de la Tierra, un fenómeno que ocurre con rocas que pasan cerca del planeta."
+   "El objeto fue atraído hacia la órbita terrestre y, tras su paso cercano, retomará su recorrido por el sistema solar en 2027."
   ],
   "datos": [
    "2 metros de diámetro",
@@ -211,7 +357,7 @@
   "fecha": "2026-11-07T23:18:00",
   "imagen": "img/noticias/n350-a656c54e.jpg",
   "foco": "50% 38%",
-  "pie": "Una roca espacial de 2 metros orbita la Tierra como miniluna desde abril",
+  "pie": "Roca espacial de 2 metros orbita la Tierra",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -220,7 +366,7 @@
   "edicion": 3,
   "impacto": 1,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n350-baaa4b14.jpg"
+  "imagen_compartir": "img/compartir/n350-293c9564.jpg"
  },
  {
   "id": 330,
@@ -230,11 +376,10 @@
   "antetitulo": "EL VOCALISTA DE KE PERSONAJES SEGUIRÁ BAJO CUSTODIA EN ENTRE RÍOS",
   "lugar": "Concepción del Uruguay",
   "cuerpo": [
-   "Emanuel Noir, vocalista de la agrupación argentina Ke Personajes, fue detenido en la madrugada del sábado 7 de noviembre tras un altercado en un casino de Concepción del Uruguay, en la provincia de Entre Ríos, Argentina.",
-   "Según fuentes policiales, el músico habría golpeado en el rostro a un guardia de seguridad de 40 años que le impidió el ingreso porque el local ya había cerrado. El trabajador sufrió lesiones y cortes. El hecho ocurrió alrededor de las 5:45 a. m.",
-   "Los agentes redujeron al artista y a uno de sus acompañantes. Indicaron que usaron la fuerza mínima e indispensable por el estado de alteración y el comportamiento violento del cantante.",
-   "Noir quedó detenido en la Comisaría Primera por los presuntos delitos de resistencia a la autoridad y lesiones. El fiscal Pablo Gile dispuso que permanezca en la dependencia hasta el martes 10 de noviembre, debido al feriado del lunes.",
-   "La agrupación tiene prevista una presentación en Lima el 22 de mayo de 2027, en el Arena 1. Hasta ahora no se ha anunciado cambio alguno en ese concierto."
+   "Emanuel Noir, vocalista de Ke Personajes, fue detenido en la madrugada del sábado 7 de noviembre tras un altercado en un casino de Concepción del Uruguay, en Entre Ríos, Argentina.",
+   "Según fuentes policiales, el músico habría golpeado en el rostro a un guardia de 40 años que le impidió el ingreso porque el local ya había cerrado. El trabajador sufrió lesiones y cortes. Los agentes redujeron al artista y a uno de sus acompañantes.",
+   "Noir quedó en la Comisaría Primera por los presuntos delitos de resistencia a la autoridad y lesiones. El fiscal Pablo Gile dispuso que permanezca allí hasta el martes 10 de noviembre, por el feriado del lunes.",
+   "La agrupación tiene prevista una presentación en el Arena 1 de Lima el 22 de mayo de 2027. Hasta ahora no se anunció cambio alguno."
   ],
   "datos": [
    "Detención de Emanuel Noir tras agredir a un guardia en Concepción del Uruguay",
@@ -478,14 +623,14 @@
  {
   "id": 344,
   "slug": "hospital-regional-de-puno-busca-a-familiares-de-paciente-internado-en-emergencia",
-  "titular": "Hospital Regional de Puno busca a familiares de paciente internado en Emergencia",
-  "bajada": "El nosocomio pide a los parientes de Yubert acercarse al servicio de Emergencia para coordinar su atención",
-  "antetitulo": "LLAMADO DEL HOSPITAL REGIONAL DE PUNO",
+  "titular": "Hospital de Puno busca a familiares de paciente",
+  "bajada": "El nosocomio pide a los parientes de Yubert acercarse al servicio de Emergencia.",
+  "antetitulo": "LLAMADO DEL HOSPITAL REGIONAL MANUEL NÚÑEZ BUTRÓN",
   "lugar": "Puno",
   "cuerpo": [
    "El Hospital Regional Manuel Núñez Butrón de Puno pidió a los familiares de un paciente identificado como Yubert acercarse al servicio de Emergencia del nosocomio.",
-   "El llamado busca que los parientes del paciente se presenten para coordinar su atención y los trámites correspondientes.",
-   "Las personas que puedan aportar información sobre sus familiares deben acudir directamente al área de Emergencia del hospital, en la ciudad de Puno."
+   "El comunicado señala que los parientes deben aproximarse al área de Emergencia, donde podrán recibir la información correspondiente sobre el paciente. El hospital no precisó el estado de salud de Yubert ni el motivo de su ingreso.",
+   "Las personas que conozcan a la familia del paciente o puedan aportar datos para ubicarla deben acudir directamente al servicio de Emergencia del hospital, en la ciudad de Puno."
   ],
   "datos": [
    "Paciente identificado como Yubert",
@@ -498,7 +643,7 @@
   "fecha": "2026-11-07T21:24:00",
   "imagen": "img/noticias/n344-9957b465.jpg",
   "foco": "37% 34%",
-  "pie": "Hospital Regional de Puno busca a familiares de paciente internado en Emergencia",
+  "pie": "Hospital de Puno busca a familiares de paciente",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -507,7 +652,7 @@
   "edicion": 3,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n344-76a7201d.jpg"
+  "imagen_compartir": "img/compartir/n344-eed1b28b.jpg"
  },
  {
   "id": 341,
@@ -729,9 +874,9 @@
   "lugar": "Puno",
   "cuerpo": [
    "Dieciocho personas resultaron heridas tras el choque entre una camioneta de placa Z7M-762 y una combi de placa VDJ-968 en el sector Patallani, en la carretera Puno–Juliaca. Entre los lesionados hay un menor de 4 años.",
-   "Testigos y personal de emergencia auxiliaron a los afectados, que fueron trasladados al Hospital Regional Manuel Núñez Butrón, donde reciben atención médica. Según el reporte oficial del hospital, los heridos tienen entre 4 y 74 años.",
-   "En otro accidente, una combi de la ruta Puno–Ch’uro, de placa Z2X-040, se despistó y volcó cerca de las 6:50 a. m. en el sector Sihuecani, distrito de Platería. Según testigos, el conductor habría hecho una maniobra brusca para evitar una colisión frontal con una camioneta blanca que presuntamente le cerró el paso.",
-   "Varios pasajeros sufrieron golpes y contusiones, y fueron llevados al centro de salud de Platería. No se ha precisado el número oficial de heridos. Las autoridades investigan las causas de ambos hechos."
+   "Los afectados, de entre 4 y 74 años según el reporte oficial del hospital, fueron auxiliados por testigos y personal de emergencia, y trasladados al Hospital Regional Manuel Núñez Butrón, donde reciben atención.",
+   "El martes, cerca de las 6:50 a. m., una combi de la ruta Puno–Ch’uro (placa Z2X-040) se despistó y volcó en Sihuecani, distrito de Platería. Según testigos, el conductor habría hecho una maniobra brusca para evitar una colisión frontal con una camioneta blanca que presuntamente le cerró el paso.",
+   "Varios pasajeros sufrieron golpes y contusiones, y fueron llevados al centro de salud de Platería. Aún no hay cifra oficial de heridos. Las autoridades investigan las causas de ambos hechos."
   ],
   "datos": [
    "Choque de camioneta Z7M-762 y combi VDJ-968 en Patallani, carretera Puno–Juliaca",
@@ -935,14 +1080,13 @@
  {
   "id": 324,
   "slug": "especialista-recomienda-consumir-agua-a-diario-para-cuidar-rinones-e-higado",
-  "titular": "Especialista recomienda consumir agua a diario para cuidar riñones e hígado",
-  "bajada": "Jhon Coila explicó que una hidratación adecuada favorece el funcionamiento de los órganos y del sistema digestivo.",
-  "antetitulo": "ESPECIALISTA ADVIERTE SOBRE LA HIDRATACIÓN DIARIA",
+  "titular": "Beber agua a diario protege riñones e hígado",
+  "bajada": "El especialista Jhon Coila explicó que una buena hidratación favorece el funcionamiento de los órganos y del sistema digestivo.",
+  "antetitulo": "RECOMIENDAN HÁBITOS DE HIDRATACIÓN EN PUNO",
   "lugar": "Puno",
   "cuerpo": [
-   "El especialista Jhon Coila recomendó consumir agua diariamente para favorecer el funcionamiento de órganos importantes como los riñones, el hígado y los intestinos.",
-   "Durante su intervención, Coila explicó cómo la hidratación contribuye al trabajo de estos órganos y al bienestar general del organismo.",
-   "La recomendación apunta a incorporar el consumo de agua como un hábito constante a lo largo del día, más allá de la sed momentánea."
+   "El especialista Jhon Coila recomendó consumir agua todos los días para favorecer el funcionamiento de órganos como los riñones, el hígado y los intestinos.",
+   "Explicó que la hidratación contribuye al trabajo de estos órganos y al bienestar general del organismo."
   ],
   "datos": [
    "Jhon Coila es el especialista que dio la recomendación",
@@ -954,7 +1098,7 @@
   "fecha": "2026-11-07T18:15:00",
   "imagen": null,
   "foco": null,
-  "pie": "Especialista recomienda consumir agua a diario para cuidar riñones e hígado",
+  "pie": "Beber agua a diario protege riñones e hígado",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1007,11 +1151,8 @@
   "cuerpo": [
    "La Contraloría General de la República pidió al Ejército no abonar más de S/ 20 millones a la empresa Milenium Veladi Corp. por la reparación de tres helicópteros. El organismo detectó graves defectos y carencias en el servicio de overhaul contratado.",
    "La entidad comunicó la situación al comandante general del instituto armado, Oswaldo Calle. Le advirtió que oficiales dieron la conformidad a la empresa pese a las deficiencias del trabajo.",
-   "## LA OBSERVACIÓN",
    "Según la Contraloría, el pago por el servicio de overhaul no debería superar los S/ 20 millones. La recomendación busca resguardar los recursos públicos ante un servicio que, de acuerdo con el organismo, presenta defectos de gravedad.",
-   "El control apunta directamente a la conformidad otorgada por los oficiales, que habría permitido avanzar hacia el pago a pesar de las carencias detectadas en la reparación de las tres aeronaves.",
-   "## EL CONTRATO",
-   "La empresa involucrada es Milenium Veladi Corp., responsable del servicio de overhaul de los tres helicópteros. La Contraloría pide que el Ejército no desembolse el monto señalado mientras persistan las observaciones sobre la calidad del trabajo."
+   "El control apunta directamente a la conformidad otorgada por los oficiales, que habría permitido avanzar hacia el pago a pesar de las carencias detectadas en la reparación de las tres aeronaves."
   ],
   "datos": [
    "S/ 20 millones: monto que la Contraloría pide no superar",
@@ -1141,13 +1282,13 @@
   "id": 315,
   "slug": "una-puno-instala-462-pantallas-interactivas-en-aulas",
   "titular": "UNA Puno instala 462 pantallas interactivas en aulas",
-  "bajada": "Los equipos de 98 pulgadas y resolución 4K UHD renuevan la enseñanza en las escuelas profesionales.",
-  "antetitulo": "MODERNIZACIÓN TECNOLÓGICA EN LA UNIVERSIDAD DEL ALTIPLANO",
+  "bajada": "Los equipos de 98 pulgadas y resolución 4K UHD reemplazan la tecnología usada por varios años en las escuelas profesionales.",
+  "antetitulo": "RENOVACIÓN TECNOLÓGICA EN LA UNIVERSIDAD DEL ALTIPLANO",
   "lugar": "Puno",
   "cuerpo": [
-   "La Universidad Nacional del Altiplano (UNA) Puno culminó la instalación de 462 pantallas interactivas de 98 pulgadas y resolución 4K UHD en las aulas y laboratorios de sus escuelas profesionales. La medida forma parte de la modernización de los recursos tecnológicos para la enseñanza universitaria.",
-   "La implementación permitirá que docentes y estudiantes dispongan de herramientas digitales más modernas para las actividades académicas, la presentación de contenidos y el fortalecimiento de la enseñanza y el aprendizaje en las diferentes carreras.",
-   "El rector, Dr. Dante Atilio Salas, y el vicerrector académico, Dr. Javier Mamani Paredes, supervisaron la entrega de estas pizarras interactivas. Constataron la llegada de los equipos, que reemplazan a la tecnología de generaciones anteriores usada por varios años en la universidad."
+   "La Universidad Nacional del Altiplano (UNA) Puno culminó la instalación de 462 pantallas interactivas de 98 pulgadas y resolución 4K UHD en las aulas y laboratorios de sus escuelas profesionales. La medida forma parte de la modernización de sus recursos tecnológicos.",
+   "El rector, Dr. Dante Atilio Salas, y el vicerrector académico, Dr. Javier Mamani Paredes, supervisaron la entrega de los equipos. Estos reemplazan a la tecnología de generaciones anteriores, utilizada por varios años en la universidad.",
+   "La implementación permitirá que docentes y estudiantes dispongan de herramientas digitales más modernas para presentar contenidos y fortalecer la enseñanza y el aprendizaje en las diferentes carreras profesionales."
   ],
   "datos": [
    "462 pantallas interactivas instaladas",
