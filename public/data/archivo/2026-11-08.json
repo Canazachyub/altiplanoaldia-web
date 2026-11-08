@@ -190,13 +190,13 @@
   "id": 406,
   "slug": "motociclista-muere-tras-choque-con-combi-en-jaran",
   "titular": "Motociclista muere tras choque con combi en Jaran",
-  "bajada": "El conductor de la moto torito resultó gravemente herido en Centro Jaran y falleció cuando era llevado a un hospital local.",
+  "bajada": "El conductor de la moto torito quedó gravemente herido en Centro Jaran y falleció cuando era trasladado a un hospital local.",
   "antetitulo": "ACCIDENTE EN LA VÍA JULIACA - LAMPA",
   "lugar": "Juliaca",
   "cuerpo": [
-   "Un motociclista perdió la vida tras el violento choque entre una combi de la línea 60 y una moto torito en la comunidad de Centro Jaran, en la vía que une Juliaca con Lampa. El siniestro se registró cuando la combi colisionó contra el vehículo menor.",
-   "Producto del impacto, el conductor de la moto resultó gravemente herido. Personal de emergencia acudió al lugar para brindarle auxilio y lo trasladó de inmediato a un hospital local, pero falleció durante el trayecto.",
-   "Las autoridades iniciaron las diligencias para establecer las causas del accidente y determinar las responsabilidades del caso. Hasta el momento no se han precisado más detalles sobre las circunstancias del choque."
+   "Un motociclista murió tras un fuerte choque entre una combi de la línea 60 y una moto torito, registrado en la comunidad de Centro Jaran, en la ruta que une Juliaca con Lampa. El siniestro se produjo cuando la combi colisionó violentamente contra el vehículo menor.",
+   "Producto del impacto, el conductor de la moto resultó gravemente herido. Personal de emergencia acudió al lugar para brindarle auxilio y lo trasladó de inmediato a un hospital local, pero el hombre falleció durante el traslado.",
+   "Las autoridades iniciaron las diligencias para establecer las causas del accidente y determinar las responsabilidades en este suceso fatal. Hasta el momento no se han precisado más detalles sobre las circunstancias del choque."
   ],
   "datos": [
    "Una persona falleció en el choque",
@@ -368,18 +368,14 @@
  {
   "id": 367,
   "slug": "muere-una-persona-al-chocar-un-auto-contra-vivienda-en-juliaca",
-  "titular": "Muere una persona al chocar un auto contra vivienda en Juliaca",
+  "titular": "Muere una persona al chocar un auto contra vivienda",
   "bajada": "El presunto conductor del vehículo blanco resultó herido y fue llevado al hospital Carlos Monge Medrano. La Policía realiza las diligencias.",
   "antetitulo": "ACCIDENTE EN LA SALIDA A HUANCANÉ, A LA ALTURA DE AYAVACAS",
   "lugar": "Juliaca",
   "cuerpo": [
-   "Una persona murió y otra resultó herida luego de que un vehículo de color blanco impactara contra una vivienda a la altura de Ayavacas, en la salida a Huancané, en Juliaca. El choque también causó daños materiales.",
-   "El personal de Serenazgo acudió al lugar tras recibir una alerta de la Base Central. La comunicación indicaba que el vehículo había chocado contra una inmueble y que había daños materiales y personales.",
-   "## LA ATENCIÓN",
-   "Al llegar, los agentes brindaron los primeros auxilios al presunto conductor, quien posteriormente fue trasladado al hospital Carlos Monge Medrano. En el lugar encontraron además a otra persona sin signos vitales.",
-   "La presencia de la persona fallecida fue comunicada a la Policía Nacional del Perú. La institución realiza las diligencias correspondientes para esclarecer las circunstancias del accidente.",
-   "## LO QUE FALTA SABER",
-   "Hasta el momento no se ha precisado la identidad de la persona fallecida ni el estado de salud del conductor. Tampoco se han informado las causas del choque, que serán materia de investigación."
+   "Una persona murió y otra resultó herida luego de que un vehículo blanco impactara contra una vivienda a la altura de Ayavacas, en la salida a Huancané, en Juliaca. El choque también causó daños materiales.",
+   "Personal de Serenazgo acudió al lugar tras una alerta de la Base Central. Los agentes brindaron los primeros auxilios al presunto conductor, quien fue trasladado al hospital Carlos Monge Medrano. En el lugar encontraron a otra persona sin signos vitales.",
+   "El fallecimiento fue comunicado a la Policía Nacional del Perú, que realiza las diligencias para esclarecer las circunstancias del accidente. Aún no se ha informado la identidad del fallecido ni el estado de salud del herido."
   ],
   "datos": [
    "Serenazgo acudió a Ayavacas, salida Huancané, tras alerta de la Base Central por un vehículo blanco que impactó contra una vivienda",
@@ -392,9 +388,9 @@
   "seccion": "seguridad",
   "ambito": "LOCAL",
   "fecha": "2026-11-08T15:53:32",
-  "imagen": "img/noticias/n367-85f5b34a.jpg",
-  "foco": "50% 38%",
-  "pie": "Muere una persona al chocar un auto contra vivienda en Juliaca",
+  "imagen": null,
+  "foco": null,
+  "pie": "Muere una persona al chocar un auto contra vivienda",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -403,7 +399,7 @@
   "edicion": 3,
   "impacto": 9,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n367-aa5b0b30.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 290,
@@ -1206,8 +1202,8 @@
   "seccion": "seguridad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-08T11:52:00",
-  "imagen": "img/noticias/n375-d6088e55.jpg",
-  "foco": "53% 28%",
+  "imagen": "img/noticias/n375-72b5fdbb.jpg",
+  "foco": "52% 40%",
   "pie": "Gobierno autoriza ingreso de las Fuerzas Armadas a penales para frenar al crimen organizado",
   "credito": "",
   "medios": [],
@@ -1217,7 +1213,7 @@
   "edicion": null,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n375-426ee1a2.jpg"
+  "imagen_compartir": "img/compartir/n375-647e78ce.jpg"
  },
  {
   "id": 336,
@@ -1493,8 +1489,8 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-08T08:44:00",
-  "imagen": "img/noticias/n365-0b3911db.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Yunguyo celebra sus 42 años con desfile cívico el 13",
   "credito": "",
   "medios": [],
@@ -1504,7 +1500,7 @@
   "edicion": null,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n365-131c1996.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 364,
