@@ -342,20 +342,17 @@
  {
   "id": 480,
   "slug": "nino-de-11-anos-camina-38-kilometros-para-buscar-a-su-hermana-en-cusco",
-  "titular": "Niño de 11 años camina 38 kilómetros para buscar a su hermana en Cusco",
-  "bajada": "Abel salió de Chapapampa, en Ccatca, y fue hallado por una pobladora en la carretera Interoceánica; permanece bajo cuidado en una comisaría",
-  "antetitulo": "ESCAPÓ DEL HOGAR DONDE SUFRÍA PRESUNTAS AGRESIONES",
+  "titular": "Niño de 11 años camina 38 kilómetros en busca de su hermana",
+  "bajada": "Abel salió de Chapapampa, en Ccatca, y una pobladora lo halló en la Interoceánica; está bajo cuidado en una comisaría",
+  "antetitulo": "ESCAPÓ DEL HOGAR DONDE HABRÍA SUFRIDO AGRESIONES",
   "lugar": "Ccatca",
   "cuerpo": [
-   "Un niño de 11 años, identificado como Abel, caminó más de 38 kilómetros por la carretera Interoceánica para buscar a su hermana de 15 años. El menor salió del centro poblado de Chapapampa, en el distrito de Ccatca, provincia de Quispicanchi, donde estaba bajo el cuidado de una mujer.",
-   "Según su relato, habría sufrido presuntas agresiones físicas y psicológicas en ese hogar, situación que lo llevó a escapar. Su hermana también habría abandonado el lugar meses atrás. Abel perdió a sus padres.",
-   "Con una manta para protegerse del frío y usando ojotas, inició su recorrido con dirección a Urcos, enfrentando las bajas temperaturas y los peligros de caminar solo por una vía de tránsito vehicular.",
-   "Durante el trayecto, una pobladora lo encontró caminando sin compañía y, al conocer su situación, decidió auxiliarlo y trasladarlo a una comisaría. El menor permanece bajo cuidado mientras se atiende su caso.",
-   "Las autoridades competentes deberán investigar lo denunciado y garantizar la seguridad de ambos hermanos."
+   "Abel, un niño de 11 años que perdió a sus padres, caminó más de 38 kilómetros por la carretera Interoceánica para buscar a su hermana de 15. Salió del centro poblado de Chapapampa, en el distrito de Ccatca, provincia de Quispicanchi, donde estaba bajo el cuidado de una mujer.",
+   "Según su relato, habría sufrido presuntas agresiones físicas y psicológicas en ese hogar, lo que lo llevó a escapar. Su hermana también habría dejado el lugar meses atrás.",
+   "Inició el recorrido hacia Urcos con una manta y ojotas, expuesto al frío y al tránsito vehicular. En el camino, una pobladora lo encontró solo y lo trasladó a una comisaría, donde permanece bajo cuidado mientras se atiende su caso."
   ],
   "datos": [
    "11 años tiene Abel, el menor que caminó 38 kilómetros",
-   "38 kilómetros recorrió desde Chapapampa hasta Urcos",
    "15 años tiene la hermana a la que buscaba",
    "Chapapampa, distrito de Ccatca, provincia de Quispicanchi, Cusco"
   ],
@@ -363,9 +360,9 @@
   "seccion": "sociedad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-09T10:14:00",
-  "imagen": "img/noticias/n480-81c92505.jpg",
-  "foco": "60% 32%",
-  "pie": "Niño de 11 años camina 38 kilómetros para buscar a su hermana en Cusco",
+  "imagen": null,
+  "foco": null,
+  "pie": "Niño de 11 años camina 38 kilómetros en busca de su hermana",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -374,7 +371,7 @@
   "edicion": 4,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n480-a843a631.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 479,
@@ -604,13 +601,13 @@
  {
   "id": 472,
   "slug": "congresista-eduardo-castillo-es-captado-en-fiesta-durante-semana-de-representaci",
-  "titular": "Congresista Eduardo Castillo es captado en fiesta durante semana de representación",
-  "bajada": "El diputado de Fuerza Popular asistió al cumpleaños del exalcalde de Piura, Gabriel Madrid Orué, mientras la región enfrenta la emergencia por lluvias asociadas a El Niño",
-  "antetitulo": "CUMPLEAÑOS DE EXALCALDE EN PLENA EMERGENCIA",
+  "titular": "Congresista Eduardo Castillo, captado en una fiesta en Piura",
+  "bajada": "El parlamentario de Fuerza Popular asistió al cumpleaños del exalcalde Gabriel Madrid Orué mientras la región enfrenta la emergencia por lluvias.",
+  "antetitulo": "FIESTA DE UN EXALCALDE EN MEDIO DE LA EMERGENCIA POR LLUVIAS",
   "lugar": "Piura",
   "cuerpo": [
-   "El congresista de Fuerza Popular Eduardo Castillo fue fotografiado en el cumpleaños del exalcalde de Piura, Gabriel Madrid Orué, durante la semana de representación del Congreso.",
-   "La actividad se realizó en medio de la emergencia por lluvias asociada al fenómeno El Niño que afecta a la región.",
+   "El congresista de Fuerza Popular Eduardo Castillo fue fotografiado en el cumpleaños del exalcalde de Piura, Gabriel Madrid Orué. El hecho ocurrió durante la semana de representación del Congreso.",
+   "La reunión se realizó en medio de la emergencia por lluvias asociada al fenómeno El Niño, que afecta a la región. Las imágenes del parlamentario en la fiesta generaron cuestionamientos por la coincidencia con esa situación.",
    "La semana de representación es el periodo en que los legisladores deben trasladarse a sus regiones para atender a la población y supervisar la labor del Ejecutivo."
   ],
   "datos": [
@@ -625,7 +622,7 @@
   "fecha": "2026-11-09T09:53:00",
   "imagen": "img/noticias/n472-1f6c8e9d.jpg",
   "foco": "50% 35%",
-  "pie": "Congresista Eduardo Castillo es captado en fiesta durante semana de representación",
+  "pie": "Congresista Eduardo Castillo, captado en una fiesta en Piura",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -634,7 +631,7 @@
   "edicion": 4,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n472-f9d338cb.jpg"
+  "imagen_compartir": "img/compartir/n472-19d79aff.jpg"
  },
  {
   "id": 218,
