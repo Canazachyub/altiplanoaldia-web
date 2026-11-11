@@ -130,8 +130,8 @@
   "seccion": "economia",
   "ambito": "NACIONAL",
   "fecha": "2026-11-10T18:36:00",
-  "imagen": "img/noticias/n581-4c7e708c.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Créditos hipotecarios crecen 7,8% y superan los S/ 79.000 millones",
   "credito": "",
   "medios": [],
@@ -141,7 +141,7 @@
   "edicion": 5,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n581-b70940d4.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 580,
@@ -293,26 +293,27 @@
  {
   "id": 577,
   "slug": "exportaciones-de-peru-suben-31-y-marcan-record-en-agosto",
-  "titular": "Exportaciones de Perú suben 31% y marcan récord en agosto",
-  "bajada": "Las ventas al exterior acumulan un fuerte avance entre enero y setiembre de 2026, impulsadas por sectores clave.",
-  "antetitulo": "COMERCIO EXTERIOR PERUANO EN 2026",
+  "titular": "Exportaciones de Perú crecen 31% y marcan récord",
+  "bajada": "Las ventas al exterior acumulan un fuerte avance entre enero y setiembre de 2026, con un máximo mensual en agosto.",
+  "antetitulo": "COMERCIO EXTERIOR PERUANO CRECE EN 2026",
   "lugar": "",
   "cuerpo": [
    "Las exportaciones peruanas crecieron 31% entre enero y setiembre de 2026, impulsadas por el dinamismo de sectores clave. En agosto, las ventas al exterior alcanzaron un récord mensual.",
-   "El avance del comercio exterior nacional se explica por el desempeño de sectores como el agroindustrial, minero y pesquero, de acuerdo con el análisis de las oportunidades que impulsan las exportaciones.",
-   "El crecimiento de las ventas al exterior representa una oportunidad para las regiones productoras, que buscan ampliar su presencia en los mercados internacionales."
+   "El avance del comercio exterior nacional se explica por el desempeño de sectores como el agroindustrial, el minero y el pesquero. Estos rubros son los que más empujan las ventas del país a otros mercados.",
+   "El crecimiento de las exportaciones representa una oportunidad para las regiones productoras, que buscan ampliar su presencia en los mercados internacionales."
   ],
   "datos": [
    "Crecimiento de exportaciones: 31% entre enero y setiembre de 2026",
-   "Récord mensual de exportaciones en agosto de 2026"
+   "Récord mensual de exportaciones en agosto de 2026",
+   "Sectores impulsores: agroindustrial, minero y pesquero"
   ],
   "tema": "Economía",
   "seccion": "economia",
   "ambito": "NACIONAL",
   "fecha": "2026-11-10T18:27:00",
-  "imagen": "img/noticias/n577-111e573a.jpg",
-  "foco": "50% 38%",
-  "pie": "Exportaciones de Perú suben 31% y marcan récord en agosto",
+  "imagen": null,
+  "foco": null,
+  "pie": "Exportaciones de Perú crecen 31% y marcan récord",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -321,7 +322,7 @@
   "edicion": 5,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n577-fc6a4eab.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 194,
@@ -447,13 +448,17 @@
   "slug": "condenan-a-30-anos-a-mujer-por-explotar-a-dos-menores",
   "titular": "Condenan a 30 años a mujer por explotar a dos menores",
   "bajada": "Denise Tito Ardiles captó a las adolescentes en Juliaca con falsas ofertas laborales y las llevó a un local suyo en Sandia. Deberá pagar S/ 30 000 de reparación civil.",
-  "antetitulo": "SENTENCIA POR EXPLOTACIÓN SEXUAL DE DOS MENORES DE 17 AÑOS",
+  "antetitulo": "SENTENCIA POR EXPLOTACIÓN SEXUAL DE DOS ADOLESCENTES DE 17 AÑOS",
   "lugar": "Juliaca",
   "cuerpo": [
-   "El Juzgado Penal Colegiado Supraprovincial Permanente de San Román–Juliaca condenó a 30 años y seis meses de prisión a Denise Tito Ardiles por explotación sexual de dos adolescentes de 17 años.",
-   "Según la investigación fiscal, en marzo de 2025 captó a una de las menores con una falsa oferta laboral en Juliaca y, a través de ella, contactó a la segunda. Ambas fueron llevadas a Sandia, a un establecimiento de propiedad de la acusada, donde sufrieron violencia física y psicológica y permanecieron encerradas.",
-   "El caso salió a la luz el 4 de mayo de 2025, cuando una de las adolescentes escapó y alertó a su padre. La Policía intervino y detuvo en flagrancia a Tito Ardiles.",
-   "El colegiado determinó por unanimidad su responsabilidad. Fijó una reparación civil de S/ 30 000, es decir S/ 15 000 para cada víctima, y 10 años de inhabilitación para administrar locales, bares o cantinas. La condena tiene ejecución inmediata y la sentenciada seguirá recluida."
+   "El Juzgado Penal Colegiado Supraprovincial Permanente de San Román–Juliaca condenó a 30 años y seis meses de prisión a Denise Tito Ardiles, al hallarla responsable del delito contra la dignidad humana, en la modalidad de explotación sexual de adolescentes, en agravio de dos menores de 17 años.",
+   "Según la investigación fiscal, en marzo de 2025 la acusada captó a una de las adolescentes mediante falsas ofertas laborales en Juliaca y, a través de ella, contactó a la segunda. Ambas fueron trasladadas a la provincia de Sandia para ser sometidas a explotación sexual en un establecimiento de propiedad de la acusada.",
+   "## EL ESCAPE",
+   "En ese lugar, las víctimas sufrieron violencia física y psicológica, además de encierro para evitar su fuga. El caso salió a la luz el 4 de mayo de 2025, cuando una de las adolescentes logró escapar y alertó a su padre.",
+   "Eso permitió una rápida intervención policial, que terminó con la detención en flagrancia de Tito Ardiles.",
+   "## LA SENTENCIA",
+   "El colegiado, integrado por los magistrados Eloy Huaranca Rodríguez, Carlos Arias Arenas y Luis Charaja Cruz, determinó por unanimidad la responsabilidad penal de la procesada. Fijó en S/ 30 000 la reparación civil, es decir, S/ 15 000 a favor de cada víctima, y dictó 10 años de inhabilitación para administrar locales, bares o cantinas.",
+   "El tribunal dispuso la ejecución inmediata de la condena. Por ello, Tito Ardiles continuará internada en el establecimiento penitenciario donde cumplía prisión preventiva."
   ],
   "datos": [
    "Condena de 30 años y seis meses a Denise Tito Ardiles",
@@ -525,13 +530,10 @@
   "antetitulo": "ACCIDENTE EN EL TRAMO ASILLO–SAN ANTÓN DE LA INTEROCEÁNICA",
   "lugar": "San Antón",
   "cuerpo": [
-   "Un automóvil de color rojo y un vehículo de transporte de pasajeros chocaron cerca de las 4:00 p. m. en la carretera Interoceánica, en el sector Jila Central, distrito de San Antón, provincia de Azángaro. El impacto dejó varios heridos.",
-   "Es un nuevo accidente de tránsito en el tramo Asillo–San Antón de esta vía. Las personas lesionadas fueron auxiliadas y trasladadas a la ciudad de Juliaca en una camioneta, según el reporte ciudadano, para recibir atención médica.",
-   "## LOS DAÑOS",
-   "El automóvil rojo se llevó la peor parte del choque y quedó con considerables daños materiales. Sobre el otro vehículo hay dos versiones: en un reporte se habló de una miniván y en otro, de un bus de la empresa Interoceánica Sur.",
-   "## SIN PRECISAR",
-   "Hasta el momento no se ha precisado el número exacto de heridos ni su estado de salud. Tampoco se conocen las circunstancias exactas en las que ocurrió el accidente, cuyas causas deben ser establecidas por las autoridades competentes.",
-   "Se espera conocer mayores detalles sobre lo ocurrido. Se recomienda a los conductores que transitan por la carretera Interoceánica Sur extremar precauciones en el tramo San Antón–Juliaca."
+   "Un automóvil rojo y un vehículo de transporte de pasajeros chocaron cerca de las 4:00 p. m. en la carretera Interoceánica, sector Jila Central, distrito de San Antón, provincia de Azángaro. El impacto dejó varios heridos.",
+   "Es un nuevo accidente de tránsito en el tramo Asillo–San Antón. Los lesionados fueron auxiliados y trasladados a Juliaca en una camioneta, según el reporte ciudadano, para recibir atención médica.",
+   "El automóvil rojo se llevó la peor parte y quedó con considerables daños materiales. Sobre el otro vehículo hay dos versiones: una habla de una miniván y otra, de un bus de la empresa Interoceánica Sur.",
+   "Hasta el momento no se ha precisado el número de heridos ni su estado de salud. Tampoco se conocen las circunstancias exactas del accidente, cuyas causas deben ser establecidas por las autoridades competentes."
   ],
   "datos": [
    "Choque entre un automóvil rojo y un vehículo de transporte (miniván o bus de la empresa Interoceánica Sur, según versiones)",
@@ -643,14 +645,14 @@
  {
   "id": 568,
   "slug": "roban-una-hilux-y-asaltan-a-comprador-de-oro",
-  "titular": "Roban una Hilux y asaltan a comprador de oro",
-  "bajada": "Falsos policías se llevaron la camioneta de una familia en la salida a Lampa. Otro grupo, en motos, atacó a un presunto comprador de oro.",
+  "titular": "Falsos policías roban una Hilux a una familia",
+  "bajada": "El asalto ocurrió en la salida a Lampa y la víctima ofrece una recompensa. Otro grupo, en motos, atacó a un presunto comprador de oro.",
   "antetitulo": "DOS ASALTOS ARMADOS EN POCOS DÍAS EN LA CIUDAD",
   "lugar": "Juliaca",
   "cuerpo": [
    "Delincuentes que se habrían hecho pasar por policías robaron una camioneta Toyota Hilux 2024 a una familia en la salida a Lampa, en Juliaca. El asalto ocurrió el sábado 7 de noviembre, hacia las 10:30 p. m., cerca de la escuelita Centro Jaran.",
-   "Raúl Mamani Tisnado relató que un vehículo con aparente aspecto policial le hizo señales de luces y le cerró el paso. Bajaron unos tres hombres armados, algunos con el rostro cubierto, que lo encañonaron y agredieron a él y a su esposa. Se llevaron la camioneta (placa BZL-731), dinero, celulares y documentos. La víctima ofrece una recompensa por información que permita recuperarla.",
-   "En otro hecho, cuatro delincuentes en dos motos asaltaron la mañana del martes 10 de noviembre a una persona que presuntamente había comprado oro. Ocurrió en la avenida Circunvalación, a la altura de la avenida Normal. Tras un forcejeo y la alerta de los pobladores, los asaltantes huyeron y abandonaron un arma de fuego."
+   "Raúl Mamani Tisnado relató que un vehículo de aspecto policial le hizo señales de luces y le cerró el paso. Bajaron unos tres hombres armados, que los encañonaron y agredieron a él y a su esposa. Se llevaron la camioneta (placa BZL-731), dinero, celulares y documentos. La víctima ofrece una recompensa por información.",
+   "El martes 10 de noviembre, cuatro delincuentes en dos motos asaltaron a una persona que presuntamente había comprado oro, en la avenida Circunvalación, a la altura de la avenida Normal. Tras un forcejeo y la alerta de los pobladores, huyeron y abandonaron un arma de fuego."
   ],
   "datos": [
    "Robo de la Hilux: sábado 7 de noviembre, hacia las 10:30 p. m., cerca de la escuelita Centro Jaran",
@@ -664,7 +666,7 @@
   "fecha": "2026-11-10T17:43:00",
   "imagen": null,
   "foco": null,
-  "pie": "Roban una Hilux y asaltan a comprador de oro",
+  "pie": "Falsos policías roban una Hilux a una familia",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -747,12 +749,13 @@
   "slug": "exdirector-alerta-que-las-bibliotecas-de-puno-quedan-en-el-olvido",
   "titular": "Exdirector alerta que las bibliotecas de Puno quedan en el olvido",
   "bajada": "Advirtió sobre la pérdida del hábito de lectura y presentó una investigación sobre la Fiesta del Libro en el Perú.",
-  "antetitulo": "EXDIRECTOR DE LA BIBLIOTECA MUNICIPAL DE PUNO",
+  "antetitulo": "EXDIRECTOR DE LA BIBLIOTECA MUNICIPAL PIDE ATENCIÓN A LA LECTURA",
   "lugar": "Puno",
   "cuerpo": [
-   "El exdirector de la Biblioteca Municipal de Puno alertó sobre el poco hábito de lectura en la población y el abandono en que se encuentran estos espacios, durante la presentación de una investigación sobre la historia de la Fiesta del Libro en el Perú.",
+   "El exdirector de la Biblioteca Municipal de Puno alertó sobre el poco hábito de lectura en la población y el abandono en que se encuentran estos espacios. Lo hizo durante la presentación de una investigación sobre la historia de la Fiesta del Libro en el Perú.",
    "“Las bibliotecas están quedando en el olvido”, sostuvo al advertir sobre la pérdida del hábito de lectura en la ciudad.",
-   "El trabajo que presentó busca recuperar la memoria de la Fiesta del Libro en el Perú, un esfuerzo por documentar la trayectoria de esta actividad vinculada al fomento de la lectura."
+   "El trabajo que presentó busca recuperar la memoria de la Fiesta del Libro en el Perú. Se trata de un esfuerzo por documentar la trayectoria de esta actividad, vinculada al fomento de la lectura.",
+   "La advertencia del exdirector pone el foco en la situación de las bibliotecas de la ciudad y en la necesidad de que la población vuelva a acercarse a la lectura."
   ],
   "datos": [
    "Exdirector de la Biblioteca Municipal de Puno alertó sobre el poco hábito de lectura",
@@ -1193,15 +1196,18 @@
   "antetitulo": "PRESUNTOS INTEGRANTES DE ‘LOS TERRIBLES DE VILLA ECOLÓGICA’",
   "lugar": "Arequipa",
   "cuerpo": [
-   "Dos jóvenes de 20 y 27 años fueron detenidos por efectivos de la Comisaría PNP Independencia tras una agresión física contra dos ciudadanos en la avenida Villa Ecológica, a la altura del paradero 6, en el pueblo joven Independencia, en Arequipa.",
-   "Según las declaraciones de los agraviados, varios sujetos los habrían atacado con golpes de puño y patadas. Durante la agresión, uno de ellos habría utilizado un cuchillo para herir a una de las víctimas en el abdomen.",
-   "Los intervenidos serían presuntos integrantes de la banda ‘Los Terribles de Villa Ecológica’. Durante la intervención, los policías encontraron un cuchillo de cocina con mango negro en poder de uno de ellos. El objeto fue incautado para las investigaciones por tentativa de homicidio y lesiones.",
-   "Las investigaciones continúan para determinar la responsabilidad de los detenidos y esclarecer los hechos."
+   "Dos jóvenes de 20 y 27 años fueron detenidos por efectivos de la Comisaría PNP Independencia tras una agresión contra dos ciudadanos en la avenida Villa Ecológica, a la altura del paradero 6, en el pueblo joven Independencia, en Arequipa.",
+   "Según las declaraciones de los agraviados, varios sujetos los habrían atacado a golpes de puño y patadas. Durante la agresión, uno de ellos habría utilizado un cuchillo para herir a una de las víctimas en el abdomen.",
+   "## LA INTERVENCIÓN",
+   "Los intervenidos serían presuntos integrantes de la banda ‘Los Terribles de Villa Ecológica’. Durante la intervención, los policías encontraron un cuchillo de cocina con mango negro en poder de uno de ellos.",
+   "El objeto fue incautado para las investigaciones por los presuntos delitos de tentativa de homicidio y lesiones.",
+   "## LA INVESTIGACIÓN",
+   "Las investigaciones continúan para determinar la responsabilidad de los detenidos y esclarecer los hechos. Hasta el momento, la versión sobre el ataque corresponde a lo declarado por los agraviados, por lo que la participación de cada intervenido deberá ser establecida en el proceso."
   ],
   "datos": [
    "Dos jóvenes de 20 y 27 años detenidos",
    "Agresión en la avenida Villa Ecológica, paradero 6, pueblo joven Independencia",
-   "Víctima herida en el abdomen con un cuchillo",
+   "Una víctima herida en el abdomen con un cuchillo",
    "Presuntos integrantes de ‘Los Terribles de Villa Ecológica’",
    "Cuchillo de cocina con mango negro incautado",
    "Investigación por tentativa de homicidio y lesiones"
@@ -2103,8 +2109,8 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-10T10:17:00",
-  "imagen": "img/noticias/n524-3f45e9aa.jpg",
-  "foco": "26% 35%",
+  "imagen": null,
+  "foco": null,
   "pie": "«Roba, pero hace obras»: la frase que normaliza la corrupción en el Perú",
   "credito": "",
   "medios": [],
@@ -2114,7 +2120,7 @@
   "edicion": null,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n524-6fa4fd05.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 520,
