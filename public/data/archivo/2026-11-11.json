@@ -537,8 +537,8 @@
   "seccion": "sociedad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-11T04:37:18",
-  "imagen": "img/noticias/n619-a35473eb.jpg",
-  "foco": "27% 35%",
+  "imagen": null,
+  "foco": null,
   "pie": "Gobierno declara días no laborables en Puno y otras regiones",
   "credito": "",
   "medios": [],
@@ -548,7 +548,7 @@
   "edicion": 6,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n619-3b4f0984.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 617,
@@ -1105,8 +1105,8 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-10T21:06:00",
-  "imagen": "img/noticias/n606-94bf2d0c.jpg",
-  "foco": "50% 48%",
+  "imagen": null,
+  "foco": null,
   "pie": "Muere Lui Miguel Montora Herrera, de 23 años, en Yunguyo",
   "credito": "",
   "medios": [],
@@ -1116,7 +1116,7 @@
   "edicion": 6,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n606-845f975a.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 536,
@@ -1440,8 +1440,8 @@
   "seccion": "politica",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-10T19:44:00",
-  "imagen": "img/noticias/n592-d08c1e3e.jpg",
-  "foco": "36% 47%",
+  "imagen": null,
+  "foco": null,
   "pie": "Excandidatos de Salcedo piden actualizar domicilio en el DNI para el padrón electoral",
   "credito": "",
   "medios": [],
@@ -1451,7 +1451,7 @@
   "edicion": 6,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n592-5ab3de2b.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 591,
@@ -1582,7 +1582,7 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-10T19:22:00",
-  "imagen": "img/noticias/n590-ed73fdbf.jpg",
+  "imagen": "img/noticias/n590-314ed0d3.jpg",
   "foco": "50% 38%",
   "pie": "Pedro Castillo niega haber intervenido en ascensos militares y policiales",
   "credito": "",
@@ -1593,7 +1593,7 @@
   "edicion": 6,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n590-0fe2f579.jpg"
+  "imagen_compartir": "img/compartir/n590-bd403dd6.jpg"
  },
  {
   "id": 588,
@@ -2364,8 +2364,8 @@
   "seccion": "cultura",
   "ambito": "REGIONAL",
   "fecha": "2026-11-10T17:20:00",
-  "imagen": "img/noticias/n562-1ea5d004.jpg",
-  "foco": "50% 44%",
+  "imagen": null,
+  "foco": null,
   "pie": "Arapa celebra 203 años con desfile escolar el 12 de noviembre",
   "credito": "",
   "medios": [],
@@ -2375,7 +2375,7 @@
   "edicion": 5,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n562-3251c8be.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 560,
