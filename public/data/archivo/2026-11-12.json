@@ -55,8 +55,8 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-12T06:01:32",
-  "imagen": "img/noticias/n708-77a8c903.jpg",
-  "foco": "50% 28%",
+  "imagen": null,
+  "foco": null,
   "pie": "Municipalidad de San Román se une en oración por el Papa León XIV",
   "credito": "",
   "medios": [],
@@ -66,7 +66,7 @@
   "edicion": null,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n708-a72416ad.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 707,
@@ -641,18 +641,20 @@
  {
   "id": 694,
   "slug": "nina-propone-hacer-una-pizza-y-tonconi-responde-con-un-seco-agradecimiento",
-  "titular": "Niña propone hacer una pizza y Tonconi responde con un seco agradecimiento",
-  "bajada": "El contraste entre el entusiasmo de la menor y la breve respuesta del personaje generó comentarios en redes sociales.",
-  "antetitulo": "MOMENTO VIRAL EN REDES",
+  "titular": "Niña propone una pizza y Tonconi responde seco",
+  "bajada": "El contraste entre el entusiasmo de la menor y la breve respuesta del personaje llamó la atención de los usuarios.",
+  "antetitulo": "ESCENA QUE SE COMPARTE EN REDES SOCIALES",
   "lugar": "",
   "cuerpo": [
-   "Una niña, visiblemente emocionada, propuso hacer una pizza y recibió como respuesta un seco «muchas gracias, niña» de Tonconi, un intercambio que llamó la atención por el contraste de entusiasmo entre ambos.",
-   "La escena, compartida en redes sociales, muestra a la menor anunciando la idea con alegría, mientras la réplica del personaje fue breve y sin mayor comentario.",
-   "El momento generó comentarios entre los usuarios, que destacaron la diferencia de ánimo entre la propuesta de la niña y la respuesta recibida."
+   "Una niña, visiblemente emocionada, anunció que harían una pizza y recibió como respuesta un seco «muchas gracias, niña» de Tonconi. El intercambio llamó la atención por el contraste de entusiasmo entre ambos.",
+   "La escena, compartida en redes sociales, muestra a la menor contando la idea con alegría. La réplica del personaje fue breve y sin mayor comentario.",
+   "El momento generó comentarios entre los usuarios, que destacaron la diferencia de ánimo entre la propuesta de la niña y la respuesta que obtuvo.",
+   "La fuente no precisa dónde ni cuándo ocurrió la escena."
   ],
   "datos": [
-   "La niña propuso hacer una pizza",
-   "Tonconi respondió «muchas gracias, niña»"
+   "La niña anunció que harían una pizza",
+   "Tonconi respondió «muchas gracias, niña»",
+   "El intercambio generó comentarios en redes sociales por el contraste de entusiasmo"
   ],
   "tema": "Política",
   "seccion": "politica",
@@ -660,7 +662,7 @@
   "fecha": "2026-11-12T05:48:34",
   "imagen": "img/noticias/n694-345a9864.jpg",
   "foco": "50% 38%",
-  "pie": "Niña propone hacer una pizza y Tonconi responde con un seco agradecimiento",
+  "pie": "Niña propone una pizza y Tonconi responde seco",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -669,7 +671,7 @@
   "edicion": 7,
   "impacto": 2,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n694-1111cbe6.jpg"
+  "imagen_compartir": "img/compartir/n694-b83c451b.jpg"
  },
  {
   "id": 565,
@@ -701,8 +703,8 @@
   "seccion": "politica",
   "ambito": "LOCAL",
   "fecha": "2026-11-12T05:48:33",
-  "imagen": "img/noticias/n565-7670fcfd.jpg",
-  "foco": "53% 32%",
+  "imagen": "img/noticias/n565-bf32284a.jpg",
+  "foco": "56% 54%",
   "pie": "Defensoría niega saqueos y víctimas del 9 de Enero marchan",
   "credito": "",
   "medios": [],
@@ -712,7 +714,7 @@
   "edicion": 7,
   "impacto": 8,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n565-3edd8c47.jpg"
+  "imagen_compartir": "img/compartir/n565-c1e45eac.jpg"
  },
  {
   "id": 693,
@@ -750,14 +752,19 @@
  {
   "id": 642,
   "slug": "denuncia-que-sus-hermanos-le-fracturaron-la-pierna",
-  "titular": "Denuncia que sus hermanos le fracturaron la pierna",
-  "bajada": "Pablo Chambi Quispe, de 60 años y natural de Caracoto, acusa a sus familiares por un conflicto de herencia y pide ayuda en la plaza de Juliaca.",
-  "antetitulo": "DENUNCIA POR PRESUNTA AGRESIÓN DURANTE UN VELORIO",
+  "titular": "Hombre de 60 años denuncia que familiares le fracturaron la pierna",
+  "bajada": "Pablo Chambi Quispe, natural de Caracoto, pide ayuda en la plaza de Juliaca. Vincula la presunta agresión con la herencia de un terreno.",
+  "antetitulo": "CONFLICTO POR HERENCIA HABRÍA TERMINADO EN GOLPES EN UN VELORIO",
   "lugar": "Juliaca",
   "cuerpo": [
-   "Pablo Chambi Quispe, de 60 años y natural de Caracoto, llegó a la plaza de Juliaca para denunciar que sus familiares lo agredieron. Tiene una fractura en la pierna izquierda que le impide movilizarse y trabajar.",
-   "Según su testimonio, el hecho ocurrió el 7 de septiembre, a las 2:00 a. m. aproximadamente, durante un velorio en la vivienda de su madre, en la comunidad campesina de Suches. Señaló a sus hermanos Primitiva y Juana Chambi Quispe, entre otros familiares. Es una versión de parte.",
-   "Vincula el enfrentamiento con la herencia de un terreno que habría sido de su padre. Pidió que se investigue el caso y solicitó alimentos y apoyo económico. Permanecería en la plaza hasta cerca de las 12:30."
+   "Pablo Chambi Quispe, de 60 años y natural del distrito de Caracoto, llegó hasta la plaza de Juliaca para denunciar una presunta agresión física de sus propios familiares. Tiene una fractura en la pierna izquierda que, según dijo, le impide movilizarse con normalidad y realizar sus actividades cotidianas.",
+   "Según su testimonio, el hecho ocurrió el 7 de septiembre, a las 2:00 a. m. aproximadamente, durante un velorio en la vivienda de su madre, en la comunidad campesina de Suches. Señaló que lo atacaron sus hermanos y otros familiares, y mencionó directamente a Primitiva Chambi Quispe y Juana Chambi Quispe. Es una versión de parte.",
+   "## LA HERENCIA",
+   "Chambi Quispe vincula el enfrentamiento con la distribución de la herencia, en concreto con un terreno que habría pertenecido a su padre y cuya parte, afirma, no le reconocen ni le entregan. Indicó que son seis hermanos, aunque algunos ya fallecieron, y cuestionó que las diferencias por los bienes familiares hayan terminado en un enfrentamiento físico.",
+   "También expresó su malestar por la falta de apoyo de las autoridades de su comunidad, a quienes acusó de no atender adecuadamente su situación. Pidió que las autoridades del distrito de Caracoto y los representantes de su comunidad escuchen su denuncia para que el caso sea atendido conforme a ley.",
+   "## PIDE AYUDA",
+   "El afectado hizo un llamado a la solidaridad de la población de Juliaca. Dijo que atraviesa una difícil situación económica por sus lesiones y porque no puede trabajar para cubrir su alimentación y su recuperación. Añadió que no recibe apoyo de sus familiares.",
+   "Según indicó, permanecería en la plaza hasta cerca de las 12:30, a la espera de ayuda económica o de algún tipo de asistencia. Además, solicitó que las autoridades competentes investiguen la presunta agresión y esclarezcan el conflicto por la herencia."
   ],
   "datos": [
    "Pablo Chambi Quispe, de 60 años, natural de Caracoto, denuncia presunta agresión de familiares",
@@ -772,7 +779,7 @@
   "fecha": "2026-11-12T05:43:56",
   "imagen": "img/noticias/n642-e439a030.jpg",
   "foco": "50% 44%",
-  "pie": "Denuncia que sus hermanos le fracturaron la pierna",
+  "pie": "Hombre de 60 años denuncia que familiares le fracturaron la pierna",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -781,7 +788,7 @@
   "edicion": 7,
   "impacto": 7,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n642-1cca5c46.jpg"
+  "imagen_compartir": "img/compartir/n642-6f055b44.jpg"
  },
  {
   "id": 685,
@@ -838,8 +845,8 @@
   "seccion": "politica",
   "ambito": "LOCAL",
   "fecha": "2026-11-12T05:42:19",
-  "imagen": "img/noticias/n653-d166ffed.jpg",
-  "foco": "60% 90%",
+  "imagen": null,
+  "foco": null,
   "pie": "Poca asistencia en marcha contra violencia política en Puno",
   "credito": "",
   "medios": [],
@@ -849,7 +856,7 @@
   "edicion": 7,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n653-0c522674.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 691,
@@ -1183,20 +1190,24 @@
  {
   "id": 677,
   "slug": "mayoria-rechaza-facultades-legislativas-al-gobierno",
-  "titular": "Mayoría rechaza facultades legislativas al Gobierno",
-  "bajada": "Solo el 34% apoya la delegación aprobada por 90 días para seguridad ciudadana y prevención de El Niño.",
-  "antetitulo": "ENCUESTA DEL IEP SOBRE FACULTADES LEGISLATIVAS",
+  "titular": "El 51% rechaza que el Congreso dé facultades al Gobierno",
+  "bajada": "Solo el 34% respalda la delegación por 90 días en seguridad ciudadana y prevención de El Niño; un 15% no opina.",
+  "antetitulo": "ENCUESTA DEL IEP SOBRE LAS FACULTADES LEGISLATIVAS",
   "lugar": "",
   "cuerpo": [
    "El 51% de los ciudadanos está en contra de que el Congreso haya otorgado facultades legislativas al Gobierno, según la última encuesta del Instituto de Estudios Peruanos (IEP). Solo el 34% se mostró a favor y un 15% no sabe o no opina.",
-   "En octubre, el Congreso otorgó al Ejecutivo facultades por 90 días para emitir normas sobre seguridad ciudadana y prevención frente al fenómeno El Niño. El pedido inicial tenía 66 puntos y la Cámara de Diputados aprobó 20. El Senado añadió siete materias, con lo que el texto final quedó en 27 puntos.",
-   "El senador Alfonso López Chau, de Ahora Nación, cuestionó esa ampliación: “Hubiera sido mejor que voten por proyectos de ley. Así habría menor división”. Humberto Morales, de Juntos por el Perú, calificó el procedimiento como una vulneración constitucional.",
-   "Sobre el impacto del Congreso en la gestión presidencial, el 34% consideró que “ni facilita ni dificulta” el trabajo de Fujimori. El 33% estima que lo dificulta y el 25%, que lo facilita."
+   "En octubre, el Congreso otorgó al Ejecutivo facultades por 90 días para emitir normas sobre seguridad ciudadana y prevención frente al fenómeno El Niño. El pedido inicial tenía 66 puntos y la Cámara de Diputados aprobó solo 20. Luego, el Senado incorporó siete materias adicionales, con lo que el texto final quedó en 27 puntos.",
+   "## LAS CRÍTICAS",
+   "El senador Alfonso López Chau, líder de Ahora Nación, cuestionó esa ampliación y consideró que los puntos añadidos debieron tramitarse mediante proyectos de ley. “Nosotros estábamos a favor de los 20 puntos y que los demás se vean en proyectos de ley. Creemos que es un error. Hubiera sido mejor que voten por proyectos de ley. Así habría menor división”, indicó.",
+   "Humberto Morales, de Juntos por el Perú, también objetó la incorporación de las siete facultades y calificó el procedimiento como una vulneración constitucional. “Se ha violentado la Constitución y el Reglamento y han (dado) un golpe de Estado, muy sutil, por supuesto”, dijo.",
+   "## IMPACTO EN LA GESTIÓN",
+   "Sobre el efecto del Congreso en la gestión presidencial, el 34% consideró que “ni facilita ni dificulta” el trabajo de Fujimori. El 33% estima que lo dificulta, el 25% que lo facilita y un 8% no sabe o no opina.",
+   "La idea de que el Parlamento no influye en el Gobierno es más frecuente entre las mujeres (37%) que entre los hombres (30%). También predomina entre quienes tienen educación superior (38%) y entre quienes se ubican en el centro político (43%)."
   ],
   "datos": [
    "51% en contra de las facultades legislativas, 34% a favor y 15% no sabe o no opina",
    "Facultades por 90 días; el Ejecutivo pidió 66 puntos, Diputados aprobó 20 y el Senado sumó siete, con 27 en total",
-   "34% cree que el Congreso ni facilita ni dificulta la gestión; 33% dice que la dificulta y 25% que la facilita"
+   "34% cree que el Congreso ni facilita ni dificulta la gestión; 33% dice que la dificulta, 25% que la facilita y 8% no opina"
   ],
   "tema": "Política",
   "seccion": "politica",
@@ -1204,7 +1215,7 @@
   "fecha": "2026-11-12T05:10:00",
   "imagen": "img/noticias/n677-b2883da2.jpg",
   "foco": "50% 38%",
-  "pie": "Mayoría rechaza facultades legislativas al Gobierno",
+  "pie": "El 51% rechaza que el Congreso dé facultades al Gobierno",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1213,39 +1224,34 @@
   "edicion": 7,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n677-fd83fd01.jpg"
+  "imagen_compartir": "img/compartir/n677-402d3763.jpg"
  },
  {
   "id": 603,
   "slug": "16-registros-fiscales-y-judiciales-alcanzan-a-quispe-pandia",
-  "titular": "Eduardo Quispe Pandia figura en 16 registros fiscales y judiciales",
-  "bajada": "Un listado documental reúne cuatro casos fiscales, ocho procesos civiles y cuatro penales o de extinción de dominio. Incluye una sentencia por presunto peculado en San Juan del Oro.",
+  "titular": "Eduardo Quispe Pandia figura en 16 registros judiciales",
+  "bajada": "El listado reúne cuatro carpetas fiscales, ocho procesos civiles y cuatro penales o de extinción de dominio. Incluye una sentencia por presunto peculado en San Juan del Oro.",
   "antetitulo": "CANDIDATO DE AHORA NACIÓN A LA GOBERNACIÓN REGIONAL",
   "lugar": "Puno",
   "cuerpo": [
    "El nombre de Eduardo Quispe Pandia, candidato de Ahora Nación a la gobernación regional de Puno, aparece en un listado documental con 16 registros fiscales y judiciales. Son cuatro carpetas fiscales, ocho procesos civiles y cuatro procesos penales y de extinción de dominio.",
-   "Los registros fiscales corresponden a investigaciones por presunta falsificación documentaria y peculado. En los expedientes civiles figuran reclamaciones económicas por sumas importantes. En la sección penal aparecen actuaciones vinculadas al Estado peruano y a la Procuraduría Anticorrupción. El listado también menciona expedientes relacionados con entidades financieras y con la Municipalidad Distrital de San Juan del Oro.",
-   "## EL CASO DE PECULADO",
-   "El abogado Jaime Pari López se refirió, en una entrevista, a una sentencia vinculada al presunto delito de peculado en agravio de la Municipalidad Distrital de San Juan del Oro, provincia de Sandia. Corresponde al expediente N.° 02859-2005-0-2101-JR-PE-03. Cuestionó que este antecedente no figure entre las sentencias consignadas por el candidato en su declaración electoral.",
-   "El listado también identifica, en la sección de extinción de dominio, el expediente N.° 02859-2005-50-2101-JR-PE-03.",
-   "## LOS REGISTROS FISCALES",
-   "El documento identifica cuatro registros del Ministerio Público. El primero es una investigación por falsificación documentaria atribuida a la 4.ª Fiscalía Provincial Penal de San Román, en la que figura como imputado. El segundo, el caso N.° 2706120104-2008-63, también corresponde a presunta falsificación documentaria.",
-   "El tercero, el caso N.° 506010169-2009-14, se relaciona con una investigación por peculado por apropiación o utilización de caudales. El documento indica que fue derivado a Lima en 2009. El cuarto registro corresponde al caso N.° 2706010183-2005-412.",
-   "La documentación consigna registros y no establece, por sí sola, el resultado de cada procedimiento. Queda pendiente conocer la situación actual de cada expediente y la respuesta del candidato."
+   "El abogado Jaime Pari López se refirió a una sentencia por presunto peculado en agravio de la Municipalidad Distrital de San Juan del Oro, provincia de Sandia (expediente N.° 02859-2005-0-2101-JR-PE-03). Cuestionó que este antecedente no figure entre las sentencias consignadas por el candidato en su declaración electoral.",
+   "En el ámbito fiscal, el documento identifica cuatro registros del Ministerio Público: dos por presunta falsificación documentaria, uno de ellos a cargo de la 4.ª Fiscalía Provincial Penal de San Román, y otros dos por peculado. Uno de estos últimos fue derivado a Lima en 2009.",
+   "La documentación consigna registros y no establece el resultado de cada procedimiento. Queda pendiente conocer la situación actual de cada expediente y la respuesta del candidato."
   ],
   "datos": [
-   "Eduardo Quispe Pandia, candidato de Ahora Nación a la gobernación regional de Puno, figura en 16 registros: 4 fiscales, 8 civiles y 4 penales y de extinción de dominio",
-   "El abogado Jaime Pari López citó una sentencia por presunto peculado en agravio de la Municipalidad Distrital de San Juan del Oro (Sandia), expediente 02859-2005-0-2101-JR-PE-03, y cuestionó que no esté en la declaración electoral",
-   "Expediente de extinción de dominio 02859-2005-50-2101-JR-PE-03",
-   "Registros fiscales: falsificación documentaria (4.ª Fiscalía Provincial Penal de San Román), caso 2706120104-2008-63, caso 506010169-2009-14 (peculado, derivado a Lima en 2009) y caso 2706010183-2005-412"
+   "Eduardo Quispe Pandia figura en 16 registros: 4 fiscales, 8 civiles y 4 penales y de extinción de dominio",
+   "El abogado Jaime Pari López citó una sentencia por presunto peculado en agravio de la Municipalidad Distrital de San Juan del Oro (Sandia), expediente 02859-2005-0-2101-JR-PE-03",
+   "Cuestionó que no figure en la declaración electoral del candidato",
+   "Registros fiscales: dos por presunta falsificación documentaria (una en la 4.ª Fiscalía Provincial Penal de San Román) y dos por peculado, uno derivado a Lima en 2009"
   ],
   "tema": "Política",
   "seccion": "politica",
   "ambito": "REGIONAL",
   "fecha": "2026-11-12T05:00:00",
-  "imagen": "img/noticias/n603-3a52f38d.jpg",
-  "foco": "70% 50%",
-  "pie": "Eduardo Quispe Pandia figura en 16 registros fiscales y judiciales",
+  "imagen": null,
+  "foco": null,
+  "pie": "Eduardo Quispe Pandia figura en 16 registros judiciales",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1254,7 +1260,7 @@
   "edicion": 7,
   "impacto": 8,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n603-14f04d13.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 640,
@@ -1316,8 +1322,8 @@
   "seccion": "educacion",
   "ambito": "NACIONAL",
   "fecha": "2026-11-12T04:56:00",
-  "imagen": "img/noticias/n675-cc035fe4.jpg",
-  "foco": "58% 72%",
+  "imagen": "img/noticias/n675-23f90ed8.jpg",
+  "foco": "59% 51%",
   "pie": "Padres alertan que colegios rechazan a alumnos expulsados por faltas graves",
   "credito": "",
   "medios": [],
@@ -1327,7 +1333,7 @@
   "edicion": null,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n675-1e2c1de1.jpg"
+  "imagen_compartir": "img/compartir/n675-b03e3cc8.jpg"
  },
  {
   "id": 674,
@@ -1396,7 +1402,7 @@
   "seccion": "seguridad",
   "ambito": "LOCAL",
   "fecha": "2026-11-12T04:53:00",
-  "imagen": "img/noticias/n554-31f25b69.jpg",
+  "imagen": "img/noticias/n554-d6ed56f6.jpg",
   "foco": "50% 38%",
   "pie": "Seis a prisión preventiva por robo de 18 kilos de oro",
   "credito": "",
@@ -1407,7 +1413,7 @@
   "edicion": 7,
   "impacto": 8,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n554-471125db.jpg"
+  "imagen_compartir": "img/compartir/n554-f868b685.jpg"
  },
  {
   "id": 673,
@@ -1429,8 +1435,8 @@
   "seccion": "otros",
   "ambito": "NACIONAL",
   "fecha": "2026-11-12T04:52:00",
-  "imagen": "img/noticias/n673-ddf78009.jpg",
-  "foco": "49% 33%",
+  "imagen": null,
+  "foco": null,
   "pie": "Pamela López es nombrada embajadora en México",
   "credito": "",
   "medios": [],
@@ -1440,28 +1446,26 @@
   "edicion": null,
   "impacto": 1,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n673-5f19ace7.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 672,
   "slug": "confirman-prision-preventiva-para-tres-policias-y-un-civil-por-robo-agravado",
-  "titular": "Confirman prisión preventiva para tres policías y un civil por robo agravado",
-  "bajada": "La Sala Penal de Apelaciones de San Román–Juliaca ratificó los nueve meses de reclusión para los integrantes del Grupo Terna y su cómplice, investigados por sustraer S/ 10 000 en una vivienda.",
-  "antetitulo": "SIMULACRO DE INTERVENCIÓN EN SANTA ADRIANA",
+  "titular": "Confirman prisión para tres policías y un civil",
+  "bajada": "La Sala Penal de Apelaciones de San Román–Juliaca ratificó nueve meses de prisión preventiva por el presunto robo de S/ 10 000 en una vivienda.",
+  "antetitulo": "SIMULARON UNA INTERVENCIÓN POLICIAL EN SANTA ADRIANA",
   "lugar": "Juliaca",
   "cuerpo": [
-   "La Sala Penal de Apelaciones de San Román–Juliaca confirmó la prisión preventiva por nueve meses para los agentes policiales Jhon Bernal, Giancarlo Bobadilla y Micheel Calisaya, integrantes del Grupo Terna, y para el civil Cristian Mamani, investigados por el presunto delito de robo agravado en agravio de un ciudadano.",
-   "Los imputados habían solicitado que se revoque la medida y se disponga su excarcelación, pero el colegiado declaró infundados sus requerimientos tras escuchar los argumentos de las partes en la audiencia de apelación.",
-   "Según la investigación del Ministerio Público, los hechos habrían ocurrido la tarde del 3 de octubre, cuando los investigados llegaron al domicilio del agraviado, en la urbanización Santa Adriana de Juliaca, a bordo de dos vehículos y vestidos con prendas y chalecos policiales. Presuntamente, simularon una intervención policial sin contar con orden judicial ni autorización para ingresar al inmueble.",
-   "La pesquisa señala que, en una habitación del tercer piso, los presuntos implicados habrían sustraído 10 000 soles en efectivo. Los gritos de auxilio y el llanto de los menores alertaron a los vecinos, quienes rodearon el inmueble e impidieron que los investigados se retiraran, reteniéndolos hasta la llegada de las autoridades. Durante las diligencias se hallaron armas de fuego y otros objetos que, según las pesquisas, habrían sido utilizados en el hecho.",
-   "La decisión fue adoptada por los jueces superiores Hernán Layme Yépez, Roger Istaña Ponce y Edson Jaúregui Mercado, integrantes de la Sala Penal. Los cuatro investigados permanecen recluidos mientras continúan las investigaciones por el plazo establecido."
+   "La Sala Penal de Apelaciones de San Román–Juliaca confirmó la prisión preventiva por nueve meses contra los policías Jhon Bernal, Giancarlo Bobadilla y Micheel Calisaya, del Grupo Terna, y el civil Cristian Mamani, investigados por presunto robo agravado.",
+   "Según el Ministerio Público, el 3 de octubre llegaron a una vivienda de la urbanización Santa Adriana en dos vehículos y con chalecos policiales. Presuntamente simularon una intervención sin orden judicial y habrían sustraído S/ 10 000 en efectivo.",
+   "Los vecinos, alertados por los gritos de auxilio y el llanto de los menores, rodearon el inmueble e impidieron que se retiraran hasta la llegada de las autoridades. Los jueces Hernán Layme Yépez, Roger Istaña Ponce y Edson Jaúregui Mercado declararon infundado el pedido de excarcelación de los procesados."
   ],
   "datos": [
    "Prisión preventiva confirmada por nueve meses",
    "Tres policías del Grupo Terna y un civil investigados",
-   "Robo agravado de 10 000 soles en efectivo",
-   "Hechos ocurrieron la tarde del 3 de octubre en la urbanización Santa Adriana, Juliaca",
-   "Jueces superiores: Hernán Layme Yépez, Roger Istaña Ponce y Edson Jaúregui Mercado"
+   "Presunto robo agravado de S/ 10 000 en Santa Adriana, Juliaca",
+   "Hechos del 3 de octubre",
+   "Jueces: Hernán Layme Yépez, Roger Istaña Ponce y Edson Jaúregui Mercado"
   ],
   "tema": "Seguridad/Policiales",
   "seccion": "seguridad",
@@ -1469,7 +1473,7 @@
   "fecha": "2026-11-12T04:48:00",
   "imagen": "img/noticias/n672-a8763b83.jpg",
   "foco": "43% 37%",
-  "pie": "Confirman prisión preventiva para tres policías y un civil por robo agravado",
+  "pie": "Confirman prisión para tres policías y un civil",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1478,7 +1482,7 @@
   "edicion": 7,
   "impacto": 8,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n672-2e50d60a.jpg"
+  "imagen_compartir": "img/compartir/n672-04a379ec.jpg"
  },
  {
   "id": 652,
@@ -1609,8 +1613,8 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-12T04:05:00",
-  "imagen": "img/noticias/n669-aab956b8.jpg",
-  "foco": "57% 53%",
+  "imagen": null,
+  "foco": null,
   "pie": "Exguardias civiles niegan haber identificado a Íber Maraví en ataque a comisaría",
   "credito": "",
   "medios": [],
@@ -1620,7 +1624,7 @@
   "edicion": null,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n669-766d9e97.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 657,
@@ -1692,8 +1696,8 @@
   "seccion": "sociedad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-11T23:14:00",
-  "imagen": "img/noticias/n667-7b5a8135.jpg",
-  "foco": "56% 36%",
+  "imagen": "img/noticias/n667-a5adfc5d.jpg",
+  "foco": "39% 50%",
   "pie": "Controladora aérea da bienvenida al papa León XIV en el Jorge Chávez",
   "credito": "",
   "medios": [],
@@ -1703,7 +1707,7 @@
   "edicion": null,
   "impacto": 2,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n667-9dad4544.jpg"
+  "imagen_compartir": "img/compartir/n667-e7a11b75.jpg"
  },
  {
   "id": 666,
@@ -1769,8 +1773,8 @@
   "seccion": "salud",
   "ambito": "REGIONAL",
   "fecha": "2026-11-11T21:55:00",
-  "imagen": "img/noticias/n660-189726b9.jpg",
-  "foco": "85% 27%",
+  "imagen": "img/noticias/n660-9478cd10.jpg",
+  "foco": "50% 38%",
   "pie": "Fiscalía interviene concurso de Salud en Puno por quejas",
   "credito": "",
   "medios": [],
@@ -1780,7 +1784,7 @@
   "edicion": 7,
   "impacto": 7,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n660-bfa0e471.jpg"
+  "imagen_compartir": "img/compartir/n660-93cdf75d.jpg"
  },
  {
   "id": 658,
@@ -1802,8 +1806,8 @@
   "seccion": "educacion",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-11T21:23:00",
-  "imagen": "img/noticias/n658-6068f4a8.jpg",
-  "foco": "48% 28%",
+  "imagen": null,
+  "foco": null,
   "pie": "UNA Puno da la bienvenida al papa León XIV",
   "credito": "",
   "medios": [],
@@ -1813,7 +1817,7 @@
   "edicion": 7,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n658-1286983e.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 645,
@@ -1972,14 +1976,14 @@
  {
   "id": 654,
   "slug": "corte-superior-de-puno-inaugura-nueva-sede-del-modulo-penal-de-juliaca",
-  "titular": "Corte Superior de Puno inaugura nueva sede del Módulo Penal de Juliaca",
-  "bajada": "El local, en el jirón Pumacahua N.° 223, atenderá a la ciudadanía y albergará las labores jurisdiccionales en la provincia de San Román.",
-  "antetitulo": "NUEVA SEDE PARA EL SERVICIO DE JUSTICIA EN SAN ROMÁN",
+  "titular": "Módulo Penal de Juliaca estrena nueva sede en Pumacahua",
+  "bajada": "El local, en el jirón Pumacahua N.° 223, fue inaugurado por el presidente de la Corte Superior de Justicia de Puno.",
+  "antetitulo": "NUEVOS AMBIENTES PARA EL SERVICIO DE JUSTICIA EN SAN ROMÁN",
   "lugar": "Juliaca",
   "cuerpo": [
-   "El Módulo Penal de San Román–Juliaca ya funciona en una nueva sede ubicada en el jirón Pumacahua N.° 223, donde se atiende a la ciudadanía y se realizan las labores jurisdiccionales en ambientes acondicionados para el servicio de justicia. La implementación del local fue inaugurada por el presidente de la Corte Superior de Justicia de Puno, Benny José Álvarez Quiñonez.",
-   "La nueva sede ofrece espacios adecuados para el trabajo de los operadores de justicia y para la atención de las personas que acuden al Módulo Penal de Juliaca, lo que contribuye a mejorar las condiciones de acceso al servicio judicial en la provincia de San Román.",
-   "En la ceremonia participaron el director distrital de la Defensa Pública y Acceso a la Justicia de Puno, Víctor Landa Farati; el jefe de la DIVOPUS PNP–Juliaca, coronel PNP Ricardo Siancas Cabrera; la fiscal provincial penal de Juliaca, Marleny Mamani Cahuata; además de jueces y servidores de la Corte Superior de Justicia de Puno."
+   "El Módulo Penal de San Román–Juliaca ya funciona en una nueva sede, ubicada en el jirón Pumacahua N.° 223. Allí se atiende a la ciudadanía y se realizan las labores jurisdiccionales en ambientes acondicionados. El local fue inaugurado por el presidente de la Corte Superior de Justicia de Puno, Benny José Álvarez Quiñonez.",
+   "La sede cuenta con espacios adecuados para el trabajo de los operadores de justicia y para quienes acuden al módulo, lo que mejora las condiciones de acceso al servicio judicial en la provincia de San Román.",
+   "Participaron en la ceremonia el director distrital de la Defensa Pública y Acceso a la Justicia de Puno, Víctor Landa Farati; el jefe de la DIVOPUS PNP–Juliaca, coronel Ricardo Siancas Cabrera; y la fiscal provincial penal de Juliaca, Marleny Mamani Cahuata, junto a jueces y servidores de la Corte Superior."
   ],
   "datos": [
    "Nueva sede en el jirón Pumacahua N.° 223, Juliaca",
@@ -1993,7 +1997,7 @@
   "fecha": "2026-11-11T19:49:00",
   "imagen": "img/noticias/n654-25b481a1.jpg",
   "foco": "93% 60%",
-  "pie": "Corte Superior de Puno inaugura nueva sede del Módulo Penal de Juliaca",
+  "pie": "Módulo Penal de Juliaca estrena nueva sede en Pumacahua",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -2002,7 +2006,7 @@
   "edicion": 7,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n654-202d470c.jpg"
+  "imagen_compartir": "img/compartir/n654-6b9a98ac.jpg"
  },
  {
   "id": 596,
@@ -2080,9 +2084,9 @@
  {
   "id": 649,
   "slug": "onpe-inicia-impresion-de-mas-de-13-millones-de-cedulas-para-la-segunda-eleccion-",
-  "titular": "ONPE inicia impresión de más de 13 millones de cédulas para la segunda elección regional",
-  "bajada": "El proceso se realizará de manera ininterrumpida durante siete días, de cara a los comicios del 6 de diciembre.",
-  "antetitulo": "SEGUNDA ELECCIÓN REGIONAL DEL 6 DE DICIEMBRE",
+  "titular": "ONPE imprime más de 13 millones de cédulas para la SER",
+  "bajada": "El trabajo se hará sin pausa durante siete días, de cara a los comicios regionales del domingo 6 de diciembre.",
+  "antetitulo": "SEGUNDA ELECCIÓN REGIONAL SE REALIZARÁ EL 6 DE DICIEMBRE",
   "lugar": "",
   "cuerpo": [
    "La Oficina Nacional de Procesos Electorales (ONPE) inició este miércoles 11 de noviembre la impresión de las cédulas de sufragio para la Segunda Elección Regional (SER), prevista para el 6 de diciembre. El proceso se desarrollará de manera ininterrumpida durante siete días.",
@@ -2092,7 +2096,7 @@
   "datos": [
    "Más de 13 millones de cédulas de sufragio",
    "Impresión ininterrumpida durante siete días",
-   "Segunda Elección Regional (SER) el 6 de diciembre"
+   "Segunda Elección Regional (SER) el domingo 6 de diciembre"
   ],
   "tema": "Política",
   "seccion": "politica",
@@ -2100,7 +2104,7 @@
   "fecha": "2026-11-11T18:10:00",
   "imagen": "img/noticias/n649-bf42b714.jpg",
   "foco": "73% 28%",
-  "pie": "ONPE inicia impresión de más de 13 millones de cédulas para la segunda elección regional",
+  "pie": "ONPE imprime más de 13 millones de cédulas para la SER",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -2109,7 +2113,7 @@
   "edicion": 7,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n649-d12c83b2.jpg"
+  "imagen_compartir": "img/compartir/n649-35fe4a98.jpg"
  },
  {
   "id": 648,
@@ -2182,20 +2186,19 @@
  {
   "id": 644,
   "slug": "ofrecen-beca-de-2-500-dolares-a-universitarios-de-puno",
-  "titular": "Ofrecen beca de 2,500 dólares a universitarios de Puno",
+  "titular": "Ofrecen beca de 2,500 dólares a universitarios",
   "bajada": "Solo se otorgarán tres becas en la decimoquinta edición. La ayuda se entregará en cinco desembolsos entre abril y diciembre de 2027.",
-  "antetitulo": "CONVOCATORIA PARA ESTUDIANTES DE INSTITUTOS Y UNIVERSIDADES DE LA REGIÓN",
+  "antetitulo": "CONVOCATORIA PARA ESTUDIANTES DE EDUCACIÓN SUPERIOR DE LA REGIÓN",
   "lugar": "Juliaca",
   "cuerpo": [
-   "La Fundación Ángeles de la Caridad y la Música abrió una convocatoria de becas para estudiantes de educación superior con dificultades económicas. Cada beneficiario recibirá 2,500 dólares para cubrir necesidades académicas durante 2027, en cinco desembolsos entre abril y diciembre.",
-   "El coordinador de becas, Álvaro Quito Ticona, informó que pueden postular jóvenes de hasta 28 años de las escuelas superiores de formación artística de Juliaca, Puno, Moho y Pilcuyo, y de las universidades nacionales de la región. Se exige ser estudiante regular desde el segundo semestre, y se considerará favorablemente a quienes estén en el tercio o quinto superior.",
-   "Los interesados deben llenar un formulario de inscripción virtual y presentar su documentación en los puntos de recepción habilitados en la ciudad de Puno. En esta edición, la decimoquinta, se otorgarán únicamente tres becas."
+   "La Fundación Ángeles de la Caridad y la Música abrió una convocatoria de becas de 2,500 dólares para estudiantes de educación superior con dificultades económicas. Solo habrá tres becas.",
+   "Pueden postular jóvenes de hasta 28 años, desde el segundo semestre, de escuelas artísticas de Juliaca, Puno, Moho y Pilcuyo y de universidades nacionales de la región. La inscripción es virtual."
   ],
   "datos": [
    "Subvención de 2,500 dólares por beneficiario para 2027",
    "Solo tres becas; decimoquinta edición",
    "Cinco desembolsos entre abril y diciembre de 2027",
-   "Postulantes de hasta 28 años, desde el segundo semestre, estudiante regular; preferencia al tercio o quinto superior",
+   "Postulantes de hasta 28 años, desde el segundo semestre",
    "Inscripción con formulario virtual y documentos en puntos de recepción en Puno"
   ],
   "tema": "Educación",
@@ -2204,7 +2207,7 @@
   "fecha": "2026-11-11T17:37:00",
   "imagen": "img/noticias/n644-82557360.jpg",
   "foco": "53% 42%",
-  "pie": "Ofrecen beca de 2,500 dólares a universitarios de Puno",
+  "pie": "Ofrecen beca de 2,500 dólares a universitarios",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -2213,7 +2216,7 @@
   "edicion": 7,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n644-ef1c47e1.jpg"
+  "imagen_compartir": "img/compartir/n644-bba004f5.jpg"
  },
  {
   "id": 641,
