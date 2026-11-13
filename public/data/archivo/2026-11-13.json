@@ -61,8 +61,8 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-13T03:08:00",
-  "imagen": "img/noticias/n767-13e878f8.jpg",
-  "foco": "58% 36%",
+  "imagen": "img/noticias/n767-db9cc9cc.jpg",
+  "foco": "51% 38%",
   "pie": "Hijo del ministro de Salud, de 22 años, integra equipo de Palacio",
   "credito": "",
   "medios": [],
@@ -72,7 +72,7 @@
   "edicion": 8,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n767-b5bb38e5.jpg"
+  "imagen_compartir": "img/compartir/n767-78d64019.jpg"
  },
  {
   "id": 603,
@@ -136,8 +136,8 @@
   "seccion": "cultura",
   "ambito": "NACIONAL",
   "fecha": "2026-11-13T02:16:00",
-  "imagen": "img/noticias/n764-d7679faa.jpg",
-  "foco": "29% 51%",
+  "imagen": "img/noticias/n764-aa524dd1.jpg",
+  "foco": "47% 55%",
   "pie": "Carlos Alcántara revela que peleas con su esposa causaron la separación",
   "credito": "",
   "medios": [],
@@ -147,7 +147,7 @@
   "edicion": null,
   "impacto": 1,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n764-ef1b148d.jpg"
+  "imagen_compartir": "img/compartir/n764-768e3903.jpg"
  },
  {
   "id": 762,
@@ -168,8 +168,8 @@
   "seccion": "cultura",
   "ambito": "NACIONAL",
   "fecha": "2026-11-13T01:50:00",
-  "imagen": "img/noticias/n762-ed120381.jpg",
-  "foco": "51% 52%",
+  "imagen": "img/noticias/n762-41f4894c.jpg",
+  "foco": "44% 55%",
   "pie": "Luciana Fuster marca distancia de Majo Parodi",
   "credito": "",
   "medios": [],
@@ -179,7 +179,7 @@
   "edicion": 8,
   "impacto": 1,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n762-d89b2b82.jpg"
+  "imagen_compartir": "img/compartir/n762-13069b08.jpg"
  },
  {
   "id": 761,
@@ -201,8 +201,8 @@
   "seccion": "sociedad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-13T01:24:00",
-  "imagen": "img/noticias/n761-e8578058.jpg",
-  "foco": "42% 31%",
+  "imagen": "img/noticias/n761-f336ad59.jpg",
+  "foco": "47% 31%",
   "pie": "Susana Higuchi denunció ser electrocutada y agredida durante el gobierno de Fujimori",
   "credito": "",
   "medios": [],
@@ -212,7 +212,7 @@
   "edicion": 8,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n761-5d3bed5a.jpg"
+  "imagen_compartir": "img/compartir/n761-d456dcd2.jpg"
  },
  {
   "id": 723,
@@ -1059,8 +1059,8 @@
   "seccion": "ambiente",
   "ambito": "REGIONAL",
   "fecha": "2026-11-12T19:23:00",
-  "imagen": "img/noticias/n734-33ab0c09.jpg",
-  "foco": "82% 71%",
+  "imagen": "img/noticias/n734-182d214f.jpg",
+  "foco": "50% 38%",
   "pie": "Obra de recuperación de Chilla avanza al 80 % pero peligra su culminación",
   "credito": "",
   "medios": [],
@@ -1070,7 +1070,7 @@
   "edicion": 8,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n734-c4773740.jpg"
+  "imagen_compartir": "img/compartir/n734-5aeacf21.jpg"
  },
  {
   "id": 733,
@@ -1096,7 +1096,7 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-12T19:22:00",
-  "imagen": "img/noticias/n733-00f90a15.jpg",
+  "imagen": "img/noticias/n733-794ec339.jpg",
   "foco": "50% 38%",
   "pie": "Puno y Juliaca entregan obras de pistas este fin de semana",
   "credito": "",
@@ -1107,7 +1107,7 @@
   "edicion": 8,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n733-4afddc54.jpg"
+  "imagen_compartir": "img/compartir/n733-967bdc5f.jpg"
  },
  {
   "id": 730,
@@ -1132,8 +1132,8 @@
   "seccion": "politica",
   "ambito": "REGIONAL",
   "fecha": "2026-11-12T18:55:00",
-  "imagen": "img/noticias/n730-dc27e46c.jpg",
-  "foco": "16% 50%",
+  "imagen": null,
+  "foco": null,
   "pie": "Vecinos de Santa María denuncian trabas en obra",
   "credito": "",
   "medios": [],
@@ -1143,7 +1143,7 @@
   "edicion": 8,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n730-aa0c97d2.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 727,
@@ -1167,8 +1167,8 @@
   "seccion": "educacion",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-12T18:29:00",
-  "imagen": "img/noticias/n727-26752076.jpg",
-  "foco": "30% 36%",
+  "imagen": null,
+  "foco": null,
   "pie": "UNA Puno inicia obra de S/ 6,9 millones en Metalúrgica",
   "credito": "",
   "medios": [],
@@ -1178,7 +1178,7 @@
   "edicion": 8,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n727-48d034a5.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 726,
@@ -1203,8 +1203,8 @@
   "seccion": "economia",
   "ambito": "INTERNACIONAL",
   "fecha": "2026-11-12T18:25:00",
-  "imagen": "img/noticias/n726-c6c402ad.jpg",
-  "foco": "61% 36%",
+  "imagen": "img/noticias/n726-d67088e3.jpg",
+  "foco": "51% 36%",
   "pie": "Jensen Huang habría tenido un tercer vínculo extramarital en Nvidia",
   "credito": "",
   "medios": [],
@@ -1214,7 +1214,7 @@
   "edicion": null,
   "impacto": 1,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n726-8b960c46.jpg"
+  "imagen_compartir": "img/compartir/n726-f526e096.jpg"
  },
  {
   "id": 717,
@@ -1418,8 +1418,8 @@
   "seccion": "seguridad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-12T17:49:00",
-  "imagen": "img/noticias/n720-04e114de.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Graban en Juliaca a sujeto con chaleco policial",
   "credito": "",
   "medios": [],
@@ -1429,7 +1429,7 @@
   "edicion": 8,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n720-dc31ce7b.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 719,
@@ -1488,8 +1488,8 @@
   "seccion": "cultura",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-12T17:26:00",
-  "imagen": "img/noticias/n718-26888a8b.jpg",
-  "foco": "49% 54%",
+  "imagen": null,
+  "foco": null,
   "pie": "UNA Puno inaugura muestra pictórica colectiva de sus estudiantes",
   "credito": "",
   "medios": [],
@@ -1499,7 +1499,7 @@
   "edicion": 8,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n718-3d85c0fb.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 711,
@@ -1632,8 +1632,8 @@
   "seccion": "sociedad",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-12T15:37:00",
-  "imagen": "img/noticias/n789-77a8c903.jpg",
-  "foco": "50% 28%",
+  "imagen": null,
+  "foco": null,
   "pie": "UNA Puno graba himno para el papa León XIV",
   "credito": "",
   "medios": [],
@@ -1643,7 +1643,7 @@
   "edicion": 8,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n789-c43206ac.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 672,
