@@ -133,8 +133,8 @@
   "seccion": "sociedad",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-14T09:03:00",
-  "imagen": "img/noticias/n872-e4c059d7.jpg",
-  "foco": "18% 31%",
+  "imagen": "img/noticias/n872-136b1b67.jpg",
+  "foco": "50% 38%",
   "pie": "Obrero herido en coliseo de Salcedo pide indemnización",
   "credito": "",
   "medios": [],
@@ -144,7 +144,7 @@
   "edicion": 9,
   "impacto": 7,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n872-51d6eaac.jpg"
+  "imagen_compartir": "img/compartir/n872-8201d062.jpg"
  },
  {
   "id": 873,
@@ -418,8 +418,8 @@
   "seccion": "sociedad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-14T08:40:00",
-  "imagen": "img/noticias/n867-3a0e6b42.jpg",
-  "foco": "47% 39%",
+  "imagen": null,
+  "foco": null,
   "pie": "Christian Domínguez celebra los 18 años de su hija Camila",
   "credito": "",
   "medios": [],
@@ -429,7 +429,7 @@
   "edicion": null,
   "impacto": 1,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n867-e054390e.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 865,
@@ -616,8 +616,8 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-14T07:01:00",
-  "imagen": "img/noticias/n855-a298c6f9.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Proponen bajar sueldo de congresistas de S/ 32 mil a S/ 8 mil",
   "credito": "",
   "medios": [],
@@ -627,7 +627,7 @@
   "edicion": 9,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n855-b5221acd.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 853,
