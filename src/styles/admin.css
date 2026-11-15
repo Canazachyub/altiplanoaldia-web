@@ -77,3 +77,10 @@
 .adm-aviso strong { display: block; font: 700 17px/1.3 var(--f-titular); }
 .adm-aviso__texto { margin: 6px 0; font: 400 15px/1.45 var(--f-texto); white-space: pre-line; overflow-wrap: anywhere; }
 @media (max-width: 560px) { .adm-aviso { grid-template-columns: 1fr; } .adm-aviso__foto { width: 100%; height: 200px; } }
+
+/* filtros de notas y nota propia */
+.adm-filtros--tres { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; align-items: end; }
+.adm-check--filtro { padding-bottom: 10px; }
+.adm-etq--propia { background: color-mix(in srgb, #2E7D32 14%, var(--papel)); color: #2E7D32; }
+.adm-fila-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+@media (max-width: 640px) { .adm-filtros--tres { grid-template-columns: 1fr; } }

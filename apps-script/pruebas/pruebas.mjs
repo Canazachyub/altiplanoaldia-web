@@ -96,7 +96,7 @@ prueba('volver a publicar el día reemplaza (no duplica) y quita notas que ya no
 })
 prueba('cada día queda en su hoja (archivo) y las hojas se ordenan', () => {
   G.post({ accion: 'publicar', clave: claveApi, dia: '2026-11-06', notas: [{ ...NOTAS[0], id: 90, slug: 'ayer' }] })
-  assert.deepEqual(G.hojas.map((h) => h.nombre), ['Hoy', 'Ediciones', 'Usuarios', 'Registro', 'Mascotas', 'Anuncios', 'Denuncias', '2026-11-07', '2026-11-06'])
+  assert.deepEqual(G.hojas.map((h) => h.nombre), ['Hoy', 'Ediciones', 'Propias', 'Usuarios', 'Registro', 'Mascotas', 'Anuncios', 'Denuncias', '2026-11-07', '2026-11-06'])
   assert.equal(G.hoja('Hoy').datos[1][0], 90, '«Hoy» es la última publicación')
   G.post({ accion: 'publicar', clave: claveApi, dia: '2026-11-07', notas: NOTAS })
 })
@@ -531,6 +531,33 @@ prueba('la limpieza borra el código: después ya no se puede gestionar', () => 
   G.api.depurarAvisos()
   assert.equal(filaDe('Mascotas', gestion.id).clave, '')
   assert.match(G.post({ accion: 'mi_aviso', seccion: 'mascotas', id: gestion.id, clave: gestion.clave }).error, /no coinciden/)
+})
+
+console.log('\nNotas propias (escritas en el panel)')
+prueba('crear_nota: pide sesión, valida, guarda en «Propias» con foto en Notas/<mes> y sale en _nuevas', () => {
+  const nota = { titular: 'Vecinos de Alto Puno inauguran su biblioteca comunal', bajada: 'La construyeron en faenas.', seccion: 'cultura',
+    ambito: 'LOCAL', lugar: 'Puno', cuerpo: 'Primer párrafo de la nota con suficiente texto para pasar la validación mínima.\n\nSegundo párrafo con más detalles.',
+    foto: { b64: JPG.toString('base64'), tipo: 'image/jpeg' } }
+  assert.equal(G.post({ accion: 'crear_nota', nota }).ok, false, 'sin sesión no se puede')
+  assert.match(G.post({ accion: 'crear_nota', token: tokenAdmin, nota: { ...nota, cuerpo: 'corto' } }).error, /corto/)
+  const r = G.post({ accion: 'crear_nota', token: tokenAdmin, nota })
+  assert.equal(r.ok, true, r.error)
+  assert.ok(r.id > 9000000)
+  assert.match(r.slug, /^vecinos-de-alto-puno-inauguran-su-biblioteca-comunal-\d+$/)
+  const archivo = notas().todos().find((f) => f.nombre === `propia-${r.id}.jpg`)
+  assert.ok(archivo, 'la foto va a Notas/<mes>')
+  G.cache.delete('ediciones')
+  const pub = G.get({ accion: 'ediciones' })
+  const n = pub._nuevas.find((x) => x.id === r.id)
+  assert.equal(n.cuerpo.length, 2)
+  assert.equal(n.foto, archivo.id)
+  const dia = n.dia
+  const lista = G.post({ accion: 'notas', token: tokenAdmin, dia })
+  const enPanel = lista.notas.find((x) => x.id === r.id)
+  assert.equal(enPanel.propia, true)
+  assert.ok(G.post({ accion: 'dias', token: tokenAdmin }).dias.includes(dia))
+  // se corrige como cualquier nota (Ediciones)
+  assert.equal(G.post({ accion: 'editar', token: tokenAdmin, id: r.id, dia, cambios: { titular: 'Titular corregido de la nota propia', oculta: false } }).ok, true)
 })
 
 console.log('\nRobustez')

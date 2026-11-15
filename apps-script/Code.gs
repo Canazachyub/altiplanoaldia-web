@@ -15,6 +15,7 @@
  *   editar, restaurar
  *   usuarios, guardar_usuario   (solo admin)
  *   cambiar_clave, salir
+ *   crear_nota      (editores) nota propia escrita en el panel → hoja «Propias»; sale en la web con las ediciones
  *
  * Avisos del público (Alerta Mascota, Anuncios gratis y Denuncias ciudadanas):
  *   Mascotas, Anuncios, Denuncias  avisos que manda la gente desde la web (estado: pendiente → aprobado …)
@@ -66,6 +67,7 @@ function inicializar() {
   hoja_(H_EDICIONES, COLS_EDICION)
   const us = hoja_(H_USUARIOS, COLS_USUARIO)
   hoja_(H_REGISTRO, COLS_REGISTRO)
+  hoja_(H_PROPIAS, COLS_PROPIA)
   const props = PropertiesService.getScriptProperties()
   if (!props.getProperty('API_CLAVE')) props.setProperty('API_CLAVE', aleatorio_(32))
   carpeta_()
@@ -135,7 +137,7 @@ function doPost(e) {
       restaurar: restaurar_, usuarios: usuarios_, guardar_usuario: guardarUsuario_, cambiar_clave: cambiarClave_,
       fotos_faltan: fotosFaltan_, subir_foto: subirFotoApi_, subir_foto_edicion: subirFotoEdicion_,
       enviar_aviso: enviarAviso_, avisos_admin: avisosAdmin_, moderar_aviso: moderarAviso_, foto_aviso: fotoAviso_,
-      mi_aviso: miAviso_, actualizar_aviso: actualizarAviso_, cerrar_aviso: cerrarAviso_,
+      mi_aviso: miAviso_, actualizar_aviso: actualizarAviso_, cerrar_aviso: cerrarAviso_, crear_nota: crearNota_,
     }
     const f = acciones[d.accion]
     if (!f) return json_({ ok: false, error: 'Acción desconocida.' })
@@ -331,22 +333,28 @@ function sesion_(d, soloAdmin) {
 function dias_(d) {
   sesion_(d)
   const dias = SpreadsheetApp.getActive().getSheets().map(function (h) { return h.getName() })
-    .filter(function (n) { return DIA.test(n) }).sort().reverse()
-  return { dias: dias }
+    .filter(function (n) { return DIA.test(n) })
+  propias_().forEach(function (n) { const d = texto_(n.dia).slice(0, 10); if (DIA.test(d) && dias.indexOf(d) < 0) dias.push(d) })
+  return { dias: dias.sort().reverse() }
 }
 
 function notas_(d) {
   sesion_(d)
   if (!DIA.test(d.dia || '')) throw new Error('Día inválido.')
   const h = SpreadsheetApp.getActive().getSheetByName(d.dia)
-  if (!h) return { notas: [] }
   const ed = mapaEdiciones_()
-  const notas = filas_(h).map(function (n) {
+  const delDia = (h ? filas_(h) : []).concat(propias_().filter(function (n) { return texto_(n.dia).slice(0, 10) === d.dia })
+    .map(function (n) {
+      return { id: n.id, fecha: n.fecha, seccion: n.seccion, slug: n.slug, imagen: '', lugar: n.lugar, antetitulo: n.antetitulo,
+        titular: n.titular, bajada: n.bajada, cuerpo: n.cuerpo, foto_drive: n.foto ? 'https://drive.google.com/file/d/' + n.foto + '/view' : '',
+        propia: true, foto_propia: n.foto || '' }
+    }))
+  const notas = delDia.map(function (n) {
     const e = ed[String(n.id)]
     return {
       id: Number(n.id), dia: d.dia, fecha: texto_(n.fecha), seccion: n.seccion, slug: n.slug, imagen: n.imagen, lugar: n.lugar,
       original: { antetitulo: n.antetitulo, titular: n.titular, bajada: n.bajada, cuerpo: n.cuerpo },
-      foto_drive: n.foto_drive || '',
+      foto_drive: n.foto_drive || '', propia: !!n.propia, foto_propia: n.foto_propia || '',
       edicion: e ? { antetitulo: e.antetitulo, titular: e.titular, bajada: e.bajada, cuerpo: e.cuerpo, seccion: e.seccion,
         oculta: e.oculta === true || e.oculta === 'TRUE', usuario: e.usuario, fecha: texto_(e.fecha), foto: e.foto || '' } : null,
     }
@@ -407,8 +415,77 @@ function edicionesPublicas_() {
     if (e.foto) o.foto = String(e.foto)          // id de Drive, o «ninguna» para quitar la foto
     out[id] = o
   })
+  const nuevas = propiasPublicas_()
+  if (nuevas.length) out._nuevas = nuevas
   cache.put('ediciones', JSON.stringify(out), 120)
   return out
+}
+
+// ------------------------------------------------------------------ notas propias (escritas en el panel)
+// Una nota que no viene del maquetador: el editor la escribe en /admin → Notas → «Nueva nota». Se guarda en la
+// hoja «Propias» (y su foto en Drive, Notas/<mes>/), y la web la toma en su próxima compilación (≈15 min) junto
+// con las ediciones. Se corrige u oculta igual que cualquier nota (pestaña Ediciones). No entra al boletín PDF.
+const H_PROPIAS = 'Propias'
+const COLS_PROPIA = ['id', 'dia', 'fecha', 'seccion', 'ambito', 'antetitulo', 'titular', 'bajada', 'cuerpo', 'lugar',
+  'foto', 'slug', 'usuario', 'creado']
+const AMBITOS = ['DISTRITAL', 'LOCAL', 'REGIONAL', 'NACIONAL', 'INTERNACIONAL']
+const PROPIA_ID_BASE = 9000000          // los ids del maquetador son mucho menores: nunca chocan
+
+function slug_(t) {
+  return String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 70).replace(/-+$/, '')
+}
+
+function crearNota_(d) {
+  const u = sesion_(d)
+  const x = d.nota || {}
+  const titular = limpio_(x.titular, 300)
+  if (titular.length < 10) throw new Error('El titular es muy corto.')
+  const cuerpo = limpio_(x.cuerpo, 49000)
+  if (cuerpo.length < 80) throw new Error('El texto de la nota es muy corto (mínimo 80 letras).')
+  const seccion = limpio_(x.seccion, 40)
+  if (!seccion) throw new Error('Elige la sección.')
+  const ambito = AMBITOS.indexOf(String(x.ambito || '')) >= 0 ? String(x.ambito) : 'REGIONAL'
+  const ahora = new Date()
+  const lima = new Date(ahora.getTime() - 5 * 3600e3).toISOString()
+  const dia = DIA.test(x.dia || '') ? x.dia : lima.slice(0, 10)
+  const lock = LockService.getScriptLock()
+  lock.waitLock(30000)
+  try {
+    const h = hoja_(H_PROPIAS, COLS_PROPIA)
+    const ids = h.getLastRow() > 1 ? h.getRange(2, 1, h.getLastRow() - 1, 1).getValues().map(function (f) { return Number(f[0]) || 0 }) : []
+    const id = Math.max(PROPIA_ID_BASE, Math.max.apply(null, ids.concat([0]))) + 1
+    let foto = ''
+    if (x.foto && x.foto.b64) {
+      const tipo = String(x.foto.tipo || 'image/jpeg')
+      const ext = tipo === 'image/png' ? 'png' : tipo === 'image/webp' ? 'webp' : 'jpg'
+      foto = guardarFoto_('propia-' + id + '.' + ext, x.foto.b64, tipo).getId()
+    }
+    const slug = slug_(titular) + '-' + id
+    h.appendRow([id, dia, lima.slice(0, 19), seccion, ambito, limpio_(x.antetitulo, 200), titular, limpio_(x.bajada, 600),
+      cuerpo, limpio_(x.lugar, 80), foto, slug, u.usuario, ahora])
+    registrar_(u.usuario, 'crear_nota', id, titular)
+    CacheService.getScriptCache().remove('ediciones')
+    return { id: id, slug: slug }
+  } finally {
+    lock.releaseLock()
+  }
+}
+
+function propias_() {
+  return filas_(hoja_(H_PROPIAS, COLS_PROPIA))
+}
+
+/** Notas propias tal como las necesita la web (van dentro de las ediciones públicas, en «_nuevas»). */
+function propiasPublicas_() {
+  return propias_().map(function (n) {
+    return {
+      id: Number(n.id), dia: texto_(n.dia).slice(0, 10), fecha: texto_(n.fecha), seccion: String(n.seccion), ambito: String(n.ambito),
+      antetitulo: String(n.antetitulo || ''), titular: String(n.titular), bajada: String(n.bajada || ''),
+      cuerpo: String(n.cuerpo || '').split(/\n\s*\n/).map(function (p) { return p.trim() }).filter(String),
+      lugar: String(n.lugar || ''), foto: String(n.foto || ''), slug: String(n.slug),
+    }
+  })
 }
 
 // ------------------------------------------------------------------ usuarios
@@ -1019,7 +1096,7 @@ function mapaEdiciones_() {
 
 function ordenarHojas_() {
   const ss = SpreadsheetApp.getActive()
-  const fijas = [H_HOY, H_EDICIONES, H_USUARIOS, H_REGISTRO, AVISOS.mascotas.hoja, AVISOS.anuncios.hoja, AVISOS.denuncias.hoja]
+  const fijas = [H_HOY, H_EDICIONES, H_PROPIAS, H_USUARIOS, H_REGISTRO, AVISOS.mascotas.hoja, AVISOS.anuncios.hoja, AVISOS.denuncias.hoja]
   const dias = ss.getSheets().map(function (h) { return h.getName() }).filter(function (n) { return DIA.test(n) }).sort().reverse()
   fijas.concat(dias).forEach(function (n, i) {
     const h = ss.getSheetByName(n)

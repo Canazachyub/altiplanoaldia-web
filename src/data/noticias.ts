@@ -62,7 +62,14 @@ export interface Edicion {
   imagen?: string | null
 }
 
-let edicionesP: Promise<Record<string, Edicion>> | null = null
+/** Nota escrita en el panel (/admin → Nueva nota): llega con las ediciones, en «_nuevas». */
+interface NotaPropia {
+  id: number; dia: string; fecha: string; seccion: string; ambito: string; antetitulo: string; titular: string
+  bajada: string; cuerpo: string[]; lugar: string; slug: string; imagen: string | null
+}
+type Ediciones = Record<string, Edicion> & { _nuevas?: NotaPropia[] }
+
+let edicionesP: Promise<Ediciones> | null = null
 const cargarEdiciones = (fresco = false) => {
   if (!edicionesP || fresco) {
     edicionesP = fetch(pub('data/ediciones.json'), fresco ? { cache: 'no-store' } : undefined)
@@ -72,12 +79,27 @@ const cargarEdiciones = (fresco = false) => {
   return edicionesP
 }
 
+const notaPropia = (n: NotaPropia): Nota => {
+  const s = SECCIONES.find((x) => x.clave === n.seccion)
+  return {
+    id: n.id, slug: n.slug, titular: n.titular, bajada: n.bajada, antetitulo: n.antetitulo, cuerpo: n.cuerpo, datos: [],
+    tema: s?.tema ?? 'Otros', seccion: s?.clave ?? 'otros', ambito: n.ambito || 'REGIONAL', fecha: n.fecha, medios: [],
+    fuentes: 1, imagen: n.imagen, imagen_compartir: n.imagen, enlaces: [], lugar: n.lugar, impacto: 5,
+  }
+}
+/** Suma las notas propias que correspondan (las que no están ya en la lista). */
+const conPropias = (notas: Nota[], ed: Ediciones, filtro: (n: NotaPropia) => boolean): Nota[] => {
+  const hay = new Set(notas.map((n) => n.id))
+  return notas.concat((ed._nuevas ?? []).filter((n) => !hay.has(n.id) && filtro(n)).map(notaPropia))
+}
+const DIAS_PORTADA = 3
+
 export function aplicarEdiciones(notas: Nota[], ed: Record<string, Edicion>): Nota[] {
   return notas
-    .filter((n) => !ed[n.id]?.oculta)
+    .filter((n) => !(ed[n.id] as Edicion | undefined)?.oculta)
     .map((n) => {
-      const e = ed[n.id]
-      if (!e) return n
+      const e = ed[n.id] as Edicion | undefined
+      if (!e || Array.isArray(e)) return n
       const s = e.seccion ? SECCIONES.find((x) => x.clave === e.seccion) : undefined
       return {
         ...n,
@@ -101,7 +123,10 @@ const bajarJson = <T,>(ruta: string, fresco = false) =>
 
 const descargar = (fresco = false) =>
   Promise.all([bajarJson<Nota[]>('data/noticias.json', fresco), cargarEdiciones(fresco)])
-    .then(([notas, ed]) => ordenar(aplicarEdiciones(notas, ed)))
+    .then(([notas, ed]) => {
+      const desde = Date.now() - DIAS_PORTADA * 864e5
+      return ordenar(aplicarEdiciones(conPropias(notas, ed, (n) => new Date(n.fecha).getTime() >= desde), ed))
+    })
 
 // ===== Archivo por días (data/archivo/AAAA-MM-DD.json, nunca se borra) =====
 export interface IndiceArchivo {
@@ -124,8 +149,8 @@ const dias = new Map<string, Promise<Nota[]>>()
 export function cargarDia(dia: string): Promise<Nota[]> {
   let p = dias.get(dia)
   if (!p) {
-    p = Promise.all([bajarJson<Nota[]>(`data/archivo/${dia}.json`), cargarEdiciones()])
-      .then(([notas, ed]) => ordenar(aplicarEdiciones(notas, ed)))
+    p = Promise.all([bajarJson<Nota[]>(`data/archivo/${dia}.json`).catch(() => [] as Nota[]), cargarEdiciones()])
+      .then(([notas, ed]) => ordenar(aplicarEdiciones(conPropias(notas, ed, (n) => n.dia === dia), ed)))
       .catch(() => [])
     dias.set(dia, p)
   }
@@ -136,7 +161,11 @@ export function cargarDia(dia: string): Promise<Nota[]> {
 export async function notaDelArchivo(slug: string): Promise<Nota | null> {
   const i = await cargarIndice()
   const dia = i.slugs[slug]
-  if (!dia) return null
+  if (!dia) {
+    const ed = await cargarEdiciones()
+    const n = (ed._nuevas ?? []).find((x) => x.slug === slug)
+    return n && !(ed[n.id] as Edicion | undefined)?.oculta ? aplicarEdiciones([notaPropia(n)], ed)[0] ?? null : null
+  }
   return (await cargarDia(dia)).find((n) => n.slug === slug) ?? null
 }
 

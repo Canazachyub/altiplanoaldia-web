@@ -21,6 +21,8 @@ interface NotaPanel {
   imagen: string
   lugar: string
   foto_drive: string
+  propia?: boolean
+  foto_propia?: string
   original: Texto
   edicion: (Texto & { seccion: string; oculta: boolean; usuario: string; fecha: string; foto: string }) | null
 }
@@ -184,6 +186,9 @@ function Notas({ llamar }: { llamar: Llamar }) {
   const [error, setError] = useState('')
   const [abierta, setAbierta] = useState<NotaPanel | null>(null)
   const [filtro, setFiltro] = useState('')
+  const [seccion, setSeccion] = useState('')
+  const [sinFoto, setSinFoto] = useState(false)
+  const [nueva, setNueva] = useState(false)
 
   useEffect(() => {
     llamar<{ dias: string[] }>('dias')
@@ -203,6 +208,22 @@ function Notas({ llamar }: { llamar: Llamar }) {
   }, [dia, llamar])
   useEffect(cargar, [cargar])
 
+  if (nueva) {
+    return (
+      <NuevaNota
+        dia={dia}
+        llamar={llamar}
+        alCerrar={(creada) => {
+          setNueva(false)
+          window.scrollTo(0, 0)
+          if (creada) {
+            llamar<{ dias: string[] }>('dias').then((r) => setDias(r.dias)).catch(() => undefined)
+            cargar()
+          }
+        }}
+      />
+    )
+  }
   if (abierta) {
     return (
       <Editor
@@ -217,7 +238,15 @@ function Notas({ llamar }: { llamar: Llamar }) {
     )
   }
   const q = filtro.trim().toLowerCase()
-  const visibles = (notas ?? []).filter((n) => !q || (n.edicion?.titular || n.original.titular).toLowerCase().includes(q))
+  const secDe = (n: NotaPanel) => n.edicion?.seccion || n.seccion
+  const tieneFoto = (n: NotaPanel) => n.edicion?.foto === 'ninguna' ? false : !!(n.edicion?.foto || n.imagen || n.foto_propia)
+  const todas = notas ?? []
+  const visibles = todas.filter((n) =>
+    (!q || (n.edicion?.titular || n.original.titular).toLowerCase().includes(q)) &&
+    (!seccion || secDe(n) === seccion) &&
+    (!sinFoto || !tieneFoto(n)))
+  const cuentaSec = (c: string) => todas.filter((n) => secDe(n) === c).length
+  const nSinFoto = todas.filter((n) => !tieneFoto(n)).length
   return (
     <section className="adm-seccion">
       {error && <p className="adm-error" role="alert">{error}</p>}
@@ -233,13 +262,27 @@ function Notas({ llamar }: { llamar: Llamar }) {
           <input type="search" value={filtro} onChange={(e) => setFiltro(e.target.value)} placeholder="Titular…" />
         </label>
       </div>
+      <div className="adm-filtros adm-filtros--tres">
+        <label>
+          Sección
+          <select value={seccion} onChange={(e) => setSeccion(e.target.value)}>
+            <option value="">Todas ({todas.length})</option>
+            {SECCIONES.map((s) => <option key={s.clave} value={s.clave}>{s.nombre} ({cuentaSec(s.clave)})</option>)}
+          </select>
+        </label>
+        <label className="adm-check adm-check--filtro">
+          <input type="checkbox" checked={sinFoto} onChange={(e) => setSinFoto(e.target.checked)} />
+          Solo sin foto ({nSinFoto})
+        </label>
+        <button className="adm-principal" onClick={() => { setNueva(true); window.scrollTo(0, 0) }}>+ Nueva nota</button>
+      </div>
       <p className="adm-nota">
         Los cambios se ven en la web en unos 15 minutos. El boletín PDF no cambia (lo arma el maquetador).
       </p>
       {!notas ? (
         <p className="adm-cargando">Cargando notas…</p>
       ) : !visibles.length ? (
-        <p className="adm-cargando">No hay notas{q ? ' con ese texto' : ' en este día'}.</p>
+        <p className="adm-cargando">No hay notas{q || seccion || sinFoto ? ' con estos filtros' : ' en este día'}.</p>
       ) : (
         <ul className="adm-lista">
           {visibles.map((n) => {
@@ -252,10 +295,11 @@ function Notas({ llamar }: { llamar: Llamar }) {
                   <span>
                     <span className="adm-meta">
                       {sec?.nombre ?? n.seccion} · {n.fecha.slice(11, 16) || n.fecha.slice(0, 10)}
+                      {n.propia && <span className="adm-etq adm-etq--propia">Nota propia</span>}
+                      {!tieneFoto(n) && <span className="adm-etq adm-etq--oculta">Sin foto</span>}
                       {e && !e.oculta && <span className="adm-etq adm-etq--editada">Editada por {e.usuario}</span>}
                       {e?.oculta && <span className="adm-etq adm-etq--oculta">Oculta</span>}
                       {e?.foto && e.foto !== 'ninguna' && <span className="adm-etq adm-etq--editada">Foto nueva</span>}
-                      {e?.foto === 'ninguna' && <span className="adm-etq adm-etq--oculta">Sin foto</span>}
                     </span>
                     <strong>{e?.titular || n.original.titular}</strong>
                   </span>
@@ -413,6 +457,109 @@ function Editor({ nota, llamar, alCerrar }: { nota: NotaPanel; llamar: Llamar; a
     </section>
   )
 }
+
+const AMBITOS_NOTA = [
+  { clave: 'DISTRITAL', nombre: 'Distrital' },
+  { clave: 'LOCAL', nombre: 'Local' },
+  { clave: 'REGIONAL', nombre: 'Regional' },
+  { clave: 'NACIONAL', nombre: 'Nacional' },
+  { clave: 'INTERNACIONAL', nombre: 'Internacional' },
+]
+
+/** Nota propia escrita en el panel. Sale en la web en ~15 min (no entra al boletín PDF). */
+function NuevaNota({ dia, llamar, alCerrar }: { dia: string; llamar: Llamar; alCerrar: (creada: boolean) => void }) {
+  const hoy = new Date(Date.now() - 5 * 3600e3).toISOString().slice(0, 10)
+  const [t, setT] = useState({ antetitulo: '', titular: '', bajada: '', cuerpo: '', seccion: SECCIONES[0]?.clave ?? '', ambito: 'REGIONAL', lugar: 'Puno', dia: dia || hoy })
+  const [foto, setFoto] = useState<{ b64: string; vista: string } | null>(null)
+  const [estado, setEstado] = useState('')
+  const [error, setError] = useState('')
+  const [hecha, setHecha] = useState<{ slug: string } | null>(null)
+  const campo = (k: keyof typeof t) => (e: { target: { value: string } }) => setT({ ...t, [k]: e.target.value })
+
+  const guardar = async () => {
+    setError('')
+    if (t.titular.trim().length < 10) return setError('El titular es muy corto.')
+    if (t.cuerpo.trim().length < 80) return setError('El texto es muy corto (mínimo 80 letras).')
+    setEstado(foto ? 'Subiendo foto y guardando…' : 'Guardando…')
+    try {
+      const r = await llamar<{ id: number; slug: string }>('crear_nota', {
+        nota: { ...t, foto: foto ? { b64: foto.b64, tipo: 'image/jpeg' } : null },
+      })
+      setHecha({ slug: r.slug })
+    } catch (e) {
+      setError((e as Error).message)
+    } finally {
+      setEstado('')
+    }
+  }
+
+  if (hecha) {
+    return (
+      <section className="adm-seccion adm-editor">
+        <p className="adm-ok" role="status">
+          Nota guardada. Sale en la web en unos 15 minutos, en la sección elegida y en la portada si es reciente.
+          Su foto quedó en Drive, en Notas/{t.dia.slice(0, 7)}.
+        </p>
+        <p className="adm-nota">Dirección: <code>altiplanoaldia.pe/nota/{hecha.slug}</code> (funciona cuando la web se actualice).</p>
+        <div className="adm-acciones">
+          <button className="adm-principal" onClick={() => alCerrar(true)}>Volver a la lista</button>
+        </div>
+      </section>
+    )
+  }
+
+  return (
+    <section className="adm-seccion adm-editor">
+      <div className="adm-editor__cab">
+        <button onClick={() => alCerrar(false)}>← Volver a la lista</button>
+      </div>
+      <h2>Nueva nota</h2>
+      <p className="adm-nota">
+        Se publica solo en la web (no en el boletín PDF). Después puedes corregirla u ocultarla como cualquier otra nota.
+        Recuerda: datos verificados y con fuente; nombres de menores y víctimas, nunca.
+      </p>
+      <fieldset className="adm-foto">
+        <legend>Foto</legend>
+        {foto ? <img src={foto.vista} alt="Foto de la nota" /> : <p className="adm-nota">Sin foto todavía. Solo fotos: sin titulares, logos, marcas de agua ni capturas.</p>}
+        <div className="adm-acciones">
+          <label className="adm-boton-archivo">
+            {foto ? 'Cambiar foto' : 'Elegir foto'}
+            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={async (e) => {
+              const f = e.target.files?.[0]
+              e.target.value = ''
+              if (!f) return
+              try { setFoto(await prepararFoto(f)) } catch (x) { setError((x as Error).message) }
+            }} />
+          </label>
+          {foto && <button type="button" onClick={() => setFoto(null)}>Quitar foto</button>}
+        </div>
+      </fieldset>
+      <div className="adm-fila-2">
+        <label>Sección
+          <select value={t.seccion} onChange={campo('seccion')}>{SECCIONES.map((s) => <option key={s.clave} value={s.clave}>{s.nombre}</option>)}</select>
+        </label>
+        <label>Ámbito
+          <select value={t.ambito} onChange={campo('ambito')}>{AMBITOS_NOTA.map((a) => <option key={a.clave} value={a.clave}>{a.nombre}</option>)}</select>
+        </label>
+        <label>Lugar<input value={t.lugar} onChange={campo('lugar')} maxLength={80} placeholder="Puno, Juliaca, Ilave…" /></label>
+        <label>Día<input type="date" value={t.dia} onChange={campo('dia')} max={hoy} /></label>
+      </div>
+      <label>Antetítulo<input value={t.antetitulo} onChange={campo('antetitulo')} maxLength={200} /></label>
+      <label>Titular<textarea value={t.titular} onChange={campo('titular')} rows={2} maxLength={300} required /></label>
+      <label>Bajada<textarea value={t.bajada} onChange={campo('bajada')} rows={3} maxLength={600} /></label>
+      <label>
+        Texto <small>(deja una línea en blanco entre párrafos)</small>
+        <textarea value={t.cuerpo} onChange={campo('cuerpo')} rows={16} />
+      </label>
+      {error && <p className="adm-error" role="alert">{error}</p>}
+      <div className="adm-acciones">
+        <button className="adm-principal" onClick={guardar} disabled={!!estado}>{estado || 'Publicar nota'}</button>
+        <button onClick={() => alCerrar(false)} disabled={!!estado}>Cancelar</button>
+      </div>
+    </section>
+  )
+}
+
 
 function Usuarios({ llamar, yo }: { llamar: Llamar; yo: string }) {
   const [lista, setLista] = useState<Usuario[] | null>(null)
