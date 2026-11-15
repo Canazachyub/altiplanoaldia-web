@@ -138,7 +138,7 @@ export function Compartir({ url, titulo, texto, vertical = false }: { url: strin
   }
   const u = encodeURIComponent(url)
   const etiqueta = encodeURIComponent(hashtag(SITIO.nombre))
-  const sinEnlace = publicacion.replace(/\n?➡️ Lee la nota aquí: .*$/, '')
+  const sinEnlace = publicacion.replace(/\n?➡️ (Lee la nota|Mira el aviso) aquí: .*$/, '')
   return (
     <div className={`compartir${vertical ? ' compartir--vertical' : ''}`} aria-label="Compartir esta nota" role="group">
       <a className="compartir__btn compartir__btn--wa" href={`https://wa.me/?text=${encodeURIComponent(publicacion)}`} target="_blank" rel="noopener noreferrer" aria-label="Compartir en WhatsApp"><IcoWhatsapp size={18} /></a>

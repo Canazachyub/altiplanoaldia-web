@@ -13,6 +13,9 @@ import Nota from './pages/Nota'
 import { registrarVisita } from './analitica'
 
 const Admin = lazy(() => import('./pages/Admin'))
+const AlertaMascota = lazy(() => import('./pages/Avisos').then((m) => ({ default: m.AlertaMascota })))
+const Anuncios = lazy(() => import('./pages/Avisos').then((m) => ({ default: m.Anuncios })))
+const MiAviso = lazy(() => import('./pages/Avisos').then((m) => ({ default: m.MiAviso })))
 
 function AlCambiarRuta() {
   const { pathname } = useLocation()
@@ -44,6 +47,9 @@ export default function App() {
           <Route path="/admin" element={<Suspense fallback={null}><Admin /></Suspense>} />
           <Route path="/buscar" element={<Buscar />} />
           <Route path="/denuncia" element={<Denuncia />} />
+          <Route path="/alerta-mascota" element={<Suspense fallback={null}><AlertaMascota /></Suspense>} />
+          <Route path="/anuncios" element={<Suspense fallback={null}><Anuncios /></Suspense>} />
+          <Route path="/mi-aviso" element={<Suspense fallback={null}><MiAviso /></Suspense>} />
           <Route path="/boletin" element={<Boletin />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/provincias" element={<Provincias />} />

@@ -16,6 +16,7 @@ const prueba = (nombre, f) => {
 }
 
 const G = crearGoogle()
+const notas = () => G.carpetas.find((c) => c.ruta() === 'Altiplano al Día/Notas')
 let claveAdmin, claveApi, tokenAdmin, tokenEditor
 const NOTAS = [
   { id: 101, fecha: '2026-11-07T10:00:00', seccion: 'politica', antetitulo: 'ANTE', titular: 'Titular uno', bajada: 'Bajada uno',
@@ -29,7 +30,10 @@ console.log('\nInicialización')
 prueba('crea las hojas, la carpeta de Drive, el admin y la clave API', () => {
   G.api.inicializar()
   for (const h of ['Hoy', 'Ediciones', 'Usuarios', 'Registro']) assert.ok(G.hoja(h), `falta la hoja ${h}`)
-  assert.equal(G.carpetas.length, 1)
+  const rutas = G.carpetas.map((c) => c.ruta())
+  for (const r of ['Altiplano al Día/Notas', 'Altiplano al Día/Alerta Mascota/Perdidos', 'Altiplano al Día/Anuncios/Ofertas de empleo',
+    'Altiplano al Día/Denuncias ciudadanas/Seguridad']) assert.ok(rutas.includes(r), `falta la carpeta ${r}`)
+  for (const h of ['Mascotas', 'Anuncios', 'Denuncias']) assert.ok(G.hoja(h), `falta la hoja ${h}`)
   const m = G.alertas.at(-1).match(/Clave: (\S+)[\s\S]*Clave API del maquetador:\n(\S+)/)
   assert.ok(m, 'no mostró las claves')
   ;[, claveAdmin, claveApi] = m
@@ -62,7 +66,7 @@ prueba('fotos_faltan + subir_foto guardan la foto en Drive una sola vez', () => 
   assert.equal(s.ok, true, s.error)
   assert.equal(G.post({ accion: 'fotos_faltan', clave: claveApi, nombres: ['n101-aaaa1111.jpg'] }).faltan.length, 0)
   G.post({ accion: 'subir_foto', clave: claveApi, nombre: 'n101-aaaa1111.jpg', tipo: 'image/jpeg', b64: JPG.toString('base64') })
-  assert.equal(G.carpetas[0].archivos.length, 1, 'duplicó la foto')
+  assert.equal(notas().todos().length, 1, 'duplicó la foto')
 })
 prueba('subir_foto rechaza nombres peligrosos y formatos raros', () => {
   assert.equal(G.post({ accion: 'subir_foto', clave: claveApi, nombre: '../x.jpg', b64: 'AA==' }).ok, false)
@@ -92,7 +96,7 @@ prueba('volver a publicar el día reemplaza (no duplica) y quita notas que ya no
 })
 prueba('cada día queda en su hoja (archivo) y las hojas se ordenan', () => {
   G.post({ accion: 'publicar', clave: claveApi, dia: '2026-11-06', notas: [{ ...NOTAS[0], id: 90, slug: 'ayer' }] })
-  assert.deepEqual(G.hojas.map((h) => h.nombre), ['Hoy', 'Ediciones', 'Usuarios', 'Registro', '2026-11-07', '2026-11-06'])
+  assert.deepEqual(G.hojas.map((h) => h.nombre), ['Hoy', 'Ediciones', 'Usuarios', 'Registro', 'Mascotas', 'Anuncios', 'Denuncias', '2026-11-07', '2026-11-06'])
   assert.equal(G.hoja('Hoy').datos[1][0], 90, '«Hoy» es la última publicación')
   G.post({ accion: 'publicar', clave: claveApi, dia: '2026-11-07', notas: NOTAS })
 })
@@ -177,7 +181,7 @@ prueba('subir_foto_edicion guarda la foto en Drive y devuelve su id', () => {
   const r = G.post({ accion: 'subir_foto_edicion', token: tokenAdmin, id: 101, tipo: 'image/jpeg', b64: JPG.toString('base64') })
   assert.equal(r.ok, true, r.error)
   fotoId = r.foto
-  assert.equal(G.carpetas[0].archivos.length, 2)
+  assert.equal(notas().todos().length, 2)
 })
 prueba('la edición guarda la foto y la web la recibe', () => {
   G.post({ accion: 'editar', token: tokenAdmin, id: 101, dia: '2026-11-07', cambios: { titular: 'Con foto', foto: fotoId } })
@@ -251,6 +255,282 @@ prueba('restablecer admin desde el menú da una clave nueva que funciona', () =>
   G.api.restablecerAdmin()
   const nueva = G.alertas.at(-1).match(/Nueva clave: (\S+)/)[1]
   assert.equal(G.post({ accion: 'login', usuario: 'admin', clave: nueva }).ok, true)
+})
+
+console.log('\nAvisos del público (Alerta Mascota y Anuncios)')
+const AVISO = { tipo: 'perdido', especie: 'perro', nombre: 'Firulais', descripcion: 'Perrito marrón con collar rojo, responde a su nombre.',
+  provincia: 'puno', zona: 'Barrio Laykakota, Puno', lat: -15.84123, lng: -70.02456, contacto: '987 654 321', autor: 'Ana', fecha_hecho: '2026-11-14' }
+const carpetaMascotas = () => { const c = G.carpetas.find((x) => x.ruta() === 'Altiplano al Día/Alerta Mascota'); return { archivos: c.todos(), c } }
+G.cache.delete('intentos:admin')
+tokenAdmin = G.post({ accion: 'login', usuario: 'admin', clave: G.alertas.at(-1).match(/Nueva clave: (\S+)/)[1] }).token
+let idAviso
+prueba('enviar_aviso guarda el aviso «pendiente», con la foto privada en su carpeta', () => {
+  const r = G.post({ accion: 'enviar_aviso', seccion: 'mascotas', datos: AVISO, foto: { b64: JPG.toString('base64'), tipo: 'image/jpeg' } })
+  assert.equal(r.ok, true, r.error)
+  idAviso = r.id
+  assert.match(idAviso, /^M\d{6}-[A-Z0-9]{5}$/)
+  assert.equal(G.hoja('Mascotas').datos.at(-1)[2], 'pendiente')
+  assert.equal(carpetaMascotas().archivos.length, 1)
+  assert.equal(carpetaMascotas().archivos[0].compartido, undefined)
+  assert.match(carpetaMascotas().archivos[0].carpeta.ruta(), /Alerta Mascota\/Perdidos\/\d{4}-\d{2}$/, 'foto en tipo/mes')
+  assert.equal(carpetaMascotas().archivos[0].nombre, idAviso + '.jpg', 'el archivo se llama como el id de la fila')
+})
+prueba('un aviso pendiente NO sale en la lista pública', () => {
+  const r = G.get({ accion: 'avisos', seccion: 'mascotas' })
+  assert.equal(r.ok, true)
+  assert.equal(r.avisos.length, 0)
+})
+prueba('sin sesión no se puede moderar ni ver la lista interna', () => {
+  assert.equal(G.post({ accion: 'avisos_admin', seccion: 'mascotas' }).ok, false)
+  assert.equal(G.post({ accion: 'moderar_aviso', seccion: 'mascotas', id: idAviso, estado: 'aprobado' }).ok, false)
+  assert.equal(G.post({ accion: 'foto_aviso', seccion: 'mascotas', foto: 'x' }).ok, false)
+})
+prueba('el panel ve el pendiente y su foto; al aprobarlo sale en la web con la foto compartida', () => {
+  const l = G.post({ accion: 'avisos_admin', token: tokenAdmin, seccion: 'mascotas', estado: 'pendiente' })
+  assert.equal(l.ok, true, l.error)
+  assert.equal(l.avisos.length, 1)
+  assert.equal(l.pendientes.mascotas, 1)
+  const f = G.post({ accion: 'foto_aviso', token: tokenAdmin, seccion: 'mascotas', foto: l.avisos[0].foto })
+  assert.equal(f.ok, true, f.error)
+  const m = G.post({ accion: 'moderar_aviso', token: tokenAdmin, seccion: 'mascotas', id: idAviso, estado: 'aprobado' })
+  assert.equal(m.ok, true, m.error)
+  const r = G.get({ accion: 'avisos', seccion: 'mascotas' })
+  assert.equal(r.avisos.length, 1)
+  const a = r.avisos[0]
+  assert.equal(a.contacto, '51987654321')
+  assert.equal(a.nombre, 'Firulais')
+  assert.equal(a.lat, -15.84123, 'mientras está activo se ve el punto exacto')
+  assert.equal(a.moderador, undefined, 'la web no ve datos de moderación')
+  assert.equal(carpetaMascotas().archivos[0].compartido, 'ANYONE_WITH_LINK')
+})
+prueba('rechazar lo saca de la web y vuelve la foto a privada', () => {
+  G.post({ accion: 'moderar_aviso', token: tokenAdmin, seccion: 'mascotas', id: idAviso, estado: 'rechazado' })
+  assert.equal(G.get({ accion: 'avisos', seccion: 'mascotas' }).avisos.length, 0)
+  assert.equal(carpetaMascotas().archivos[0].compartido, 'PRIVATE')
+})
+prueba('validaciones: celular, tipo, descripción corta, ubicación fuera del Perú', () => {
+  const mal = (datos) => G.post({ accion: 'enviar_aviso', seccion: 'mascotas', datos: { ...AVISO, contacto: '912345678', ...datos } })
+  assert.match(mal({ contacto: '123' }).error, /celular/)
+  assert.match(mal({ tipo: 'x' }).error, /tipo/)
+  assert.match(mal({ descripcion: 'corto' }).error, /descripción/)
+  assert.match(mal({ lat: 40, lng: -3 }).error, /ubicación/)
+  assert.match(mal({ provincia: 'lima' }).error, /provincia/)
+  assert.equal(G.post({ accion: 'enviar_aviso', seccion: 'otra', datos: AVISO }).ok, false)
+})
+prueba('trampa para robots: el campo oculto lleno no guarda nada', () => {
+  const antes = G.hoja('Mascotas').getLastRow()
+  assert.equal(G.post({ accion: 'enviar_aviso', seccion: 'mascotas', datos: { ...AVISO, web: 'http://spam' } }).ok, true)
+  assert.equal(G.hoja('Mascotas').getLastRow(), antes)
+})
+prueba('un mismo número no puede mandar más de 3 avisos seguidos', () => {
+  const d = { ...AVISO, contacto: '955555555' }
+  for (let i = 0; i < 3; i++) assert.equal(G.post({ accion: 'enviar_aviso', seccion: 'mascotas', datos: d }).ok, true)
+  assert.match(G.post({ accion: 'enviar_aviso', seccion: 'mascotas', datos: d }).error, /varios avisos/)
+})
+prueba('anuncio gratis: pide título, y una fórmula no se ejecuta en Sheets', () => {
+  const base = { tipo: 'venta', descripcion: 'Vendo bicicleta en buen estado, poco uso.', provincia: 'san-roman', zona: 'Juliaca', contacto: '944444444' }
+  assert.match(G.post({ accion: 'enviar_aviso', seccion: 'anuncios', datos: base }).error, /título/)
+  const r = G.post({ accion: 'enviar_aviso', seccion: 'anuncios', datos: { ...base, titulo: '=IMPORTXML("x")', precio: 'S/ 300' } })
+  assert.equal(r.ok, true, r.error)
+  assert.match(r.id, /^A/)
+  assert.equal(G.hoja('Anuncios').formulas, undefined)
+  assert.equal(G.hoja('Anuncios').datos.at(-1)[4], '=IMPORTXML("x")')
+})
+
+
+console.log('\nCiclo de vida: archivo y borrado de datos personales')
+const DIA_MS = 864e5
+/** Cambia una celda de la hoja como si el aviso fuera de hace `dias` días. */
+const envejecer = (hoja, id, col, dias) => {
+  const h = G.hoja(hoja)
+  const j = h.datos[0].indexOf(col)
+  const fila = h.datos.find((f) => f[0] === id)
+  fila[j] = new Date(Date.now() - dias * DIA_MS)
+}
+const filaDe = (hoja, id) => {
+  const h = G.hoja(hoja)
+  const f = h.datos.find((x) => x[0] === id)
+  return Object.fromEntries(h.datos[0].map((c, i) => [c, f[i]]))
+}
+const publicar = (datos) => {
+  const r = G.post({ accion: 'enviar_aviso', seccion: 'mascotas', datos: { ...AVISO, ...datos }, foto: { b64: JPG.toString('base64'), tipo: 'image/jpeg' } })
+  assert.equal(r.ok, true, r.error)
+  G.post({ accion: 'moderar_aviso', token: tokenAdmin, seccion: 'mascotas', id: r.id, estado: 'aprobado' })
+  G.cache.delete('avisos:mascotas')
+  return r.id
+}
+const verWeb = (id) => { G.cache.delete('avisos:mascotas'); return G.get({ accion: 'avisos', seccion: 'mascotas' }).avisos.find((a) => a.id === id) }
+
+prueba('Inicializar deja programada la limpieza diaria (una sola vez)', () => {
+  G.api.inicializar()
+  G.api.inicializar()
+  assert.deepEqual(G.activadores, ['depurarAvisos'])
+})
+prueba('resuelto: pasa al archivo de la web sin número, sin nombre y con ubicación aproximada', () => {
+  const id = publicar({ contacto: '977777771' })
+  assert.equal(verWeb(id).etapa, 'activo')
+  G.post({ accion: 'moderar_aviso', token: tokenAdmin, seccion: 'mascotas', id, estado: 'resuelto' })
+  const a = verWeb(id)
+  assert.equal(a.etapa, 'archivo')
+  assert.equal(a.contacto, '')
+  assert.equal(a.autor, '')
+  assert.equal(a.lat, -15.84)
+  assert.equal(a.lng, -70.02)
+  assert.equal(a.descripcion, AVISO.descripcion, 'la publicación se conserva')
+  assert.equal(filaDe('Mascotas', id).contacto, '51977777771', 'en la hoja sigue hasta la limpieza')
+})
+prueba('aprobado de más de 60 días: pasa solo al archivo (sin número en la web)', () => {
+  const id = publicar({ contacto: '977777772' })
+  envejecer('Mascotas', id, 'moderado', 61)
+  const a = verWeb(id)
+  assert.equal(a.etapa, 'archivo')
+  assert.equal(a.contacto, '')
+})
+prueba('limpieza: 30 días después del archivo borra número, nombre y punto exacto; la publicación queda', () => {
+  const id = publicar({ contacto: '977777773' })
+  envejecer('Mascotas', id, 'moderado', 95)                // venció hace 35 días
+  const reciente = publicar({ contacto: '977777774' })    // activo: no se toca
+  G.api.depurarAvisos()
+  const f = filaDe('Mascotas', id)
+  assert.equal(f.contacto, '')
+  assert.equal(f.autor, '')
+  assert.equal(f.lat, -15.84)
+  assert.ok(f.depurado && typeof f.depurado.getTime === 'function', 'queda la fecha de limpieza')
+  assert.equal(f.descripcion, AVISO.descripcion)
+  assert.ok(f.foto, 'la foto de una publicación archivada se conserva')
+  assert.equal(verWeb(id).etapa, 'archivo')
+  assert.equal(filaDe('Mascotas', reciente).contacto, '51977777774')
+  assert.equal(filaDe('Mascotas', reciente).lat, -15.84123)
+})
+prueba('limpieza: un rechazado o pendiente de más de 30 días se borra y su foto va a la papelera', () => {
+  const r = G.post({ accion: 'enviar_aviso', seccion: 'mascotas', datos: { ...AVISO, contacto: '977777775' }, foto: { b64: JPG.toString('base64'), tipo: 'image/jpeg' } })
+  const foto = filaDe('Mascotas', r.id).foto
+  envejecer('Mascotas', r.id, 'creado', 31)
+  G.api.depurarAvisos()
+  const f = filaDe('Mascotas', r.id)
+  assert.equal(f.contacto, '')
+  assert.equal(f.lat, '')
+  assert.equal(f.foto, '')
+  assert.match(f.descripcion, /borrado/)
+  assert.equal(carpetaMascotas().archivos.find((x) => x.id === foto).papelera, true)
+  assert.match(G.hoja('Registro').datos.at(-1)[2], /depurar_avisos/)
+})
+prueba('una denuncia de maltrato nunca muestra el número de quien denuncia', () => {
+  const id = publicar({ tipo: 'maltrato', contacto: '977777776' })
+  const a = verWeb(id)
+  assert.equal(a.etapa, 'activo')
+  assert.equal(a.contacto, '')
+  assert.equal(a.autor, '')
+})
+
+prueba('anuncio: tipo «compra» y enlace de Facebook (solo Facebook; se oculta en el archivo)', () => {
+  const base = { tipo: 'compra', titulo: 'Compro bicicleta montañera', descripcion: 'Busco bicicleta aro 26 en buen estado.', provincia: 'puno', zona: 'Puno', contacto: '988888881' }
+  assert.match(G.post({ accion: 'enviar_aviso', seccion: 'anuncios', datos: { ...base, enlace: 'https://sitio-raro.com/x' } }).error, /Facebook/)
+  const r = G.post({ accion: 'enviar_aviso', seccion: 'anuncios', datos: { ...base, enlace: 'https://www.facebook.com/share/p/1AbCdEf/' } })
+  assert.equal(r.ok, true, r.error)
+  G.post({ accion: 'moderar_aviso', token: tokenAdmin, seccion: 'anuncios', id: r.id, estado: 'aprobado' })
+  G.cache.delete('avisos:anuncios')
+  const a = G.get({ accion: 'avisos', seccion: 'anuncios' }).avisos.find((x) => x.id === r.id)
+  assert.equal(a.tipo, 'compra')
+  assert.equal(a.enlace, 'https://www.facebook.com/share/p/1AbCdEf/')
+  G.post({ accion: 'moderar_aviso', token: tokenAdmin, seccion: 'anuncios', id: r.id, estado: 'resuelto' })
+  G.cache.delete('avisos:anuncios')
+  assert.equal(G.get({ accion: 'avisos', seccion: 'anuncios' }).avisos.find((x) => x.id === r.id).enlace, '')
+})
+
+prueba('denuncia ciudadana: puede ser anónima, va a Denuncias ciudadanas/<tipo>/<mes> y NUNCA sale en la web', () => {
+  const r = G.post({ accion: 'enviar_aviso', seccion: 'denuncias',
+    datos: { tipo: 'seguridad', descripcion: 'Robos frecuentes de celulares en el paradero de la avenida.', provincia: 'san-roman', zona: 'Juliaca, av. Circunvalación' },
+    foto: { b64: JPG.toString('base64'), tipo: 'image/jpeg' } })
+  assert.equal(r.ok, true, r.error)
+  assert.match(r.id, /^D\d{6}-/)
+  assert.equal(filaDe('Denuncias', r.id).contacto, '')
+  const c = G.carpetas.find((x) => x.ruta() === 'Altiplano al Día/Denuncias ciudadanas')
+  assert.match(c.todos()[0].carpeta.ruta(), /Denuncias ciudadanas\/Seguridad\/\d{4}-\d{2}$/)
+  G.post({ accion: 'moderar_aviso', token: tokenAdmin, seccion: 'denuncias', id: r.id, estado: 'aprobado' })
+  const web = G.get({ accion: 'avisos', seccion: 'denuncias' })
+  assert.equal(web.ok, false, 'las denuncias no tienen lista pública')
+  const panel = G.post({ accion: 'avisos_admin', token: tokenAdmin, seccion: 'denuncias', estado: 'todos' })
+  assert.equal(panel.avisos.length, 1)
+})
+prueba('anuncio de empleo y «busco empleo» van a sus carpetas', () => {
+  for (const [tipo, carpeta] of [['empleo', 'Ofertas de empleo'], ['busco_empleo', 'Busco empleo']]) {
+    const r = G.post({ accion: 'enviar_aviso', seccion: 'anuncios',
+      datos: { tipo, titulo: 'Trabajo de prueba', descripcion: 'Detalle del puesto o del perfil buscado.', provincia: 'puno', zona: 'Puno', contacto: '98765432' + (tipo === 'empleo' ? '1' : '2') },
+      foto: { b64: JPG.toString('base64'), tipo: 'image/jpeg' } })
+    assert.equal(r.ok, true, r.error)
+    const c = G.carpetas.find((x) => x.ruta() === 'Altiplano al Día/Anuncios/' + carpeta)
+    assert.equal(c.todos().length, 1, carpeta)
+  }
+})
+
+console.log('\nGestión por quien publicó (código)')
+let gestion
+prueba('al enviar se entrega un código de 8 letras, guardado cifrado en la hoja', () => {
+  const r = G.post({ accion: 'enviar_aviso', seccion: 'mascotas', datos: { ...AVISO, nombre: 'Pelusa', contacto: '961000001' } })
+  assert.equal(r.ok, true, r.error)
+  assert.match(r.clave, /^[A-Z2-9]{8}$/)
+  const f = filaDe('Mascotas', r.id)
+  assert.notEqual(f.clave, r.clave)
+  assert.ok(f.clave.length > 20)
+  gestion = r
+})
+prueba('con un código equivocado no se ve nada, y 8 intentos bloquean', () => {
+  assert.match(G.post({ accion: 'mi_aviso', seccion: 'mascotas', id: gestion.id, clave: 'MALO1234' }).error, /no coinciden/)
+  for (let i = 0; i < 8; i++) G.post({ accion: 'mi_aviso', seccion: 'mascotas', id: gestion.id, clave: 'MALO' + i })
+  assert.match(G.post({ accion: 'mi_aviso', seccion: 'mascotas', id: gestion.id, clave: gestion.clave }).error, /Demasiados/)
+  G.cache.delete('gestion:' + gestion.id)
+})
+prueba('con el código ve su aviso (aunque esté pendiente) y puede contar una novedad, sin números a la vista', () => {
+  const m = G.post({ accion: 'mi_aviso', seccion: 'mascotas', id: gestion.id.toLowerCase(), clave: gestion.clave.toLowerCase() })
+  assert.equal(m.ok, true, m.error)
+  assert.equal(m.aviso.estado, 'pendiente')
+  G.post({ accion: 'moderar_aviso', token: tokenAdmin, seccion: 'mascotas', id: gestion.id, estado: 'aprobado' })
+  const n = G.post({ accion: 'actualizar_aviso', seccion: 'mascotas', id: gestion.id, clave: gestion.clave, texto: 'La vieron cerca del mercado Bellavista, llamar al 951 234 567' })
+  assert.equal(n.ok, true, n.error)
+  const a = verWeb(gestion.id)
+  assert.equal(a.novedades.length, 1)
+  assert.match(a.novedades[0].texto, /mercado Bellavista/)
+  assert.doesNotMatch(a.novedades[0].texto, /951/)
+  assert.ok(a.novedades[0].fecha)
+})
+prueba('varias novedades, cada una con su fecha y con foto opcional (compartida si el aviso ya está publicado)', () => {
+  const n = G.post({ accion: 'actualizar_aviso', seccion: 'mascotas', id: gestion.id, clave: gestion.clave,
+    texto: 'Esta es la foto de donde la vieron por última vez.', foto: { b64: JPG.toString('base64'), tipo: 'image/jpeg' } })
+  assert.equal(n.ok, true, n.error)
+  assert.equal(n.novedades, 2)
+  const a = verWeb(gestion.id)
+  assert.equal(a.novedades.length, 2)
+  assert.match(a.novedades[0].texto, /última vez/, 'la más reciente va primero')
+  assert.ok(a.novedades[0].foto)
+  const f = carpetaMascotas().archivos.find((x) => x.id === a.novedades[0].foto)
+  assert.equal(f.nombre, gestion.id + '-novedad2.jpg')
+  assert.equal(f.compartido, 'ANYONE_WITH_LINK')
+})
+prueba('cerrar explicando cómo terminó: pasa al archivo con su desenlace y sin número', () => {
+  const r = G.post({ accion: 'cerrar_aviso', seccion: 'mascotas', id: gestion.id, clave: gestion.clave, desenlace: 'Volvió a casa. Una vecina la reconoció por la foto.' })
+  assert.equal(r.ok, true, r.error)
+  assert.equal(r.estado, 'resuelto')
+  const a = verWeb(gestion.id)
+  assert.equal(a.etapa, 'archivo')
+  assert.equal(a.contacto, '')
+  assert.match(a.desenlace, /Volvió a casa/)
+  assert.match(G.post({ accion: 'cerrar_aviso', seccion: 'mascotas', id: gestion.id, clave: gestion.clave, desenlace: 'otra vez' }).error, /cerrado/)
+})
+prueba('si se retira antes de aprobarse, nunca llega a la web', () => {
+  const r = G.post({ accion: 'enviar_aviso', seccion: 'anuncios',
+    datos: { tipo: 'venta', titulo: 'Vendo mesa', descripcion: 'Mesa de madera de seis sillas.', provincia: 'puno', zona: 'Puno', contacto: '961000002' } })
+  const c = G.post({ accion: 'cerrar_aviso', seccion: 'anuncios', id: r.id, clave: r.clave, desenlace: 'Ya la vendí' })
+  assert.equal(c.estado, 'retirado')
+  assert.equal(filaDe('Anuncios', r.id).estado, 'rechazado')
+  G.cache.delete('avisos:anuncios')
+  assert.equal(G.get({ accion: 'avisos', seccion: 'anuncios' }).avisos.find((x) => x.id === r.id), undefined)
+})
+prueba('la limpieza borra el código: después ya no se puede gestionar', () => {
+  envejecer('Mascotas', gestion.id, 'cerrado', 31)
+  G.api.depurarAvisos()
+  assert.equal(filaDe('Mascotas', gestion.id).clave, '')
+  assert.match(G.post({ accion: 'mi_aviso', seccion: 'mascotas', id: gestion.id, clave: gestion.clave }).error, /no coinciden/)
 })
 
 console.log('\nRobustez')

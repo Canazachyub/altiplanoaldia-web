@@ -336,6 +336,8 @@ export default function Cabecera() {
             <li><NavLink to="/ambito/nacional">Nacional</NavLink></li>
             <li><NavLink to="/provincias">Provincias</NavLink></li>
             <li><NavLink to="/clima">Clima</NavLink></li>
+            <li><NavLink to="/alerta-mascota">Alerta Mascota</NavLink></li>
+            <li><NavLink to="/anuncios">Clasificados</NavLink></li>
             <li><NavLink to="/denuncia" className="nav-secciones__denuncia">Denuncia</NavLink></li>
           </ul>
         </nav>
@@ -376,6 +378,8 @@ export default function Cabecera() {
         <p className="menu-lateral__titulo">Altiplano al Día</p>
         <ul className="menu-lateral__lista">
           <li><Link to="/denuncia">Haz tu denuncia</Link></li>
+          <li><Link to="/alerta-mascota">Alerta Mascota</Link></li>
+          <li><Link to="/anuncios">Clasificados</Link></li>
           <li><Link to="/boletin">Boletín por WhatsApp</Link></li>
           <li><Link to="/nosotros">Quiénes somos</Link></li>
         </ul>

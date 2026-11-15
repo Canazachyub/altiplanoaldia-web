@@ -83,3 +83,53 @@ En `apps-script/pruebas/` hay un simulador. Ejecuta **el mismo `Code.gs`** con S
   - para el maquetador: usar `sheets_api` = `http://localhost:8787`.
 
   Al terminar, borra `public/data/ediciones*.json` y `public/img/ediciones/` si los generaste.
+
+## Alerta Mascota y Anuncios gratis (avisos del público)
+
+- **Dónde se ven:** `altiplanoaldia.pe/alerta-mascota` (mascotas perdidas, encontradas, maltrato, adopción) y `altiplanoaldia.pe/anuncios` (clasificados gratis).
+- **Cómo llegan:** la gente llena el formulario con foto, zona marcada en el mapa (OpenStreetMap) y su celular.
+  - El aviso se guarda en la hoja **Mascotas** o **Anuncios** con estado `pendiente`.
+  - La foto va a la subcarpeta **«Altiplano al Día — Alerta Mascota»** o **«— Anuncios»**, dentro de la carpeta principal de Drive (`CARPETA_RAIZ` en `Code.gs`).
+  - La foto queda **privada** hasta que se aprueba.
+- **Moderación:** en `/admin` → **Avisos**. «Aprobar y publicar» lo muestra en la web en 1 a 2 minutos y comparte la foto con el enlace. «Rechazar» lo oculta y vuelve la foto a privada. «Marcar resuelto» deja el aviso 15 días como «¡Ya está en casa!».
+- **Ciclo de vida y datos personales** (se cumple solo, con una limpieza diaria a las 3 a. m.; también está en el menú **Altiplano → Limpiar datos personales de avisos viejos**):
+  1. **Vigente:** aprobado y con menos de 2 meses (mascotas) o 1 mes (anuncios). Se ve con su número y el punto exacto en el mapa.
+  2. **Archivo:** cuando se marca resuelto o vence el plazo, sigue en la web en la pestaña «Archivo», pero **sin número, sin nombre** y con la ubicación redondeada a unos 1 km.
+  3. **Datos borrados:** 30 días después de pasar al archivo, la limpieza **borra de la hoja** el número, el nombre y el punto exacto. La publicación (texto, foto, zona, provincia) se conserva.
+  - Los rechazados y los pendientes sin revisar de más de 30 días se borran del todo: texto, número y ubicación, y la foto va a la papelera de Drive.
+  - En las denuncias de **maltrato**, el número de quien denuncia nunca se publica.
+- **Protecciones:** campo trampa contra robots, máximo 3 avisos por número cada 6 horas y 80 por hora en total, y textos que no se ejecutan como fórmula.
+- **Maltrato:** el formulario pide no poner nombres de personas ni fotos con sangre. En la web esos avisos salen sin el botón de WhatsApp del denunciante.
+
+### Conexión con la cuenta de Altiplano al Día
+
+La hoja y la carpeta son las de la cuenta del medio:
+
+- Hoja: `https://docs.google.com/spreadsheets/d/1zFC4EkSIOM4ZOoofbV7Am1xXoORIPf2nO-EWJeZU_Ww`
+- Carpeta de Drive: `https://drive.google.com/drive/folders/1CZcFqPBYGKmyn9cXuuyID-KU6W7RXNfo` (ya puesta en `CARPETA_RAIZ`)
+
+Con esa cuenta abierta en el navegador, se siguen los pasos de **Instalación** de arriba sobre **esa hoja**: pegar `Code.gs`, Inicializar e Implementar como aplicación web. Después:
+
+1. En GitHub, se pone la URL `/exec` en la variable `SHEETS_API`.
+2. En el maquetador, va en `sheets_api` y la clave en `.env`.
+
+Si el script ya estaba publicado, basta con **Gestionar implementaciones → Nueva versión** y correr **Inicializar** otra vez: crea las hojas y carpetas nuevas sin tocar lo que ya existe.
+
+## Orden de Drive y denuncias ciudadanas
+
+**Árbol de carpetas.** El servidor lo crea solo dentro de la carpeta principal, ordenado por tipo y por mes. Cada archivo se llama igual que el id de su fila en la hoja.
+
+```
+Altiplano al Día/
+  Notas/2026-11/                         fotos de las notas (maquetador y /admin)
+  Alerta Mascota/{Perdidos, Encontrados, Maltrato, Adopción y ayuda}/2026-11/M….jpg
+  Anuncios/{Ofertas de empleo, Busco empleo, Vendo, Compro, Alquilo, Servicios, Eventos, Otros}/2026-11/A….jpg
+  Denuncias ciudadanas/{Servicios públicos, Seguridad, Corrupción, Salud, Educación, Medio ambiente, Transporte, Otros}/2026-11/D….jpg
+```
+
+**Denuncias.**
+- **Hoja `Denuncias`:** recibe lo que llega desde `/denuncia` cuando la web está conectada; sin conexión, ese formulario sigue abriendo WhatsApp.
+- **Nunca se publican.** En el panel (/admin → Avisos → Denuncias ciudadanas), «En verificación» corresponde al estado `aprobado`, y «resuelto» quiere decir nota hecha o caso cerrado.
+- **Anonimato:** se pueden enviar sin celular.
+
+**Plantilla.** `Estructura_Sheets_Altiplano.xlsx` trae todas las pestañas con sus encabezados exactos, junto con el diccionario de columnas, el flujo web → Sheets → Drive y el árbol de Drive.

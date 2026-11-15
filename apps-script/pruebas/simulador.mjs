@@ -29,6 +29,7 @@ class Rango {
     return this
   }
   setValue(x) { this.hoja.poner(this.fila, this.col, x); return this }
+  getValue() { return (this.hoja.datos[this.fila - 1] || [])[this.col - 1] ?? '' }
   clearContent() {
     for (let i = 0; i < this.nf; i++) for (let j = 0; j < this.nc; j++) this.hoja.poner(this.fila + i, this.col + j, '')
     this.hoja.recortar()
@@ -69,13 +70,28 @@ class Archivo {
   getMimeType() { return this.tipo }
   getBlob() { return { getBytes: () => aFirmados(this.bytes) } }
   getParents() { const l = [this.carpeta]; return { hasNext: () => l.length > 0, next: () => l.shift() } }
+  setSharing(acceso, permiso) { this.compartido = acceso; this.permiso = permiso; return this }
+  setTrashed(v) { this.papelera = v; return this }
 }
 
+const iterar = (lista) => { const l = [...lista]; return { hasNext: () => l.length > 0, next: () => l.shift() } }
 class Carpeta {
-  constructor(nombre) { this.id = 'c' + randomUUID().replace(/-/g, ''); this.nombre = nombre; this.archivos = [] }
+  constructor(nombre, registro, padre = null) {
+    this.id = 'c' + randomUUID().replace(/-/g, '')
+    Object.assign(this, { nombre, registro, padre, archivos: [], sub: [] })
+    registro.push(this)
+  }
   getId() { return this.id }
-  getFiles() { const l = [...this.archivos]; return { hasNext: () => l.length > 0, next: () => l.shift() } }
+  getName() { return this.nombre }
+  getFiles() { return iterar(this.archivos) }
+  getFolders() { return iterar(this.sub) }
+  getFoldersByName(n) { return iterar(this.sub.filter((c) => c.nombre === n)) }
+  getParents() { return iterar(this.padre ? [this.padre] : []) }
+  createFolder(n) { const c = new Carpeta(n, this.registro, this); this.sub.push(c); return c }
   createFile(blob) { const f = new Archivo(this, blob); this.archivos.push(f); return f }
+  /** Todos los archivos de esta carpeta y sus subcarpetas (para las pruebas). */
+  todos() { return [...this.archivos, ...this.sub.flatMap((c) => c.todos())] }
+  ruta() { return (this.padre ? this.padre.ruta() + '/' : '') + this.nombre }
 }
 
 export function crearGoogle() {
@@ -85,6 +101,7 @@ export function crearGoogle() {
   const cache = new Map()
   const carpetas = []
   const alertas = []
+  const activadores = []
   const ss = {
     getSheetByName: (n) => hojas.find((h) => h.nombre === n) || null,
     insertSheet: (n) => { const h = new Hoja(n); hojas.push(h); return h },
@@ -106,9 +123,15 @@ export function crearGoogle() {
         remove: (k) => cache.delete(k),
       }),
     },
+    ScriptApp: {
+      getProjectTriggers: () => activadores.map((f) => ({ getHandlerFunction: () => f })),
+      newTrigger: (f) => { const c = { timeBased: () => c, everyDays: () => c, atHour: () => c, create: () => { activadores.push(f) } }; return c },
+    },
     LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
     DriveApp: {
-      createFolder: (n) => { const c = new Carpeta(n); carpetas.push(c); return c },
+      Access: { ANYONE_WITH_LINK: 'ANYONE_WITH_LINK', PRIVATE: 'PRIVATE' },
+      Permission: { VIEW: 'VIEW', NONE: 'NONE' },
+      createFolder: (n) => new Carpeta(n, carpetas),
       getFolderById: (id) => { const c = carpetas.find((x) => x.id === id); if (!c) throw new Error('No existe la carpeta'); return c },
       getFileById: (id) => { for (const c of carpetas) { const f = c.archivos.find((x) => x.id === id); if (f) return f } throw new Error('No existe el archivo') },
     },
@@ -132,10 +155,10 @@ export function crearGoogle() {
     console,
   }
   const caja = vm.createContext(g)
-  vm.runInContext(readFileSync(CODIGO, 'utf8') + '\n;globalThis.__api = { doGet, doPost, inicializar, verClaveApi, restablecerAdmin, onOpen }', caja)
+  vm.runInContext(readFileSync(CODIGO, 'utf8') + '\n;globalThis.__api = { doGet, doPost, inicializar, verClaveApi, restablecerAdmin, onOpen, depurarAvisos }', caja)
   const api = caja.__api
   return {
-    api, hojas, props, carpetas, alertas, cache,
+    api, hojas, props, carpetas, alertas, cache, activadores,
     post: (o) => JSON.parse(api.doPost({ postData: { contents: JSON.stringify(o) } }).texto),
     get: (p) => JSON.parse(api.doGet({ parameter: p }).texto),
     hoja: (n) => hojas.find((h) => h.nombre === n),

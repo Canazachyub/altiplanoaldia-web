@@ -1,11 +1,14 @@
 // Denuncia, boletín y quiénes somos.
-import { useState, type CSSProperties, type FormEvent } from 'react'
+import { Suspense, lazy, useState, type CSSProperties, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { Redes } from '../components/Cabecera'
 import { IcoWhatsapp } from '../components/Iconos'
 import { IlustracionMarca } from '../components/Piezas'
 import { SECCIONES, SITIO, enlaceWhatsApp, pub } from '../config/sitio'
 import { useTitulo } from '../hooks/useTitulo'
+
+const API_DENUNCIAS = !!(import.meta.env.VITE_SHEETS_API as string | undefined)
+const FormularioDenuncia = lazy(() => import('./Avisos').then((m) => ({ default: m.FormularioDenuncia })))
 
 function Arte({ src, seccion }: { src: string; seccion: string }) {
   const [ok, setOk] = useState(true)
@@ -46,14 +49,21 @@ export function Denuncia() {
           <p className="antetitulo" style={{ '--tema': '#C62828' } as CSSProperties}><span>Tu voz es noticia</span></p>
           <h1 className="titulo-pagina">Haz tu denuncia</h1>
           <p className="subtitulo-pagina">
-            Cuéntanos qué está pasando en tu barrio, distrito o comunidad. El formulario arma el mensaje y lo abre en WhatsApp
-            para que lo envíes al <strong>{SITIO.whatsappVisible}</strong> junto con tus fotos o videos.
+            Cuéntanos qué está pasando en tu barrio, distrito o comunidad.{' '}
+            {API_DENUNCIAS
+              ? <>Llena el formulario con foto y ubicación: llega directo a la redacción. También puedes escribirnos al <strong>{SITIO.whatsappVisible}</strong>.</>
+              : <>El formulario arma el mensaje y lo abre en WhatsApp para que lo envíes al <strong>{SITIO.whatsappVisible}</strong> junto con tus fotos o videos.</>}
           </p>
         </div>
         <Arte src="img/ia/radio.png" seccion="Sociedad" />
       </div>
 
       <div className="denuncia">
+        {API_DENUNCIAS ? (
+          <Suspense fallback={<p>Cargando formulario…</p>}>
+            <FormularioDenuncia alCerrar={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+          </Suspense>
+        ) : (
         <form className="formulario" onSubmit={enviar}>
           <label>Tipo de denuncia
             <select value={f.tipo} onChange={set('tipo')}>{TIPOS.map((t) => <option key={t}>{t}</option>)}</select>
@@ -75,10 +85,11 @@ export function Denuncia() {
           <button type="submit" className="btn btn--amarillo btn--grande"><IcoWhatsapp size={20} /> Enviar por WhatsApp</button>
           {enviado && <p className="formulario__ok" role="status">Se abrió WhatsApp con tu mensaje. Envíalo y adjunta tus fotos o videos. ¡Gracias!</p>}
         </form>
+        )}
         <aside className="denuncia__info">
           <h2>Cómo trabajamos tu denuncia</h2>
           <ol>
-            <li><strong>Recibimos</strong> tu mensaje por WhatsApp.</li>
+            <li><strong>Recibimos</strong> tu denuncia (formulario o WhatsApp).</li>
             <li><strong>Verificamos</strong>: vamos al lugar, hablamos con los afectados y pedimos la versión de las autoridades.</li>
             <li><strong>Publicamos</strong> solo lo verificado, sin exponer tu identidad si así lo pides.</li>
           </ol>

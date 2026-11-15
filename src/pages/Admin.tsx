@@ -73,7 +73,7 @@ export default function Admin() {
   useTitulo('Panel de redacción')
   useNoIndexar()
   const [sesion, setSesion] = useState<Sesion | null>(leerSesion)
-  const [vista, setVista] = useState<'notas' | 'usuarios' | 'clave'>('notas')
+  const [vista, setVista] = useState<'notas' | 'avisos' | 'usuarios' | 'clave'>('notas')
   const salir = useCallback(() => {
     if (sesion) api('salir', { token: sesion.token }).catch(() => undefined)
     guardarSesion(null)
@@ -116,6 +116,7 @@ export default function Admin() {
         </div>
         <nav aria-label="Panel">
           <button className={vista === 'notas' ? 'activo' : ''} onClick={() => setVista('notas')}>Notas</button>
+          <button className={vista === 'avisos' ? 'activo' : ''} onClick={() => setVista('avisos')}>Avisos</button>
           {sesion.rol === 'admin' && (
             <button className={vista === 'usuarios' ? 'activo' : ''} onClick={() => setVista('usuarios')}>Usuarios</button>
           )}
@@ -125,6 +126,7 @@ export default function Admin() {
       </header>
       {(vista === 'notas' || (vista === 'usuarios' && sesion.rol !== 'admin')) && <Notas llamar={llamar} />}
       {vista === 'usuarios' && sesion.rol === 'admin' && <Usuarios llamar={llamar} yo={sesion.usuario} />}
+      {vista === 'avisos' && <Avisos llamar={llamar} />}
       {vista === 'clave' && <MiClave llamar={llamar} />}
     </div>
   )
@@ -525,6 +527,136 @@ function MiClave({ llamar }: { llamar: Llamar }) {
         {msj && <p className="adm-ok" role="status">{msj}</p>}
         <div className="adm-acciones"><button className="adm-principal">Cambiar clave</button></div>
       </form>
+    </section>
+  )
+}
+
+// ------------------------------------------------------------------ avisos del público
+// Alerta Mascota y Anuncios gratis: la gente los manda desde la web y quedan «pendientes» hasta aprobarlos aquí.
+interface AvisoPanel {
+  id: string; creado: string; estado: string; tipo: string; descripcion: string; zona: string; provincia: string; etapa: string; depurado: string
+  lat: number | null; lng: number | null; contacto: string; autor: string; foto: string; enlace: string
+  especie?: string; nombre?: string; fecha_hecho?: string; titulo?: string; precio?: string
+  moderador: string; moderado: string; nota_editor: string; novedades?: { texto: string; fecha: string; foto: string }[]; desenlace?: string
+}
+const SECCIONES_AVISO = [
+  { clave: 'mascotas', nombre: 'Alerta Mascota', ruta: '/alerta-mascota' },
+  { clave: 'anuncios', nombre: 'Anuncios gratis', ruta: '/anuncios' },
+  { clave: 'denuncias', nombre: 'Denuncias ciudadanas', ruta: '/denuncia' },
+] as const
+const ESTADOS_AVISO = [
+  { clave: 'pendiente', nombre: 'Por revisar' },
+  { clave: 'aprobado', nombre: 'Publicados' },
+  { clave: 'resuelto', nombre: 'Resueltos' },
+  { clave: 'rechazado', nombre: 'Rechazados' },
+  { clave: 'todos', nombre: 'Todos' },
+]
+
+function FotoAviso({ seccion, foto, llamar }: { seccion: string; foto: string; llamar: Llamar }) {
+  const [src, setSrc] = useState('')
+  useEffect(() => {
+    if (!foto) return
+    let vivo = true
+    llamar<{ tipo: string; b64: string }>('foto_aviso', { seccion, foto })
+      .then((r) => { if (vivo) setSrc(`data:${r.tipo};base64,${r.b64}`) })
+      .catch(() => undefined)
+    return () => { vivo = false }
+  }, [seccion, foto, llamar])
+  return src ? <img className="adm-aviso__foto" src={src} alt="" /> : <div className="adm-sinfoto adm-aviso__foto" />
+}
+
+function Avisos({ llamar }: { llamar: Llamar }) {
+  const [seccion, setSeccion] = useState<'mascotas' | 'anuncios' | 'denuncias'>('mascotas')
+  const [estado, setEstado] = useState('pendiente')
+  const [avisos, setAvisos] = useState<AvisoPanel[] | null>(null)
+  const [pendientes, setPendientes] = useState<Record<string, number>>({})
+  const [error, setError] = useState('')
+  const [ok, setOk] = useState('')
+  const [ocupado, setOcupado] = useState('')
+
+  const cargar = useCallback(() => {
+    setAvisos(null)
+    setError('')
+    llamar<{ avisos: AvisoPanel[]; pendientes: Record<string, number> }>('avisos_admin', { seccion, estado })
+      .then((r) => { setAvisos(r.avisos); setPendientes(r.pendientes) })
+      .catch((e) => setError(e.message))
+  }, [seccion, estado, llamar])
+  useEffect(cargar, [cargar])
+
+  const moderar = async (a: AvisoPanel, nuevo: string) => {
+    if (nuevo === 'rechazado' && !window.confirm('¿Rechazar este aviso? No se publicará.')) return
+    setOcupado(a.id)
+    setOk('')
+    try {
+      await llamar('moderar_aviso', { seccion, id: a.id, estado: nuevo })
+      setOk(seccion === 'denuncias' ? 'Denuncia actualizada (las denuncias nunca se publican tal cual).' : nuevo === 'aprobado' ? 'Aviso publicado: ya se ve en la web.' : nuevo === 'resuelto' ? 'Marcado como resuelto.' : 'Aviso actualizado.')
+      cargar()
+    } catch (e) {
+      setError((e as Error).message)
+    } finally {
+      setOcupado('')
+    }
+  }
+  const ruta = SECCIONES_AVISO.find((s) => s.clave === seccion)?.ruta ?? '/'
+
+  return (
+    <section className="adm-seccion">
+      <div className="adm-acciones">
+        {SECCIONES_AVISO.map((s) => (
+          <button key={s.clave} className={seccion === s.clave ? 'activo adm-principal' : ''} onClick={() => setSeccion(s.clave)}>
+            {s.nombre}{pendientes[s.clave] ? ` (${pendientes[s.clave]} por revisar)` : ''}
+          </button>
+        ))}
+        <Link to={ruta} target="_blank">Ver la página ↗</Link>
+      </div>
+      <label>
+        Mostrar
+        <select value={estado} onChange={(e) => setEstado(e.target.value)}>
+          {ESTADOS_AVISO.map((x) => <option key={x.clave} value={x.clave}>{x.nombre}</option>)}
+        </select>
+      </label>
+      {error && <p className="adm-error" role="alert">{error}</p>}
+      {ok && <p className="adm-ok" role="status">{ok}</p>}
+      {!avisos && !error && <p className="adm-nota">Cargando…</p>}
+      {avisos && avisos.length === 0 && <p className="adm-nota">No hay avisos en esta lista.</p>}
+      <ul className="adm-lista">
+        {(avisos ?? []).map((a) => (
+          <li key={a.id} className="adm-aviso">
+            <FotoAviso seccion={seccion} foto={a.foto} llamar={llamar} />
+            <div>
+              <div className="adm-meta">
+                <span className="adm-etq adm-etq--editada">{a.tipo}</span>
+                <span className={`adm-etq${a.estado === 'rechazado' ? ' adm-etq--oculta' : ''}`}>{a.estado}{a.etapa === 'archivo' ? ' · archivo' : ''}</span>
+                {a.depurado && <span className="adm-etq">datos borrados</span>}
+                <span>{a.id}</span>
+                <span>{new Date(a.creado).toLocaleString('es-PE', { dateStyle: 'short', timeStyle: 'short' })}</span>
+                {a.moderador && <span>· {a.moderador}</span>}
+              </div>
+              <strong>{a.titulo || a.nombre || (a.especie ? `(${a.especie} sin nombre)` : 'Sin título')}{a.precio ? ` · ${a.precio}` : ''}</strong>
+              <p className="adm-aviso__texto">{a.descripcion}</p>
+              {(a.novedades || []).map((n, i) => (
+                <p key={i} className="adm-meta"><b>Novedad ({n.fecha.slice(0, 10)}):</b>&nbsp;{n.texto}{n.foto ? ' · con foto' : ''}</p>
+              ))}
+              {a.desenlace && <p className="adm-meta"><b>Cómo terminó:</b>&nbsp;{a.desenlace}</p>}
+              <p className="adm-meta">
+                📍 {a.zona}{a.provincia ? ` · ${a.provincia}` : ''}
+                {a.lat != null && a.lng != null && (
+                  <> · <a href={`https://www.openstreetmap.org/?mlat=${a.lat}&mlon=${a.lng}#map=17/${a.lat}/${a.lng}`} target="_blank" rel="noopener noreferrer">ver en el mapa</a></>
+                )}
+                {' '}· 📱 {a.contacto ? <a href={`https://wa.me/${a.contacto}`} target="_blank" rel="noopener noreferrer">{a.contacto.replace(/^51/, '')}</a> : 'anónima'}
+                {a.autor && ` (${a.autor})`}
+                {a.enlace && <> · <a href={a.enlace} target="_blank" rel="noopener noreferrer nofollow">publicación de Facebook ↗</a></>}
+              </p>
+              <div className="adm-acciones">
+                {a.estado !== 'aprobado' && <button className="adm-principal" disabled={ocupado === a.id} onClick={() => moderar(a, 'aprobado')}>{seccion === 'denuncias' ? 'En verificación' : 'Aprobar y publicar'}</button>}
+                {a.estado === 'aprobado' && <button disabled={ocupado === a.id} onClick={() => moderar(a, 'resuelto')}>Marcar resuelto</button>}
+                {a.estado !== 'rechazado' && <button disabled={ocupado === a.id} onClick={() => moderar(a, 'rechazado')}>Rechazar</button>}
+                {a.estado !== 'pendiente' && <button disabled={ocupado === a.id} onClick={() => moderar(a, 'pendiente')}>Volver a pendiente</button>}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
     </section>
   )
 }
