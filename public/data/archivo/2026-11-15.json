@@ -404,8 +404,8 @@
   "seccion": "cultura",
   "ambito": "REGIONAL",
   "fecha": "2026-11-15T15:45:00",
-  "imagen": "img/noticias/n929-be76a395.jpg",
-  "foco": "28% 33%",
+  "imagen": "img/noticias/n929-186693b3.jpg",
+  "foco": "50% 38%",
   "pie": "Candelaria llevará sus danzas al Estadio Nacional de Lima",
   "credito": "",
   "medios": [],
@@ -415,7 +415,7 @@
   "edicion": 10,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n929-bc588bcc.jpg"
+  "imagen_compartir": "img/compartir/n929-f380c6fe.jpg"
  },
  {
   "id": 930,
@@ -440,8 +440,8 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-15T15:45:00",
-  "imagen": "img/noticias/n930-ff5f0ca8.jpg",
-  "foco": "77% 66%",
+  "imagen": "img/noticias/n930-5e77ea93.jpg",
+  "foco": "46% 66%",
   "pie": "JNE asume recuento de 23 mesas pese a alerta del JEE",
   "credito": "",
   "medios": [],
@@ -451,7 +451,7 @@
   "edicion": 10,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n930-617c3ca4.jpg"
+  "imagen_compartir": "img/compartir/n930-0d3a60a3.jpg"
  },
  {
   "id": 928,
@@ -587,8 +587,8 @@
   "seccion": "seguridad",
   "ambito": "LOCAL",
   "fecha": "2026-11-15T15:34:06",
-  "imagen": "img/noticias/n925-bb2e2201.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Sujeto destroza counter de pasajes en terminal terrestre de Juliaca",
   "credito": "",
   "medios": [],
@@ -598,7 +598,7 @@
   "edicion": 10,
   "impacto": 7,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n925-cf75b7b5.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 923,
@@ -660,8 +660,8 @@
   "seccion": "otros",
   "ambito": "NACIONAL",
   "fecha": "2026-11-15T15:30:51",
-  "imagen": "img/noticias/n918-aecde769.jpg",
-  "foco": "62% 47%",
+  "imagen": null,
+  "foco": null,
   "pie": "Hija de Melcochita afirma que Monserrat Seminario está embarazada",
   "credito": "",
   "medios": [],
@@ -671,7 +671,7 @@
   "edicion": 10,
   "impacto": 1,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n918-794fe2cf.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 922,
@@ -698,8 +698,8 @@
   "seccion": "ambiente",
   "ambito": "NACIONAL",
   "fecha": "2026-11-15T15:30:51",
-  "imagen": "img/noticias/n922-9f8e6dc6.jpg",
-  "foco": "48% 38%",
+  "imagen": "img/noticias/n922-680b370e.jpg",
+  "foco": "56% 36%",
   "pie": "Barreto: el 20% de la Amazonía ya está deforestado",
   "credito": "",
   "medios": [],
@@ -709,7 +709,7 @@
   "edicion": 10,
   "impacto": 5,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n922-9a9a3dd5.jpg"
+  "imagen_compartir": "img/compartir/n922-6b92968f.jpg"
  },
  {
   "id": 898,
@@ -854,8 +854,8 @@
   "seccion": "sociedad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-15T15:06:00",
-  "imagen": "img/noticias/n913-106a1cfd.jpg",
-  "foco": "81% 43%",
+  "imagen": "img/noticias/n913-014dc3bb.jpg",
+  "foco": "55% 43%",
   "pie": "Las Palmas abre sus puertas a las 10:00 p. m. para misa del papa",
   "credito": "",
   "medios": [],
@@ -865,7 +865,7 @@
   "edicion": 10,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n913-cff2ffda.jpg"
+  "imagen_compartir": "img/compartir/n913-9b1ee4dd.jpg"
  },
  {
   "id": 914,
@@ -924,7 +924,7 @@
   "seccion": "sociedad",
   "ambito": "LOCAL",
   "fecha": "2026-11-15T14:34:00",
-  "imagen": "img/noticias/n892-ba959a37.jpg",
+  "imagen": "img/noticias/n892-e2228eae.jpg",
   "foco": "50% 38%",
   "pie": "Policías auxilian a adulta mayor postrada y sola",
   "credito": "",
@@ -935,7 +935,7 @@
   "edicion": 10,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n892-dd72b6fa.jpg"
+  "imagen_compartir": "img/compartir/n892-c9733aaf.jpg"
  },
  {
   "id": 911,
@@ -1110,27 +1110,27 @@
  {
   "id": 862,
   "slug": "hancco-reta-a-mancha-a-conseguir-fondos-para-obras-en-puno",
-  "titular": "Hancco reta a senador Mancha a conseguir presupuesto para tres obras clave",
-  "bajada": "El gobernador regional de Puno exige financiamiento para el Hospital de Yunguyo, el Laboratorio Macroregional del Sur y la carretera Putina-Sandia.",
-  "antetitulo": "CRUCE DE DECLARACIONES POR OBRAS PUNEÑAS",
+  "titular": "Hancco reta a senador Mancha a conseguir fondos para tres obras",
+  "bajada": "El gobernador regional exige financiamiento para el Hospital de Yunguyo, el Laboratorio Macroregional del Sur y la carretera Putina-Sandia.",
+  "antetitulo": "CRUCE POLÍTICO POR OBRAS PENDIENTES EN LA REGIÓN",
   "lugar": "Puno",
   "cuerpo": [
-   "El gobernador regional de Puno, Richard Hancco, retó al senador Edgar Mancha Pineda a demostrar su capacidad de gestión consiguiendo el financiamiento para tres proyectos prioritarios de la región. La autoridad regional denominó irónicamente “gato con mancha” al parlamentario y le exigió concretar el presupuesto para al menos una de estas iniciativas.",
-   "Las obras mencionadas cuentan con expedientes aprobados: el Hospital de Yunguyo, valorizado en 269 millones de soles; el Laboratorio Macroregional del Sur, que requiere 83 millones de soles; y el primer tramo de la carretera de Putina a Sandia. Hancco instó a Mancha a lograr el respaldo del Ejecutivo para cualquiera de estos proyectos como muestra de su efectividad.",
-   "El cruce de declaraciones se produce tras los entredichos registrados semanas atrás en la Comisión de Presupuesto, donde el senador Mancha exigió explicaciones sobre la ejecución de obras y el manejo de los recursos públicos en Puno. La tensión política refleja la expectativa de la población por destrabar proyectos largamente esperados."
+   "El gobernador regional de Puno, Richard Hancco, retó al senador Edgar Mancha Pineda a demostrar su capacidad de gestión consiguiendo presupuesto para tres obras prioritarias. Lo llamó irónicamente “gato con mancha”.",
+   "Según Hancco, los tres proyectos ya cuentan con expedientes aprobados: el Hospital de Yunguyo, por S/ 269 millones; el Laboratorio Macroregional del Sur, por S/ 83 millones; y el primer tramo de la carretera Putina-Sandia. Pidió al parlamentario lograr el respaldo del Ejecutivo para al menos uno de ellos.",
+   "El cruce se da tras los entredichos de semanas atrás en la Comisión de Presupuesto, donde Mancha exigió explicaciones sobre la ejecución de obras y la gestión de recursos públicos en Puno."
   ],
   "datos": [
-   "Hospital de Yunguyo: 269 millones de soles",
-   "Laboratorio Macroregional del Sur: 83 millones de soles",
+   "Hospital de Yunguyo: S/ 269 millones",
+   "Laboratorio Macroregional del Sur: S/ 83 millones",
    "Carretera Putina-Sandia: primer tramo con expediente aprobado"
   ],
   "tema": "Política",
   "seccion": "politica",
   "ambito": "REGIONAL",
   "fecha": "2026-11-15T12:24:00",
-  "imagen": "img/noticias/n862-bc14c075.jpg",
-  "foco": "69% 45%",
-  "pie": "Hancco reta a senador Mancha a conseguir presupuesto para tres obras clave",
+  "imagen": null,
+  "foco": null,
+  "pie": "Hancco reta a senador Mancha a conseguir fondos para tres obras",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1139,7 +1139,7 @@
   "edicion": 10,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n862-230ed968.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 903,
@@ -1210,20 +1210,19 @@
  {
   "id": 901,
   "slug": "municipalidad-de-san-roman-cierra-la-av-andres-avelino-caceres-por-competencia-d",
-  "titular": "Municipalidad de San Román cierra la Av. Andrés Avelino Cáceres por competencia de piques",
-  "bajada": "El cierre y desvío vehicular rige desde las 10:00 a. m. de este domingo 15 de noviembre en Juliaca.",
+  "titular": "Juliaca cierra la Av. Cáceres por piques",
+  "bajada": "El cierre y desvío vehicular rige desde las 10:00 a. m. del domingo 15 de noviembre.",
   "antetitulo": "COMPETENCIA DE PIQUES LEGALES COPA CENTENARIO",
   "lugar": "Juliaca",
   "cuerpo": [
-   "La Municipalidad Provincial de San Román – Juliaca dispuso el cierre temporal y el desvío vehicular en la Av. Andrés Avelino Cáceres desde las 10:00 a. m. de este domingo 15 de noviembre, debido a la competencia de piques legales Copa Centenario.",
-   "La zona de competencia comprende la Av. Andrés Avelino Cáceres, donde se han definido las áreas de pits, inicio, final y frenado. La comuna pidió a los conductores y vecinos tomar sus precauciones y utilizar las vías alternas señalizadas, tanto para el transporte urbano como particular.",
-   "La Municipalidad de San Román invitó a la ciudadanía a disfrutar del espectáculo deportivo y agradeció su comprensión por las restricciones vehiculares."
+   "La Municipalidad Provincial de San Román – Juliaca dispuso el cierre temporal y el desvío vehicular en la Av. Andrés Avelino Cáceres desde las 10:00 a. m. del domingo 15 de noviembre, por la competencia de piques legales Copa Centenario.",
+   "La comuna pidió a conductores y vecinos usar las vías alternas señalizadas, tanto en transporte urbano como particular."
   ],
   "datos": [
    "Cierre y desvío vehicular en la Av. Andrés Avelino Cáceres",
    "Desde las 10:00 a. m. del domingo 15 de noviembre",
    "Competencia de piques legales Copa Centenario",
-   "Zona de competencia: Av. Andrés Avelino Cáceres (pits, inicio, final y frenado)"
+   "Zona de competencia: pits, inicio, final y frenado"
   ],
   "tema": "Deportes",
   "seccion": "deportes",
@@ -1231,7 +1230,7 @@
   "fecha": "2026-11-15T09:50:00",
   "imagen": null,
   "foco": null,
-  "pie": "Municipalidad de San Román cierra la Av. Andrés Avelino Cáceres por competencia de piques",
+  "pie": "Juliaca cierra la Av. Cáceres por piques",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1240,7 +1239,7 @@
   "edicion": 10,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n901-896e2ddd.jpg"
+  "imagen_compartir": "img/compartir/n901-d876b948.jpg"
  },
  {
   "id": 900,
