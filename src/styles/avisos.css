@@ -170,3 +170,43 @@
 .av-ampliar { position: fixed; inset: 0; z-index: 2000; display: grid; place-items: center; padding: 16px; background: rgb(0 0 0 / .88); cursor: zoom-out; }
 .av-ampliar img { max-width: 100%; max-height: 100%; object-fit: contain; cursor: default; box-shadow: 0 10px 40px rgb(0 0 0 / .5); }
 .av-ampliar__cerrar { position: absolute; top: 10px; right: 14px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgb(255 255 255 / .15); color: #fff; font: 400 32px/1 var(--f-ante); cursor: pointer; }
+
+/* ficha: título que abre el aviso, texto corto, lugar con ícono en línea */
+.av-ficha__abrir { padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.av-ficha__abrir:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.av-ficha__lugar { flex-wrap: nowrap; align-items: flex-start; }
+.av-ficha__lugar svg { flex: none; margin-top: 2px; }
+.av-ficha__lugar span { flex: 1; }
+.av-ficha__texto--corto { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; flex: none; }
+.av-ficha__mas { align-self: flex-start; font-size: 13px; }
+
+/* ventana flotante con el aviso completo */
+.av-modal { position: fixed; inset: 0; z-index: 1500; display: grid; place-items: center; padding: 16px; background: rgb(10 14 22 / .72); overflow-y: auto; }
+.av-modal__caja { position: relative; width: min(1040px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: var(--papel); border-top: 5px solid var(--tipo); box-shadow: 0 20px 60px rgb(0 0 0 / .45); outline: none; }
+.av-modal__cerrar { position: absolute; top: 8px; right: 10px; z-index: 3; width: 40px; height: 40px; border: 0; border-radius: 50%; background: var(--papel-2); color: var(--tinta); font: 400 28px/1 var(--f-ante); cursor: pointer; }
+.av-modal__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+.av-modal__foto { position: relative; background: #111; display: flex; flex-direction: column; justify-content: center; min-height: 320px; }
+.av-modal__foto img { width: 100%; max-height: calc(100vh - 80px); object-fit: contain; display: block; }
+.av-modal__foto .av-ficha__sinfoto { min-height: 320px; }
+.av-modal__pista { position: absolute; left: 10px; bottom: 8px; color: #ddd; font-size: 12px; text-shadow: 0 1px 2px #000; }
+.av-modal__info { display: flex; flex-direction: column; gap: 10px; padding: 22px 24px 20px; }
+.av-modal__titulo { margin: 0; padding-right: 36px; font: 700 30px/1.1 var(--f-titular); color: var(--tinta); }
+.av-modal__texto { margin: 0; font: 16px/1.6 var(--f-texto); color: var(--tinta); white-space: pre-line; overflow-wrap: anywhere; }
+.av-modal__acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 12px 0; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+.av-modal__numero { font: 600 15px var(--f-meta); color: var(--tinta-suave); }
+.av-modal__mapa { margin: 0; }
+.av-modal__mapa figcaption { margin-top: 4px; font: 12px var(--f-meta); color: var(--gris-600); }
+.av-modal__reporte { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; padding-top: 10px; border-top: 1px dotted var(--linea); }
+.av-reporte { display: flex; flex-direction: column; gap: 8px; }
+.av-enlace--suave { color: var(--gris-600); font-weight: 600; align-self: flex-start; }
+.av-boton--inactivo { opacity: .45; pointer-events: none; }
+@media (max-width: 760px) {
+  .av-modal { padding: 0; place-items: stretch; }
+  .av-modal__caja { max-height: 100vh; height: 100%; border-top-width: 4px; }
+  .av-modal__grid { grid-template-columns: 1fr; }
+  .av-modal__foto { min-height: 0; }
+  .av-modal__foto img { max-height: 60vh; }
+  .av-modal__info { padding: 16px; }
+  .av-modal__titulo { font-size: 25px; }
+}
+.av-modal__info .av-ficha__ante { padding-right: 48px; }

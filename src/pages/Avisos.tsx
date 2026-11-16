@@ -521,7 +521,141 @@ function textoAviso(seccion: Seccion, a: Aviso, titulo: string, url: string) {
   return `${tags.join(' ')} | ${titulo} (${a.zona}). ${resumen}${pedido}\n➡️ Mira el aviso aquí: ${url}`
 }
 
-function Ficha({ seccion, a, resaltado }: { seccion: Seccion; a: Aviso; resaltado: boolean }) {
+// ------------------------------------------------------------------ aviso completo en ventana flotante
+const MOTIVOS_REPORTE = [
+  'Ya fue encontrado o ya se resolvió',
+  'Los datos son falsos o engañosos',
+  'El número no corresponde',
+  'Contenido inapropiado',
+  'Otro motivo',
+]
+
+function DetalleAviso({ seccion, a, alCerrar }: { seccion: Seccion; a: Aviso; alCerrar: () => void }) {
+  const t = tipoDe(seccion, a.tipo)
+  const titulo = tituloDe(seccion, a)
+  const archivo = a.etapa === 'archivo'
+  const cerrado = a.estado === 'resuelto'
+  const prov = a.provincia && a.provincia !== 'otra' ? nombreProvincia(a.provincia) : ''
+  const lugar = prov && !a.zona.toLowerCase().includes(prov.toLowerCase()) ? `${a.zona}, ${prov}` : a.zona
+  const url = `${location.origin}${RUTA_SECCION[seccion]}#aviso-${a.id}`
+  const [grande, setGrande] = useState('')
+  const [conFoto, setConFoto] = useState(!!a.foto)
+  const [reporte, setReporte] = useState(false)
+  const [motivo, setMotivo] = useState('')
+  const caja = useRef<HTMLDivElement>(null)
+  const puntos = useMemo<Punto[]>(() => (a.lat != null && a.lng != null
+    ? [{ id: a.id, lat: a.lat, lng: a.lng, color: t.color, texto: titulo }] : []), [a, t.color, titulo])
+
+  useEffect(() => {
+    const tecla = (e: KeyboardEvent) => { if (e.key === 'Escape' && !grande) alCerrar() }
+    document.addEventListener('keydown', tecla)
+    const antes = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    caja.current?.focus()
+    return () => { document.removeEventListener('keydown', tecla); document.body.style.overflow = antes }
+  }, [alCerrar, grande])
+
+  const pedido = seccion === 'mascotas'
+    ? (a.tipo === 'perdido' ? `Hola, tengo información sobre ${a.nombre || 'tu mascota'} (aviso «${titulo}» en Altiplano al Día): `
+      : `Hola, vi tu aviso «${titulo}» en Altiplano al Día y quisiera más información.`)
+    : `Hola, vi tu anuncio «${titulo}» en Altiplano al Día.`
+  const textoReporte = `Hola Altiplano al Día, quiero reportar el aviso ${a.id} («${titulo}», ${NOMBRE_SECCION[seccion]}).\nMotivo: ${motivo}\nDetalle: `
+
+  return (
+    <div className="av-modal" role="dialog" aria-modal="true" aria-label={titulo} onClick={alCerrar}>
+      <div className="av-modal__caja" ref={caja} tabIndex={-1} onClick={(e) => e.stopPropagation()} style={{ '--tipo': t.color } as CSSProperties}>
+        <button type="button" className="av-modal__cerrar" onClick={alCerrar} aria-label="Cerrar">×</button>
+        <div className="av-modal__grid">
+          <div className="av-modal__foto">
+            {conFoto ? (
+              <button type="button" className="av-ficha__ver" onClick={() => setGrande(fotoDrive(a.foto, 2000))} aria-label="Ver la foto en tamaño completo">
+                <img src={fotoDrive(a.foto, 1200)} alt={titulo} onError={() => setConFoto(false)} />
+              </button>
+            ) : <div className="av-ficha__sinfoto">{seccion === 'mascotas' ? <IcoHuella /> : <span>{t.nombre}</span>}</div>}
+            {conFoto && <p className="av-ayuda av-modal__pista">Toca la foto para verla completa.</p>}
+            {cerrado && <span className="av-ficha__sello">{seccion === 'mascotas' && a.tipo === 'perdido' ? 'Volvió a casa' : 'Cerrado'}</span>}
+          </div>
+          <div className="av-modal__info">
+            <p className="av-ficha__ante"><span className="av-ficha__tipo">{t.nombre}</span><span className="av-ficha__fecha">{fechaCorta(a.fecha_hecho || a.creado)}</span></p>
+            <h2 className="av-modal__titulo">{titulo}</h2>
+            <p className="av-ficha__lugar"><IcoPin /><span>{lugar}</span>{a.precio ? <strong className="av-ficha__precio">{a.precio}</strong> : null}</p>
+            <p className="av-modal__texto">{a.descripcion}</p>
+            {!!a.novedades?.length && (
+              <ol className="av-novedades" aria-label="Novedades">
+                {a.novedades.map((n, i) => (
+                  <li key={i} className="av-ficha__novedad">
+                    <b>Novedad, {fechaCorta(n.fecha)}:</b> {n.texto}
+                    {n.foto && (
+                      <button type="button" className="av-novedad__foto" onClick={() => setGrande(fotoDrive(n.foto, 2000))} aria-label="Ver la foto de la novedad">
+                        <img src={fotoDrive(n.foto, 600)} alt="Foto de la novedad" loading="lazy" onError={(e) => { (e.currentTarget.parentElement as HTMLElement).style.display = 'none' }} />
+                      </button>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            )}
+            {a.desenlace && cerrado && <p className="av-ficha__desenlace"><b>Cómo terminó:</b> {a.desenlace}</p>}
+
+            {!archivo && (a.contacto || a.enlace) && (
+              <div className="av-modal__acciones">
+                {a.contacto && (
+                  <a className="av-boton av-boton--principal" href={`https://wa.me/${a.contacto}?text=${encodeURIComponent(pedido)}`} target="_blank" rel="noopener noreferrer">
+                    <IcoWhatsapp size={17} /> {seccion === 'mascotas' && a.tipo === 'perdido' ? 'Tengo información' : 'Escribir por WhatsApp'}
+                  </a>
+                )}
+                {a.contacto && <span className="av-modal__numero">{celularVisible(a.contacto)}{a.autor ? ` · ${a.autor}` : ''}</span>}
+                {a.enlace && <a className="av-enlace" href={a.enlace} target="_blank" rel="noopener noreferrer nofollow">Ver la publicación en Facebook</a>}
+              </div>
+            )}
+            {archivo && <p className="av-ayuda">Aviso archivado: ya no se muestran los datos de contacto.</p>}
+
+            {puntos.length > 0 && (
+              <figure className="av-modal__mapa">
+                <Mapa puntos={puntos} alto={200} zoomMax={archivo ? 13 : 16} />
+                <figcaption>Ubicación referencial{archivo ? ' aproximada' : ''}.</figcaption>
+              </figure>
+            )}
+
+            <div className="av-ficha__compartir">
+              <span>Compartir</span>
+              <Compartir url={url} titulo={titulo} texto={textoAviso(seccion, a, titulo, url)} />
+            </div>
+
+            <div className="av-modal__reporte">
+              {!reporte ? (
+                <button type="button" className="av-enlace av-enlace--suave" onClick={() => setReporte(true)}>Reportar este aviso</button>
+              ) : (
+                <div className="av-reporte">
+                  <p className="av-campo__etq">¿Qué pasa con este aviso?</p>
+                  <div className="av-opciones">
+                    {MOTIVOS_REPORTE.map((m) => (
+                      <label key={m} className={`av-opcion${motivo === m ? ' av-opcion--activa' : ''}`}>
+                        <input type="radio" name="motivo-reporte" checked={motivo === m} onChange={() => setMotivo(m)} /> {m}
+                      </label>
+                    ))}
+                  </div>
+                  <div className="av-acciones">
+                    <a className={`av-boton${motivo ? '' : ' av-boton--inactivo'}`} aria-disabled={!motivo}
+                      href={motivo ? enlaceWhatsApp(textoReporte) : undefined} target="_blank" rel="noopener noreferrer"
+                      onClick={(e) => { if (!motivo) e.preventDefault() }}>
+                      <IcoWhatsapp size={15} /> Enviar a la redacción
+                    </a>
+                    <button type="button" className="av-boton av-boton--simple" onClick={() => { setReporte(false); setMotivo('') }}>Cancelar</button>
+                  </div>
+                  <p className="av-ayuda">El reporte llega a la redacción de Altiplano al Día, que revisa el aviso.</p>
+                </div>
+              )}
+              <p className="av-ayuda">Aviso N.° {a.id}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {grande && <Ampliar src={grande} alt={titulo} alCerrar={() => setGrande('')} />}
+    </div>
+  )
+}
+
+function Ficha({ seccion, a, resaltado, alAbrir }: { seccion: Seccion; a: Aviso; resaltado: boolean; alAbrir?: () => void }) {
   const t = tipoDe(seccion, a.tipo)
   const [conFoto, setConFoto] = useState(!!a.foto)
   const [grande, setGrande] = useState('')
@@ -536,7 +670,7 @@ function Ficha({ seccion, a, resaltado }: { seccion: Seccion; a: Aviso; resaltad
       <div className={`av-ficha__foto${conFoto ? "" : " av-ficha__foto--sin"}${seccion === "mascotas" ? "" : " av-ficha__foto--texto"}`}>
         {conFoto
           ? (
-            <button type="button" className="av-ficha__ver" onClick={() => setGrande(fotoDrive(a.foto, 1600))} aria-label={`Ver la foto de ${titulo} en grande`}>
+            <button type="button" className="av-ficha__ver" onClick={() => (alAbrir ? alAbrir() : setGrande(fotoDrive(a.foto, 1600)))} aria-label={alAbrir ? `Ver el aviso completo: ${titulo}` : `Ver la foto de ${titulo} en grande`}>
               <img src={fotoDrive(a.foto)} alt={titulo} loading="lazy" onError={() => setConFoto(false)} />
             </button>
           )
@@ -546,9 +680,10 @@ function Ficha({ seccion, a, resaltado }: { seccion: Seccion; a: Aviso; resaltad
       </div>
       <div className="av-ficha__cuerpo">
         <p className="av-ficha__ante"><span className="av-ficha__tipo">{t.nombre}</span><span className="av-ficha__fecha">{fechaCorta(a.fecha_hecho || a.creado)}</span></p>
-        <h3 className="av-ficha__titulo">{titulo}</h3>
-        <p className="av-ficha__lugar"><IcoPin /> {lugar}{a.precio ? <strong className="av-ficha__precio">{a.precio}</strong> : null}</p>
-        <p className="av-ficha__texto">{a.descripcion}</p>
+        <h3 className="av-ficha__titulo">{alAbrir ? <button type="button" className="av-ficha__abrir" onClick={alAbrir}>{titulo}</button> : titulo}</h3>
+        <p className="av-ficha__lugar"><IcoPin /><span>{lugar}</span>{a.precio ? <strong className="av-ficha__precio">{a.precio}</strong> : null}</p>
+        <p className={`av-ficha__texto${alAbrir ? ' av-ficha__texto--corto' : ''}`}>{a.descripcion}</p>
+        {alAbrir && <button type="button" className="av-enlace av-ficha__mas" onClick={alAbrir}>Ver aviso completo</button>}
         {!!a.novedades?.length && (
           <ol className="av-novedades" aria-label="Novedades">
             {a.novedades.map((n, i) => (
@@ -594,6 +729,11 @@ function PaginaAvisos({ seccion, titulo, antetitulo, entrada, boton }: { seccion
   const [vista, setVista] = useState<'activo' | 'archivo'>('activo')
   const [form, setForm] = useState(false)
   const [resaltado, setResaltado] = useState('')
+  const [abierto, setAbierto] = useState<Aviso | null>(null)
+  const abrir = (a: Aviso | null) => {
+    setAbierto(a)
+    history.replaceState(null, '', a ? `#aviso-${a.id}` : location.pathname + location.search)
+  }
   const enVista = useMemo(() => (avisos ?? []).filter((a) => (a.etapa || 'activo') === vista && (!donde || a.provincia === donde)), [avisos, vista, donde])
   const lista = useMemo(() => enVista.filter((a) => !filtro || a.tipo === filtro), [enVista, filtro])
   const cuenta = (clave: string) => enVista.filter((a) => a.tipo === clave).length
@@ -611,7 +751,8 @@ function PaginaAvisos({ seccion, titulo, antetitulo, entrada, boton }: { seccion
   // Si llegan con #aviso-… (enlace compartido), se resalta ese aviso.
   useEffect(() => {
     const m = location.hash.match(/^#aviso-(.+)$/)
-    if (m && avisos) setTimeout(() => irA(m[1]), 300)
+    const a = m && avisos?.find((x) => x.id === m[1])
+    if (a) { setVista((a.etapa || 'activo') as 'activo' | 'archivo'); setAbierto(a) }
   }, [avisos])
 
   return (
@@ -675,8 +816,9 @@ function PaginaAvisos({ seccion, titulo, antetitulo, entrada, boton }: { seccion
             <p className="av-vacio">{vista === 'archivo' ? 'No hay avisos archivados con este filtro.' : `No hay avisos vigentes${filtro || donde ? ' con este filtro' : ''}.`}</p>
           )}
           <div className="av-lista">
-            {lista.map((a) => <Ficha key={a.id} seccion={seccion} a={a} resaltado={resaltado === a.id} />)}
+            {lista.map((a) => <Ficha key={a.id} seccion={seccion} a={a} resaltado={resaltado === a.id} alAbrir={() => abrir(a)} />)}
           </div>
+          {abierto && <DetalleAviso seccion={seccion} a={abierto} alCerrar={() => abrir(null)} />}
         </>
       ) : null}
     </div>
