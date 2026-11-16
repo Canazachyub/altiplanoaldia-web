@@ -645,7 +645,7 @@ function DetalleAviso({ seccion, a, alCerrar }: { seccion: Seccion; a: Aviso; al
                   <p className="av-ayuda">El reporte llega a la redacción de Altiplano al Día, que revisa el aviso.</p>
                 </div>
               )}
-              <p className="av-ayuda">Aviso N.° {a.id}</p>
+              <p className="av-ayuda">Aviso N.° {a.id} · <Link className="av-enlace av-enlace--suave" to={`/mi-aviso?s=${seccion}&id=${encodeURIComponent(a.id)}`}>¿Es tu aviso? Actualízalo o ciérralo</Link></p>
             </div>
           </div>
         </div>
@@ -826,6 +826,47 @@ function PaginaAvisos({ seccion, titulo, antetitulo, entrada, boton }: { seccion
 }
 
 // ------------------------------------------------------------------ /mi-aviso: gestión por quien publicó
+/** Lista con buscador para que la persona elija su aviso sin tener que copiar el número. */
+function ElegirAviso({ seccion, elegido, alElegir }: { seccion: Seccion; elegido: string; alElegir: (id: string) => void }) {
+  const { avisos } = useAvisos(seccion)
+  const [q, setQ] = useState('')
+  const norm = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+  const lista = useMemo(() => {
+    const t = norm(q.trim())
+    return (avisos ?? []).filter((a) => a.etapa !== 'archivo')
+      .filter((a) => !t || norm(`${tituloDe(seccion, a)} ${a.zona} ${a.descripcion} ${a.id}`).includes(t))
+  }, [avisos, q, seccion])
+  return (
+    <div className="av-elegir">
+      <Campo etiqueta="Busca y elige tu aviso">
+        <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={seccion === 'mascotas' ? 'Nombre de tu mascota, zona…' : 'Título, zona…'} />
+      </Campo>
+      {!avisos ? <p className="av-ayuda">Cargando avisos…</p> : (
+        <ul className="av-elegir__lista">
+          {lista.slice(0, 24).map((a) => {
+            const t = tipoDe(seccion, a.tipo)
+            return (
+              <li key={a.id}>
+                <button type="button" className={`av-elegir__item${elegido === a.id ? ' av-elegir__item--activo' : ''}`} style={{ '--tipo': t.color } as CSSProperties}
+                  onClick={() => alElegir(a.id)} aria-pressed={elegido === a.id}>
+                  {a.foto ? <img src={fotoDrive(a.foto, 200)} alt="" loading="lazy" /> : <span className="av-elegir__sinfoto" />}
+                  <span className="av-elegir__txt">
+                    <span className="av-elegir__tipo">{t.nombre}</span>
+                    <strong>{tituloDe(seccion, a)}</strong>
+                    <span className="av-elegir__zona">{a.zona}</span>
+                  </span>
+                </button>
+              </li>
+            )
+          })}
+        </ul>
+      )}
+      {avisos && !lista.length && <p className="av-ayuda">No encontramos avisos publicados con ese texto.</p>}
+      <p className="av-ayuda">¿Tu aviso no aparece? Si todavía está en revisión, escribe abajo el número que recibiste.</p>
+    </div>
+  )
+}
+
 export function MiAviso() {
   useTitulo('Mi aviso')
   const [params] = useSearchParams()
@@ -909,12 +950,19 @@ export function MiAviso() {
         <form className="av-form" onSubmit={abrir}>
           <div className="av-fila">
             <Campo etiqueta="Sección">
-              <select value={seccion} onChange={(e) => setSeccion(e.target.value as Seccion)}>
+              <select value={seccion} onChange={(e) => { setSeccion(e.target.value as Seccion); setId('') }}>
                 {(Object.keys(NOMBRE_SECCION) as Seccion[]).map((s) => <option key={s} value={s}>{NOMBRE_SECCION[s]}</option>)}
               </select>
             </Campo>
-            <Campo etiqueta="Número del aviso"><input required value={id} onChange={(e) => setId(e.target.value)} placeholder="M261115-ABCDE" autoCapitalize="characters" /></Campo>
-            <Campo etiqueta="Código"><input required value={clave} onChange={(e) => setClave(e.target.value)} autoCapitalize="characters" autoComplete="off" /></Campo>
+          </div>
+          {seccion !== 'denuncias' && <ElegirAviso seccion={seccion} elegido={id} alElegir={setId} />}
+          <div className="av-fila">
+            <Campo etiqueta="Número del aviso" nota={seccion === 'denuncias' ? undefined : 'se llena al elegirlo'}>
+              <input required value={id} onChange={(e) => setId(e.target.value)} placeholder="M261115-ABCDE" autoCapitalize="characters" />
+            </Campo>
+            <Campo etiqueta="Código" nota="el que recibiste al enviar">
+              <input required value={clave} onChange={(e) => setClave(e.target.value)} autoCapitalize="characters" autoComplete="off" autoFocus={!!id} />
+            </Campo>
           </div>
           {error && <p className="av-error" role="alert">{error}</p>}
           <div className="av-acciones"><button className="av-boton av-boton--principal" disabled={ocupado}>{ocupado ? 'Buscando…' : 'Ver mi aviso'}</button></div>
