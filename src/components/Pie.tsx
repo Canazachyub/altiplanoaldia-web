@@ -48,7 +48,7 @@ export default function Pie() {
               <li><Link to="/boletin">Boletín por WhatsApp</Link></li>
               <li><Link to="/denuncia">Haz tu denuncia</Link></li>
               <li><Link to="/alerta-mascota">Alerta Mascota</Link></li>
-              <li><Link to="/anuncios">Clasificados</Link></li>
+              <li><Link to="/anuncios">Anuncios gratis</Link></li>
               <li><a href="/rss.xml">RSS</a></li>
             </ul>
             <a className="btn btn--amarillo pie__wa" href={enlaceWhatsApp('Hola Altiplano al Día, quiero hacer una denuncia: ')} target="_blank" rel="noopener noreferrer">

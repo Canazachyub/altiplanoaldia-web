@@ -341,7 +341,7 @@ export default function Cabecera() {
           {/* Servicios para la comunidad: siempre a la vista (no se van con el desplazamiento del menú) */}
           <ul className="nav-servicios" aria-label="Servicios para la comunidad">
             <li><NavLink to="/alerta-mascota" className="nav-servicios__btn nav-servicios__btn--mascota">Alerta Mascota</NavLink></li>
-            <li><NavLink to="/anuncios" className="nav-servicios__btn nav-servicios__btn--clasif">Clasificados</NavLink></li>
+            <li><NavLink to="/anuncios" className="nav-servicios__btn nav-servicios__btn--clasif">Anuncios</NavLink></li>
             <li><NavLink to="/denuncia" className="nav-servicios__btn nav-servicios__btn--denuncia">Denuncia</NavLink></li>
           </ul>
           </div>
@@ -384,7 +384,7 @@ export default function Cabecera() {
         <ul className="menu-lateral__lista">
           <li><Link to="/denuncia">Haz tu denuncia</Link></li>
           <li><Link to="/alerta-mascota">Alerta Mascota</Link></li>
-          <li><Link to="/anuncios">Clasificados</Link></li>
+          <li><Link to="/anuncios">Anuncios gratis</Link></li>
           <li><Link to="/boletin">Boletín por WhatsApp</Link></li>
           <li><Link to="/nosotros">Quiénes somos</Link></li>
         </ul>

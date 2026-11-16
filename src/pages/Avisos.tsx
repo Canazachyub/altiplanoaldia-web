@@ -513,7 +513,7 @@ function Formulario({ seccion, alCerrar }: { seccion: Seccion; alCerrar: () => v
 function textoAviso(seccion: Seccion, a: Aviso, titulo: string, url: string) {
   const etiqueta = (t: string) => '#' + t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z0-9 ]/g, '')
     .split(' ').filter(Boolean).map((p) => p[0].toUpperCase() + p.slice(1)).join('')
-  const tags = ['#AltiplanoAlDía', etiqueta(seccion === 'mascotas' ? 'Alerta Mascota' : 'Clasificados')]
+  const tags = ['#AltiplanoAlDía', etiqueta(seccion === 'mascotas' ? 'Alerta Mascota' : 'Anuncios Puno')]
   const prov = nombreProvincia(a.provincia)
   if (prov) tags.push(etiqueta(prov))
   const resumen = a.descripcion.length > 160 ? a.descripcion.slice(0, 157).replace(/\s+\S*$/, '') + '…' : a.descripcion
@@ -1042,7 +1042,7 @@ export function Anuncios() {
   return (
     <PaginaAvisos
       seccion="anuncios"
-      titulo="Clasificados"
+      titulo="Anuncios"
       antetitulo="Anuncios gratis de Puno y la región"
       entrada="Ofertas de trabajo, personas que buscan empleo, compra, venta, alquileres, servicios y eventos. Publicar no cuesta nada: tu anuncio sale cuando la redacción lo revisa."
       boton="Publicar un anuncio"

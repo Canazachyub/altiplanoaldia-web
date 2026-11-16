@@ -54,7 +54,7 @@ function NotaDelDia({ nota }: { nota: NotaT }) {
 }
 
 /** Franja promocional de la casa: denuncias por WhatsApp. */
-/** Servicios para la comunidad: Alerta Mascota, Clasificados y Denuncia, bien a la vista en la portada. */
+/** Servicios para la comunidad: Alerta Mascota, Anuncios y Denuncia, bien a la vista en la portada. */
 function ServiciosComunidad() {
   return (
     <section className="servicios-portada" aria-label="Servicios para la comunidad">
@@ -67,9 +67,9 @@ function ServiciosComunidad() {
       </Link>
       <Link to="/anuncios" className="servicio" style={{ '--c': 'var(--azul)' } as CSSProperties}>
         <span className="servicio__ante">Empleo · compra · venta · alquiler</span>
-        <p className="servicio__titulo">Clasificados</p>
+        <p className="servicio__titulo">Anuncios</p>
         <p className="servicio__texto">Ofertas de trabajo, lo que vendes o buscas comprar, cuartos en alquiler y servicios. Publicar no cuesta nada.</p>
-        <span className="servicio__cta">Ver clasificados</span>
+        <span className="servicio__cta">Ver anuncios</span>
       </Link>
       <Link to="/denuncia" className="servicio servicio--denuncia" style={{ '--c': '#111' } as CSSProperties}>
         <span className="servicio__ante"><IcoMegafono size={14} /> Tu voz es noticia</span>
