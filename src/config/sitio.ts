@@ -7,8 +7,13 @@ export const SITIO = {
   facebook: 'https://www.facebook.com/profile.php?id=100077594686001',
   tiktok: 'https://www.tiktok.com/@altiplano.al.dia.pe',
   tiktokUsuario: '@altiplano.al.dia.pe',
-  whatsappDenuncias: '51982591289',
-  whatsappVisible: '+51 982 591 289',
+  // Denuncias y noticias (cuidamos la identidad de quien escribe)
+  whatsappDenuncias: '51942149084',
+  whatsappVisible: '+51 942 149 084',
+  // Publicidad: anuncios de negocios en la web y en el boletín
+  whatsappAnuncios: '51984300510',
+  anunciosVisible: '+51 984 300 510',
+  correo: 'altiplanoaldia.admin@gmail.com',
   firma: 'Redacción Altiplano al Día',
   // Coordenadas de Puno para el clima en la barra superior (Open-Meteo, sin API key)
   lat: -15.8402,
@@ -17,6 +22,11 @@ export const SITIO = {
 
 export function enlaceWhatsApp(texto: string) {
   return `https://wa.me/${SITIO.whatsappDenuncias}?text=${encodeURIComponent(texto)}`
+}
+
+/** WhatsApp de publicidad (Anúnciate). */
+export function enlaceAnuncios(texto = 'Hola Altiplano al Día, quiero anunciar mi negocio: ') {
+  return `https://wa.me/${SITIO.whatsappAnuncios}?text=${encodeURIComponent(texto)}`
 }
 
 export interface Seccion {

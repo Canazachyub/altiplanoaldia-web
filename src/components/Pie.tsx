@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AMBITOS, SECCIONES, SITIO, enlaceWhatsApp, pub } from '../config/sitio'
+import { AMBITOS, SECCIONES, SITIO, enlaceAnuncios, enlaceWhatsApp, pub } from '../config/sitio'
 import { IcoArriba, IcoWhatsapp } from './Iconos'
 import { Redes } from './Cabecera'
 
@@ -51,9 +51,11 @@ export default function Pie() {
               <li><Link to="/anuncios">Anuncios gratis</Link></li>
               <li><a href="/rss.xml">RSS</a></li>
             </ul>
-            <a className="btn btn--amarillo pie__wa" href={enlaceWhatsApp('Hola Altiplano al Día, quiero hacer una denuncia: ')} target="_blank" rel="noopener noreferrer">
-              <IcoWhatsapp size={18} /> {SITIO.whatsappVisible}
-            </a>
+            <ul className="pie__contacto">
+              <li><a href={enlaceWhatsApp('Hola Altiplano al Día, quiero hacer una denuncia: ')} target="_blank" rel="noopener noreferrer"><IcoWhatsapp size={16} /> <span><b>Denuncias:</b> {SITIO.whatsappVisible.replace('+51 ', '')} <small>(cuidamos tu identidad)</small></span></a></li>
+              <li><a href={enlaceAnuncios()} target="_blank" rel="noopener noreferrer"><IcoWhatsapp size={16} /> <span><b>Anúnciate:</b> {SITIO.anunciosVisible.replace('+51 ', '')}</span></a></li>
+              <li><a href={`mailto:${SITIO.correo}`}><span aria-hidden="true">✉</span> <span>{SITIO.correo}</span></a></li>
+            </ul>
           </div>
         </div>
         <div className="pie__legal">

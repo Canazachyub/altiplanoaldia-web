@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Redes } from '../components/Cabecera'
 import { IcoWhatsapp } from '../components/Iconos'
 import { IlustracionMarca } from '../components/Piezas'
-import { SECCIONES, SITIO, enlaceWhatsApp, pub } from '../config/sitio'
+import { SECCIONES, SITIO, enlaceAnuncios, enlaceWhatsApp, pub } from '../config/sitio'
 import { useTitulo } from '../hooks/useTitulo'
 
 const API_DENUNCIAS = !!(import.meta.env.VITE_SHEETS_API as string | undefined)
@@ -163,7 +163,9 @@ export function Nosotros() {
         </section>
         <section>
           <h2>Contacto</h2>
-          <p>Denuncias y avisos por WhatsApp: <a href={enlaceWhatsApp('Hola Altiplano al Día')} target="_blank" rel="noopener noreferrer">{SITIO.whatsappVisible}</a></p>
+          <p>Denuncias por WhatsApp (cuidamos tu identidad): <a href={enlaceWhatsApp('Hola Altiplano al Día')} target="_blank" rel="noopener noreferrer">{SITIO.whatsappVisible}</a></p>
+          <p>Publicidad, anúnciate: <a href={enlaceAnuncios()} target="_blank" rel="noopener noreferrer">{SITIO.anunciosVisible}</a></p>
+          <p>Correo: <a href={`mailto:${SITIO.correo}`}>{SITIO.correo}</a></p>
           <div className="denuncia__redes"><Redes conTexto /></div>
           <p><Link to="/denuncia">Ir al formulario de denuncia ›</Link></p>
         </section>

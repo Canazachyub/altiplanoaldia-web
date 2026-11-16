@@ -59,19 +59,19 @@ function ServiciosComunidad() {
   return (
     <section className="servicios-portada" aria-label="Servicios para la comunidad">
       <div className="servicios-portada__cab"><h2>Servicios para la comunidad</h2></div>
-      <Link to="/alerta-mascota" className="servicio" style={{ '--c': '#B71C1C' } as CSSProperties}>
+      <Link to="/alerta-mascota" className="servicio servicio--mascota" style={{ '--c': '#B71C1C' } as CSSProperties}>
         <span className="servicio__ante">Perdidos · encontrados · adopción</span>
         <p className="servicio__titulo">Alerta Mascota</p>
         <p className="servicio__texto">¿Se perdió tu perro o tu gato, o encontraste uno? Publica el aviso con foto y ubicación, gratis.</p>
         <span className="servicio__cta">Ver avisos</span>
       </Link>
-      <Link to="/anuncios" className="servicio" style={{ '--c': 'var(--azul)' } as CSSProperties}>
+      <Link to="/anuncios" className="servicio servicio--anuncios" style={{ '--c': '#043F9B' } as CSSProperties}>
         <span className="servicio__ante">Empleo · compra · venta · alquiler</span>
         <p className="servicio__titulo">Anuncios</p>
         <p className="servicio__texto">Ofertas de trabajo, lo que vendes o buscas comprar, cuartos en alquiler y servicios. Publicar no cuesta nada.</p>
         <span className="servicio__cta">Ver anuncios</span>
       </Link>
-      <Link to="/denuncia" className="servicio servicio--denuncia" style={{ '--c': '#111' } as CSSProperties}>
+      <Link to="/denuncia" className="servicio servicio--denuncia" style={{ '--c': 'var(--tinta)' } as CSSProperties}>
         <span className="servicio__ante"><IcoMegafono size={14} /> Tu voz es noticia</span>
         <p className="servicio__titulo">Haz tu denuncia</p>
         <p className="servicio__texto">Cuéntanos qué pasa en tu barrio, con fotos. La verificamos y protegemos tu identidad.</p>

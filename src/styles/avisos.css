@@ -222,3 +222,7 @@
 .av-elegir__tipo { font: 700 11px var(--f-ante); text-transform: uppercase; letter-spacing: .06em; color: var(--tipo); }
 .av-elegir__txt strong { font: 700 16px/1.15 var(--f-titular); }
 .av-elegir__zona { font: 13px var(--f-meta); color: var(--gris-600); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.av-publicidad { margin: 12px 0 0; padding: 10px 12px; border-left: 3px solid var(--azul); background: var(--azul-50); font: 15px/1.5 var(--f-texto); color: var(--tinta); }
+.av-publicidad a { font-weight: 700; color: var(--enlace); white-space: nowrap; }
+:root[data-tema="oscuro"] .av-publicidad { background: color-mix(in srgb, var(--azul) 18%, var(--papel)); }

@@ -11,7 +11,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { Compartir } from '../components/Bloques'
 import { IcoWhatsapp } from '../components/Iconos'
 import { PROVINCIAS } from '../config/provincias'
-import { SITIO, enlaceWhatsApp } from '../config/sitio'
+import { SITIO, enlaceAnuncios, enlaceWhatsApp } from '../config/sitio'
 import { useTitulo } from '../hooks/useTitulo'
 import '../styles/avisos.css'
 
@@ -766,6 +766,13 @@ function PaginaAvisos({ seccion, titulo, antetitulo, entrada, boton }: { seccion
             <button className="av-boton av-boton--principal" onClick={() => { setForm(true); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>{boton}</button>
             <Link className="av-enlace" to={`/mi-aviso?s=${seccion}`}>Ya publiqué: actualizar o cerrar mi aviso</Link>
           </div>
+        )}
+        {seccion === 'anuncios' && (
+          <p className="av-publicidad">
+            ¿Tienes un negocio? <b>Anúnciate</b> en la web y en el boletín:{' '}
+            <a href={enlaceAnuncios()} target="_blank" rel="noopener noreferrer"><IcoWhatsapp size={14} /> {SITIO.anunciosVisible}</a>
+            {' '}· <a href={`mailto:${SITIO.correo}`}>{SITIO.correo}</a>
+          </p>
         )}
       </header>
 

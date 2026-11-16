@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
-import { AMBITOS, SECCIONES, SITIO, enlaceWhatsApp, pub } from '../config/sitio'
+import { AMBITOS, SECCIONES, SITIO, enlaceAnuncios, enlaceWhatsApp, pub } from '../config/sitio'
 import { PROVINCIAS } from '../config/provincias'
 import { hora, provinciasDe, type Nota } from '../data/noticias'
 import {
@@ -392,6 +392,10 @@ export default function Cabecera() {
         <a className="btn btn--amarillo btn--bloque" href={enlaceWhatsApp('Hola Altiplano al Día, quiero hacer una denuncia: ')} target="_blank" rel="noopener noreferrer">
           <IcoWhatsapp size={18} /> Denuncias {SITIO.whatsappVisible}
         </a>
+        <a className="btn btn--azul btn--bloque menu-lateral__anuncio" href={enlaceAnuncios()} target="_blank" rel="noopener noreferrer">
+          <IcoWhatsapp size={18} /> Anúnciate {SITIO.anunciosVisible}
+        </a>
+        <a className="menu-lateral__correo" href={`mailto:${SITIO.correo}`}>{SITIO.correo}</a>
       </aside>
     </>
   )
