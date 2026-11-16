@@ -539,12 +539,12 @@ function validarClave_(c) {
 
 function crearUsuario_(usuario, nombre, rol, clave, activo) {
   const sal = aleatorio_(16)
-  hoja_(H_USUARIOS, COLS_USUARIO).appendRow([usuario, nombre, rol, sal, hash_(clave, sal), activo !== false, new Date(), ''])
+  hoja_(H_USUARIOS, COLS_USUARIO).appendRow([usuario, nombre, rol, sal, seguro_(hash_(clave, sal)), activo !== false, new Date(), ''])
 }
 
 function guardarClave_(fila, clave) {
   const sal = aleatorio_(16)
-  hoja_(H_USUARIOS, COLS_USUARIO).getRange(fila, COLS_USUARIO.indexOf('sal') + 1, 1, 2).setValues([[sal, hash_(clave, sal)]])
+  hoja_(H_USUARIOS, COLS_USUARIO).getRange(fila, COLS_USUARIO.indexOf('sal') + 1, 1, 2).setValues([[sal, seguro_(hash_(clave, sal))]])
 }
 
 function buscarUsuario_(usuario) {
@@ -695,7 +695,7 @@ function enviarAviso_(d) {
   }
   // Código para que quien publicó gestione su aviso sin cuenta (se guarda cifrado, como las claves del panel).
   const clave = aleatorio_(8).toUpperCase().replace(/[^A-Z2-9]/g, '').slice(0, 6) + aleatorio_(2).toUpperCase().replace(/[^A-Z2-9]/g, 'K')
-  v.clave = hash_(clave, id)
+  v.clave = seguro_(hash_(clave, id))     // con «'» delante si empieza con + (Sheets no lo toma como fórmula)
   if (seccion === 'mascotas') {
     v.especie = c.especies.indexOf(x.especie) >= 0 ? x.especie : 'otro'
     v.nombre = limpio_(x.nombre, 60)

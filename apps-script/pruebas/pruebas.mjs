@@ -570,6 +570,11 @@ prueba('ubicar_aviso: el editor (o quien publicó, con su código) pone el punto
   assert.match(G.post({ accion: 'ubicar_aviso', token: tokenAdmin, seccion: 'mascotas', id: r.id, lat: 40, lng: -3 }).error, /ubicación/)
 })
 
+prueba('ningún código ni clave cifrada queda como fórmula en Sheets (aunque empiece con +)', () => {
+  for (let i = 0; i < 40; i++) G.post({ accion: 'enviar_aviso', seccion: 'denuncias', datos: { tipo: 'otro', descripcion: 'Prueba de cifrado número ' + i + ' con texto suficiente.', provincia: 'puno', zona: 'Puno' } })
+  for (const h of ['Mascotas', 'Anuncios', 'Denuncias', 'Usuarios']) assert.equal(G.hoja(h).formulas, undefined, h)
+})
+
 console.log('\nRobustez')
 prueba('pedido no JSON y acción desconocida responden con error claro', () => {
   assert.equal(JSON.parse(G.api.doPost({ postData: { contents: 'no-json' } }).texto).error, 'Pedido inválido.')
