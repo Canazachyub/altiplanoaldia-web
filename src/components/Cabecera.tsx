@@ -328,7 +328,8 @@ export default function Cabecera() {
           </form>
         )}
         <nav className="nav-secciones" aria-label="Secciones">
-          <ul className="contenedor nav-secciones__lista">
+          <div className="contenedor nav-secciones__fila">
+          <ul className="nav-secciones__lista">
             <li><NavLink to="/" end>Portada</NavLink></li>
             {SECCIONES.filter((s) => s.clave !== 'otros').map((s) => (
               <li key={s.clave}><NavLink to={`/seccion/${s.clave}`}>{s.clave === 'ambiente' ? 'Ambiente' : s.nombre}</NavLink></li>
@@ -336,10 +337,14 @@ export default function Cabecera() {
             <li><NavLink to="/ambito/nacional">Nacional</NavLink></li>
             <li><NavLink to="/provincias">Provincias</NavLink></li>
             <li><NavLink to="/clima">Clima</NavLink></li>
-            <li><NavLink to="/alerta-mascota">Alerta Mascota</NavLink></li>
-            <li><NavLink to="/anuncios">Clasificados</NavLink></li>
-            <li><NavLink to="/denuncia" className="nav-secciones__denuncia">Denuncia</NavLink></li>
           </ul>
+          {/* Servicios para la comunidad: siempre a la vista (no se van con el desplazamiento del menú) */}
+          <ul className="nav-servicios" aria-label="Servicios para la comunidad">
+            <li><NavLink to="/alerta-mascota" className="nav-servicios__btn nav-servicios__btn--mascota">Alerta Mascota</NavLink></li>
+            <li><NavLink to="/anuncios" className="nav-servicios__btn nav-servicios__btn--clasif">Clasificados</NavLink></li>
+            <li><NavLink to="/denuncia" className="nav-servicios__btn nav-servicios__btn--denuncia">Denuncia</NavLink></li>
+          </ul>
+          </div>
         </nav>
       </header>
 

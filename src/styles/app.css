@@ -452,3 +452,51 @@ main:focus { outline: none; }
 .ir-arriba--visible { opacity: 1; pointer-events: auto; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
+
+/* ===== Servicios para la comunidad (Alerta Mascota, Clasificados, Denuncia) ===== */
+.nav-secciones__fila { display: flex; align-items: center; gap: 10px; }
+.nav-secciones__fila .nav-secciones__lista { flex: 1 1 auto; min-width: 0; justify-content: flex-start; }
+.nav-servicios { display: flex; gap: 6px; flex: none; margin: 0; padding: 0; list-style: none; }
+.nav-secciones a.nav-servicios__btn {
+  padding: 7px 12px; border: 2px solid currentColor; border-radius: 3px; border-bottom-width: 2px;
+  font: 700 13px/1 var(--f-ante); letter-spacing: .04em;
+}
+.nav-secciones a.nav-servicios__btn--mascota { color: #B71C1C; }
+.nav-secciones a.nav-servicios__btn--clasif { color: var(--azul); }
+.nav-secciones a.nav-servicios__btn--denuncia { color: #111; background: var(--amarillo); border-color: var(--amarillo); }
+.nav-secciones a.nav-servicios__btn:hover { background: currentColor; }
+.nav-secciones a.nav-servicios__btn--mascota:hover, .nav-secciones a.nav-servicios__btn--mascota.active { background: #B71C1C; color: #fff; border-color: #B71C1C; }
+.nav-secciones a.nav-servicios__btn--clasif:hover, .nav-secciones a.nav-servicios__btn--clasif.active { background: var(--azul); color: #fff; border-color: var(--azul); }
+.nav-secciones a.nav-servicios__btn--denuncia:hover, .nav-secciones a.nav-servicios__btn--denuncia.active { background: #111; color: var(--amarillo); border-color: #111; }
+@media (max-width: 1180px) {
+  .nav-secciones__fila { flex-wrap: wrap; gap: 0; }
+  .nav-secciones__fila .nav-secciones__lista { flex-basis: 100%; }
+  .nav-servicios { flex-basis: 100%; padding: 6px 0 8px; border-top: 1px solid var(--linea); }
+  .nav-servicios li { flex: 1; }
+  .nav-secciones a.nav-servicios__btn { text-align: center; padding: 9px 6px; }
+}
+@media (max-width: 380px) { .nav-secciones a.nav-servicios__btn { font-size: 12px; letter-spacing: 0; } }
+:root[data-theme="dark"] .nav-secciones a.nav-servicios__btn--mascota { color: #EF9A9A; }
+:root[data-theme="dark"] .nav-secciones a.nav-servicios__btn--clasif { color: #90CAF9; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .nav-secciones a.nav-servicios__btn--mascota { color: #EF9A9A; }
+  :root:not([data-theme="light"]) .nav-secciones a.nav-servicios__btn--clasif { color: #90CAF9; }
+}
+
+/* ===== Portada: bloque de servicios ===== */
+.servicios-portada { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-block: var(--s6); border-top: 3px solid var(--tinta); border-bottom: 1px solid var(--linea); background: var(--papel); }
+.servicios-portada__cab { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0 6px; }
+.servicios-portada__cab h2 { margin: 0; font: 700 13px var(--f-ante); text-transform: uppercase; letter-spacing: .08em; color: var(--tinta); }
+.servicio { display: flex; flex-direction: column; gap: 8px; padding: 16px 18px 18px; border-left: 1px solid var(--linea); color: var(--tinta); text-decoration: none; }
+.servicio:first-of-type { border-left: 0; padding-left: 0; }
+.servicio__ante { font: 700 12px var(--f-ante); text-transform: uppercase; letter-spacing: .08em; color: var(--c); }
+.servicio__titulo { margin: 0; font: 400 28px/1 var(--f-marca); color: var(--tinta); }
+.servicio__texto { margin: 0; font: 15px/1.45 var(--f-texto); color: var(--tinta-suave); flex: 1; }
+.servicio__cta { align-self: flex-start; padding: 8px 14px; border: 2px solid var(--c); color: var(--c); font: 700 13px var(--f-ante); text-transform: uppercase; letter-spacing: .04em; }
+.servicio:hover .servicio__cta { background: var(--c); color: #fff; }
+.servicio--denuncia .servicio__cta { background: var(--amarillo); border-color: var(--amarillo); color: #111; }
+.servicio--denuncia:hover .servicio__cta { background: #111; border-color: #111; color: var(--amarillo); }
+@media (max-width: 760px) {
+  .servicios-portada { grid-template-columns: 1fr; }
+  .servicio, .servicio:first-of-type { border-left: 0; border-top: 1px solid var(--linea); padding-inline: 0; }
+}

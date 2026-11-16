@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { CajaBoletin } from '../components/Bloques'
-import { IcoFlecha, IcoMegafono, IcoWhatsapp } from '../components/Iconos'
+import { IcoFlecha, IcoMegafono } from '../components/Iconos'
 import { ErrorCarga, ImagenNota, varTema } from '../components/Piezas'
 import Tarjeta, { ReferenciaFrescura, referenciaFrescura } from '../components/Tarjeta'
 import { PROVINCIAS } from '../config/provincias'
-import { SECCIONES, SITIO, enlaceWhatsApp, type Seccion } from '../config/sitio'
+import { SECCIONES, SITIO, type Seccion } from '../config/sitio'
 import { haceCuanto, masLeidas, ordenarPortada, provinciasDe, tiempo, useNotas, type Nota as NotaT } from '../data/noticias'
 import { useTitulo } from '../hooks/useTitulo'
 import { TarjetaEdicion } from './Mas'
@@ -54,15 +54,30 @@ function NotaDelDia({ nota }: { nota: NotaT }) {
 }
 
 /** Franja promocional de la casa: denuncias por WhatsApp. */
-function PromoDenuncia() {
+/** Servicios para la comunidad: Alerta Mascota, Clasificados y Denuncia, bien a la vista en la portada. */
+function ServiciosComunidad() {
   return (
-    <aside className="lr-promo" aria-label="Haz tu denuncia">
-      <p className="lr-promo__ante"><IcoMegafono size={18} /> Tu voz es noticia</p>
-      <p className="lr-promo__texto">¿Viste algo que Puno debe saber? Envíanos tu denuncia con fotos o videos; protegemos tu identidad.</p>
-      <a className="btn btn--amarillo" href={enlaceWhatsApp('Hola Altiplano al Día, quiero hacer una denuncia: ')} target="_blank" rel="noopener noreferrer">
-        <IcoWhatsapp size={18} /> {SITIO.whatsappVisible}
-      </a>
-    </aside>
+    <section className="servicios-portada" aria-label="Servicios para la comunidad">
+      <div className="servicios-portada__cab"><h2>Servicios para la comunidad</h2></div>
+      <Link to="/alerta-mascota" className="servicio" style={{ '--c': '#B71C1C' } as CSSProperties}>
+        <span className="servicio__ante">Perdidos · encontrados · adopción</span>
+        <p className="servicio__titulo">Alerta Mascota</p>
+        <p className="servicio__texto">¿Se perdió tu perro o tu gato, o encontraste uno? Publica el aviso con foto y ubicación, gratis.</p>
+        <span className="servicio__cta">Ver avisos</span>
+      </Link>
+      <Link to="/anuncios" className="servicio" style={{ '--c': 'var(--azul)' } as CSSProperties}>
+        <span className="servicio__ante">Empleo · compra · venta · alquiler</span>
+        <p className="servicio__titulo">Clasificados</p>
+        <p className="servicio__texto">Ofertas de trabajo, lo que vendes o buscas comprar, cuartos en alquiler y servicios. Publicar no cuesta nada.</p>
+        <span className="servicio__cta">Ver clasificados</span>
+      </Link>
+      <Link to="/denuncia" className="servicio servicio--denuncia" style={{ '--c': '#111' } as CSSProperties}>
+        <span className="servicio__ante"><IcoMegafono size={14} /> Tu voz es noticia</span>
+        <p className="servicio__titulo">Haz tu denuncia</p>
+        <p className="servicio__texto">Cuéntanos qué pasa en tu barrio, con fotos. La verificamos y protegemos tu identidad.</p>
+        <span className="servicio__cta">Denunciar</span>
+      </Link>
+    </section>
   )
 }
 
@@ -317,7 +332,7 @@ export default function Inicio() {
 
             {delDia && <NotaDelDia nota={delDia} />}
 
-            <PromoDenuncia />
+            <ServiciosComunidad />
 
             {destacados.length > 0 && (
               <Panel etiqueta="Destacados">
