@@ -1,13 +1,16 @@
 // Panel de redacción (/admin): entrar con usuario y clave, corregir notas del día o de días anteriores,
 // y (el admin) manejar los usuarios. Todo se guarda en Google Sheets (Apps Script). Las ediciones cambian
 // SOLO la web; el sitio las toma en su próxima compilación (≈15 min, o al publicar el maquetador).
-import { useCallback, useEffect, useState } from 'react'
+import { Suspense, lazy, useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SECCIONES } from '../config/sitio'
 import { useTitulo } from '../hooks/useTitulo'
 import '../styles/admin.css'
 
 const API = (import.meta.env.VITE_SHEETS_API as string | undefined) ?? ''
+// Mapa y visor de fotos de los avisos (se cargan solo al abrir la pestaña Avisos).
+const MapaAviso = lazy(() => import('./Avisos').then((m) => ({ default: m.Mapa })))
+const Ampliar = lazy(() => import('./Avisos').then((m) => ({ default: m.Ampliar })))
 const CLAVE_SESION = 'aad-admin'
 
 interface Sesion { token: string; usuario: string; nombre: string; rol: 'admin' | 'editor' }
@@ -709,7 +712,43 @@ function FotoAviso({ seccion, foto, llamar }: { seccion: string; foto: string; l
       .catch(() => undefined)
     return () => { vivo = false }
   }, [seccion, foto, llamar])
-  return src ? <img className="adm-aviso__foto" src={src} alt="" /> : <div className="adm-sinfoto adm-aviso__foto" />
+  const [grande, setGrande] = useState(false)
+  if (!foto) return <div className="adm-sinfoto adm-aviso__foto" />
+  if (!src) return <div className="adm-sinfoto adm-aviso__foto" />
+  return (
+    <>
+      <button type="button" className="adm-aviso__verfoto" onClick={() => setGrande(true)} title="Ver en grande"><img className="adm-aviso__foto" src={src} alt="" /></button>
+      {grande && <Suspense fallback={null}><Ampliar src={src} alt="Foto del aviso" alCerrar={() => setGrande(false)} /></Suspense>}
+    </>
+  )
+}
+
+/** Mapa para poner o corregir el punto de un aviso (referencial: barrio, calle o lugar conocido). */
+function UbicarAviso({ seccion, a, llamar, alGuardar }: { seccion: string; a: AvisoPanel; llamar: Llamar; alGuardar: () => void }) {
+  const [punto, setPunto] = useState<[number, number] | null>(a.lat != null && a.lng != null ? [a.lat, a.lng] : null)
+  const [estado, setEstado] = useState('')
+  const guardar = async () => {
+    if (!punto) return
+    setEstado('Guardando…')
+    try {
+      await llamar('ubicar_aviso', { seccion, id: a.id, lat: punto[0], lng: punto[1] })
+      alGuardar()
+    } catch (e) {
+      setEstado((e as Error).message)
+    }
+  }
+  return (
+    <div className="adm-ubicar">
+      <p className="adm-nota">Toca el mapa para marcar la ubicación referencial ({a.zona}).</p>
+      <Suspense fallback={<p className="adm-nota">Cargando mapa…</p>}>
+        <MapaAviso elegido={punto} alElegir={setPunto} alto={260} />
+      </Suspense>
+      <div className="adm-acciones">
+        <button className="adm-principal" onClick={guardar} disabled={!punto || estado === 'Guardando…'}>Guardar ubicación</button>
+        {estado && estado !== 'Guardando…' && <span className="adm-error">{estado}</span>}
+      </div>
+    </div>
+  )
 }
 
 function Avisos({ llamar }: { llamar: Llamar }) {
@@ -720,6 +759,7 @@ function Avisos({ llamar }: { llamar: Llamar }) {
   const [error, setError] = useState('')
   const [ok, setOk] = useState('')
   const [ocupado, setOcupado] = useState('')
+  const [ubicando, setUbicando] = useState('')
 
   const cargar = useCallback(() => {
     setAvisos(null)
@@ -786,7 +826,7 @@ function Avisos({ llamar }: { llamar: Llamar }) {
               ))}
               {a.desenlace && <p className="adm-meta"><b>Cómo terminó:</b>&nbsp;{a.desenlace}</p>}
               <p className="adm-meta">
-                📍 {a.zona}{a.provincia ? ` · ${a.provincia}` : ''}
+                📍 {a.zona}{a.provincia ? ` · ${a.provincia}` : ''}{a.lat == null ? ' · sin ubicación en el mapa' : ''}
                 {a.lat != null && a.lng != null && (
                   <> · <a href={`https://www.openstreetmap.org/?mlat=${a.lat}&mlon=${a.lng}#map=17/${a.lat}/${a.lng}`} target="_blank" rel="noopener noreferrer">ver en el mapa</a></>
                 )}
@@ -799,7 +839,11 @@ function Avisos({ llamar }: { llamar: Llamar }) {
                 {a.estado === 'aprobado' && <button disabled={ocupado === a.id} onClick={() => moderar(a, 'resuelto')}>Marcar resuelto</button>}
                 {a.estado !== 'rechazado' && <button disabled={ocupado === a.id} onClick={() => moderar(a, 'rechazado')}>Rechazar</button>}
                 {a.estado !== 'pendiente' && <button disabled={ocupado === a.id} onClick={() => moderar(a, 'pendiente')}>Volver a pendiente</button>}
+                <button onClick={() => setUbicando(ubicando === a.id ? '' : a.id)}>{a.lat != null ? 'Cambiar ubicación' : 'Ubicar en el mapa'}</button>
               </div>
+              {ubicando === a.id && (
+                <UbicarAviso seccion={seccion} a={a} llamar={llamar} alGuardar={() => { setUbicando(''); setOk('Ubicación guardada.'); cargar() }} />
+              )}
             </div>
           </li>
         ))}

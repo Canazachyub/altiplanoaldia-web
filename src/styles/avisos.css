@@ -163,3 +163,10 @@
 .av-novedades { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .av-novedad__foto { display: block; margin-top: 6px; }
 .av-novedad__foto img { width: 100%; max-height: 180px; object-fit: cover; display: block; }
+
+/* foto en grande */
+.av-ficha__ver { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.av-novedad__foto { padding: 0; border: 0; background: none; cursor: zoom-in; width: 100%; }
+.av-ampliar { position: fixed; inset: 0; z-index: 2000; display: grid; place-items: center; padding: 16px; background: rgb(0 0 0 / .88); cursor: zoom-out; }
+.av-ampliar img { max-width: 100%; max-height: 100%; object-fit: contain; cursor: default; box-shadow: 0 10px 40px rgb(0 0 0 / .5); }
+.av-ampliar__cerrar { position: absolute; top: 10px; right: 14px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgb(255 255 255 / .15); color: #fff; font: 400 32px/1 var(--f-ante); cursor: pointer; }

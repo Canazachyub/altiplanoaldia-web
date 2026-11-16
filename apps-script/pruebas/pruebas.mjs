@@ -560,6 +560,16 @@ prueba('crear_nota: pide sesión, valida, guarda en «Propias» con foto en Nota
   assert.equal(G.post({ accion: 'editar', token: tokenAdmin, id: r.id, dia, cambios: { titular: 'Titular corregido de la nota propia', oculta: false } }).ok, true)
 })
 
+prueba('ubicar_aviso: el editor (o quien publicó, con su código) pone el punto del mapa', () => {
+  const r = G.post({ accion: 'enviar_aviso', seccion: 'mascotas', datos: { ...AVISO, lat: '', lng: '', contacto: '961000009' } })
+  assert.equal(G.post({ accion: 'ubicar_aviso', seccion: 'mascotas', id: r.id, lat: -15.84, lng: -70.02 }).ok, false, 'sin sesión ni código no')
+  assert.equal(G.post({ accion: 'ubicar_aviso', token: tokenAdmin, seccion: 'mascotas', id: r.id, lat: -15.8401, lng: -70.0222 }).ok, true)
+  assert.equal(filaDe('Mascotas', r.id).lat, -15.8401)
+  assert.equal(G.post({ accion: 'ubicar_aviso', seccion: 'mascotas', id: r.id, clave: r.clave, lat: -15.5, lng: -70.13 }).ok, true)
+  assert.equal(filaDe('Mascotas', r.id).lng, -70.13)
+  assert.match(G.post({ accion: 'ubicar_aviso', token: tokenAdmin, seccion: 'mascotas', id: r.id, lat: 40, lng: -3 }).error, /ubicación/)
+})
+
 console.log('\nRobustez')
 prueba('pedido no JSON y acción desconocida responden con error claro', () => {
   assert.equal(JSON.parse(G.api.doPost({ postData: { contents: 'no-json' } }).texto).error, 'Pedido inválido.')

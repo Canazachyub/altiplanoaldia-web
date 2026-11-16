@@ -84,3 +84,6 @@
 .adm-etq--propia { background: color-mix(in srgb, #2E7D32 14%, var(--papel)); color: #2E7D32; }
 .adm-fila-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
 @media (max-width: 640px) { .adm-filtros--tres { grid-template-columns: 1fr; } }
+
+.adm-aviso__verfoto { padding: 0; border: 0; background: none; cursor: zoom-in; align-self: start; }
+.adm-ubicar { display: grid; gap: 8px; margin-top: 10px; }

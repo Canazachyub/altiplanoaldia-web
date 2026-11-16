@@ -177,7 +177,7 @@ async function comprimir(archivo: File): Promise<{ b64: string; tipo: string; vi
 // ------------------------------------------------------------------ mapa (OpenStreetMap)
 interface Punto { id: string; lat: number; lng: number; color: string; texto: string }
 
-function Mapa({ puntos, elegido, alElegir, alto = 340, alTocarPunto, zoomMax = 15 }: {
+export function Mapa({ puntos, elegido, alElegir, alto = 340, alTocarPunto, zoomMax = 15 }: {
   puntos?: Punto[]
   elegido?: [number, number] | null
   alElegir?: (p: [number, number]) => void
@@ -234,6 +234,23 @@ function Mapa({ puntos, elegido, alElegir, alto = 340, alTocarPunto, zoomMax = 1
   }, [elegido])
 
   return <div ref={caja} className="av-mapa" style={{ height: alto }} role="application" aria-label="Mapa de OpenStreetMap" />
+}
+
+// ------------------------------------------------------------------ ver la foto en grande
+export function Ampliar({ src, alt, alCerrar }: { src: string; alt: string; alCerrar: () => void }) {
+  useEffect(() => {
+    const tecla = (e: KeyboardEvent) => { if (e.key === 'Escape') alCerrar() }
+    document.addEventListener('keydown', tecla)
+    const antes = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => { document.removeEventListener('keydown', tecla); document.body.style.overflow = antes }
+  }, [alCerrar])
+  return (
+    <div className="av-ampliar" role="dialog" aria-modal="true" aria-label={alt} onClick={alCerrar}>
+      <img src={src} alt={alt} onClick={(e) => e.stopPropagation()} />
+      <button type="button" className="av-ampliar__cerrar" onClick={alCerrar} aria-label="Cerrar">×</button>
+    </div>
+  )
 }
 
 // ------------------------------------------------------------------ código para gestionar el aviso
@@ -507,6 +524,7 @@ function textoAviso(seccion: Seccion, a: Aviso, titulo: string, url: string) {
 function Ficha({ seccion, a, resaltado }: { seccion: Seccion; a: Aviso; resaltado: boolean }) {
   const t = tipoDe(seccion, a.tipo)
   const [conFoto, setConFoto] = useState(!!a.foto)
+  const [grande, setGrande] = useState('')
   const titulo = tituloDe(seccion, a)
   const archivo = a.etapa === 'archivo'
   const prov = a.provincia && a.provincia !== 'otra' ? nombreProvincia(a.provincia) : ''
@@ -517,8 +535,13 @@ function Ficha({ seccion, a, resaltado }: { seccion: Seccion; a: Aviso; resaltad
     <article id={`aviso-${a.id}`} className={`av-ficha${resaltado ? ' av-ficha--resaltada' : ''}${archivo ? ' av-ficha--archivo' : ''}`} style={{ '--tipo': t.color } as CSSProperties}>
       <div className={`av-ficha__foto${conFoto ? "" : " av-ficha__foto--sin"}${seccion === "mascotas" ? "" : " av-ficha__foto--texto"}`}>
         {conFoto
-          ? <img src={fotoDrive(a.foto)} alt={titulo} loading="lazy" onError={() => setConFoto(false)} />
+          ? (
+            <button type="button" className="av-ficha__ver" onClick={() => setGrande(fotoDrive(a.foto, 1600))} aria-label={`Ver la foto de ${titulo} en grande`}>
+              <img src={fotoDrive(a.foto)} alt={titulo} loading="lazy" onError={() => setConFoto(false)} />
+            </button>
+          )
           : <div className="av-ficha__sinfoto">{seccion === 'mascotas' ? <IcoHuella /> : <span>{t.nombre}</span>}</div>}
+        {grande && <Ampliar src={grande} alt={titulo} alCerrar={() => setGrande('')} />}
         {cerrado && <span className="av-ficha__sello">{seccion === 'mascotas' && a.tipo === 'perdido' ? 'Volvió a casa' : 'Cerrado'}</span>}
       </div>
       <div className="av-ficha__cuerpo">
@@ -532,9 +555,9 @@ function Ficha({ seccion, a, resaltado }: { seccion: Seccion; a: Aviso; resaltad
               <li key={i} className="av-ficha__novedad">
                 <b>Novedad, {fechaCorta(n.fecha)}:</b> {n.texto}
                 {n.foto && (
-                  <a className="av-novedad__foto" href={fotoDrive(n.foto, 1600)} target="_blank" rel="noopener noreferrer">
+                  <button type="button" className="av-novedad__foto" onClick={() => setGrande(fotoDrive(n.foto, 1600))} aria-label="Ver la foto de la novedad en grande">
                     <img src={fotoDrive(n.foto, 400)} alt="Foto de la novedad" loading="lazy" onError={(e) => { (e.currentTarget.parentElement as HTMLElement).style.display = 'none' }} />
-                  </a>
+                  </button>
                 )}
               </li>
             ))}

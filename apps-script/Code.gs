@@ -138,6 +138,7 @@ function doPost(e) {
       fotos_faltan: fotosFaltan_, subir_foto: subirFotoApi_, subir_foto_edicion: subirFotoEdicion_,
       enviar_aviso: enviarAviso_, avisos_admin: avisosAdmin_, moderar_aviso: moderarAviso_, foto_aviso: fotoAviso_,
       mi_aviso: miAviso_, actualizar_aviso: actualizarAviso_, cerrar_aviso: cerrarAviso_, crear_nota: crearNota_,
+      ubicar_aviso: ubicarAviso_,
     }
     const f = acciones[d.accion]
     if (!f) return json_({ ok: false, error: 'Acción desconocida.' })
@@ -997,6 +998,33 @@ function actualizarAviso_(d) {
   registrar_('publico', 'aviso_novedad', x.a.id, x.c.hoja + (foto ? ' (con foto)' : ''))
   CacheService.getScriptCache().remove('avisos:' + x.seccion)
   return { novedades: lista.length }
+}
+
+/** Pone o corrige el punto del mapa: un editor (sesión) o quien publicó (id + código). */
+function ubicarAviso_(d) {
+  let x
+  if (d.token) {
+    const u = sesion_(d)
+    const seccion = String(d.seccion || '')
+    const c = seccionAviso_(seccion)
+    const h = hoja_(c.hoja, c.cols)
+    const ids = h.getRange(1, 1, Math.max(1, h.getLastRow()), 1).getValues()
+    let fila = 0
+    for (let i = 1; i < ids.length; i++) if (String(ids[i][0]) === String(d.id)) fila = i + 1
+    if (!fila) throw new Error('Aviso no encontrado.')
+    x = { c: c, h: h, fila: fila, seccion: seccion, usuario: u.usuario, col: function (k) { return c.cols.indexOf(k) + 1 } }
+  } else {
+    x = avisoConClave_(d)
+    x.usuario = 'publico'
+  }
+  const lat = coordenada_(d.lat, -18.5, 0)
+  const lng = coordenada_(d.lng, -81.5, -68.5)
+  if ((lat === '') !== (lng === '')) throw new Error('La ubicación del mapa no es válida.')
+  x.h.getRange(x.fila, x.col('lat')).setValue(lat)
+  x.h.getRange(x.fila, x.col('lng')).setValue(lng)
+  registrar_(x.usuario, 'aviso_ubicacion', d.id, x.c.hoja)
+  CacheService.getScriptCache().remove('avisos:' + x.seccion)
+  return {}
 }
 
 /** Cierra el aviso con su desenlace. Si aún no estaba publicado, solo se retira (nunca llega a la web). */
