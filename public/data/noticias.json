@@ -263,6 +263,39 @@
   "imagen_compartir": null
  },
  {
+  "id": 1101,
+  "slug": "capturan-mas-de-12-roedores-en-el-puerto-muelle",
+  "titular": "Capturan más de 12 roedores en el Puerto Muelle",
+  "bajada": "El Programa Especial Bahía del Lago instaló más de 30 trampas Tomahawk para prevenir enfermedades zoonóticas como la leptospirosis.",
+  "antetitulo": "DESRATIZACIÓN PARA PREVENIR LA LEPTOSPIROSIS",
+  "lugar": "Puno",
+  "cuerpo": [
+   "El Programa Especial Bahía del Lago instaló más de 30 trampas Tomahawk en el Puerto Muelle de Puno, junto con la Municipalidad Provincial. Tras una noche, capturó a más de 12 roedores.",
+   "La acción busca evitar enfermedades como la leptospirosis. El programa continuará con jornadas de desratización en las riberas del lago Titicaca."
+  ],
+  "datos": [
+   "Más de 12 roedores capturados",
+   "Más de 30 trampas tipo Tomahawk instaladas",
+   "Riesgo de leptospirosis"
+  ],
+  "tema": "Salud",
+  "seccion": "salud",
+  "ambito": "DISTRITAL",
+  "fecha": "2026-11-18T18:34:39",
+  "imagen": "img/noticias/n1101-593924a0.jpg",
+  "foco": "50% 38%",
+  "pie": "Capturan más de 12 roedores en el Puerto Muelle",
+  "credito": "",
+  "medios": [],
+  "fuentes": 1,
+  "enlaces": [],
+  "boletin": 12,
+  "edicion": 12,
+  "impacto": 4,
+  "fijada": false,
+  "imagen_compartir": "img/compartir/n1101-053deed9.jpg"
+ },
+ {
   "id": 1100,
   "slug": "comuna-de-puno-interna-siete-vehiculos-en-operativo",
   "titular": "Comuna de Puno interna siete vehículos en operativo",
@@ -600,6 +633,40 @@
   "imagen_compartir": "img/compartir/n1086-f76d85f3.jpg"
  },
  {
+  "id": 1085,
+  "slug": "tres-empresas-deportivas-de-juliaca-iran-a-carros-locos-2026",
+  "titular": "Tres empresas deportivas de Juliaca irán a Carros Locos 2026",
+  "bajada": "Santa Cruz, Context y Lex Sport confirman su presencia en la actividad por el centenario de la ciudad.",
+  "antetitulo": "ACTIVIDAD POR LOS 100 AÑOS DE LA CIUDAD",
+  "lugar": "Juliaca",
+  "cuerpo": [
+   "Las empresas deportivas Santa Cruz, Context y Lex Sport participarán en los Carros Locos 2026, actividad organizada en el marco del centenario de Juliaca.",
+   "La convocatoria reúne a estos equipos locales, que se suman a los festejos por los 100 años de la ciudad. Su participación fue confirmada junto con un mensaje de felicitación por el centenario.",
+   "Los organizadores no han precisado aún la fecha ni el recorrido del evento."
+  ],
+  "datos": [
+   "Santa Cruz, Context y Lex Sport participan en los Carros Locos 2026",
+   "La actividad se realiza por el centenario de Juliaca",
+   "Aún no se precisan fecha ni recorrido"
+  ],
+  "tema": "Deportes",
+  "seccion": "deportes",
+  "ambito": "REGIONAL",
+  "fecha": "2026-11-18T18:14:22",
+  "imagen": "img/noticias/n1085-13109120.jpg",
+  "foco": "44% 46%",
+  "pie": "Tres empresas deportivas de Juliaca irán a Carros Locos 2026",
+  "credito": "",
+  "medios": [],
+  "fuentes": 1,
+  "enlaces": [],
+  "boletin": 12,
+  "edicion": 12,
+  "impacto": 3,
+  "fijada": false,
+  "imagen_compartir": "img/compartir/n1085-1298192a.jpg"
+ },
+ {
   "id": 1082,
   "slug": "consejero-abad-vizcarra-pide-al-congreso-investigar-gestion-regional-2023-2026",
   "titular": "Consejero Abad Vizcarra pide al Congreso investigar gestión regional 2023-2026",
@@ -695,8 +762,8 @@
   "seccion": "deportes",
   "ambito": "REGIONAL",
   "fecha": "2026-11-18T18:05:49",
-  "imagen": "img/noticias/n1077-c9dcb1d5.jpg",
-  "foco": "50% 29%",
+  "imagen": null,
+  "foco": null,
   "pie": "Binacional no jugaría la Liga 1 por sus deudas",
   "credito": "",
   "medios": [],
@@ -706,7 +773,7 @@
   "edicion": 12,
   "impacto": 6,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n1077-58b72b3d.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 1075,
@@ -729,8 +796,8 @@
   "seccion": "sociedad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-18T18:05:00",
-  "imagen": "img/noticias/n1075-d941d38a.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "San Román entrega obra de movilidad urbana en Florida y Tahuantinsuyo",
   "credito": "",
   "medios": [],
@@ -740,7 +807,7 @@
   "edicion": 12,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n1075-bf7e3677.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 1035,
@@ -1457,8 +1524,8 @@
   "seccion": "politica",
   "ambito": "NACIONAL",
   "fecha": "2026-11-18T14:12:00",
-  "imagen": "img/noticias/n1031-65946b85.jpg",
-  "foco": "54% 34%",
+  "imagen": null,
+  "foco": null,
   "pie": "Keiko Fujimori viajará a Colombia para reunirse con De la Espriella",
   "credito": "",
   "medios": [],
@@ -1468,7 +1535,7 @@
   "edicion": null,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n1031-558467f6.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 1030,
