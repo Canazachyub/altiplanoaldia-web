@@ -11,6 +11,8 @@ const API = (import.meta.env.VITE_SHEETS_API as string | undefined) ?? ''
 // Mapa y visor de fotos de los avisos (se cargan solo al abrir la pestaña Avisos).
 const MapaAviso = lazy(() => import('./Avisos').then((m) => ({ default: m.Mapa })))
 const Ampliar = lazy(() => import('./Avisos').then((m) => ({ default: m.Ampliar })))
+// Credenciales de prensa (solo admin): se carga al abrir la pestaña.
+const Credenciales = lazy(() => import('./AdminCredenciales'))
 const CLAVE_SESION = 'aad-admin'
 
 interface Sesion { token: string; usuario: string; nombre: string; rol: 'admin' | 'editor' }
@@ -78,7 +80,7 @@ export default function Admin() {
   useTitulo('Panel de redacción')
   useNoIndexar()
   const [sesion, setSesion] = useState<Sesion | null>(leerSesion)
-  const [vista, setVista] = useState<'notas' | 'avisos' | 'usuarios' | 'clave'>('notas')
+  const [vista, setVista] = useState<'notas' | 'avisos' | 'usuarios' | 'credenciales' | 'clave'>('notas')
   const salir = useCallback(() => {
     if (sesion) api('salir', { token: sesion.token }).catch(() => undefined)
     guardarSesion(null)
@@ -125,11 +127,17 @@ export default function Admin() {
           {sesion.rol === 'admin' && (
             <button className={vista === 'usuarios' ? 'activo' : ''} onClick={() => setVista('usuarios')}>Usuarios</button>
           )}
+          {sesion.rol === 'admin' && (
+            <button className={vista === 'credenciales' ? 'activo' : ''} onClick={() => setVista('credenciales')}>Credenciales</button>
+          )}
           <button className={vista === 'clave' ? 'activo' : ''} onClick={() => setVista('clave')}>Mi clave</button>
           <button onClick={salir}>Salir</button>
         </nav>
       </header>
-      {(vista === 'notas' || (vista === 'usuarios' && sesion.rol !== 'admin')) && <Notas llamar={llamar} />}
+      {(vista === 'notas' || ((vista === 'usuarios' || vista === 'credenciales') && sesion.rol !== 'admin')) && <Notas llamar={llamar} />}
+      {vista === 'credenciales' && sesion.rol === 'admin' && (
+        <Suspense fallback={<p className="adm-cargando">Cargando…</p>}><Credenciales llamar={llamar} /></Suspense>
+      )}
       {vista === 'usuarios' && sesion.rol === 'admin' && <Usuarios llamar={llamar} yo={sesion.usuario} />}
       {vista === 'avisos' && <Avisos llamar={llamar} />}
       {vista === 'clave' && <MiClave llamar={llamar} />}

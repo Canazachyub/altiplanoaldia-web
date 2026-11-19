@@ -133,3 +133,14 @@ Altiplano al Día/
 - **Anonimato:** se pueden enviar sin celular.
 
 **Plantilla.** `Estructura_Sheets_Altiplano.xlsx` trae todas las pestañas con sus encabezados exactos, junto con el diccionario de columnas, el flujo web → Sheets → Drive y el árbol de Drive.
+
+## Credenciales de prensa
+
+- **Emitir:** en `/admin`, pestaña **Credenciales** (solo el admin), elige «+ Nueva credencial».
+  - Se llena nombre, cargo, DNI, vencimiento y foto. La foto se recorta sola al formato 3:4.
+  - El servidor asigna un código `AAD-XXXXXX`. Las filas quedan en la hoja «Credenciales» y las fotos en Drive, en «Credenciales», en privado.
+- **Imprimir:** con «Ver e imprimir» se imprimen frente y dorso a tamaño CR80 (54 × 85,6 mm), al 100 %. También se pueden bajar en SVG para retocarlos en Inkscape.
+- **Validar:** el QR abre `altiplanoaldia.pe/verificar/<código>`. Esa página muestra si la credencial está vigente, vencida, revocada o no registrada, con foto y nombre. El DNI aparece tapado (`****1234`).
+- **Revocar:** en «Editar», marca «Revocar» y escribe el motivo. La validación lo muestra al instante.
+- **Diseño:** la plantilla está en `public/brand/credencial/frente.svg` y `dorso.svg`. Se regenera con `node scripts/credencial/construir.mjs --pdf`. Si se edita en Inkscape, hay que conservar los textos `{{…}}` y los grupos `qr-frente` y `qr-dorso`.
+- **Vista previa con foto real**, sin emitir: `node scripts/credencial/vista-previa.mjs <foto> "<Nombre>" "<Cargo>" [DNI] [vence] [carpeta]`.

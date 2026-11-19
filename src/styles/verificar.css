@@ -1,0 +1,34 @@
+/* /verificar: validación pública de la credencial de prensa */
+.ver { max-width: 640px; margin: 0 auto; padding: var(--s8) var(--s4) var(--s12); display: grid; gap: var(--s6); }
+.ver-cab h1 { margin: 4px 0 6px; font: 400 clamp(28px, 6vw, 40px)/1.1 var(--f-marca); color: var(--azul); }
+.ver-cab p { margin: 0; color: var(--tinta-suave); font: 400 16px/1.5 var(--f-texto); }
+.ver-ante { font: 700 13px/1 var(--f-ante) !important; letter-spacing: .14em; color: var(--tinta-suave); }
+.ver-form { display: grid; grid-template-columns: 1fr auto; gap: var(--s2); align-items: end; }
+.ver-form label { grid-column: 1 / -1; font: 600 14px/1 var(--f-ante); color: var(--tinta-suave); }
+.ver-form input { min-width: 0; padding: 12px 14px; border: 2px solid var(--linea); border-radius: var(--radio);
+  background: var(--papel); color: var(--tinta); font: 700 20px/1 var(--f-ante); letter-spacing: .08em; text-transform: uppercase; }
+.ver-form input:focus { outline: none; border-color: var(--azul); }
+.ver-form button { padding: 12px 20px; border: 0; border-radius: var(--radio); background: var(--azul); color: #fff;
+  font: 700 17px/1 var(--f-ante); cursor: pointer; }
+.ver-cargando, .ver-volver { margin: 0; color: var(--tinta-suave); font: 400 15px/1.4 var(--f-meta); }
+.ver-error { margin: 0; padding: 12px; border-radius: var(--radio); background: color-mix(in srgb, var(--alerta) 12%, var(--papel));
+  color: var(--alerta); font: 600 15px/1.4 var(--f-ante); }
+.ver-res { --c: var(--alerta); border: 3px solid var(--c); border-radius: 10px; overflow: hidden; background: var(--papel); box-shadow: var(--sombra); }
+.ver-vigente { --c: #1B8A3A; }
+.ver-vencida { --c: #C77700; }
+.ver-sello { display: flex; gap: var(--s4); align-items: center; padding: var(--s4) var(--s6); background: var(--c); color: #fff; }
+.ver-sello > span { flex: none; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
+  background: rgb(255 255 255 / .2); font: 700 28px/1 var(--f-ante); }
+.ver-sello h2 { margin: 0 0 4px; font: 800 24px/1.1 var(--f-ante); text-transform: uppercase; letter-spacing: .03em; }
+.ver-sello p { margin: 0; font: 500 15px/1.35 var(--f-ante); }
+.ver-ficha { display: grid; grid-template-columns: 150px 1fr; gap: var(--s6); padding: var(--s6); align-items: start; }
+.ver-ficha img { width: 150px; aspect-ratio: 220 / 272; object-fit: cover; border-radius: 8px; border: 3px solid var(--azul); }
+.ver-ficha dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; }
+.ver-ficha dt { color: var(--tinta-suave); font: 600 13px/1.6 var(--f-ante); text-transform: uppercase; letter-spacing: .06em; }
+.ver-ficha dd { margin: 0; color: var(--tinta); font: 700 17px/1.4 var(--f-ante); }
+.ver-revocada .ver-ficha, .ver-vencida .ver-ficha { opacity: .75; }
+.ver-pie { margin: 0; padding: var(--s4) var(--s6) var(--s6); color: var(--tinta-suave); font: 400 14px/1.5 var(--f-texto); }
+@media (max-width: 520px) {
+  .ver-ficha { grid-template-columns: 1fr; justify-items: center; }
+  .ver-ficha dl { width: 100%; }
+}

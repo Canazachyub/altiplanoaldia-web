@@ -25,6 +25,11 @@
  *   avisos_admin, moderar_aviso, foto_aviso        (editores) revisar, aprobar, rechazar, marcar resuelto
  *   mi_aviso, actualizar_aviso, cerrar_aviso        (quien publicó, con su código) ver el estado, contar
  *                                                   una novedad, cerrar el aviso explicando cómo terminó
+ *
+ * Credenciales de prensa de los colaboradores (hoja «Credenciales», fotos en Drive «Credenciales»):
+ *   GET ?accion=credencial&codigo=AAD-XXXXXX   (público) la valida el QR de la credencial: vigente, vencida,
+ *                                              revocada o inexistente, con nombre, cargo, foto y vigencia
+ *   credenciales, guardar_credencial           (solo admin) listar, emitir, renovar o revocar
  */
 
 const H_HOY = 'Hoy'
@@ -77,6 +82,8 @@ function inicializar() {
     hoja_(c.hoja, c.cols)
     c.tipos.forEach(function (t) { carpetaRuta_([c.carpeta, c.carpetas[t]]) })   // deja visible el árbol desde el inicio
   })
+  hoja_(H_CREDENCIALES, COLS_CREDENCIAL)
+  carpetaRuta_([CARPETA_CREDENCIALES])
   activarDepuracion_()
   let aviso = 'Hojas listas.'
   if (us.getLastRow() < 2) {
@@ -105,6 +112,13 @@ function restablecerAdmin() {
 function doGet(e) {
   const accion = (e && e.parameter && e.parameter.accion) || ''
   if (accion === 'ediciones') return json_(edicionesPublicas_())
+  if (accion === 'credencial') {
+    try {
+      return json_(Object.assign({ ok: true }, credencialPublica_(e.parameter.codigo)))
+    } catch (err) {
+      return json_({ ok: false, error: String((err && err.message) || err) })
+    }
+  }
   if (accion === 'avisos') {
     try {
       return json_(Object.assign({ ok: true }, avisosPublicos_(e.parameter.seccion)))
@@ -138,7 +152,7 @@ function doPost(e) {
       fotos_faltan: fotosFaltan_, subir_foto: subirFotoApi_, subir_foto_edicion: subirFotoEdicion_,
       enviar_aviso: enviarAviso_, avisos_admin: avisosAdmin_, moderar_aviso: moderarAviso_, foto_aviso: fotoAviso_,
       mi_aviso: miAviso_, actualizar_aviso: actualizarAviso_, cerrar_aviso: cerrarAviso_, crear_nota: crearNota_,
-      ubicar_aviso: ubicarAviso_,
+      ubicar_aviso: ubicarAviso_, credenciales: credenciales_, guardar_credencial: guardarCredencial_,
     }
     const f = acciones[d.accion]
     if (!f) return json_({ ok: false, error: 'Acción desconocida.' })
@@ -1083,6 +1097,138 @@ function aleatorio_(n) {
   return s
 }
 
+// ------------------------------------------------------------------ credenciales de prensa
+// Cada colaborador tiene una fila con un código único (AAD-XXXXXX) que va impreso en su credencial y en el QR.
+// El QR abre altiplanoaldia.pe/verificar/<código>; esa página consulta GET ?accion=credencial y muestra si la
+// credencial está vigente. La foto queda privada en Drive: el servidor la entrega en base64, nunca un enlace.
+// El DNI solo se imprime en la credencial; la validación pública lo muestra tapado (****5678).
+const H_CREDENCIALES = 'Credenciales'
+const COLS_CREDENCIAL = ['codigo', 'nombre', 'cargo', 'dni', 'foto', 'emitida', 'vence', 'estado', 'motivo',
+  'creado_por', 'creado', 'actualizado']
+const CARPETA_CREDENCIALES = 'Credenciales'
+const CODIGO_CRED = /^AAD-[A-HJ-NP-Z2-9]{6}$/
+const FECHA_CRED = /^\d{4}-\d{2}-\d{2}$/
+
+function fechaCred_(v) {
+  if (v instanceof Date) return Utilities.formatDate(v, 'America/Lima', 'yyyy-MM-dd')
+  return String(v || '').slice(0, 10)
+}
+
+function hoyLima_() {
+  return Utilities.formatDate(new Date(), 'America/Lima', 'yyyy-MM-dd')
+}
+
+function estadoCred_(c) {
+  if (String(c.estado) === 'revocada') return 'revocada'
+  return fechaCred_(c.vence) < hoyLima_() ? 'vencida' : 'vigente'
+}
+
+function credencialesFilas_() {
+  return filas_(hoja_(H_CREDENCIALES, COLS_CREDENCIAL))
+}
+
+function codigoCredencial_() {
+  const usados = {}
+  credencialesFilas_().forEach(function (c) { usados[String(c.codigo)] = true })
+  for (let i = 0; i < 20; i++) {
+    const c = 'AAD-' + aleatorio_(40).replace(/[^A-HJ-NP-Z2-9]/g, '').slice(0, 6)
+    if (CODIGO_CRED.test(c) && !usados[c]) return c
+  }
+  throw new Error('No se pudo generar un código. Intenta otra vez.')
+}
+
+function fotoCredB64_(id) {
+  if (!id) return ''
+  try {
+    const f = DriveApp.getFileById(String(id))
+    if (!dentroDe_(f, carpetaRuta_([CARPETA_CREDENCIALES]).getId())) return ''
+    return 'data:' + (f.getMimeType ? f.getMimeType() : 'image/jpeg') + ';base64,' + Utilities.base64Encode(f.getBlob().getBytes())
+  } catch (x) {
+    return ''
+  }
+}
+
+function dniTapado_(dni) {
+  const s = String(dni || '').replace(/\D/g, '')
+  return s ? '****' + s.slice(-4) : ''
+}
+
+/** Validación pública (la abre el QR). No revela el DNI completo ni datos de quién la emitió. */
+function credencialPublica_(codigo) {
+  const cod = String(codigo || '').trim().toUpperCase()
+  if (!CODIGO_CRED.test(cod)) return { valida: false, estado: 'no_existe', codigo: cod }
+  const c = credencialesFilas_().filter(function (x) { return String(x.codigo) === cod })[0]
+  if (!c) return { valida: false, estado: 'no_existe', codigo: cod }
+  const estado = estadoCred_(c)
+  return {
+    valida: estado === 'vigente', estado: estado, codigo: cod, nombre: String(c.nombre), cargo: String(c.cargo),
+    dni: dniTapado_(c.dni), emitida: fechaCred_(c.emitida), vence: fechaCred_(c.vence),
+    motivo: estado === 'revocada' ? String(c.motivo || '') : '', foto: fotoCredB64_(c.foto),
+  }
+}
+
+/** Lista para el panel (solo admin). Con foto si se pide un código, para imprimir la credencial. */
+function credenciales_(d) {
+  sesion_(d, true)
+  const lista = credencialesFilas_().map(function (c) {
+    return { codigo: String(c.codigo), nombre: String(c.nombre), cargo: String(c.cargo), dni: String(c.dni || ''),
+      emitida: fechaCred_(c.emitida), vence: fechaCred_(c.vence), estado: estadoCred_(c), motivo: String(c.motivo || ''),
+      tiene_foto: !!c.foto }
+  })
+  const r = { credenciales: lista.reverse() }
+  if (d.codigo) {
+    const c = credencialesFilas_().filter(function (x) { return String(x.codigo) === String(d.codigo) })[0]
+    r.foto = c ? fotoCredB64_(c.foto) : ''
+  }
+  return r
+}
+
+/** Emitir (sin código) o actualizar (con código) una credencial. Revocar = estado «revocada» con motivo. */
+function guardarCredencial_(d) {
+  const u = sesion_(d, true)
+  const x = d.datos || {}
+  const nombre = limpio_(x.nombre, 80)
+  const cargo = limpio_(x.cargo, 60)
+  const dni = String(x.dni || '').replace(/\D/g, '').slice(0, 12)
+  const vence = String(x.vence || '')
+  const estado = x.estado === 'revocada' ? 'revocada' : 'activa'
+  if (nombre.length < 5) throw new Error('Escribe el nombre completo.')
+  if (cargo.length < 3) throw new Error('Escribe el cargo (p. ej. Reportero).')
+  if (dni && !/^\d{8}$/.test(dni)) throw new Error('El DNI debe tener 8 dígitos.')
+  if (!FECHA_CRED.test(vence)) throw new Error('Fecha de vencimiento inválida.')
+  if (estado === 'revocada' && limpio_(x.motivo, 200).length < 3) throw new Error('Indica el motivo de la revocación.')
+  const h = hoja_(H_CREDENCIALES, COLS_CREDENCIAL)
+  const ahora = new Date()
+  let codigo = String(x.codigo || '')
+  let fila = 0
+  let anterior = null
+  if (codigo) {
+    const datos = h.getDataRange().getValues()
+    for (let i = 1; i < datos.length; i++) if (String(datos[i][0]) === codigo) { fila = i + 1; anterior = datos[i] }
+    if (!fila) throw new Error('Credencial no encontrada.')
+  } else {
+    codigo = codigoCredencial_()
+  }
+  let foto = anterior ? String(anterior[4] || '') : ''
+  if (x.foto_b64) {
+    const tipo = x.foto_tipo || 'image/jpeg'
+    const bytes = Utilities.base64Decode(x.foto_b64)
+    if (bytes.length > 2 * 1024 * 1024) throw new Error('La foto pesa demasiado (máx. 2 MB).')
+    if (!/^image\/(jpeg|png|webp)$/.test(tipo)) throw new Error('Formato de foto no admitido (JPG, PNG o WEBP).')
+    const f = carpetaRuta_([CARPETA_CREDENCIALES]).createFile(Utilities.newBlob(bytes, tipo, codigo + '-' + ahora.getTime() + '.jpg'))
+    if (foto) { try { DriveApp.getFileById(foto).setTrashed(true) } catch (e) { /* ya no estaba */ } }
+    foto = f.getId()
+  }
+  if (!foto) throw new Error('Falta la foto del colaborador.')
+  const valores = [codigo, nombre, cargo, dni ? "'" + dni : '', foto,
+    anterior ? anterior[5] : fechaCred_(ahora), "'" + vence, estado, estado === 'revocada' ? limpio_(x.motivo, 200) : '',
+    anterior ? anterior[9] : u.usuario, anterior ? anterior[10] : ahora, ahora]
+  if (fila) h.getRange(fila, 1, 1, valores.length).setValues([valores])
+  else h.appendRow(valores)
+  registrar_(u.usuario, fila ? 'editar_credencial' : 'emitir_credencial', codigo, nombre + ' · ' + estado)
+  return { codigo: codigo }
+}
+
 function hoja_(nombre, cols) {
   const ss = SpreadsheetApp.getActive()
   let h = ss.getSheetByName(nombre)
@@ -1124,7 +1270,8 @@ function mapaEdiciones_() {
 
 function ordenarHojas_() {
   const ss = SpreadsheetApp.getActive()
-  const fijas = [H_HOY, H_EDICIONES, H_PROPIAS, H_USUARIOS, H_REGISTRO, AVISOS.mascotas.hoja, AVISOS.anuncios.hoja, AVISOS.denuncias.hoja]
+  const fijas = [H_HOY, H_EDICIONES, H_PROPIAS, H_USUARIOS, H_REGISTRO, AVISOS.mascotas.hoja, AVISOS.anuncios.hoja, AVISOS.denuncias.hoja,
+    H_CREDENCIALES]
   const dias = ss.getSheets().map(function (h) { return h.getName() }).filter(function (n) { return DIA.test(n) }).sort().reverse()
   fijas.concat(dias).forEach(function (n, i) {
     const h = ss.getSheetByName(n)

@@ -96,7 +96,7 @@ prueba('volver a publicar el día reemplaza (no duplica) y quita notas que ya no
 })
 prueba('cada día queda en su hoja (archivo) y las hojas se ordenan', () => {
   G.post({ accion: 'publicar', clave: claveApi, dia: '2026-11-06', notas: [{ ...NOTAS[0], id: 90, slug: 'ayer' }] })
-  assert.deepEqual(G.hojas.map((h) => h.nombre), ['Hoy', 'Ediciones', 'Propias', 'Usuarios', 'Registro', 'Mascotas', 'Anuncios', 'Denuncias', '2026-11-07', '2026-11-06'])
+  assert.deepEqual(G.hojas.map((h) => h.nombre), ['Hoy', 'Ediciones', 'Propias', 'Usuarios', 'Registro', 'Mascotas', 'Anuncios', 'Denuncias', 'Credenciales', '2026-11-07', '2026-11-06'])
   assert.equal(G.hoja('Hoy').datos[1][0], 90, '«Hoy» es la última publicación')
   G.post({ accion: 'publicar', clave: claveApi, dia: '2026-11-07', notas: NOTAS })
 })
@@ -573,6 +573,58 @@ prueba('ubicar_aviso: el editor (o quien publicó, con su código) pone el punto
 prueba('ningún código ni clave cifrada queda como fórmula en Sheets (aunque empiece con +)', () => {
   for (let i = 0; i < 40; i++) G.post({ accion: 'enviar_aviso', seccion: 'denuncias', datos: { tipo: 'otro', descripcion: 'Prueba de cifrado número ' + i + ' con texto suficiente.', provincia: 'puno', zona: 'Puno' } })
   for (const h of ['Mascotas', 'Anuncios', 'Denuncias', 'Usuarios']) assert.equal(G.hoja(h).formulas, undefined, h)
+})
+
+console.log('\nCredenciales de prensa')
+let codCred
+prueba('el admin emite una credencial con foto; el editor no puede', () => {
+  const datos = { nombre: 'Rosa Quispe Mamani', cargo: 'Reportera', dni: '41234567', vence: '2027-12-31', foto_b64: JPG.toString('base64'), foto_tipo: 'image/jpeg' }
+  assert.equal(G.post({ accion: 'guardar_credencial', token: tokenEditor, datos }).ok, false)
+  const r = G.post({ accion: 'guardar_credencial', token: tokenAdmin, datos })
+  assert.ok(r.ok, r.error)
+  assert.match(r.codigo, /^AAD-[A-HJ-NP-Z2-9]{6}$/)
+  codCred = r.codigo
+  assert.equal(G.carpetas.find((c) => c.ruta() === 'Altiplano al Día/Credenciales').archivos.length, 1)
+})
+prueba('la validación pública muestra vigente, DNI tapado y foto en base64', () => {
+  const v = G.get({ accion: 'credencial', codigo: codCred.toLowerCase() })
+  assert.equal(v.valida, true)
+  assert.equal(v.estado, 'vigente')
+  assert.equal(v.nombre, 'Rosa Quispe Mamani')
+  assert.equal(v.dni, '****4567')
+  assert.match(v.foto, /^data:image\/jpeg;base64,/)
+  assert.equal(v.creado_por, undefined)
+})
+prueba('códigos inexistentes o mal formados no validan', () => {
+  assert.equal(G.get({ accion: 'credencial', codigo: 'AAD-ZZZZZZ' }).estado, 'no_existe')
+  assert.equal(G.get({ accion: 'credencial', codigo: "'; DROP" }).valida, false)
+})
+prueba('revocar exige motivo y la validación lo refleja; la foto se conserva', () => {
+  const base = { codigo: codCred, nombre: 'Rosa Quispe Mamani', cargo: 'Reportera', dni: '41234567', vence: '2027-12-31', estado: 'revocada' }
+  assert.equal(G.post({ accion: 'guardar_credencial', token: tokenAdmin, datos: base }).ok, false)
+  const r = G.post({ accion: 'guardar_credencial', token: tokenAdmin, datos: { ...base, motivo: 'Dejó de colaborar' } })
+  assert.ok(r.ok, r.error)
+  const v = G.get({ accion: 'credencial', codigo: codCred })
+  assert.equal(v.estado, 'revocada')
+  assert.equal(v.valida, false)
+  assert.equal(v.motivo, 'Dejó de colaborar')
+  assert.match(v.foto, /^data:image/)
+})
+prueba('una credencial vencida no valida', () => {
+  const r = G.post({ accion: 'guardar_credencial', token: tokenAdmin, datos: { nombre: 'Juan Mamani Ccori', cargo: 'Camarógrafo', vence: '2020-01-01', foto_b64: JPG.toString('base64') } })
+  assert.ok(r.ok, r.error)
+  assert.equal(G.get({ accion: 'credencial', codigo: r.codigo }).estado, 'vencida')
+})
+prueba('sin foto o con DNI inválido se rechaza', () => {
+  assert.equal(G.post({ accion: 'guardar_credencial', token: tokenAdmin, datos: { nombre: 'Ana Ccama Ticona', cargo: 'Fotógrafa', vence: '2027-01-01' } }).ok, false)
+  assert.equal(G.post({ accion: 'guardar_credencial', token: tokenAdmin, datos: { nombre: 'Ana Ccama Ticona', cargo: 'Fotógrafa', dni: '123', vence: '2027-01-01', foto_b64: JPG.toString('base64') } }).ok, false)
+})
+prueba('el panel lista credenciales y entrega la foto para imprimir (solo admin)', () => {
+  const l = G.post({ accion: 'credenciales', token: tokenAdmin, codigo: codCred })
+  assert.ok(l.ok, l.error)
+  assert.ok(l.credenciales.length >= 2)
+  assert.match(l.foto, /^data:image/)
+  assert.equal(G.post({ accion: 'credenciales', token: tokenEditor }).ok, false)
 })
 
 console.log('\nRobustez')
