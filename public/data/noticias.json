@@ -374,8 +374,8 @@
   "seccion": "seguridad",
   "ambito": "NACIONAL",
   "fecha": "2026-11-19T07:36:46",
-  "imagen": "img/noticias/n1042-2b32df7a.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Muere conductor en choque frontal en Puno; ministro habla de ataques a transportistas",
   "credito": "",
   "medios": [],
@@ -385,7 +385,7 @@
   "edicion": 13,
   "impacto": 9,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n1042-606b7d67.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 1143,
@@ -413,8 +413,8 @@
   "seccion": "cultura",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-19T07:35:26",
-  "imagen": "img/noticias/n1143-1e473439.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Jhon Edison Quispe Calsín presenta su poemario ‘Geografía de la memoria’ en la FIL Puno",
   "credito": "",
   "medios": [],
@@ -424,7 +424,7 @@
   "edicion": null,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n1143-9a621a66.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 1141,
@@ -1146,19 +1146,18 @@
  {
   "id": 1121,
   "slug": "juntos-por-el-peru-propone-limitar-al-50-el-tope-de-intereses-para-tarjetas-y-pr",
-  "titular": "Juntos por el Perú propone limitar al 50% el tope de intereses para tarjetas y préstamos",
-  "bajada": "La iniciativa modifica la Ley Orgánica del BCRP y plantea tipificar penalmente la usura y la usura agravada.",
-  "antetitulo": "PROYECTO BUSCA TOPE A TASAS DE INTERÉS",
+  "titular": "Proponen bajar al 50% el tope de intereses",
+  "bajada": "La bancada de Juntos por el Perú plantea además tipificar la usura y la usura agravada.",
+  "antetitulo": "PROYECTO DE LEY MODIFICA NORMA DEL BCRP",
   "lugar": "",
   "cuerpo": [
-   "La bancada de Juntos por el Perú presentó un proyecto de ley que plantea reducir al 50% el tope de intereses para tarjetas de crédito y préstamos de consumo, mediante una modificación a la Ley Orgánica del Banco Central de Reserva del Perú (BCRP).",
-   "La propuesta se presenta en medio del debate sobre la Ley contra la usura bancaria (Ley 31143), luego de que el Ejecutivo intentara eliminar los topes de interés sin conseguir respaldo en el Congreso.",
-   "El proyecto también plantea fortalecer la persecución penal de la usura mediante una tipificación específica de la usura y la usura agravada. De aprobarse, los nuevos límites modificarían las condiciones bajo las cuales las entidades financieras pueden cobrar intereses por sus créditos."
+   "La bancada de Juntos por el Perú presentó un proyecto de ley que plantea reducir al 50% el tope de intereses para tarjetas de crédito y préstamos de consumo, mediante una modificación a la Ley Orgánica del BCRP.",
+   "La iniciativa también propone tipificar la usura y la usura agravada para fortalecer su persecución penal."
   ],
   "datos": [
    "Tope de intereses propuesto: 50%",
    "Modifica la Ley Orgánica del BCRP",
-   "Tipifica la usura y usura agravada"
+   "Tipifica la usura y la usura agravada"
   ],
   "tema": "Economía",
   "seccion": "economia",
@@ -1166,7 +1165,7 @@
   "fecha": "2026-11-18T22:16:00",
   "imagen": null,
   "foco": null,
-  "pie": "Juntos por el Perú propone limitar al 50% el tope de intereses para tarjetas y préstamos",
+  "pie": "Proponen bajar al 50% el tope de intereses",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1397,13 +1396,14 @@
  {
   "id": 1114,
   "slug": "sute-puno-da-cero-a-keiko-fujimori",
-  "titular": "SUTE Puno da cero a Keiko Fujimori",
-  "bajada": "Alexander Pilco Ticona cuestionó la falta de resultados en educación, inseguridad ciudadana y corrupción.",
-  "antetitulo": "BALANCE SINDICAL DE LOS PRIMEROS 100 DÍAS",
+  "titular": "Sindicato de maestros de Puno reprueba a Keiko Fujimori",
+  "bajada": "El SUTE Regional Puno acusa falta de resultados en educación, inseguridad ciudadana y corrupción.",
+  "antetitulo": "BALANCE SINDICAL DE LOS PRIMEROS 100 DÍAS DE GOBIERNO",
   "lugar": "Juliaca",
   "cuerpo": [
-   "El secretario general del SUTE Regional Puno, Alexander Pilco Ticona, calificó con cero los primeros 100 días del gobierno de Keiko Fujimori. Sostuvo que no hay resultados concretos en educación, inseguridad ciudadana y corrupción.",
-   "Cuestionó que, pese a las promesas de campaña, no se habría iniciado la construcción de nuevas instituciones educativas."
+   "El secretario general del SUTE Regional Puno, Alexander Pilco Ticona, calificó con cero los primeros 100 días de gobierno de Keiko Fujimori. Consideró que su gestión no ha demostrado resultados concretos frente a los principales problemas del país, especialmente en educación, inseguridad ciudadana y corrupción.",
+   "El dirigente sindical cuestionó la falta de avances en el sector educativo. Sostuvo que, pese a las promesas realizadas durante la campaña electoral, hasta el momento no se habría iniciado la construcción de nuevas instituciones educativas.",
+   "Pilco Ticona calificó de falsas las promesas de ejecutar obras educativas y aseguró que la actual administración no ha mostrado resultados."
   ],
   "datos": [
    "Alexander Pilco Ticona es secretario general del SUTE Regional Puno",
@@ -1417,7 +1417,7 @@
   "fecha": "2026-11-18T20:20:00",
   "imagen": "img/noticias/n1114-dc675f16.jpg",
   "foco": "70% 35%",
-  "pie": "SUTE Puno da cero a Keiko Fujimori",
+  "pie": "Sindicato de maestros de Puno reprueba a Keiko Fujimori",
   "credito": "",
   "medios": [],
   "fuentes": 1,
@@ -1426,7 +1426,7 @@
   "edicion": 13,
   "impacto": 4,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n1114-9d72931f.jpg"
+  "imagen_compartir": "img/compartir/n1114-6d8db14f.jpg"
  },
  {
   "id": 1079,
@@ -1557,8 +1557,8 @@
   "seccion": "seguridad",
   "ambito": "REGIONAL",
   "fecha": "2026-11-18T18:46:00",
-  "imagen": "img/noticias/n1108-94263783.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Roban Toyota Probox blanco estacionado en jirón José Carlos Mariátegui",
   "credito": "",
   "medios": [],
@@ -1568,7 +1568,7 @@
   "edicion": 13,
   "impacto": 7,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n1108-9ee7c774.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 1106,
@@ -2977,8 +2977,8 @@
   "seccion": "cultura",
   "ambito": "DISTRITAL",
   "fecha": "2026-11-18T16:56:00",
-  "imagen": "img/noticias/n1048-38fa591c.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Puno inaugura el Festival Ajayu Fest 2026 con ingreso gratuito",
   "credito": "",
   "medios": [],
@@ -2988,7 +2988,7 @@
   "edicion": null,
   "impacto": 3,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n1048-3dbfda73.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 1047,
@@ -3304,8 +3304,8 @@
   "seccion": "otros",
   "ambito": "INTERNACIONAL",
   "fecha": "2026-11-18T16:00:00",
-  "imagen": "img/noticias/n1038-a912c58d.jpg",
-  "foco": "50% 38%",
+  "imagen": null,
+  "foco": null,
   "pie": "Sondas Voyager llevan discos de oro con saludos en 55 idiomas",
   "credito": "",
   "medios": [],
@@ -3315,7 +3315,7 @@
   "edicion": null,
   "impacto": 1,
   "fijada": false,
-  "imagen_compartir": "img/compartir/n1038-29132a5a.jpg"
+  "imagen_compartir": null
  },
  {
   "id": 1037,
