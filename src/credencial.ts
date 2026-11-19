@@ -79,7 +79,7 @@ export async function armarCredencial(x: DatosCredencial) {
     NOMBRE_1: esc(n1), NOMBRE_2: esc(n2), CARGO: esc(x.cargo.toUpperCase()), DNI: esc(x.dni || '—'),
     CODIGO: esc(x.codigo), VENCE: esc(fechaCorta(x.vence)), EMITIDA: esc(fechaCorta(x.emitida)),
     ANIO: esc(x.vence.slice(0, 4)), URL: esc(url.replace('https://', '')), FOTO: esc(x.foto),
-    QR_FRENTE: qrPath(url, 92), QR_DORSO: qrPath(url, 128),
+    QR_FRENTE: qrPath(url, 92), QR_DORSO: qrPath(url, 112),
     FIRMANTE: esc(x.firmante || 'Dirección general'), FIRMANTE_CARGO: esc((x.firmante_cargo || 'Altiplano al Día').toUpperCase()),
     FIRMA: esc(x.firma || VACIO), TELEFONO: esc(x.telefono || '942 149 084'),
   }

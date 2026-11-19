@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /verificar
+Disallow: /brand/credencial/
 Sitemap: https://altiplanoaldia.pe/sitemap.xml

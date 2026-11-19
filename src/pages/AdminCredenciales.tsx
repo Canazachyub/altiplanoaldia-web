@@ -185,7 +185,6 @@ export default function Credenciales({ llamar }: { llamar: Llamar }) {
             <button className="adm-principal" onClick={() => { setAviso(''); setForm({ codigo: '', nombre: '', cargo: '', dni: '', vence: enUnAnio(), revocada: false, motivo: '' }) }}>
               + Nueva credencial
             </button>
-            <a className="adm-enlace" href="/verificar" target="_blank" rel="noreferrer">Página de verificación ↗</a>
           </div>
           {!lista ? (
             <p className="adm-cargando">Cargando credenciales…</p>

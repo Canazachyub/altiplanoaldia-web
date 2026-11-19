@@ -93,8 +93,8 @@ export default function Verificar() {
             </div>
           )}
           <p className="ver-pie">
-            Compara la foto y el nombre con la persona y su DNI. Si algo no coincide, o alguien usa el nombre del
-            medio para pedir dinero, avísanos por WhatsApp al <a href="https://wa.me/51942149084">942 149 084</a>.
+            Compara la foto y el nombre con la persona y su DNI. Si algo no coincide, avísanos por WhatsApp al{' '}
+            <a href="https://wa.me/51942149084">942 149 084</a>.
           </p>
         </article>
       )}

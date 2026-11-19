@@ -33,7 +33,7 @@ export function rellenar({ frente, dorso }, x, qrcode) {
     NOMBRE_1: esc(n1), NOMBRE_2: esc(n2), CARGO: esc(String(x.cargo || '').toUpperCase()), DNI: esc(x.dni || '—'),
     CODIGO: esc(x.codigo), VENCE: esc(fechaCorta(x.vence)), EMITIDA: esc(fechaCorta(x.emitida)),
     ANIO: esc(String(x.vence || '').slice(0, 4)), URL: esc(url.replace('https://', '')), FOTO: esc(x.foto || ''),
-    QR_FRENTE: qrPath(url, 92, qrcode), QR_DORSO: qrPath(url, 128, qrcode),
+    QR_FRENTE: qrPath(url, 92, qrcode), QR_DORSO: qrPath(url, 112, qrcode),
     FIRMANTE: esc(x.firmante || 'Dirección general'), FIRMANTE_CARGO: esc((x.firmante_cargo || 'Altiplano al Día').toUpperCase()),
     FIRMA: esc(x.firma || 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='), TELEFONO: esc(x.telefono || '942 149 084'),
   }

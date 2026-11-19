@@ -120,19 +120,27 @@ const DORSO = `${cabecera('Credencial de prensa — dorso')}
     <text x="270" y="296" text-anchor="middle" font-weight="500" font-size="23">Se ruega <tspan font-weight="800">DAR LAS</tspan></text>
     <text x="270" y="324" text-anchor="middle" font-weight="800" font-size="23">FACILIDADES DEL CASO <tspan font-weight="500">para</tspan></text>
     <text x="270" y="352" text-anchor="middle" font-weight="500" font-size="23">el cumplimiento de su labor periodística</text>
-    <text x="96" y="398" font-weight="600" font-size="20">Términos:</text>
-    <g font-weight="500" font-size="18">
-      <text x="100" y="428"><tspan fill="${AZUL}" font-weight="800">•</tspan>  Esta credencial es personal e</text>
-      <text x="118" y="450">intransferible. Solo es válida con DNI.</text>
-      <text x="100" y="480"><tspan fill="${AZUL}" font-weight="800">•</tspan>  No autoriza a cobrar dinero ni a pedir</text>
-      <text x="118" y="502">beneficios a nombre del medio.</text>
-      <text x="100" y="532"><tspan fill="${AZUL}" font-weight="800">•</tspan>  En caso de pérdida, comuníquese al</text>
-      <text x="118" y="554">WhatsApp {{TELEFONO}}.</text>
+    <g id="ley-prensa">
+      <rect x="82" y="368" width="376" height="110" rx="10" fill="#EAF0FB"/>
+      <rect x="82" y="368" width="5" height="110" fill="${AZUL}"/>
+      <g text-anchor="middle" font-style="italic" font-weight="500" font-size="15.5" fill="${AZUL_900}">
+        <text x="272" y="390">«Toda persona tiene derecho a las libertades</text>
+        <text x="272" y="408">de información, opinión, expresión y difusión</text>
+        <text x="272" y="426">del pensamiento (…) por cualquier medio de</text>
+        <text x="272" y="444">comunicación social, sin previa autorización</text>
+        <text x="272" y="462">ni censura ni impedimento algunos (…)».</text>
+      </g>
+      <text x="270" y="496" text-anchor="middle" font-weight="700" font-size="13.5" letter-spacing="0.5" fill="${SUAVE}">Constitución Política del Perú, art. 2, inc. 4</text>
+    </g>
+    <text x="96" y="526" font-weight="600" font-size="18">Términos:</text>
+    <g font-weight="500" font-size="16">
+      <text x="100" y="548"><tspan fill="${AZUL}" font-weight="800">•</tspan>  Personal e intransferible. Válida solo con DNI.</text>
+      <text x="100" y="570"><tspan fill="${AZUL}" font-weight="800">•</tspan>  Si la encuentra, avise al WhatsApp {{TELEFONO}}.</text>
     </g>
   </g>
   <g inkscape:groupmode="layer" inkscape:label="QR y vigencia" id="capa-qr" font-family="${FIRA}" text-anchor="middle">
-    <rect x="198" y="572" width="144" height="144" rx="8" fill="#FFFFFF" stroke="${AZUL}" stroke-width="3"/>
-    <g id="qr-dorso" transform="translate(206 580)">{{QR_DORSO}}</g>
+    <rect x="207" y="584" width="126" height="126" rx="8" fill="#FFFFFF" stroke="${AZUL}" stroke-width="3"/>
+    <g id="qr-dorso" transform="translate(214 591)">{{QR_DORSO}}</g>
     <text x="270" y="736" font-weight="600" font-size="15" fill="${SUAVE}">Verifica: {{URL}}</text>
     <text x="270" y="760" font-weight="700" font-size="22" fill="${TINTA}">Válido hasta: {{VENCE}}</text>
   </g>
@@ -148,21 +156,22 @@ fs.mkdirSync(SALIDA, { recursive: true })
 const plantillaFrente = FRENTE.replaceAll('{{FOTO}}', '{{FOTO}}')
 fs.writeFileSync(path.join(SALIDA, 'frente.svg'), plantillaFrente)
 fs.writeFileSync(path.join(SALIDA, 'dorso.svg'), DORSO)
-fs.writeFileSync(path.join(SALIDA, 'silueta.txt'), SILUETA)
 
 // Muestra rellena (datos ficticios) para revisar el diseño.
 const qrcode = require('qrcode-generator')
 const datos = { codigo: 'AAD-K7M2QX', nombre: 'Rosa Elena Quispe Mamani', cargo: 'Reportera', dni: '41234567',
   vence: '2027-07-31', emitida: '2026-11-19', foto: SILUETA }
 const muestra = rellenar({ frente: plantillaFrente, dorso: DORSO }, datos, qrcode)
-fs.writeFileSync(path.join(SALIDA, 'muestra-frente.svg'), muestra.frente)
-fs.writeFileSync(path.join(SALIDA, 'muestra-dorso.svg'), muestra.dorso)
+const MUESTRA = path.join(RAIZ, 'scripts/credencial/muestra')
+fs.mkdirSync(MUESTRA, { recursive: true })
+fs.writeFileSync(path.join(MUESTRA, 'muestra-frente.svg'), muestra.frente)
+fs.writeFileSync(path.join(MUESTRA, 'muestra-dorso.svg'), muestra.dorso)
 console.log('Plantillas y muestra en', SALIDA)
 
 if (process.argv.includes('--pdf')) {
   const INK = process.env.INKSCAPE || 'C:/Program Files/Inkscape/bin/inkscape.exe'
   for (const lado of ['frente', 'dorso']) {
-    const svg = path.join(SALIDA, `muestra-${lado}.svg`)
+    const svg = path.join(MUESTRA, `muestra-${lado}.svg`)
     execFileSync(INK, [svg, '--export-type=pdf', '--export-text-to-path', `--export-filename=${svg.replace('.svg', '.pdf')}`])
     execFileSync(INK, [svg, '--export-type=png', '--export-dpi=300', `--export-filename=${svg.replace('.svg', '.png')}`])
   }
